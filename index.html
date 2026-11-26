@@ -308,6 +308,7 @@ footer{
   <div class="menu-title">✧ قائمة الغرفة 00 ✧</div>
   <a href="#home">الرئيسية</a>
   <a href="#cases" onclick="showFile()">الملفات والقضايا</a>
+  <a href="#dailyPuzzle" onclick="showDailyPuzzle()">لغز اليوم</a>
   <a href="#nextArchive">الأرشيف السري</a>
   <a href="#whisperPanel" onclick="showWhisper()">همسة اليوم</a>
   <a href="#leaveMessage">اترك أثرًا مجهولًا</a>
@@ -337,6 +338,14 @@ footer{
    <p>رسالة تركها شخص مجهول لك.</p>
   </div>
 
+ </div>
+
+ <div class="panel" id="dailyPuzzle">
+  <div class="daily-label">✧ تحدّي الغرفة اليومي ✧</div>
+  <h3 id="puzzleTitle">لغز اليوم</h3>
+  <p id="puzzleQuestion" class="whisper"></p>
+  <div id="puzzleChoices"></div>
+  <p id="puzzleFeedback" aria-live="polite"></p>
  </div>
 
  <div class="panel" id="file">
@@ -507,6 +516,104 @@ function unlockArchive(){
   message.textContent='هذا ليس الرقم الصحيح. ارجع إلى الملف السابق.';
  }
 }
+
+/* ألغاز اليوم: يتغير اللغز تلقائيًا حسب التاريخ */
+
+const dailyPuzzles=[
+ {
+  title:'الملف 001: الشيء الذي يزداد',
+  question:'ما الشيء الذي كلما أخذت منه كبر؟',
+  choices:['الحفرة','العمر','الظل'],
+  answer:0,
+  success:'أحسنت! الإجابة هي الحفرة. كلما أخذت من ترابها اتسعت.'
+ },
+ {
+  title:'الملف 002: بلا صوت',
+  question:'ما الشيء الذي يجيبك دائمًا دون أن يتكلم؟',
+  choices:['المرآة','الصدى','الكتاب'],
+  answer:1,
+  success:'صحيح! الصدى يرد صوتك دون أن يتكلم.'
+ },
+ {
+  title:'الملف 003: مفاتيح كثيرة',
+  question:'ما الشيء الذي يملك مفاتيح كثيرة ولا يفتح بابًا؟',
+  choices:['البيانو','الخزانة','الباب'],
+  answer:0,
+  success:'أحسنت! مفاتيح البيانو تصنع الموسيقى ولا تفتح الأبواب.'
+ },
+ {
+  title:'الملف 004: يسافر بلا قدمين',
+  question:'ما الشيء الذي يسافر حول العالم وهو ثابت في زاويته؟',
+  choices:['الطابع البريدي','الطائرة','القمر'],
+  answer:0,
+  success:'صحيح! الطابع يسافر على الرسائل ويبقى في زاويته.'
+ },
+ {
+  title:'الملف 005: شيء تملكه',
+  question:'ما الشيء الذي يخصك، لكن الآخرين يستخدمونه أكثر منك؟',
+  choices:['اسمك','حذاؤك','قلمك'],
+  answer:0,
+  success:'أحسنت! اسمك يخصك، لكن الآخرين ينادونك به.'
+ },
+ {
+  title:'الملف 006: كلما جفّ',
+  question:'ما الشيء الذي يبتل كلما جفّف غيره؟',
+  choices:['المنشفة','الشمس','الورق'],
+  answer:0,
+  success:'صحيح! المنشفة تبتل وهي تجفف الأشياء.'
+ },
+ {
+  title:'الملف 007: له عين',
+  question:'ما الشيء الذي له عين واحدة ولا يرى؟',
+  choices:['الإبرة','العاصفة','الكاميرا'],
+  answer:0,
+  success:'أحسنت! عين الإبرة لا ترى.'
+ }
+];
+
+function showDailyPuzzle(){
+ const now=new Date();
+ const dayNumber=Math.floor(Date.UTC(
+  now.getFullYear(),
+  now.getMonth(),
+  now.getDate()
+ )/86400000);
+
+ const index=((dayNumber%dailyPuzzles.length)+dailyPuzzles.length)%dailyPuzzles.length;
+ const puzzle=dailyPuzzles[index];
+
+ document.getElementById('puzzleTitle').textContent=puzzle.title;
+ document.getElementById('puzzleQuestion').textContent='«'+puzzle.question+'»';
+
+ const choices=document.getElementById('puzzleChoices');
+ const feedback=document.getElementById('puzzleFeedback');
+
+ choices.innerHTML='';
+ feedback.textContent='';
+
+ puzzle.choices.forEach((choice,i)=>{
+  const button=document.createElement('button');
+  button.type='button';
+  button.textContent=choice;
+
+  button.onclick=function(){
+   if(i===puzzle.answer){
+    feedback.textContent=puzzle.success;
+    feedback.style.color='#c8adff';
+   }else{
+    feedback.textContent='ليست هذه الإجابة... حاول مرة أخرى.';
+    feedback.style.color='#e8b5c5';
+   }
+  };
+
+  choices.appendChild(button);
+ });
+
+ document.getElementById('dailyPuzzle').classList.add('show');
+ document.getElementById('dailyPuzzle').scrollIntoView({behavior:'smooth'});
+}
+
+/* همسة اليوم */
 
 const whispers=[
 'لا تقلل من قيمة الخطوات الصغيرة؛ أحيانًا هي التي تغيّر الطريق كله.',
