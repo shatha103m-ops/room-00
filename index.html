@@ -10,6 +10,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;600;700&display=swap');
 
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 
 body{
  margin:0;
@@ -21,7 +22,7 @@ body{
 }
 
 header{
- padding:25px 8%;
+ padding:20px 8%;
  display:flex;
  justify-content:space-between;
  align-items:center;
@@ -34,10 +35,8 @@ header small{color:#a89bbd}
 
 main{text-align:center;padding:65px 20px}
 .tag{color:#bb9bfa;letter-spacing:3px;font-size:12px}
-
 h1{font-size:clamp(38px,7vw,65px);margin:18px 0 10px}
 h1 span{color:#bb91ff}
-
 .subtitle{color:#b5abc5;line-height:2}
 
 .door{
@@ -57,7 +56,13 @@ h1 span{color:#bb91ff}
 }
 
 .door:hover{transform:scale(1.04);box-shadow:0 0 65px #b68bff77}
-.door strong{font-size:48px;color:#c7a7ff;text-shadow:0 0 20px #a66dff;cursor:pointer;user-select:none}
+.door strong{
+ font-size:48px;
+ color:#c7a7ff;
+ text-shadow:0 0 20px #a66dff;
+ cursor:pointer;
+ user-select:none;
+}
 
 .door:after{
  content:"";
@@ -84,7 +89,6 @@ button{
 }
 
 button:hover{filter:brightness(1.2);transform:translateY(-2px)}
-
 .hint{color:#827694;font-size:12px;margin-top:18px}
 
 .clue{
@@ -97,12 +101,46 @@ button:hover{filter:brightness(1.2);transform:translateY(-2px)}
  max-width:330px;
  line-height:1.9;
 }
-
 .clue.show{display:block}
 
 section{width:min(850px,92%);margin:65px auto}
-
 h2{font-size:25px;text-align:center;margin-bottom:25px}
+
+.menu-nav{
+ margin:25px auto 35px;
+ max-width:760px;
+ display:flex;
+ flex-wrap:wrap;
+ justify-content:center;
+ gap:9px;
+ padding:18px;
+ border:1px solid #a77de244;
+ border-radius:18px;
+ background:linear-gradient(145deg,#191323,#100d17);
+}
+
+.menu-title{
+ width:100%;
+ color:#a98acb;
+ font-size:12px;
+ text-align:center;
+ margin-bottom:5px;
+}
+
+.menu-nav a{
+ color:#e6d5ff;
+ text-decoration:none;
+ border:1px solid #8f70b966;
+ border-radius:22px;
+ padding:9px 15px;
+ font-size:13px;
+ transition:.2s;
+}
+
+.menu-nav a:hover{
+ background:#6c439d;
+ border-color:#c6a4ff;
+}
 
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 
@@ -158,9 +196,7 @@ input{
 
 .secret-card{display:none;margin-top:18px}
 .secret-card.show{display:block}
-
 .success{color:#c8adff;margin-top:12px}
-
 .next-archive{display:none;margin-top:25px}
 .next-archive.show{display:block}
 
@@ -200,17 +236,8 @@ input{
  text-align:center;
 }
 
-.approved-messages h2{
- color:#d8b4fe;
- margin-bottom:10px;
-}
-
-.approved-intro{
- color:#aaa;
- font-size:13px;
- line-height:2;
- margin-bottom:25px;
-}
+.approved-messages h2{color:#d8b4fe;margin-bottom:10px}
+.approved-intro{color:#aaa;font-size:13px;line-height:2;margin-bottom:25px}
 
 .approved-message{
  background:#211631;
@@ -228,10 +255,7 @@ input{
  margin:0 0 12px;
 }
 
-.approved-message span{
- color:#a98acb;
- font-size:12px;
-}
+.approved-message span{color:#a98acb;font-size:12px}
 
 footer{
  text-align:center;
@@ -245,6 +269,8 @@ footer{
  .cards{grid-template-columns:1fr}
  main{padding-top:45px}
  header small{font-size:10px}
+ .menu-nav{gap:7px;padding:13px}
+ .menu-nav a{font-size:12px;padding:8px 11px}
 }
 </style>
 </head>
@@ -256,7 +282,7 @@ footer{
  <small>الأرشيف السري · ملف الدخول 000</small>
 </header>
 
-<main>
+<main id="home">
  <div class="tag">أنت الآن في مكان غير مألوف</div>
  <h1>بعض الأسرار لا تريد <span>أن تُكتشف</span></h1>
  <p class="subtitle">كل باب يخفي حكاية... وكل حكاية تقود إلى سر آخر.</p>
@@ -278,7 +304,26 @@ footer{
 
  <h2>لقد دخلت الغرفة 00</h2>
 
- <div class="cards">
+ <nav class="menu-nav" aria-label="قائمة أقسام الغرفة">
+  <div class="menu-title">✧ قائمة الغرفة 00 ✧</div>
+  <a href="#home">الرئيسية</a>
+  <a href="#cases" onclick="showFile()">الملفات والقضايا</a>
+  <a href="#nextArchive">الأرشيف السري</a>
+  <a href="#whisperPanel" onclick="showWhisper()">همسة اليوم</a>
+  <a href="#leaveMessage">اترك أثرًا مجهولًا</a>
+  <a href="#approvedMessages">الرسائل المنشورة</a>
+  <a href="#howToUse" onclick="showHowToUse()">كيف تستخدم الغرفة؟</a>
+ </nav>
+
+ <div class="panel" id="howToUse">
+  <h3>كيف تستخدم الغرفة 00؟</h3>
+  <p>أهلًا بك في الغرفة 00. ابدأ باستكشاف الملفات والرسائل السرية، وابحث عن التلميحات والرموز المخفية.</p>
+  <p>استخدم الرمز 000 لفتح الخزانة والأرشيف، ثم اكتشف همسة اليوم.</p>
+  <p>يمكنك أيضًا ترك رسالة مجهولة. ستصل الرسالة للمراجعة قبل نشرها في الغرفة.</p>
+  <button onclick="hideHowToUse()">إغلاق الشرح</button>
+ </div>
+
+ <div class="cards" id="cases">
 
   <div class="card" onclick="showFile()">
    <div class="symbol">▤</div>
@@ -356,7 +401,7 @@ footer{
   <p class="hint">عد غدًا... فقد تكون الرسالة القادمة موجهة إليك.</p>
  </div>
 
- <div class="message-card">
+ <div class="message-card" id="leaveMessage">
   <div class="symbol">✉</div>
   <h3>اترك أثرًا مجهولًا</h3>
   <p>هناك كلمات لا تستطيع قولها بصوت عالٍ... اترك رسالتك هنا دون أن تكشف هويتك.</p>
@@ -365,12 +410,9 @@ footer{
   <div class="hint">ستصل الرسالة للمراجعة قبل نشرها.</div>
  </div>
 
- <!-- الرسائل التي تمت الموافقة على نشرها فقط -->
- <div class="approved-messages">
+ <div class="approved-messages" id="approvedMessages">
   <h2>رسائل وصلت إلى الغرفة</h2>
-  <p class="approved-intro">
-   بعض الأصوات وجدت طريقها إلينا... دون أن تكشف أصحابها.
-  </p>
+  <p class="approved-intro">بعض الأصوات وجدت طريقها إلينا... دون أن تكشف أصحابها.</p>
 
   <div class="approved-message">
    <p>هل وصل صوتي إلى الغرفة 00؟</p>
@@ -484,6 +526,15 @@ function showWhisper(){
  document.getElementById('dailyWhisper').textContent='«'+whispers[index]+'»';
  document.getElementById('whisperPanel').classList.add('show');
  document.getElementById('whisperPanel').scrollIntoView({behavior:'smooth'});
+}
+
+function showHowToUse(){
+ document.getElementById('howToUse').classList.add('show');
+ document.getElementById('howToUse').scrollIntoView({behavior:'smooth'});
+}
+
+function hideHowToUse(){
+ document.getElementById('howToUse').classList.remove('show');
 }
 
 function openMessageForm(){
