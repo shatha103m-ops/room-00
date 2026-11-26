@@ -4,180 +4,110 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>الغرفة 00 | لا تفتح الباب الأخير</title>
+<title>الغرفة 00 | الأرشيف السري</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
- --gold:#c9a66e;
- --cream:#e9ddc9;
- --purple:#9b72b8;
- --dark:#09070b;
-}
+:root{--gold:#c9a66e;--cream:#e9ddc9;--purple:#9b72b8;--dark:#09070b}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
- margin:0;background:#08060a;color:var(--cream);
- font-family:'IBM Plex Sans Arabic',sans-serif;
- overflow-x:hidden;
-}
-button{font:inherit;cursor:pointer}
-header{
- position:fixed;top:0;right:0;left:0;z-index:30;
- display:flex;justify-content:space-between;align-items:center;
- padding:15px 6%;background:#09070bd9;
- border-bottom:1px solid #c9a66e33;backdrop-filter:blur(12px)
-}
-.logo{font-size:21px;letter-spacing:2px}
-.logo span{color:var(--gold)}
+body{margin:0;background:#08060a;color:var(--cream);font-family:'IBM Plex Sans Arabic',sans-serif;overflow-x:hidden}
+button,input{font:inherit}
+button{cursor:pointer}
+header{position:fixed;top:0;right:0;left:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:13px 6%;background:#09070be8;border-bottom:1px solid #c9a66e44;backdrop-filter:blur(12px)}
+.logo{font-size:21px;letter-spacing:2px}.logo span{color:var(--gold)}
 header small{font-size:11px;color:#b6a6b8}
-.scene{
- min-height:100svh;position:relative;display:none;
- overflow:hidden;
- background-size:cover;background-position:center;
-}
-.scene.active{display:block;animation:appear .8s ease}
-@keyframes appear{from{opacity:0}to{opacity:1}}
-.scene:before{
- content:"";position:absolute;inset:0;
- background:linear-gradient(90deg,#08050bd9,#08050b88 50%,#08050bd9);
-}
-.scene:after{
- content:"";position:absolute;inset:0;pointer-events:none;
- background:radial-gradient(ellipse at center,transparent 20%,#050308bb 100%);
-}
+.scene{min-height:100svh;position:relative;display:none;background-size:cover;background-position:center;overflow:hidden}
+.scene.active{display:block;animation:fade .8s ease}
+@keyframes fade{from{opacity:0;filter:blur(5px)}to{opacity:1;filter:blur(0)}}
+.scene:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#08050bdc,#08050b80 50%,#08050bdc);z-index:0}
 .scene-content{position:relative;z-index:2}
-#entrance{
- background-image:
- linear-gradient(#09060b66,#09060b99),
- url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1800&q=90");
-}
-.entrance-inner{
- min-height:100svh;display:flex;flex-direction:column;
- align-items:center;justify-content:center;text-align:center;padding:100px 18px 40px
-}
 .kicker{font-size:11px;letter-spacing:4px;color:var(--gold)}
 h1{font-weight:400;font-size:clamp(30px,6vw,56px);margin:17px 0 8px}
-h1 span{color:var(--gold)}
-.subtitle{color:#c4b6c8;font-size:14px;line-height:2}
-.door-wrap{perspective:1200px;margin:35px auto 18px}
-.door-photo{
- width:min(310px,76vw);height:440px;max-height:52vh;
- background-image:url("7AEC3A94-4646-473F-AC85-68FE8376F557.png");
- background-size:cover;background-position:center;
- border:7px solid #49301c;border-radius:150px 150px 2px 2px;
- box-shadow:0 0 0 2px #bd965d,0 25px 80px #000,
- 0 0 65px #9b72b855,inset 0 0 40px #000;
- position:relative;cursor:pointer;transform-origin:right center;
- transition:transform 1.3s ease,filter .5s;
-}
-.door-photo:after{
- content:"";position:absolute;inset:12px;
- border:1px solid #d0a66b99;border-radius:140px 140px 0 0;
- box-shadow:inset 0 0 35px #000;
-}
-.door-photo.open{transform:rotateY(-68deg);filter:brightness(.55)}
-.door-knob{
- position:absolute;z-index:2;right:23px;top:57%;
- width:16px;height:16px;border-radius:50%;
- background:radial-gradient(circle at 30% 25%,#fff2bb,#c79a50 55%,#493016);
- box-shadow:0 0 15px #d5a85a88
-}
-.door-number{
- position:absolute;z-index:2;left:0;right:0;top:42%;
- font-family:Georgia,serif;font-size:52px;color:#e0c28b;
- text-shadow:0 0 25px #000;text-align:center
-}
-.gold-button{
- border:1px solid var(--gold);color:#f4e5c9;
- background:linear-gradient(110deg,#3a281c,#80603d);
- padding:12px 27px;transition:.3s
-}
-.gold-button:hover{box-shadow:0 0 25px #c9a66e55;transform:translateY(-2px)}
+h1 span,.section-title span{color:var(--gold)}
+.subtitle,.intro-line{color:#c4b6c8;font-size:14px;line-height:2}
+.gold-button{border:1px solid var(--gold);color:#f4e5c9;background:linear-gradient(110deg,#3a281c,#80603d);padding:11px 25px;transition:.3s}
+.gold-button:hover{box-shadow:0 0 25px #c9a66e66;transform:translateY(-2px)}
+.back{border:0;background:transparent;color:var(--gold);padding:12px 0;text-decoration:underline;text-underline-offset:6px}
 .hint{font-size:12px;color:#a99aaa;line-height:2}
+#entrance{background-image:linear-gradient(#09060b66,#09060b99),url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1800&q=90")}
+.entrance-inner{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 18px 40px}
+.door-wrap{perspective:1200px;margin:30px auto 18px}
+.door-photo{width:min(310px,76vw);height:440px;max-height:52vh;background-image:url("7AEC3A94-4646-473F-AC85-68FE8376F557.png");background-size:cover;background-position:center;border:7px solid #49301c;border-radius:150px 150px 2px 2px;box-shadow:0 0 0 2px #bd965d,0 25px 80px #000,0 0 65px #9b72b855;position:relative;cursor:pointer;transform-origin:right center;transition:transform 1.3s ease}
+.door-photo:after{content:"";position:absolute;inset:12px;border:1px solid #d0a66b99;border-radius:140px 140px 0 0}
+.door-photo.open{transform:rotateY(-68deg);filter:brightness(.55)}
+.door-knob{position:absolute;z-index:2;right:23px;top:57%;width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff2bb,#c79a50 55%,#493016)}
+.door-number{position:absolute;z-index:2;left:0;right:0;top:42%;font-family:Georgia,serif;font-size:52px;color:#e0c28b;text-shadow:0 0 25px #000;text-align:center}
 #clue{display:none;color:var(--gold);margin:12px}
-#hallway{
- background-image:
- linear-gradient(#08050b55,#08050b99),
- url("https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1800&q=90");
-}
-.hall-inner{
- min-height:100svh;padding:115px 20px 65px;
- max-width:1100px;margin:auto;text-align:center
-}
+#hallway{background-image:linear-gradient(#08050b55,#08050b99),url("https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1800&q=90")}
+.hall-inner{min-height:100svh;padding:115px 20px 65px;max-width:1100px;margin:auto;text-align:center}
 .section-title{font-size:30px;font-weight:400;color:#e9d5b3}
-.section-title span{color:var(--gold)}
-.intro-line{color:#c1b3c3;font-size:13px;line-height:2}
-.hall-image{
- max-width:850px;margin:30px auto;
- min-height:250px;padding:25px;
- display:flex;align-items:center;justify-content:center;
- background:linear-gradient(90deg,#09060b55,#09060b88),
- url("https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1400&q=85") center/cover;
- border-top:1px solid #c9a66e66;border-bottom:1px solid #c9a66e66;
-}
-.doorways{
- max-width:850px;margin:35px auto;
- display:flex;flex-direction:column;text-align:right
-}
-.doorway{
- display:flex;align-items:center;gap:18px;
- padding:19px 10px;border-bottom:1px solid #c9a66e55;
- cursor:pointer;transition:.35s
-}
+.hall-image{max-width:850px;margin:30px auto;min-height:250px;padding:25px;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,#09060b66,#09060b88),url("https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1400&q=85") center/cover;border-top:1px solid #c9a66e66;border-bottom:1px solid #c9a66e66}
+.doorways{max-width:850px;margin:35px auto;display:flex;flex-direction:column;text-align:right}
+.doorway{display:flex;align-items:center;gap:18px;padding:19px 10px;border-bottom:1px solid #c9a66e55;cursor:pointer;transition:.35s}
 .doorway:hover{padding-right:25px;background:linear-gradient(90deg,transparent,#c9a66e19)}
 .door-symbol{font-size:29px;color:var(--gold);width:48px;text-align:center}
 .doorway h3{margin:0;font-weight:400;font-size:17px;color:#e9d5b3}
 .doorway p{margin:5px 0 0;color:#ad9eae;font-size:12px}
 .door-arrow{margin-right:auto;color:var(--gold);font-size:20px}
-#room{
- background-image:
- linear-gradient(#09060bbd,#09060bd9),
- url("https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=1800&q=85");
-}
-.room-inner{max-width:900px;margin:auto;padding:115px 20px 70px}
-.room-heading{text-align:center;margin-bottom:30px}
-.room-heading h2{font-size:30px;font-weight:400;color:var(--gold)}
-.room-heading p{font-size:13px;color:#b8a9bc}
-.back{
- border:0;background:transparent;color:var(--gold);
- padding:12px 0;text-decoration:underline;text-underline-offset:6px
-}
-.room-panel{
- display:none;margin:30px auto;padding:25px 8px;
- border-top:1px solid #c9a66e77;border-bottom:1px solid #c9a66e77;
- background:linear-gradient(90deg,transparent,#160f1cbb,transparent);
- line-height:2;text-align:center;
-}
-.room-panel.show{display:block;animation:appear .5s}
-.room-panel h3{font-size:23px;color:var(--gold);font-weight:400}
-.room-panel p{font-size:14px;color:#d0c3d1;line-height:2.2}
-.room-panel button{margin:7px}
-input{
- background:#0b0810;border:1px solid #a17b4b;
- padding:12px;color:white;font:inherit;text-align:center;max-width:220px
-}
-.option{
- display:block;width:100%;text-align:right;margin:9px 0;
- padding:12px 16px;background:#110c17;border:1px solid #76583b;
- color:#eadcc8
-}
-.option:hover{background:#30203a}
-.evidence{
- border-bottom:1px solid #a17b4b66;padding:16px 5px;text-align:right
-}
-.evidence h4{color:var(--gold);font-weight:500;margin:0 0 8px}
-.evidence p{font-size:13px;margin:0}
-.message{color:#e2c99e;font-size:19px;line-height:2.3}
-.progress{height:7px;background:#09060b;margin:15px 0}
+
+/* الغرف */
+#room{background:#09070b}
+#room:before{background:linear-gradient(#09060b99,#09060bd9)}
+.room-inner{max-width:1050px;margin:auto;padding:100px 20px 70px;min-height:100svh}
+.room-heading{text-align:center;margin:15px 0 25px}
+.room-heading h2{font-size:32px;font-weight:400;color:var(--gold);margin:8px}
+.room-heading p{font-size:13px;color:#c1b3c3}
+.room-panel{display:none;position:relative;min-height:570px;margin:25px auto;padding:30px 25px;overflow:hidden;background-size:cover;background-position:center;border-top:1px solid #c9a66e66;border-bottom:1px solid #c9a66e66;box-shadow:0 20px 70px #0009}
+.room-panel.show{display:block;animation:fade .7s}
+.room-panel:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#08060bd9,#08060b9c 55%,#08060bd9);pointer-events:none}
+.room-content{position:relative;z-index:2;max-width:780px;margin:auto}
+.room-content h3{font-size:25px;font-weight:400;color:var(--gold);text-align:center}
+.room-content p{font-size:14px;color:#e0d3dc;line-height:2.2}
+#cases{background-image:url("https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1600&q=90")}
+#puzzle{background-image:url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=90")}
+#archive{background-image:url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1600&q=90")}
+#whisper{background-image:url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1600&q=90")}
+#messages{background-image:url("https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1600&q=90")}
+#secret{background-image:url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=90")}
+
+/* جدار التحقيق */
+.investigation-room{padding:15px 0}
+.case-scene{position:relative;min-height:390px;margin:20px auto;background:linear-gradient(#100b10a6,#100b10b3),url("https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=1500&q=90") center/cover;border:8px solid #38271d;box-shadow:0 18px 40px #000}
+.case-scene:after{content:"";position:absolute;inset:10px;border:1px solid #c9a66e66;pointer-events:none}
+.case-scene-title{position:absolute;top:18px;right:22px;color:#e5c78e;font-size:13px;letter-spacing:2px}
+.evidence-wall{position:relative;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:18px;padding:65px 15px 30px;z-index:2}
+.evidence-photo{width:115px;height:135px;background:#d9cbb2;padding:6px 6px 23px;box-shadow:0 5px 18px #000b;transform:rotate(-3deg);cursor:pointer;transition:.3s;position:relative}
+.evidence-photo:nth-child(even){transform:rotate(4deg)}
+.evidence-photo:hover{transform:scale(1.08) rotate(0);z-index:3}
+.evidence-photo img{width:100%;height:100%;object-fit:cover;filter:sepia(.35) contrast(1.05)}
+.evidence-photo span{position:absolute;bottom:2px;left:0;right:0;text-align:center;color:#33261e;font-size:10px}
+.red-thread{position:absolute;height:2px;background:#9c2925;box-shadow:0 0 5px #e33;transform-origin:right center;z-index:1;pointer-events:none}
+.case-desk{position:relative;margin:-4px auto 25px;min-height:145px;padding:20px;background:linear-gradient(180deg,#593c26,#24170f);border:5px solid #65482d;box-shadow:0 18px 25px #000b,inset 0 0 35px #080402;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap}
+.desk-lamp{font-size:45px;color:#e7c27d;filter:drop-shadow(0 0 15px #e4b66a)}
+.desk-note{background:#d9c8a8;color:#38291d;padding:14px 18px;max-width:240px;transform:rotate(-2deg);font-size:12px;line-height:2;box-shadow:0 4px 12px #0008}
+.case-progress{color:#d8c6a7;text-align:center;font-size:12px}
+.progress{height:6px;background:#09060b;margin:12px auto;max-width:400px}
 .progress span{display:block;height:100%;background:var(--gold);width:0;transition:.3s}
-.reward{display:none;color:#e0c28b}
+.evidence-list{max-width:700px;margin:25px auto}
+.evidence{border-bottom:1px solid #c9a66e55;padding:14px 5px;text-align:right}
+.evidence h4{color:var(--gold);font-weight:500;margin:0 0 7px}
+.evidence p{font-size:13px;margin:0}
+.evidence button{background:none;border:0;color:#e7c68e;text-decoration:underline;text-underline-offset:5px;padding:8px 0}
+.option{display:block;width:100%;text-align:right;margin:9px 0;padding:12px 16px;background:#110c17d9;border:1px solid #76583b;color:#eadcc8;transition:.25s}
+.option:hover{background:#30203a}
+.message{color:#e2c99e;font-size:19px;line-height:2.3;text-align:center}
+.reward{display:none;color:#e0c28b;text-align:center}
+input{background:#0b0810;border:1px solid #a17b4b;padding:12px;color:white;text-align:center;max-width:220px}
+.room-content input{margin:10px auto}
 footer{text-align:center;padding:30px;color:#827588;font-size:11px}
 @media(max-width:600px){
- header{padding:12px 5%}
- .door-photo{height:390px}
- .hall-inner{padding-top:100px}
- .room-inner{padding:100px 16px 50px}
- .room-panel{padding:20px 8px}
+ header{padding:12px 5%}.door-photo{height:390px}
+ .hall-inner{padding-top:100px}.room-inner{padding:95px 12px 45px}
+ .room-panel{padding:20px 12px;min-height:500px}
+ .case-scene{min-height:350px}
+ .evidence-photo{width:88px;height:112px}
+ .evidence-wall{gap:10px}
+ .case-desk{min-height:130px;padding:12px}
 }
 </style>
 </head>
@@ -188,7 +118,6 @@ footer{text-align:center;padding:30px;color:#827588;font-size:11px}
  <small>الأرشيف السري · لا تثق بكل ما تراه</small>
 </header>
 
-<!-- المدخل -->
 <section class="scene active" id="entrance">
  <div class="scene-content entrance-inner">
   <div class="kicker">ROOM 00 · CLASSIFIED</div>
@@ -196,8 +125,7 @@ footer{text-align:center;padding:30px;color:#827588;font-size:11px}
   <p class="subtitle">وصلت إلى مكان لم يكن من المفترض أن تجده.<br>هل أنت مستعد لمعرفة ما خلف الباب؟</p>
   <div class="door-wrap">
    <div class="door-photo" id="frontDoor" onclick="discoverClue()">
-    <div class="door-number">00</div>
-    <div class="door-knob"></div>
+    <div class="door-number">00</div><div class="door-knob"></div>
    </div>
   </div>
   <button class="gold-button" onclick="openDoor()">افتح الباب وادخل</button>
@@ -206,310 +134,132 @@ footer{text-align:center;padding:30px;color:#827588;font-size:11px}
  </div>
 </section>
 
-<!-- الممر -->
 <section class="scene" id="hallway">
  <div class="scene-content hall-inner">
   <div class="kicker">THE UNKNOWN HALLWAY</div>
   <h2 class="section-title">وصلت إلى <span>الممر الأول</span></h2>
   <p class="intro-line">تسمع صوت خطوات خلفك... لكن عندما تلتفت لا تجد أحدًا.<br>أمامك أبواب كثيرة. اختر بحذر.</p>
-  <div class="hall-image">
-   <div>
-    <div class="kicker">ROOM 00</div>
-    <h2 class="section-title">كل باب له حكاية</h2>
-    <p>بعض الأبواب لا تفتح إلا لمن يعرف السر.</p>
-   </div>
-  </div>
+  <div class="hall-image"><div><div class="kicker">ROOM 00</div><h2 class="section-title">كل باب له حكاية</h2><p>بعض الأبواب لا تفتح إلا لمن يعرف السر.</p></div></div>
   <div class="doorways">
-   <div class="doorway" onclick="enterRoom('cases')">
-    <div class="door-symbol">♜</div>
-    <div><h3>غرفة التحقيق</h3><p>قضايا لم تُغلق وأدلة لم تُفهم بعد</p></div><div class="door-arrow">‹</div>
-   </div>
-   <div class="doorway" onclick="enterRoom('puzzle')">
-    <div class="door-symbol">⌘</div>
-    <div><h3>غرفة الألغاز</h3><p>اختبر ما تراه وما لا تراه</p></div><div class="door-arrow">‹</div>
-   </div>
-   <div class="doorway" onclick="enterRoom('archive')">
-    <div class="door-symbol">▤</div>
-    <div><h3>الأرشيف المحظور</h3><p>ملفات لا تظهر في السجلات العادية</p></div><div class="door-arrow">‹</div>
-   </div>
-   <div class="doorway" onclick="enterRoom('whisper')">
-    <div class="door-symbol">☾</div>
-    <div><h3>غرفة الهمسات</h3><p>رسالة واحدة تتغير كل يوم</p></div><div class="door-arrow">‹</div>
-   </div>
-   <div class="doorway" onclick="enterRoom('messages')">
-    <div class="door-symbol">✉</div>
-    <div><h3>غرفة الرسائل المجهولة</h3><p>اترك أثرًا دون أن تكشف هويتك</p></div><div class="door-arrow">‹</div>
-   </div>
-   <div class="doorway" onclick="enterRoom('secret')">
-    <div class="door-symbol">⚿</div>
-    <div><h3>الخزانة السرية</h3><p>رمز الدخول: قد تكون وجدته بالفعل</p></div><div class="door-arrow">‹</div>
-   </div>
+   <div class="doorway" onclick="enterRoom('cases')"><div class="door-symbol">♜</div><div><h3>غرفة التحقيق</h3><p>قضايا لم تُغلق وأدلة لم تُفهم بعد</p></div><div class="door-arrow">‹</div></div>
+   <div class="doorway" onclick="enterRoom('puzzle')"><div class="door-symbol">⌘</div><div><h3>غرفة الألغاز</h3><p>اختبر ما تراه وما لا تراه</p></div><div class="door-arrow">‹</div></div>
+   <div class="doorway" onclick="enterRoom('archive')"><div class="door-symbol">▤</div><div><h3>الأرشيف المحظور</h3><p>ملفات لا تظهر في السجلات العادية</p></div><div class="door-arrow">‹</div></div>
+   <div class="doorway" onclick="enterRoom('whisper')"><div class="door-symbol">☾</div><div><h3>غرفة الهمسات</h3><p>رسالة واحدة تتغير كل يوم</p></div><div class="door-arrow">‹</div></div>
+   <div class="doorway" onclick="enterRoom('messages')"><div class="door-symbol">✉</div><div><h3>غرفة الرسائل المجهولة</h3><p>اترك أثرًا دون أن تكشف هويتك</p></div><div class="door-arrow">‹</div></div>
+   <div class="doorway" onclick="enterRoom('secret')"><div class="door-symbol">⚿</div><div><h3>الخزانة السرية</h3><p>رمز الدخول: قد تكون وجدته بالفعل</p></div><div class="door-arrow">‹</div></div>
   </div>
   <button class="back" onclick="goEntrance()">العودة إلى الباب الأول</button>
  </div>
 </section>
 
-<!-- الغرف الداخلية -->
 <section class="scene" id="room">
  <div class="scene-content room-inner">
   <button class="back" onclick="goHall()">← العودة إلى الممر</button>
-  <div class="room-heading">
-   <div class="kicker">ROOM 00 · PRIVATE RECORD</div>
-   <h2 id="roomTitle">غرفة التحقيق</h2>
-   <p id="roomDescription">هناك شيء ينتظرك في الداخل.</p>
-  </div>
+  <div class="room-heading"><div class="kicker">ROOM 00 · PRIVATE RECORD</div><h2 id="roomTitle">غرفة التحقيق</h2><p id="roomDescription"></p></div>
 
   <div class="room-panel" id="cases">
-   <div class="kicker">CASE FILE · 001</div>
-   <h3>الرسالة التي لم تصل</h3>
-   <p>في مساء ممطر، عُثر على ظرف قديم أسفل باب الغرفة 00. لم يكن عليه اسم مرسل، بل عبارة واحدة: «افتحها عندما تتعلم الانتظار».</p>
-   <p>اجمع الأدلة الأربعة، ثم اختر التفسير الأقرب للحقيقة.</p>
-   <p id="caseCount">الأدلة المكتشفة: 0 من 4</p>
-   <div class="progress"><span id="caseBar"></span></div>
-   <div id="evidenceList"></div>
-   <div id="caseQuestion" style="display:none">
-    <h3>ما التفسير الأقرب للحقيقة؟</h3>
-    <button class="option" onclick="answerCase(0)">الرسالة كُتبت لشخص سيأتي في المستقبل.</button>
-    <button class="option" onclick="answerCase(1)">الرسالة قديمة، لكن صاحبها عاد وتركها الآن.</button>
-    <button class="option" onclick="answerCase(2)">الرسالة مجرد خدعة بلا معنى.</button>
-    <p id="caseFeedback"></p>
+   <div class="room-content investigation-room">
+    <div class="kicker">CASE FILE · 001</div>
+    <h3>الرسالة التي لم تصل</h3>
+    <p style="text-align:center">في مساء ممطر، عُثر على ظرف قديم أسفل باب الغرفة 00. لم يكن عليه اسم مرسل، بل عبارة واحدة: «افتحها عندما تتعلم الانتظار».</p>
+    <div class="case-scene">
+     <div class="case-scene-title">لوحة التحقيق · القضية 001</div>
+     <div class="evidence-wall">
+      <div class="evidence-photo" onclick="revealEvidence(0)"><img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300" alt="دفتر قديم"><span>الظرف القديم</span></div>
+      <div class="evidence-photo" onclick="revealEvidence(1)"><img src="https://images.unsplash.com/photo-1501139083538-0139583c060f?w=300" alt="ساعة"><span>التوقيت</span></div>
+      <div class="evidence-photo" onclick="revealEvidence(2)"><img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=300" alt="سجل"><span>السجل</span></div>
+      <div class="evidence-photo" onclick="revealEvidence(3)"><img src="https://images.unsplash.com/photo-1517842645767-c639042777db?w=300" alt="ملاحظة"><span>الملاحظة</span></div>
+     </div>
+    </div>
+    <div class="case-desk">
+     <div class="desk-lamp">♨</div>
+     <div class="desk-note">ملاحظة المحقق:<br>لا تتسرع في الحكم. افحص كل دليل قبل إغلاق القضية.</div>
+     <div class="desk-note">ملف القضية 001<br>الحالة: قيد التحقيق</div>
+    </div>
+    <div class="case-progress" id="caseCount">الأدلة المكتشفة: 0 من 4</div>
+    <div class="progress"><span id="caseBar"></span></div>
+    <div class="evidence-list" id="evidenceList"></div>
+    <div id="caseQuestion" style="display:none">
+     <h3>ما التفسير الأقرب للحقيقة؟</h3>
+     <button class="option" onclick="answerCase(0)">الرسالة كُتبت لشخص سيأتي في المستقبل.</button>
+     <button class="option" onclick="answerCase(1)">الرسالة قديمة، لكن صاحبها عاد وتركها الآن.</button>
+     <button class="option" onclick="answerCase(2)">الرسالة مجرد خدعة بلا معنى.</button>
+     <p id="caseFeedback"></p>
+    </div>
+    <div id="caseReward" class="reward"><h3>✧ القضية أُغلقت ✧</h3><p>أحسنت! لقد أصبحت المحقق الصبور.</p><p>كانت الرسالة موجهة للشخص الذي سيجدها بعد مرور الوقت. لم يكن المطلوب البحث عن المرسل، بل فهم سبب الانتظار.</p></div>
+    <div style="text-align:center"><button class="gold-button" onclick="resetCase()">إعادة القضية</button></div>
    </div>
-   <div id="caseReward" class="reward">
-    <h3>✧ القضية أُغلقت ✧</h3>
-    <p>أحسنت! لقد أصبحت المحقق الصبور.</p>
-    <p>كانت الرسالة موجهة للشخص الذي سيجدها بعد مرور الوقت. لم يكن المطلوب البحث عن المرسل، بل فهم سبب الانتظار.</p>
-   </div>
-   <button class="gold-button" onclick="resetCase()">إعادة القضية</button>
   </div>
 
-  <div class="room-panel" id="puzzle">
-   <div class="kicker">DAILY CHALLENGE</div>
-   <h3 id="puzzleTitle">لغز اليوم</h3>
-   <p class="message" id="puzzleQuestion"></p>
-   <div id="puzzleChoices"></div>
-   <p id="puzzleFeedback"></p>
-   <button class="gold-button" onclick="anotherPuzzle()">افتح لغزًا آخر ✧</button>
+  <div class="room-panel" id="puzzle"><div class="room-content">
+   <div class="kicker">DAILY CHALLENGE</div><h3 id="puzzleTitle">لغز اليوم</h3>
+   <p class="message" id="puzzleQuestion"></p><div id="puzzleChoices"></div><p id="puzzleFeedback"></p>
+   <div style="text-align:center"><button class="gold-button" onclick="anotherPuzzle()">افتح لغزًا آخر ✧</button></div>
    <hr style="border-color:#a17b4b33;margin:30px 0">
-   <h3 id="levelName">المستوى 1 — المستكشف</h3>
-   <p id="levelDesc">حل الألغاز لترتفع رتبتك.</p>
-   <div class="progress"><span id="levelBar"></span></div>
-   <p id="levelProgress">الألغاز المحلولة: 0 من 5</p>
-   <p id="levelMessage"></p>
-   <div id="guardianReward" class="reward">
-    <h3>♜ حارس الأرشيف</h3>
-    <p>لم تكن الألغاز اختبارًا لذكائك فقط، بل لصبرك أيضًا.</p>
-    <p>لقد وصلت إلى نهاية الطريق... أو ربما بدايته.</p>
-   </div>
-  </div>
+   <h3 id="levelName">المستوى 1 — المستكشف</h3><p id="levelDesc"></p>
+   <div class="progress"><span id="levelBar"></span></div><p id="levelProgress"></p><p id="levelMessage"></p>
+   <div id="guardianReward" class="reward"><h3>♜ حارس الأرشيف</h3><p>لقد وصلت إلى نهاية الطريق... أو ربما بدايته.</p></div>
+  </div></div>
 
-  <div class="room-panel" id="archive">
-   <div class="kicker">RESTRICTED ARCHIVE</div>
-   <h3>الأرشيف المحظور</h3>
-   <p>أدخل الرمز الذي وجدته في المدخل.</p>
-   <input id="archiveCode" type="password" inputmode="numeric" maxlength="3" placeholder="•••">
-   <br><button class="gold-button" onclick="unlockArchive()">فتح الملف 000</button>
-   <p id="archiveFeedback"></p>
-   <div id="archiveContent" style="display:none">
-    <h3>الملف 000: ملاحظة من مجهول</h3>
-    <p>إذا وصلت إلى هنا، فأنت لا تكتفي بما يظهر أمامك. احتفظ بهذا الرقم: 000. قد تحتاجه عندما يُفتح الأرشيف التالي.</p>
-    <p>لكن تذكّر: أول سر ليس دائمًا أهم سر.</p>
-    <hr style="border-color:#a17b4b44">
-    <h3>الملف 001: همسة اليوم</h3>
-    <p class="message" id="archiveWhisper"></p>
-   </div>
-  </div>
+  <div class="room-panel" id="archive"><div class="room-content">
+   <div class="kicker">RESTRICTED ARCHIVE</div><h3>الأرشيف المحظور</h3><p style="text-align:center">أدخل الرمز الذي وجدته في المدخل.</p>
+   <div style="text-align:center"><input id="archiveCode" type="password" inputmode="numeric" maxlength="3" placeholder="•••"><br><button class="gold-button" onclick="unlockArchive()">فتح الملف 000</button></div>
+   <p id="archiveFeedback" style="text-align:center"></p>
+   <div id="archiveContent" style="display:none"><h3>الملف 000: ملاحظة من مجهول</h3><p>إذا وصلت إلى هنا، فأنت لا تكتفي بما يظهر أمامك. احتفظ بهذا الرقم: 000. قد تحتاجه عندما يُفتح الأرشيف التالي.</p><p>لكن تذكّر: أول سر ليس دائمًا أهم سر.</p><hr style="border-color:#a17b4b44"><h3>الملف 001: همسة اليوم</h3><p class="message" id="archiveWhisper"></p></div>
+  </div></div>
 
-  <div class="room-panel" id="whisper">
-   <div class="kicker">A MESSAGE FOR TODAY</div>
-   <h3>همسة اليوم</h3>
-   <p class="message" id="dailyWhisper"></p>
-   <p class="hint">عد غدًا... قد تجد رسالة مختلفة.</p>
-  </div>
+  <div class="room-panel" id="whisper"><div class="room-content"><div class="kicker">A MESSAGE FOR TODAY</div><h3>همسة اليوم</h3><p class="message" id="dailyWhisper"></p><p class="hint" style="text-align:center">عد غدًا... قد تجد رسالة مختلفة.</p></div></div>
 
-  <div class="room-panel" id="messages">
-   <div class="kicker">ANONYMOUS VOICES</div>
-   <h3>اترك أثرًا مجهولًا</h3>
-   <p>هناك كلمات لا تستطيع قولها بصوت عالٍ... اتركها هنا دون أن تكشف هويتك.</p>
-   <button class="gold-button" onclick="openMessageForm()">اكتب رسالتك السرية</button>
-   <p class="hint">ستصل الرسالة للمراجعة قبل نشرها.</p>
-   <hr style="border-color:#a17b4b44;margin:30px 0">
-   <h3>رسائل وصلت إلى الغرفة</h3>
-   <p>«هل وصل صوتي إلى الغرفة 00؟»</p>
-   <p class="hint">رسالة من مجهول · الغرفة 00</p>
-  </div>
+  <div class="room-panel" id="messages"><div class="room-content"><div class="kicker">ANONYMOUS VOICES</div><h3>اترك أثرًا مجهولًا</h3><p style="text-align:center">هناك كلمات لا تستطيع قولها بصوت عالٍ... اتركها هنا دون أن تكشف هويتك.</p><div style="text-align:center"><button class="gold-button" onclick="openMessageForm()">اكتب رسالتك السرية</button></div><p class="hint" style="text-align:center">ستصل الرسالة للمراجعة قبل نشرها.</p><hr style="border-color:#a17b4b44;margin:30px 0"><h3>رسائل وصلت إلى الغرفة</h3><p class="message">«هل وصل صوتي إلى الغرفة 00؟»</p><p class="hint" style="text-align:center">رسالة من مجهول · الغرفة 00</p></div></div>
 
-  <div class="room-panel" id="secret">
-   <div class="kicker">LOCKED CABINET</div>
-   <h3>الخزانة التي لا تظهر في المخطط</h3>
-   <p>هناك ثلاثة أصفار... هل عرفت الرمز؟</p>
-   <input id="secretCode" type="password" inputmode="numeric" maxlength="3" placeholder="•••">
-   <br><button class="gold-button" onclick="unlockSecret()">افتح الخزانة</button>
-   <p id="secretFeedback"></p>
-   <div id="secretContent" style="display:none">
-    <h3>ملف سري: ملاحظة من مجهول</h3>
-    <p>لقد وجدت ما كان مخفيًا. لكن الغرفة لا تزال تحتفظ بأسرار أخرى.</p>
-   </div>
-  </div>
-
+  <div class="room-panel" id="secret"><div class="room-content"><div class="kicker">LOCKED CABINET</div><h3>الخزانة التي لا تظهر في المخطط</h3><p style="text-align:center">هناك ثلاثة أصفار... هل عرفت الرمز؟</p><div style="text-align:center"><input id="secretCode" type="password" inputmode="numeric" maxlength="3" placeholder="•••"><br><button class="gold-button" onclick="unlockSecret()">افتح الخزانة</button><p id="secretFeedback"></p></div><div id="secretContent" style="display:none"><h3>ملف سري: ملاحظة من مجهول</h3><p>لقد وجدت ما كان مخفيًا. لكن الغرفة لا تزال تحتفظ بأسرار أخرى.</p></div></div></div>
  </div>
 </section>
-
 <footer>الغرفة 00 © 2026 · ليس كل ما تراه هو كل ما يوجد.</footer>
 
 <script>
 let clicks=0;
-function discoverClue(){
- clicks++;
- if(clicks>=3)document.getElementById('clue').style.display='block';
-}
-function showScene(id){
- document.querySelectorAll('.scene').forEach(s=>s.classList.remove('active'));
- document.getElementById(id).classList.add('active');
- window.scrollTo({top:0,behavior:'smooth'});
-}
-function openDoor(){
- document.getElementById('frontDoor').classList.add('open');
- setTimeout(()=>showScene('hallway'),900);
-}
+function discoverClue(){clicks++;if(clicks>=3)document.getElementById('clue').style.display='block'}
+function showScene(id){document.querySelectorAll('.scene').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+function openDoor(){document.getElementById('frontDoor').classList.add('open');setTimeout(()=>showScene('hallway'),900)}
 function goEntrance(){showScene('entrance')}
 function goHall(){showScene('hallway')}
-
-const roomInfo={
- cases:['غرفة التحقيق','كل دليل يقربك من الحقيقة.'],
- puzzle:['غرفة الألغاز','لا تثق بأول إجابة تخطر في بالك.'],
- archive:['الأرشيف المحظور','الملفات هنا لا تظهر للجميع.'],
- whisper:['غرفة الهمسات','رسالة واحدة قد تغيّر يومك.'],
- messages:['غرفة الرسائل المجهولة','اكتب ما لا تستطيع قوله.'],
- secret:['الخزانة السرية','بعض الأسرار تحتاج رمزًا.']
-};
-function enterRoom(id){
- showScene('room');
- document.querySelectorAll('.room-panel').forEach(p=>p.classList.remove('show'));
- document.getElementById(id).classList.add('show');
- document.getElementById('roomTitle').textContent=roomInfo[id][0];
- document.getElementById('roomDescription').textContent=roomInfo[id][1];
- if(id==='cases')renderCase();
- if(id==='puzzle')showDailyPuzzle();
- if(id==='whisper')showWhisper();
- if(id==='archive')document.getElementById('archiveWhisper').textContent=getWhisper();
- updateLevelUI();
-}
+const roomInfo={cases:['غرفة التحقيق','مسرح القضية 001 · افحص الصور والأدلة على لوحة التحقيق.'],puzzle:['غرفة الألغاز','لا تثق بأول إجابة تخطر في بالك.'],archive:['الأرشيف المحظور','الملفات هنا لا تظهر للجميع.'],whisper:['غرفة الهمسات','رسالة واحدة قد تغيّر يومك.'],messages:['غرفة الرسائل المجهولة','اكتب ما لا تستطيع قوله.'],secret:['الخزانة السرية','بعض الأسرار تحتاج رمزًا.']};
+function enterRoom(id){showScene('room');document.querySelectorAll('.room-panel').forEach(p=>p.classList.remove('show'));document.getElementById(id).classList.add('show');document.getElementById('roomTitle').textContent=roomInfo[id][0];document.getElementById('roomDescription').textContent=roomInfo[id][1];if(id==='cases')renderCase();if(id==='puzzle')showDailyPuzzle();if(id==='whisper')showWhisper();if(id==='archive')document.getElementById('archiveWhisper').textContent=getWhisper();updateLevelUI()}
 
 const evidence=[
- ['الدليل الأول: الظرف','داخل الظرف ورقة بلا توقيع، كُتب عليها: «إلى من سيجدني عندما يصبح مستعدًا». لا يوجد اسم ولا عنوان.'],
- ['الدليل الثاني: التوقيت','التاريخ المكتوب يعود إلى عشر سنوات. وبجانبه تاريخ اليوم بخط مختلف؛ يبدو أن أحدًا أعاد الظرف إلى مكانه بعد كل هذه السنوات.'],
- ['الدليل الثالث: السجل','لا يوجد زائر بالاسم المذكور في السجل، لكن توجد ملاحظة: «سيأتي من يبحث عن الإجابة، لا عن صاحب الرسالة».'],
- ['الدليل الرابع: الملاحظة','على ظهر الورقة جملة أخيرة: «لا تبحث عن الشخص الذي غاب؛ اسأل نفسك لماذا انتظرت الرسالة كل هذا الوقت».']
+['الدليل الأول: الظرف','داخل الظرف ورقة بلا توقيع، كُتب عليها: «إلى من سيجدني عندما يصبح مستعدًا». لا يوجد اسم ولا عنوان.'],
+['الدليل الثاني: التوقيت','التاريخ المكتوب يعود إلى عشر سنوات. وبجانبه تاريخ اليوم بخط مختلف؛ يبدو أن أحدًا أعاد الظرف إلى مكانه بعد كل هذه السنوات.'],
+['الدليل الثالث: السجل','لا يوجد زائر بالاسم المذكور في السجل، لكن توجد ملاحظة: «سيأتي من يبحث عن الإجابة، لا عن صاحب الرسالة».'],
+['الدليل الرابع: الملاحظة','على ظهر الورقة جملة أخيرة: «لا تبحث عن الشخص الذي غاب؛ اسأل نفسك لماذا انتظرت الرسالة كل هذا الوقت».']
 ];
-const CASE_KEY='room00_case001_progress';
-const SOLVED_KEY='room00_case001_progress_solved';
-function caseProgress(){
- return Math.max(0,Math.min(4,Number(localStorage.getItem(CASE_KEY)||0)));
-}
+const CASE_KEY='room00_case001_progress',SOLVED_KEY='room00_case001_progress_solved';
+function caseProgress(){return Math.max(0,Math.min(4,Number(localStorage.getItem(CASE_KEY)||0)))}
+function revealEvidence(i){let n=caseProgress();if(i===n){localStorage.setItem(CASE_KEY,String(n+1));renderCase()}else if(i<n){alert(evidence[i][0]+'\n\n'+evidence[i][1])}else{alert('هذا الدليل ما زال مغلقًا. اكتشف الأدلة بالترتيب.')} }
 function renderCase(){
- let n=caseProgress();
- let solved=localStorage.getItem(SOLVED_KEY)==='yes';
- let list=document.getElementById('evidenceList');
- list.innerHTML='';
- evidence.forEach((e,i)=>{
-  let d=document.createElement('div');
-  d.className='evidence';
-  if(i<n){
-   d.innerHTML='<h4>✧ '+e[0]+'</h4><p>'+e[1]+'</p>';
-  }else if(i===n&&!solved){
-   d.innerHTML='<h4>ملف مغلق · الدليل '+(i+1)+'</h4>';
-   let b=document.createElement('button');
-   b.className='gold-button';b.textContent='اكتشف الدليل';
-   b.onclick=()=>{localStorage.setItem(CASE_KEY,String(n+1));renderCase()};
-   d.appendChild(b);
-  }else{
-   d.innerHTML='<h4>🔒 دليل مغلق</h4>';
-  }
-  list.appendChild(d);
- });
- document.getElementById('caseCount').textContent='الأدلة المكتشفة: '+n+' من 4';
- document.getElementById('caseBar').style.width=(n*25)+'%';
- document.getElementById('caseQuestion').style.display=n===4&&!solved?'block':'none';
- document.getElementById('caseReward').style.display=solved?'block':'none';
+ let n=caseProgress(),solved=localStorage.getItem(SOLVED_KEY)==='yes',list=document.getElementById('evidenceList');list.innerHTML='';
+ evidence.forEach((e,i)=>{let d=document.createElement('div');d.className='evidence';if(i<n){d.innerHTML='<h4>✧ '+e[0]+'</h4><p>'+e[1]+'</p>'}else if(i===n&&!solved){d.innerHTML='<h4>ملف مغلق · الدليل '+(i+1)+'</h4><button onclick="revealEvidence('+i+')">افتح الدليل واكتشف محتواه ←</button>'}else{d.innerHTML='<h4>🔒 دليل مغلق</h4>'}list.appendChild(d)});
+ document.getElementById('caseCount').textContent='الأدلة المكتشفة: '+n+' من 4';document.getElementById('caseBar').style.width=(n*25)+'%';document.getElementById('caseQuestion').style.display=n===4&&!solved?'block':'none';document.getElementById('caseReward').style.display=solved?'block':'none';
 }
-function answerCase(i){
- if(i===0){
-  localStorage.setItem(SOLVED_KEY,'yes');
-  document.getElementById('caseFeedback').textContent='أحسنت! لقد ربطت الأدلة ببعضها.';
-  renderCase();
- }else{
-  document.getElementById('caseFeedback').textContent='ليست الإجابة الأقرب. راجع التوقيت والملاحظة الأخيرة.';
- }
-}
-function resetCase(){
- localStorage.removeItem(CASE_KEY);
- localStorage.removeItem(SOLVED_KEY);
- document.getElementById('caseFeedback').textContent='';
- renderCase();
-}
+function answerCase(i){if(i===0){localStorage.setItem(SOLVED_KEY,'yes');document.getElementById('caseFeedback').textContent='أحسنت! لقد ربطت الأدلة ببعضها.';renderCase()}else{document.getElementById('caseFeedback').textContent='ليست الإجابة الأقرب. راجع التوقيت والملاحظة الأخيرة.'}}
+function resetCase(){localStorage.removeItem(CASE_KEY);localStorage.removeItem(SOLVED_KEY);document.getElementById('caseFeedback').textContent='';renderCase()}
 
 const puzzles=[
- {t:'الملف 001: الشيء الذي يزداد',q:'ما الشيء الذي كلما أخذت منه كبر؟',c:['الحفرة','العمر','الظل'],a:0,s:'أحسنت! الإجابة هي الحفرة.'},
- {t:'الملف 002: بلا صوت',q:'ما الشيء الذي يجيبك دائمًا دون أن يتكلم؟',c:['المرآة','الصدى','الكتاب'],a:1,s:'صحيح! الصدى يرد صوتك.'},
- {t:'الملف 003: مفاتيح كثيرة',q:'ما الشيء الذي يملك مفاتيح كثيرة ولا يفتح بابًا؟',c:['البيانو','الخزانة','الباب'],a:0,s:'أحسنت! مفاتيح البيانو.'},
- {t:'الملف 004: يسافر بلا قدمين',q:'ما الشيء الذي يسافر حول العالم وهو ثابت في زاويته؟',c:['الطابع البريدي','الطائرة','القمر'],a:0,s:'صحيح! الطابع البريدي.'},
- {t:'الملف 005: شيء تملكه',q:'ما الشيء الذي يخصك، لكن الآخرين يستخدمونه أكثر منك؟',c:['اسمك','حذاؤك','قلمك'],a:0,s:'أحسنت! اسمك.'},
- {t:'الملف 006: كلما جفّ',q:'ما الشيء الذي يبتل كلما جفف غيره؟',c:['المنشفة','الشمس','الورق'],a:0,s:'صحيح! المنشفة.'},
- {t:'الملف 007: له عين',q:'ما الشيء الذي له عين واحدة ولا يرى؟',c:['الإبرة','العاصفة','الكاميرا'],a:0,s:'أحسنت! عين الإبرة.'}
+{t:'الملف 001: الشيء الذي يزداد',q:'ما الشيء الذي كلما أخذت منه كبر؟',c:['الحفرة','العمر','الظل'],a:0,s:'أحسنت! الإجابة هي الحفرة.'},
+{t:'الملف 002: بلا صوت',q:'ما الشيء الذي يجيبك دائمًا دون أن يتكلم؟',c:['المرآة','الصدى','الكتاب'],a:1,s:'صحيح! الصدى يرد صوتك.'},
+{t:'الملف 003: مفاتيح كثيرة',q:'ما الشيء الذي يملك مفاتيح كثيرة ولا يفتح بابًا؟',c:['البيانو','الخزانة','الباب'],a:0,s:'أحسنت! مفاتيح البيانو.'},
+{t:'الملف 004: يسافر بلا قدمين',q:'ما الشيء الذي يسافر حول العالم وهو ثابت في زاويته؟',c:['الطابع البريدي','الطائرة','القمر'],a:0,s:'صحيح! الطابع البريدي.'},
+{t:'الملف 005: شيء تملكه',q:'ما الشيء الذي يخصك، لكن الآخرين يستخدمونه أكثر منك؟',c:['اسمك','حذاؤك','قلمك'],a:0,s:'أحسنت! اسمك.'},
+{t:'الملف 006: كلما جفّ',q:'ما الشيء الذي يبتل كلما جفف غيره؟',c:['المنشفة','الشمس','الورق'],a:0,s:'صحيح! المنشفة.'},
+{t:'الملف 007: له عين',q:'ما الشيء الذي له عين واحدة ولا يرى؟',c:['الإبرة','العاصفة','الكاميرا'],a:0,s:'أحسنت! عين الإبرة.'}
 ];
 let puzzleIndex=0;
-function showDailyPuzzle(index=null){
- if(index===null){
-  let day=Math.floor(Date.now()/86400000);
-  puzzleIndex=day%puzzles.length;
- }else puzzleIndex=(index+puzzles.length)%puzzles.length;
- let p=puzzles[puzzleIndex];
- document.getElementById('puzzleTitle').textContent=p.t;
- document.getElementById('puzzleQuestion').textContent='«'+p.q+'»';
- document.getElementById('puzzleFeedback').textContent='';
- let box=document.getElementById('puzzleChoices');box.innerHTML='';
- p.c.forEach((c,i)=>{
-  let b=document.createElement('button');
-  b.className='option';b.textContent=c;
-  b.onclick=()=>{
-   if(i===p.a){
-    document.getElementById('puzzleFeedback').textContent=p.s;
-    registerSolved(p.t);
-   }else document.getElementById('puzzleFeedback').textContent='ليست الإجابة الصحيحة... حاول مجددًا.';
-  };
-  box.appendChild(b);
- });
-}
+function showDailyPuzzle(index=null){if(index===null){puzzleIndex=Math.floor(Date.now()/86400000)%puzzles.length}else puzzleIndex=(index+puzzles.length)%puzzles.length;let p=puzzles[puzzleIndex];document.getElementById('puzzleTitle').textContent=p.t;document.getElementById('puzzleQuestion').textContent='«'+p.q+'»';document.getElementById('puzzleFeedback').textContent='';let box=document.getElementById('puzzleChoices');box.innerHTML='';p.c.forEach((c,i)=>{let b=document.createElement('button');b.className='option';b.textContent=c;b.onclick=()=>{if(i===p.a){document.getElementById('puzzleFeedback').textContent=p.s;registerSolved(p.t)}else document.getElementById('puzzleFeedback').textContent='ليست الإجابة الصحيحة... حاول مجددًا.'};box.appendChild(b)})}
 function anotherPuzzle(){showDailyPuzzle(puzzleIndex+1)}
-
 const LEVEL_KEY='room00SolvedPuzzles';
-function solvedPuzzles(){
- try{return JSON.parse(localStorage.getItem(LEVEL_KEY)||'[]')}
- catch(e){return []}
-}
-function registerSolved(title){
- let list=solvedPuzzles();
- if(!list.includes(title)){
-  list.push(title);localStorage.setItem(LEVEL_KEY,JSON.stringify(list));
- }
- updateLevelUI();
-}
-function updateLevelUI(){
- let n=solvedPuzzles().length;
- let level=n>=5?3:n>=2?2:1;
- let names=['المستكشف','الباحث عن الأسرار','حارس الأرشيف'];
- document.getElementById('levelName').textContent='المستوى '+level+' — '+names[level-1];
- document.getElementById('levelDesc').textContent=
- level===3?'وصلت إلى أسرار الغرفة وأصبحت حارس الأرشيف.':
- level===2?'تقدمك واضح. أكمل خمسة ألغاز لتصل إلى الحراسة.':
- 'حل لغزين للترقية إلى الباحث عن الأسرار.';
- document.getElementById('levelProgress').textContent='الألغاز المحلولة: '+n+' من 5';
- document.getElementById('levelBar').style.width=Math.min(100,n/5*100)+'%';
- document.getElementById('levelMessage').textContent=
- level===3?'✧ تمت ترقيتك إلى حارس الأرشيف ✧':
- 'باقي '+Math.max(0,(level===1?2:5)-n)+' للوصول إلى المستوى التالي.';
- document.getElementById('guardianReward').style.display=n>=5?'block':'none';
-}
+function solvedPuzzles(){try{return JSON.parse(localStorage.getItem(LEVEL_KEY)||'[]')}catch(e){return []}}
+function registerSolved(title){let list=solvedPuzzles();if(!list.includes(title)){list.push(title);localStorage.setItem(LEVEL_KEY,JSON.stringify(list))}updateLevelUI()}
+function updateLevelUI(){let n=solvedPuzzles().length,level=n>=5?3:n>=2?2:1,names=['المستكشف','الباحث عن الأسرار','حارس الأرشيف'];document.getElementById('levelName').textContent='المستوى '+level+' — '+names[level-1];document.getElementById('levelDesc').textContent=level===3?'وصلت إلى أسرار الغرفة وأصبحت حارس الأرشيف.':level===2?'تقدمك واضح. أكمل خمسة ألغاز لتصل إلى الحراسة.':'حل لغزين للترقية إلى الباحث عن الأسرار.';document.getElementById('levelProgress').textContent='الألغاز المحلولة: '+n+' من 5';document.getElementById('levelBar').style.width=Math.min(100,n/5*100)+'%';document.getElementById('levelMessage').textContent=level===3?'✧ تمت ترقيتك إلى حارس الأرشيف ✧':'باقي '+Math.max(0,(level===1?2:5)-n)+' للوصول إلى المستوى التالي.';document.getElementById('guardianReward').style.display=n>=5?'block':'none'}
 
 const whispers=[
 'لا تقلل من قيمة الخطوات الصغيرة؛ أحيانًا هي التي تغيّر الطريق كله.',
@@ -533,31 +283,12 @@ const whispers=[
 'إذا ضاق الطريق، تذكّر لماذا بدأت.',
 'هناك قوة هادئة في أن تنهض وتحاول مرة أخرى.'
 ];
-function getWhisper(){
- let day=Math.floor(Date.now()/86400000);
- return '«'+whispers[day%whispers.length]+'»';
-}
-function showWhisper(){
- document.getElementById('dailyWhisper').textContent=getWhisper();
-}
-
-function unlockArchive(){
- let ok=document.getElementById('archiveCode').value==='000';
- document.getElementById('archiveFeedback').textContent=ok?
- 'تم قبول الرمز. فُتح الأرشيف. ✧':'الرمز غير صحيح. ابحث عن التلميح الأول.';
- document.getElementById('archiveContent').style.display=ok?'block':'none';
-}
-function unlockSecret(){
- let ok=document.getElementById('secretCode').value==='000';
- document.getElementById('secretFeedback').textContent=ok?
- 'تم فتح الخزانة!':'الرمز غير صحيح.';
- document.getElementById('secretContent').style.display=ok?'block':'none';
-}
-function openMessageForm(){
- window.open('https://docs.google.com/forms/d/e/1FAIpQLSdTP90nkj6HPg8w5pqvohziPldEEh6vr7qu2JmlNwusUt_-EQ/viewform','_blank');
-}
-renderCase();
-updateLevelUI();
+function getWhisper(){return '«'+whispers[Math.floor(Date.now()/86400000)%whispers.length]+'»'}
+function showWhisper(){document.getElementById('dailyWhisper').textContent=getWhisper()}
+function unlockArchive(){let ok=document.getElementById('archiveCode').value==='000';document.getElementById('archiveFeedback').textContent=ok?'تم قبول الرمز. فُتح الأرشيف. ✧':'الرمز غير صحيح. ابحث عن التلميح الأول.';document.getElementById('archiveContent').style.display=ok?'block':'none'}
+function unlockSecret(){let ok=document.getElementById('secretCode').value==='000';document.getElementById('secretFeedback').textContent=ok?'تم فتح الخزانة!':'الرمز غير صحيح.';document.getElementById('secretContent').style.display=ok?'block':'none'}
+function openMessageForm(){window.open('https://docs.google.com/forms/d/e/1FAIpQLSdTP90nkj6HPg8w5pqvohziPldEEh6vr7qu2JmlNwusUt_-EQ/viewform','_blank')}
+renderCase();updateLevelUI();
 </script>
 </body>
 </html>
