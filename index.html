@@ -128,6 +128,7 @@ footer{text-align:center;color:#71677e;padding:35px 15px;border-top:1px solid #f
   <p id="puzzleQuestion" class="whisper"></p>
   <div id="puzzleChoices"></div>
   <p id="puzzleFeedback" aria-live="polite"></p>
+  <button type="button" onclick="showAnotherPuzzle()">استكشف لغزًا آخر ✧</button>
  </div>
 
  <div class="panel" id="file">
@@ -235,10 +236,12 @@ const dailyPuzzles=[
 {title:'الملف 007: له عين',question:'ما الشيء الذي له عين واحدة ولا يرى؟',choices:['الإبرة','العاصفة','الكاميرا'],answer:0,success:'أحسنت! عين الإبرة لا ترى.'}
 ];
 
-function showDailyPuzzle(){
+function showDailyPuzzle(forceIndex=null){
  const now=new Date();
  const dayNumber=Math.floor(Date.UTC(now.getFullYear(),now.getMonth(),now.getDate())/86400000);
- const index=((dayNumber%dailyPuzzles.length)+dailyPuzzles.length)%dailyPuzzles.length;
+ const dailyIndex=((dayNumber%dailyPuzzles.length)+dailyPuzzles.length)%dailyPuzzles.length;
+ const index=Number.isInteger(forceIndex)?((forceIndex%dailyPuzzles.length)+dailyPuzzles.length)%dailyPuzzles.length:dailyIndex;
+ window.room00PuzzleIndex=index;
  const puzzle=dailyPuzzles[index];
  document.getElementById('puzzleTitle').textContent=puzzle.title;
  document.getElementById('puzzleQuestion').textContent='«'+puzzle.question+'»';
@@ -262,6 +265,11 @@ function showDailyPuzzle(){
  });
  document.getElementById('dailyPuzzle').classList.add('show');
  document.getElementById('dailyPuzzle').scrollIntoView({behavior:'smooth'});
+}
+
+function showAnotherPuzzle(){
+ const current=Number.isInteger(window.room00PuzzleIndex)?window.room00PuzzleIndex:0;
+ showDailyPuzzle((current+1)%dailyPuzzles.length);
 }
 
 const whispers=[
