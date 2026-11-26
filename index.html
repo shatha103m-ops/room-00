@@ -5,6 +5,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>الغرفة 00 | الأرشيف السري</title>
+ 
+.clue{display:none;color:#d7c1ff;margin:12px auto;padding:12px;border:1px dashed #9c76ca;border-radius:12px;max-width:330px}
+.clue.show{display:block}
+.lockbox{margin:24px auto;padding:20px;border:1px dashed #8f70b9;border-radius:16px;max-width:480px;text-align:center}
+.secret-card{display:none;margin-top:18px}
+.secret-card.show{display:block}
+.success{color:#c8adff;margin-top:12px}
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;600;700&display=swap');
 
@@ -84,6 +92,9 @@ footer{text-align:center;color:#71677e;padding:35px 15px;border-top:1px solid #f
  </div>
  <button onclick="enterRoom()">ادخل الغرفة</button>
  <div class="hint">هناك شيء مخفي في هذه الصفحة...</div>
+ 
+<div class="clue" id="clue">وجدت التلميح الأول: الرمز يتكوّن من ثلاثة أصفار.</div>
+
 </main>
 
 <section id="inside" style="display:none">
@@ -119,6 +130,32 @@ footer{text-align:center;color:#71677e;padding:35px 15px;border-top:1px solid #f
 </section>
 
 <footer>الغرفة 00 © 2026<br>ليس كل ما تراه هو كل ما يوجد.</footer>
+
+let doorClicks=0;
+
+function discoverClue(event){
+ event.stopPropagation();
+ doorClicks++;
+ if(doorClicks>=3){
+  document.getElementById('clue').classList.add('show');
+ }
+}
+
+function unlockSecret(){
+ const code=document.getElementById('secretCode').value.trim();
+ const message=document.getElementById('unlockMessage');
+
+ if(code==='000'){
+  document.getElementById('secretCard').classList.add('show');
+  message.textContent='تم فتح الخزانة! ظهر ملف جديد.';
+ }else{
+  message.textContent='الرمز غير صحيح. ابحث عن التلميح.';
+ }
+}
+
+function showSecret(){
+ document.getElementById('secret').classList.add('show');
+}
 
 <script>
 function enterRoom(){
