@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -69,6 +68,32 @@ input{width:min(220px,100%);padding:12px;border-radius:10px;border:1px solid #95
 #guardianRewardCard{display:none;margin:25px auto;border-color:#d5b0ff;background:linear-gradient(145deg,#332044,#171124)}
 #guardianRewardCard .symbol{font-size:38px}
 #guardianReward{border-color:#d5b0ff;background:linear-gradient(145deg,#251633,#100d17)}
+/* تصميم التحقيقات */
+.case-cover{overflow:hidden;padding:0;text-align:right;cursor:default}
+.case-cover img{width:100%;height:190px;object-fit:cover;display:block;opacity:.82}
+.case-cover-body{padding:22px}
+.case-kicker{color:#c6a4ff;font-size:11px;letter-spacing:2px}
+.case-cover h3{font-size:21px;margin:8px 0}
+.case-cover p,.case-intro p{color:#b8adc8;font-size:13px;line-height:2}
+.case-status{display:inline-block;border:1px solid #a77de266;border-radius:20px;padding:5px 12px;color:#d9c2ff;font-size:11px;margin:8px 0}
+.case-panel{padding:0;overflow:hidden;text-align:right}
+.case-panel>img{width:100%;height:180px;object-fit:cover;opacity:.75;display:block}
+.case-inner{padding:22px}
+.case-inner h3{font-size:20px;margin:5px 0 12px}
+.case-progress{height:7px;border-radius:20px;background:#090711;overflow:hidden;margin:12px 0}
+.case-progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#7851a9,#d0afff);transition:width .3s}
+.case-evidence{border:1px solid #a77de244;background:#100c19;border-radius:14px;padding:15px;margin:12px 0}
+.case-evidence h4{margin:0 0 7px;color:#e2d0ff;font-size:14px}
+.case-evidence p{margin:0;color:#b8adc8;font-size:13px;line-height:2}
+.case-evidence button{font-size:12px;padding:9px 16px;margin:12px 0 0}
+.case-evidence.locked{opacity:.48}
+.case-evidence.done{border-color:#a98acb;background:#1b1426}
+.case-question{border:1px solid #b58aff66;background:#211631;border-radius:15px;padding:17px;margin-top:20px}
+.case-question button{display:block;width:100%;margin:9px 0;text-align:right;border-radius:12px;background:#171124}
+.case-result{display:none;border:1px solid #c6a4ff66;background:#241832;border-radius:15px;padding:18px;margin-top:15px}
+.case-result.show{display:block}
+.case-note{color:#d7c1ff;font-size:14px;line-height:2}
+@media(max-width:600px){.case-cover img,.case-panel>img{height:155px}.case-inner,.case-cover-body{padding:17px}}
 footer{text-align:center;color:#71677e;padding:35px 15px;border-top:1px solid #ffffff12;font-size:12px}
 @media(max-width:600px){.cards{grid-template-columns:1fr}main{padding-top:45px}header small{font-size:10px}.menu-nav{gap:7px;padding:13px}.menu-nav a{font-size:12px;padding:8px 11px}}
 </style>
@@ -137,7 +162,15 @@ footer{text-align:center;color:#71677e;padding:35px 15px;border-top:1px solid #f
  </div>
 
  <div class="cards" id="cases">
-  <div class="card" onclick="showFile()"><div class="symbol">▤</div><h3>الملف المجهول</h3><p>ملف مغلق... هل تستطيع كشف ما بداخله؟</p></div>
+  <div class="card case-cover">
+   <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=85" alt="ظرف ورسالة قديمة على مكتب">
+   <div class="case-cover-body">
+    <div class="case-kicker">CASE FILE · 001</div><h3>الرسالة التي لم تصل</h3>
+    <p>رسالة وصلت متأخرة... إلى شخص لا وجود له.</p>
+    <span class="case-status" id="caseStatus">قضية مفتوحة · 001</span><br>
+    <button type="button" onclick="showFile()">استلم القضية</button>
+   </div>
+  </div>
   <div class="card" onclick="showLetter()"><div class="symbol">✉</div><h3>الرسالة السرية</h3><p>رسالة تركها شخص مجهول لك.</p></div>
  </div>
 
@@ -150,14 +183,24 @@ footer{text-align:center;color:#71677e;padding:35px 15px;border-top:1px solid #f
   <button type="button" onclick="showAnotherPuzzle()">استكشف لغزًا آخر ✧</button>
  </div>
 
- <div class="panel" id="file">
-  <h3>القضية رقم 001</h3>
-  <p>اختفى مفتاح من غرفة مغلقة. بقيت ثلاث علامات: نافذة مفتوحة، ساعة متوقفة، ورسالة تقول: «لم أغادر المكان».</p>
-  <p>من أين تبدأ البحث؟</p>
-  <button onclick="answer(1)">النافذة</button>
-  <button onclick="answer(2)">الساعة</button>
-  <button onclick="answer(3)">الرسالة</button>
-  <p id="answer"></p>
+ <div class="panel case-panel" id="file">
+  <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=1200&q=85" alt="أرشيف وكتب قديمة">
+  <div class="case-inner">
+   <div class="case-kicker">ROOM 00 · CASE FILE 001</div><h3>الرسالة التي لم تصل</h3>
+   <div class="case-intro"><p>في مساء ممطر، عُثر على ظرف قديم أسفل باب الغرفة 00. لم يكن عليه اسم مرسل، بل عبارة واحدة: «افتحها عندما تتعلم الانتظار».</p><p>اجمع الأدلة بالترتيب. لا تتعجل الحكم؛ فكل تفصيل قد يغيّر معنى القصة.</p></div>
+   <div class="case-status" id="caseProgressText">الأدلة المكتشفة: 0 من 4</div><div class="case-progress"><span id="caseProgressBar"></span></div>
+   <div id="caseEvidenceList"></div>
+   <div class="case-question" id="caseQuestion" style="display:none"><h4>السؤال النهائي: ما التفسير الأقرب للحقيقة؟</h4>
+    <button type="button" onclick="answerCase(0)">الرسالة كُتبت لشخص سيأتي في المستقبل.</button>
+    <button type="button" onclick="answerCase(1)">الرسالة قديمة، لكن صاحبها عاد وتركها الآن.</button>
+    <button type="button" onclick="answerCase(2)">الرسالة مجرد خدعة بلا معنى.</button><p id="caseFeedback" aria-live="polite"></p>
+   </div>
+   <div class="case-result" id="caseResult"><div class="case-kicker">CASE CLOSED · 001</div><h3>تم حل القضية: المحقق الصبور</h3>
+    <p class="case-note">لم تكن الرسالة تبحث عن اسم مرسل أو شخص غائب. كانت موجهة إلى الشخص الذي سيجدها بعد مرور الوقت؛ إلى من سيجمع التفاصيل ويفهمها عندما تكتمل الصورة.</p>
+    <p class="case-note">✧ درس القضية ✧<br>الصبر ليس انتظارًا بلا فائدة؛ إنه أن تجمع ما تعرفه، وتلاحظ ما فاتك، ثم تحكم عندما تكتمل الصورة.</p>
+    <button type="button" onclick="resetCase()">ابدأ القضية من جديد</button>
+   </div><p class="hint">يُحفظ تقدمك تلقائيًا على هذا الجهاز، ويمكنك العودة لإكمال التحقيق.</p>
+  </div>
  </div>
 
  <div class="panel" id="letter">
@@ -231,9 +274,86 @@ footer{text-align:center;color:#71677e;padding:35px 15px;border-top:1px solid #f
 let doorClicks=0;
 function discoverClue(event){event.stopPropagation();doorClicks++;if(doorClicks>=3)document.getElementById('clue').classList.add('show')}
 function enterRoom(){document.getElementById('inside').style.display='block';updateLevelUI();document.getElementById('inside').scrollIntoView({behavior:'smooth'})}
-function showFile(){document.getElementById('file').classList.add('show');document.getElementById('letter').classList.remove('show');document.getElementById('secret').classList.remove('show');document.getElementById('whisperPanel').classList.remove('show')}
+function showFile(){document.getElementById('file').classList.add('show');document.getElementById('letter').classList.remove('show');document.getElementById('secret').classList.remove('show');document.getElementById('whisperPanel').classList.remove('show');renderCase();document.getElementById('file').scrollIntoView({behavior:'smooth'})}
 function showLetter(){document.getElementById('letter').classList.add('show');document.getElementById('file').classList.remove('show');document.getElementById('secret').classList.remove('show');document.getElementById('whisperPanel').classList.remove('show')}
-function answer(n){let a=document.getElementById('answer');if(n===3){a.textContent='أحسنت! الرسالة هي الدليل. السر: المفتاح لم يغادر الغرفة أبدًا.'}else{a.textContent='ليس هذا الدليل الذي نبحث عنه... حاول مرة أخرى.'}}
+
+const CASE_KEY='room00_case001_progress',CASE_SOLVED_KEY='room00_case001_progress_solved';
+const caseEvidence=[
+{title:'الدليل الأول: الظرف',text:'داخل الظرف ورقة بلا توقيع، كُتب عليها: «إلى من سيجدني عندما يصبح مستعدًا». لا يوجد اسم ولا عنوان.'},
+{title:'الدليل الثاني: التوقيت',text:'التاريخ المكتوب يعود إلى عشر سنوات. وبجانبه تاريخ اليوم بخط مختلف؛ يبدو أن أحدًا أعاد الظرف إلى مكانه بعد كل هذه السنوات.'},
+{title:'الدليل الثالث: السجل',text:'لا يوجد زائر بالاسم المذكور في السجل، لكن توجد ملاحظة قصيرة: «سيأتي من يبحث عن الإجابة، لا عن صاحب الرسالة».'},
+{title:'الدليل الرابع: الملاحظة',text:'على ظهر الورقة جملة أخيرة: «لا تبحث عن الشخص الذي غاب؛ اسأل نفسك لماذا انتظرت الرسالة كل هذا الوقت».'}];
+
+function getCaseProgress(){try{return Math.max(0,Math.min(4,Number(localStorage.getItem(CASE_KEY)||0)))}catch(e){return 0}}
+
+function renderCase(){
+ const count=getCaseProgress(),solved=localStorage.getItem(CASE_SOLVED_KEY)==='yes';
+ const list=document.getElementById('caseEvidenceList');
+ list.innerHTML='';
+ caseEvidence.forEach((item,i)=>{
+  const unlocked=i<=count;
+  const div=document.createElement('div');
+  div.className='case-evidence '+(i<count?'done':'')+(!unlocked?' locked':'');
+  const h=document.createElement('h4');
+  h.textContent=unlocked?'✧ '+item.title:'🔒 الدليل '+(i+1)+' — مغلق';
+  div.appendChild(h);
+  if(unlocked){
+   const p=document.createElement('p');
+   p.textContent=item.text;
+   div.appendChild(p);
+  }
+  if(i===count&&count<4&&!solved){
+   const b=document.createElement('button');
+   b.type='button';
+   b.textContent='اكتشف هذا الدليل';
+   b.onclick=revealEvidence;
+   div.appendChild(b);
+  }
+  list.appendChild(div);
+ });
+ document.getElementById('caseProgressText').textContent='الأدلة المكتشفة: '+count+' من 4';
+ document.getElementById('caseProgressBar').style.width=(count/4*100)+'%';
+ document.getElementById('caseQuestion').style.display=count===4&&!solved?'block':'none';
+ document.getElementById('caseResult').classList.toggle('show',solved);
+ document.getElementById('caseStatus').textContent=solved?'قضية مكتملة · 001':'قضية مفتوحة · 001';
+}
+
+function revealEvidence(){
+ const count=getCaseProgress();
+ if(count<4){
+  localStorage.setItem(CASE_KEY,String(count+1));
+  renderCase();
+ }
+}
+
+function answerCase(choice){
+ const feedback=document.getElementById('caseFeedback');
+ if(choice===0){
+  localStorage.setItem(CASE_SOLVED_KEY,'yes');
+  feedback.textContent='أحسنت. لقد ربطت الأدلة ببعضها ولم تتسرع في الحكم.';
+  feedback.style.color='#d7c1ff';
+  renderCase();
+ }else{
+  feedback.textContent='ليس تمامًا... ارجع إلى الأدلة، واقرأ ما تقوله عن التوقيت والشخص المنتظر.';
+  feedback.style.color='#e8b5c5';
+ }
+}
+
+function resetCase(){
+ localStorage.removeItem(CASE_KEY);
+ localStorage.removeItem(CASE_SOLVED_KEY);
+ renderCase();
+}
+
+function answer(n){
+ let a=document.getElementById('answer');
+ if(n===3){
+  a.textContent='أحسنت! الرسالة هي الدليل. السر: المفتاح لم يغادر الغرفة أبدًا.';
+ }else{
+  a.textContent='ليس هذا الدليل الذي نبحث عنه... حاول مرة أخرى.';
+ }
+}
+
 const letters=[
 'ليس كل باب مغلق يعني أنه لا يريدك أن تدخل. أحيانًا ينتظر أن تعرف الرمز الصحيح.',
 'هناك سر قريب منك جدًا، لكنك لم تنظر في الاتجاه الصحيح بعد.',
@@ -241,9 +361,35 @@ const letters=[
 'بعض الإجابات لا تظهر إلا عندما تتوقف عن البحث عنها.'
 ];
 function newLetter(){document.getElementById('message').textContent='«'+letters[Math.floor(Math.random()*letters.length)]+'»'}
-function unlockSecret(){const code=document.getElementById('secretCode').value.trim();const message=document.getElementById('unlockMessage');if(code==='000'){document.getElementById('secretCard').classList.add('show');message.textContent='تم فتح الخزانة! ظهر ملف جديد. ✨'}else{message.textContent='الرمز غير صحيح. ابحث عن التلميح.'}}
-function showSecret(){document.getElementById('secret').classList.add('show');document.getElementById('file').classList.remove('show');document.getElementById('letter').classList.remove('show');document.getElementById('secret').scrollIntoView({behavior:'smooth'})}
-function unlockArchive(){const code=document.getElementById('archiveCode').value.trim();const message=document.getElementById('archiveMessage');if(code==='000'){document.getElementById('archiveCard').classList.add('show');message.textContent='تم قبول الرقم. الأرشيف 001 أصبح متاحًا. ✨'}else{message.textContent='هذا ليس الرقم الصحيح. ارجع إلى الملف السابق.'}}
+
+function unlockSecret(){
+ const code=document.getElementById('secretCode').value.trim();
+ const message=document.getElementById('unlockMessage');
+ if(code==='000'){
+  document.getElementById('secretCard').classList.add('show');
+  message.textContent='تم فتح الخزانة! ظهر ملف جديد. ✨';
+ }else{
+  message.textContent='الرمز غير صحيح. ابحث عن التلميح.';
+ }
+}
+
+function showSecret(){
+ document.getElementById('secret').classList.add('show');
+ document.getElementById('file').classList.remove('show');
+ document.getElementById('letter').classList.remove('show');
+ document.getElementById('secret').scrollIntoView({behavior:'smooth'});
+}
+
+function unlockArchive(){
+ const code=document.getElementById('archiveCode').value.trim();
+ const message=document.getElementById('archiveMessage');
+ if(code==='000'){
+  document.getElementById('archiveCard').classList.add('show');
+  message.textContent='تم قبول الرقم. الأرشيف 001 أصبح متاحًا. ✨';
+ }else{
+  message.textContent='هذا ليس الرقم الصحيح. ارجع إلى الملف السابق.';
+ }
+}
 
 const dailyPuzzles=[
 {title:'الملف 001: الشيء الذي يزداد',question:'ما الشيء الذي كلما أخذت منه كبر؟',choices:['الحفرة','العمر','الظل'],answer:0,success:'أحسنت! الإجابة هي الحفرة. كلما أخذت من ترابها اتسعت.'},
@@ -266,10 +412,12 @@ function showDailyPuzzle(forceIndex=null){
  document.getElementById('puzzleQuestion').textContent='«'+puzzle.question+'»';
  const choices=document.getElementById('puzzleChoices');
  const feedback=document.getElementById('puzzleFeedback');
- choices.innerHTML='';feedback.textContent='';
+ choices.innerHTML='';
+ feedback.textContent='';
  puzzle.choices.forEach((choice,i)=>{
   const button=document.createElement('button');
-  button.type='button';button.textContent=choice;
+  button.type='button';
+  button.textContent=choice;
   button.onclick=function(){
    if(i===puzzle.answer){
     feedback.textContent=puzzle.success;
@@ -332,7 +480,11 @@ function showWhisper(){
  document.getElementById('whisperPanel').classList.add('show');
  document.getElementById('whisperPanel').scrollIntoView({behavior:'smooth'});
 }
-function showHowToUse(){document.getElementById('howToUse').classList.add('show');document.getElementById('howToUse').scrollIntoView({behavior:'smooth'})}
+
+function showHowToUse(){
+ document.getElementById('howToUse').classList.add('show');
+ document.getElementById('howToUse').scrollIntoView({behavior:'smooth'});
+}
 function hideHowToUse(){document.getElementById('howToUse').classList.remove('show')}
 
 /* نظام مستويات الغرفة 00 */
@@ -341,6 +493,7 @@ function getSolvedPuzzles(){
  try{return JSON.parse(localStorage.getItem(LEVEL_STORAGE)||"[]")}
  catch(e){return []}
 }
+
 function updateLevelUI(message=""){
  const solved=getSolvedPuzzles();
  const count=solved.length;
@@ -367,6 +520,7 @@ function updateLevelUI(message=""){
  document.getElementById("levelMessage").textContent=message||next;
  document.getElementById("guardianRewardCard").style.display=count>=5?"block":"none";
 }
+
 function openGuardianReward(){
  const solved=getSolvedPuzzles();
  if(solved.length>=5){
@@ -376,6 +530,7 @@ function openGuardianReward(){
   updateLevelUI("هذه المكافأة لحارس الأرشيف فقط. أكمل حل 5 ألغاز أولًا.");
  }
 }
+
 function registerPuzzleSolved(puzzleTitle){
  const solved=getSolvedPuzzles();
  if(solved.includes(puzzleTitle)){
