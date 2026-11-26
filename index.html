@@ -60,6 +60,11 @@ input{width:min(220px,100%);padding:12px;border-radius:10px;border:1px solid #95
 .next-archive.show{display:block}
 .whisper{font-size:19px;color:#d9c2ff;line-height:2.2;margin:22px auto;max-width:550px}
 .daily-label{color:#a98acb;font-size:12px;letter-spacing:2px}
+.message-card{margin:30px auto 0;max-width:520px;background:linear-gradient(145deg,#211631,#120d1c);border:1px solid #a77de255;border-radius:20px;padding:30px;text-align:center;box-shadow:0 0 30px #9d69ed18}
+.message-card .symbol{font-size:36px;color:#c4a0ff}
+.message-card h3{margin:12px 0}
+.message-card p{color:#b5abc5;font-size:14px;line-height:2}
+.message-card button{margin-top:12px}
 footer{text-align:center;color:#71677e;padding:35px 15px;border-top:1px solid #ffffff12;font-size:12px}
 @media(max-width:600px){.cards{grid-template-columns:1fr}main{padding-top:45px}header small{font-size:10px}}
 </style>
@@ -144,7 +149,6 @@ footer{text-align:center;color:#71677e;padding:35px 15px;border-top:1px solid #f
   <p>لكن تذكّر: أول سر ليس دائمًا أهم سر.</p>
  </div>
 
- <!-- الأرشيف التالي -->
  <div class="lockbox next-archive show" id="nextArchive">
   <h3>✧ إشارة من الأرشيف 000 ✧</h3>
   <p>وصلتك رسالة جديدة: «إذا احتفظت بالرقم، فقد حان وقت استخدامه مرة أخرى».</p>
@@ -167,6 +171,16 @@ footer{text-align:center;color:#71677e;padding:35px 15px;border-top:1px solid #f
   <h3>رسالة من الأرشيف المجهول</h3>
   <p class="whisper" id="dailyWhisper"></p>
   <p class="hint">عد غدًا... فقد تكون الرسالة القادمة موجهة إليك.</p>
+ </div>
+
+ <!-- صندوق رسائل الزوار -->
+ <div class="message-card">
+  <div class="symbol">✉</div>
+  <h3>اترك أثرًا مجهولًا</h3>
+  <p>هناك كلمات لا تستطيع قولها بصوت عالٍ... اترك رسالتك هنا دون أن تكشف هويتك.</p>
+  <p>قد تصل رسالتك إلى شخص يحتاج أن يقرأها.</p>
+  <button onclick="openMessageForm()">اكتب رسالتك السرية</button>
+  <div class="hint">ستصل الرسالة للمراجعة قبل نشرها.</div>
  </div>
 
 </section>
@@ -275,6 +289,10 @@ function showWhisper(){
  document.getElementById('dailyWhisper').textContent='«'+whispers[index]+'»';
  document.getElementById('whisperPanel').classList.add('show');
  document.getElementById('whisperPanel').scrollIntoView({behavior:'smooth'});
+}
+
+function openMessageForm(){
+ window.open('https://docs.google.com/forms/d/e/1FAIpQLSdTP90nkj6HPg8w5pqvohziPldEEh6vr7qu2JmlNwusUt_-EQ/viewform','_blank');
 }
 </script>
 </body>
