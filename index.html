@@ -66,6 +66,9 @@ input{width:min(220px,100%);padding:12px;border-radius:10px;border:1px solid #95
 .level-panel h3{color:#d8b4fe;font-size:23px}
 .level-track{height:10px;background:#0c0915;border-radius:20px;overflow:hidden;margin:15px auto;max-width:400px;border:1px solid #8f70b966}
 .level-bar{height:100%;width:0%;background:linear-gradient(90deg,#6c439d,#c6a4ff);transition:width .4s}
+#guardianRewardCard{display:none;margin:25px auto;border-color:#d5b0ff;background:linear-gradient(145deg,#332044,#171124)}
+#guardianRewardCard .symbol{font-size:38px}
+#guardianReward{border-color:#d5b0ff;background:linear-gradient(145deg,#251633,#100d17)}
 footer{text-align:center;color:#71677e;padding:35px 15px;border-top:1px solid #ffffff12;font-size:12px}
 @media(max-width:600px){.cards{grid-template-columns:1fr}main{padding-top:45px}header small{font-size:10px}.menu-nav{gap:7px;padding:13px}.menu-nav a{font-size:12px;padding:8px 11px}}
 </style>
@@ -107,6 +110,22 @@ footer{text-align:center;color:#71677e;padding:35px 15px;border-top:1px solid #f
   <div class="level-track"><div class="level-bar" id="levelBar"></div></div>
   <p class="hint" id="levelProgress">الألغاز المحلولة: 0 من 5</p>
   <p class="success" id="levelMessage" aria-live="polite"></p>
+ </div>
+
+ <div class="card" id="guardianRewardCard" onclick="openGuardianReward()">
+  <div class="symbol">♜</div>
+  <h3>مكافأة حارس الأرشيف</h3>
+  <p>وصلت إلى المستوى الثالث... هناك ملف ينتظر الحارس الحقيقي.</p>
+  <p>اضغط لفتح المكافأة السرية.</p>
+ </div>
+
+ <div class="panel" id="guardianReward">
+  <div class="daily-label">✧ تصريح دخول خاص ✧</div>
+  <h3>الملف 005: الرسالة الأخيرة</h3>
+  <p class="whisper">«لم تكن الألغاز اختبارًا لذكائك فقط... بل كانت دليلًا على أنك تملك الصبر لتصل إلى النهاية.»</p>
+  <p class="whisper">«من هذه اللحظة، لم تعد مجرد زائر. أنت حارس الأرشيف، ومهمتك أن تحمي الأسرار التي اكتشفتها. تذكّر: بعض الأبواب لا تُفتح إلا لمن لا يستسلم.»</p>
+  <p class="success">✧ تم منحك تصريح حارس الأرشيف ✧</p>
+  <button type="button" onclick="document.getElementById('guardianReward').classList.remove('show')">إغلاق الملف</button>
  </div>
 
  <div class="panel" id="howToUse">
@@ -346,6 +365,16 @@ function updateLevelUI(message=""){
  document.getElementById("levelBar").style.width=Math.max(0,Math.min(100,progress))+"%";
  document.getElementById("levelProgress").textContent="الألغاز المحلولة: "+count+" من 5";
  document.getElementById("levelMessage").textContent=message||next;
+ document.getElementById("guardianRewardCard").style.display=count>=5?"block":"none";
+}
+function openGuardianReward(){
+ const solved=getSolvedPuzzles();
+ if(solved.length>=5){
+  document.getElementById("guardianReward").classList.add("show");
+  document.getElementById("guardianReward").scrollIntoView({behavior:"smooth"});
+ }else{
+  updateLevelUI("هذه المكافأة لحارس الأرشيف فقط. أكمل حل 5 ألغاز أولًا.");
+ }
 }
 function registerPuzzleSolved(puzzleTitle){
  const solved=getSolvedPuzzles();
