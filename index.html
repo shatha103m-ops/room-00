@@ -5,197 +5,65 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>الغرفة 00 | الأرشيف السري</title>
-
 <style>
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;600;700&display=swap');
-
 *{box-sizing:border-box}
-
 body{
- margin:0;
- background:#090711;
- color:#f5efff;
- font-family:'IBM Plex Sans Arabic',sans-serif;
- min-height:100vh;
+ margin:0;background:#090711;color:#f5efff;
+ font-family:'IBM Plex Sans Arabic',sans-serif;min-height:100vh;
  background-image:radial-gradient(ellipse at 50% 25%,#35204f 0%,#100c1c 48%,#07060d 100%);
 }
-
-header{
- padding:25px 8%;
- display:flex;
- justify-content:space-between;
- align-items:center;
- border-bottom:1px solid #ffffff13
-}
-
+header{padding:25px 8%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffffff13}
 .logo{font-size:22px;font-weight:bold;letter-spacing:2px}
 .logo span{color:#bd91ff}
 header small{color:#a89bbd}
-
 main{text-align:center;padding:65px 20px}
 .tag{color:#bb9bfa;letter-spacing:3px;font-size:12px}
-
 h1{font-size:clamp(38px,7vw,65px);margin:18px 0 10px}
 h1 span{color:#bb91ff}
-
 .subtitle{color:#b5abc5;line-height:2}
-
 .door{
- width:185px;
- height:245px;
- margin:40px auto 28px;
- border:2px solid #9570c9;
- border-radius:95px 95px 8px 8px;
+ width:185px;height:245px;margin:40px auto 28px;
+ border:2px solid #9570c9;border-radius:95px 95px 8px 8px;
  background:linear-gradient(145deg,#211631,#0c0915);
  box-shadow:0 0 35px #9d69ed44,inset 0 0 35px #a06eea22;
- display:flex;
- align-items:center;
- justify-content:center;
- position:relative;
- cursor:pointer;
- transition:.4s;
+ display:flex;align-items:center;justify-content:center;
+ position:relative;cursor:pointer;transition:.4s;
 }
-
-.door:hover{
- transform:scale(1.04);
- box-shadow:0 0 65px #b68bff77
-}
-
-.door strong{
- font-size:48px;
- color:#c7a7ff;
- text-shadow:0 0 20px #a66dff;
- cursor:pointer;
- user-select:none
-}
-
-.door:after{
- content:"";
- position:absolute;
- right:20px;
- top:130px;
- width:9px;
- height:9px;
- border-radius:50%;
- background:#c6a4ff;
- box-shadow:0 0 12px #c6a4ff
-}
-
+.door:hover{transform:scale(1.04);box-shadow:0 0 65px #b68bff77}
+.door strong{font-size:48px;color:#c7a7ff;text-shadow:0 0 20px #a66dff;cursor:pointer;user-select:none}
+.door:after{content:"";position:absolute;right:20px;top:130px;width:9px;height:9px;border-radius:50%;background:#c6a4ff;box-shadow:0 0 12px #c6a4ff}
 button{
- border:1px solid #a77de2;
- background:linear-gradient(100deg,#6c439d,#9a68c7);
- color:white;
- padding:13px 28px;
- border-radius:30px;
- font:inherit;
- cursor:pointer;
- transition:.2s;
- margin:5px
+ border:1px solid #a77de2;background:linear-gradient(100deg,#6c439d,#9a68c7);
+ color:white;padding:13px 28px;border-radius:30px;font:inherit;cursor:pointer;transition:.2s;margin:5px
 }
-
 button:hover{filter:brightness(1.2);transform:translateY(-2px)}
-
 .hint{color:#827694;font-size:12px;margin-top:18px}
-
-.clue{
- display:none;
- color:#d7c1ff;
- margin:12px auto;
- padding:12px;
- border:1px dashed #9c76ca;
- border-radius:12px;
- max-width:330px;
- line-height:1.9
-}
-
+.clue{display:none;color:#d7c1ff;margin:12px auto;padding:12px;border:1px dashed #9c76ca;border-radius:12px;max-width:330px;line-height:1.9}
 .clue.show{display:block}
-
 section{width:min(850px,92%);margin:65px auto}
-
 h2{font-size:25px;text-align:center;margin-bottom:25px}
-
-.cards{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:18px
-}
-
-.card{
- background:#171124;
- border:1px solid #a77de233;
- border-radius:18px;
- padding:25px;
- text-align:center;
- cursor:pointer;
- transition:.3s
-}
-
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{background:#171124;border:1px solid #a77de233;border-radius:18px;padding:25px;text-align:center;cursor:pointer;transition:.3s}
 .card:hover{border-color:#b58aff;transform:translateY(-4px)}
-
 .card .symbol{font-size:30px;color:#c4a0ff}
 .card h3{margin:10px 0}
 .card p{color:#a99eb9;font-size:13px;line-height:1.8}
-
-.panel{
- display:none;
- background:#171124;
- border:1px solid #a77de255;
- border-radius:18px;
- padding:25px;
- margin-top:20px;
- text-align:center;
- line-height:2
-}
-
+.panel{display:none;background:#171124;border:1px solid #a77de255;border-radius:18px;padding:25px;margin-top:20px;text-align:center;line-height:2}
 .panel.show{display:block}
-
-input{
- width:min(220px,100%);
- padding:12px;
- border-radius:10px;
- border:1px solid #9570c9;
- background:#0c0915;
- color:white;
- font:inherit;
- text-align:center;
- margin:10px
-}
-
-.lockbox{
- margin:24px auto;
- padding:20px;
- border:1px dashed #8f70b9;
- border-radius:16px;
- max-width:480px;
- text-align:center;
- background:#120d1c
-}
-
-.secret-card{
- display:none;
- margin-top:18px
-}
-
+input{width:min(220px,100%);padding:12px;border-radius:10px;border:1px solid #9570c9;background:#0c0915;color:white;font:inherit;text-align:center;margin:10px}
+.lockbox{margin:24px auto;padding:20px;border:1px dashed #8f70b9;border-radius:16px;max-width:480px;text-align:center;background:#120d1c}
+.secret-card{display:none;margin-top:18px}
 .secret-card.show{display:block}
-
 .success{color:#c8adff;margin-top:12px}
-
-footer{
- text-align:center;
- color:#71677e;
- padding:35px 15px;
- border-top:1px solid #ffffff12;
- font-size:12px
-}
-
-@media(max-width:600px){
- .cards{grid-template-columns:1fr}
- main{padding-top:45px}
- header small{font-size:10px}
-}
+.next-archive{display:none;margin-top:25px}
+.next-archive.show{display:block}
+.whisper{font-size:19px;color:#d9c2ff;line-height:2.2;margin:22px auto;max-width:550px}
+.daily-label{color:#a98acb;font-size:12px;letter-spacing:2px}
+footer{text-align:center;color:#71677e;padding:35px 15px;border-top:1px solid #ffffff12;font-size:12px}
+@media(max-width:600px){.cards{grid-template-columns:1fr}main{padding-top:45px}header small{font-size:10px}}
 </style>
 </head>
-
 <body>
 
 <header>
@@ -205,19 +73,14 @@ footer{
 
 <main>
  <div class="tag">أنت الآن في مكان غير مألوف</div>
-
  <h1>بعض الأسرار لا تريد <span>أن تُكتشف</span></h1>
-
- <p class="subtitle">
- كل باب يخفي حكاية... وكل حكاية تقود إلى سر آخر.
- </p>
+ <p class="subtitle">كل باب يخفي حكاية... وكل حكاية تقود إلى سر آخر.</p>
 
  <div class="door" onclick="enterRoom()">
   <strong onclick="discoverClue(event)" title="اضغط الرقم ثلاث مرات">00</strong>
  </div>
 
  <button onclick="enterRoom()">ادخل الغرفة</button>
-
  <div class="hint">هناك شيء مخفي في هذه الصفحة...</div>
 
  <div class="clue" id="clue">
@@ -227,11 +90,9 @@ footer{
 </main>
 
 <section id="inside" style="display:none">
-
  <h2>لقد دخلت الغرفة 00</h2>
 
  <div class="cards">
-
   <div class="card" onclick="showFile()">
    <div class="symbol">▤</div>
    <h3>الملف المجهول</h3>
@@ -243,90 +104,69 @@ footer{
    <h3>الرسالة السرية</h3>
    <p>رسالة تركها شخص مجهول لك.</p>
   </div>
-
  </div>
 
  <div class="panel" id="file">
   <h3>القضية رقم 001</h3>
-
-  <p>
-   اختفى مفتاح من غرفة مغلقة.
-   بقيت ثلاث علامات: نافذة مفتوحة،
-   ساعة متوقفة، ورسالة تقول:
-   «لم أغادر المكان».
-  </p>
-
+  <p>اختفى مفتاح من غرفة مغلقة. بقيت ثلاث علامات: نافذة مفتوحة، ساعة متوقفة، ورسالة تقول: «لم أغادر المكان».</p>
   <p>من أين تبدأ البحث؟</p>
-
   <button onclick="answer(1)">النافذة</button>
   <button onclick="answer(2)">الساعة</button>
   <button onclick="answer(3)">الرسالة</button>
-
   <p id="answer"></p>
  </div>
 
  <div class="panel" id="letter">
   <h3>إلى من وجد هذه الرسالة...</h3>
-
-  <p id="message">
-   «ليس كل باب مغلق يعني أنه لا يريدك أن تدخل.
-   أحيانًا ينتظر أن تعرف الرمز الصحيح.»
-  </p>
-
+  <p id="message">«ليس كل باب مغلق يعني أنه لا يريدك أن تدخل. أحيانًا ينتظر أن تعرف الرمز الصحيح.»</p>
   <button onclick="newLetter()">رسالة أخرى</button>
  </div>
 
- <!-- الخزانة السرية الجديدة -->
-
  <div class="lockbox">
-
   <h3>خزانة لا تظهر في الفهرس</h3>
-
   <p>أدخل الرمز الذي اكتشفته لفتح الخزانة.</p>
-
-  <input
-   id="secretCode"
-   type="password"
-   inputmode="numeric"
-   maxlength="3"
-   placeholder="•••"
-   aria-label="رمز الخزانة"
-  >
-
+  <input id="secretCode" type="password" inputmode="numeric" maxlength="3" placeholder="•••" aria-label="رمز الخزانة">
   <br>
-
   <button onclick="unlockSecret()">افتح الخزانة</button>
-
   <div class="success" id="unlockMessage" aria-live="polite"></div>
-
  </div>
 
  <div class="card secret-card" id="secretCard" onclick="showSecret()">
-
   <div class="symbol">✧</div>
-
   <h3>الملف 000 — محظور</h3>
-
   <p>تم العثور على ملف لم يكن موجودًا في الأرشيف.</p>
-
   <p>اضغط هنا لقراءة الملف.</p>
-
  </div>
 
  <div class="panel" id="secret">
-
   <h3>الملف 000: ملاحظة من مجهول</h3>
+  <p>إذا وصلت إلى هنا، فأنت لا تكتفي بما يظهر أمامك. احتفظ بهذا الرقم: 000. قد تحتاجه عندما يُفتح الأرشيف التالي.</p>
+  <p>لكن تذكّر: أول سر ليس دائمًا أهم سر.</p>
+ </div>
 
-  <p>
-   إذا وصلت إلى هنا، فأنت لا تكتفي بما يظهر أمامك.
-   احتفظ بهذا الرقم: 000.
-   قد تحتاجه عندما يُفتح الأرشيف التالي.
-  </p>
+ <!-- الأرشيف التالي -->
+ <div class="lockbox next-archive show" id="nextArchive">
+  <h3>✧ إشارة من الأرشيف 000 ✧</h3>
+  <p>وصلتك رسالة جديدة: «إذا احتفظت بالرقم، فقد حان وقت استخدامه مرة أخرى».</p>
+  <p>أدخل رقم الملف السابق لفتح الأرشيف التالي.</p>
+  <input id="archiveCode" type="password" inputmode="numeric" maxlength="3" placeholder="رقم الملف" aria-label="رمز الأرشيف التالي">
+  <br>
+  <button onclick="unlockArchive()">افتح الأرشيف 001</button>
+  <div class="success" id="archiveMessage" aria-live="polite"></div>
+ </div>
 
-  <p>
-   لكن تذكّر: أول سر ليس دائمًا أهم سر.
-  </p>
+ <div class="card secret-card" id="archiveCard" onclick="showWhisper()">
+  <div class="symbol">☾</div>
+  <h3>الأرشيف 001 — همسة اليوم</h3>
+  <p>ملف يتجدد كل يوم... لا تقرأه مرتين في اليوم نفسه.</p>
+  <p>اضغط لاكتشاف همستك.</p>
+ </div>
 
+ <div class="panel" id="whisperPanel">
+  <div class="daily-label">✧ همسة اليوم ✧</div>
+  <h3>رسالة من الأرشيف المجهول</h3>
+  <p class="whisper" id="dailyWhisper"></p>
+  <p class="hint">عد غدًا... فقد تكون الرسالة القادمة موجهة إليك.</p>
  </div>
 
 </section>
@@ -337,13 +177,11 @@ footer{
 </footer>
 
 <script>
-
 let doorClicks=0;
 
 function discoverClue(event){
  event.stopPropagation();
  doorClicks++;
-
  if(doorClicks>=3){
   document.getElementById('clue').classList.add('show');
  }
@@ -358,17 +196,18 @@ function showFile(){
  document.getElementById('file').classList.add('show');
  document.getElementById('letter').classList.remove('show');
  document.getElementById('secret').classList.remove('show');
+ document.getElementById('whisperPanel').classList.remove('show');
 }
 
 function showLetter(){
  document.getElementById('letter').classList.add('show');
  document.getElementById('file').classList.remove('show');
  document.getElementById('secret').classList.remove('show');
+ document.getElementById('whisperPanel').classList.remove('show');
 }
 
 function answer(n){
  let a=document.getElementById('answer');
-
  if(n===3){
   a.textContent='أحسنت! الرسالة هي الدليل. السر: المفتاح لم يغادر الغرفة أبدًا.';
  }else{
@@ -384,38 +223,59 @@ const letters=[
 ];
 
 function newLetter(){
- document.getElementById('message').textContent=
- '«'+letters[Math.floor(Math.random()*letters.length)]+'»';
+ document.getElementById('message').textContent='«'+letters[Math.floor(Math.random()*letters.length)]+'»';
 }
 
 function unlockSecret(){
-
  const code=document.getElementById('secretCode').value.trim();
  const message=document.getElementById('unlockMessage');
 
  if(code==='000'){
-
   document.getElementById('secretCard').classList.add('show');
-
   message.textContent='تم فتح الخزانة! ظهر ملف جديد. ✨';
-
  }else{
-
   message.textContent='الرمز غير صحيح. ابحث عن التلميح.';
-
  }
-
 }
 
 function showSecret(){
  document.getElementById('secret').classList.add('show');
  document.getElementById('file').classList.remove('show');
  document.getElementById('letter').classList.remove('show');
-
  document.getElementById('secret').scrollIntoView({behavior:'smooth'});
 }
 
-</script>
+function unlockArchive(){
+ const code=document.getElementById('archiveCode').value.trim();
+ const message=document.getElementById('archiveMessage');
 
+ if(code==='000'){
+  document.getElementById('archiveCard').classList.add('show');
+  message.textContent='تم قبول الرقم. الأرشيف 001 أصبح متاحًا. ✨';
+ }else{
+  message.textContent='هذا ليس الرقم الصحيح. ارجع إلى الملف السابق.';
+ }
+}
+
+const whispers=[
+'لا تقلل من قيمة الخطوات الصغيرة؛ أحيانًا هي التي تغيّر الطريق كله.',
+'ليس عليك أن تفهم كل شيء الآن. بعض الأجوبة تصل في وقتها.',
+'قد تكون أقرب إلى البداية الجديدة مما تظن.',
+'لا تجعل يومًا صعبًا يقنعك أن كل الأيام ستكون مثله.',
+'هناك أبواب لا تُفتح بالقوة، بل بالصبر.',
+'احتفظ بالأشياء التي تمنح قلبك هدوءًا، فهي ليست تفاصيل صغيرة.',
+'أحيانًا يكون التقدم هو أن تختار ألا تستسلم اليوم.'
+];
+
+function showWhisper(){
+ const now=new Date();
+ const dayNumber=Math.floor(Date.UTC(now.getFullYear(),now.getMonth(),now.getDate())/86400000);
+ const index=dayNumber%whispers.length;
+
+ document.getElementById('dailyWhisper').textContent='«'+whispers[index]+'»';
+ document.getElementById('whisperPanel').classList.add('show');
+ document.getElementById('whisperPanel').scrollIntoView({behavior:'smooth'});
+}
+</script>
 </body>
 </html>
