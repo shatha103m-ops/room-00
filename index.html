@@ -17,11 +17,14 @@ gtag('js',new Date());gtag('config','G-MP9XWRCJ86');
 :root{--ink:#21182c;--plum:#493354;--purple:#76548b;--gold:#c69a58;--cream:#fff7ec;--rose:#d99ca9;--muted:#75677b;--paper:#fffaf4;--line:#e8dbe8}
 *{box-sizing:border-box}
 body{margin:0;background:#f7f0f5;color:var(--ink);font-family:'IBM Plex Sans Arabic',sans-serif}
-button,input,textarea{font:inherit}button{cursor:pointer}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
 header{position:fixed;z-index:20;top:0;right:0;left:0;background:#fffaf4ed;backdrop-filter:blur(12px);border-bottom:1px solid #e5d8e7;padding:12px 5%;display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:21px;font-weight:700;color:var(--plum)}.logo span{color:var(--gold)}
+.logo{font-size:21px;font-weight:700;color:var(--plum)}
+.logo span{color:var(--gold)}
 header small{color:var(--muted);font-size:11px}
-.scene{display:none;min-height:100vh}.scene.active{display:block;animation:fade .4s}
+.scene{display:none;min-height:100vh}
+.scene.active{display:block;animation:fade .4s}
 @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 button:disabled{opacity:.4;cursor:not-allowed}
 .kicker{color:var(--gold);font-size:11px;letter-spacing:2px;font-weight:700}
@@ -31,7 +34,8 @@ button:disabled{opacity:.4;cursor:not-allowed}
 #entrance{background:linear-gradient(#21152cbb,#21152c99),url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1600&q=85') center/cover}
 .entrance{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 18px 40px;color:white}
 .entrance h1{font-size:clamp(32px,7vw,58px);font-weight:500;line-height:1.5;margin:12px 0}
-.entrance h1 span{color:#e8c68d}.entrance p{line-height:2;color:#f9edf6}
+.entrance h1 span{color:#e8c68d}
+.entrance p{line-height:2;color:#f9edf6}
 .door{width:min(270px,70vw);height:340px;border:8px solid #c69a58;border-radius:150px 150px 5px 5px;margin:18px auto 25px;background:linear-gradient(#21152c55,#21152c77),url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800') center/cover;display:grid;place-items:center;box-shadow:0 0 0 4px #493354,0 25px 60px #0006}
 .door strong{font:58px Georgia;color:#f3d59f}
 #hallway{background:linear-gradient(#fff9f2e9,#f7edf6ee),url('https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=1400') center/cover fixed}
@@ -43,25 +47,27 @@ h2{color:var(--plum);font-size:30px;font-weight:500}
 .door-card:before{content:"";position:absolute;inset:0;background:var(--pic) center/cover;opacity:.65;z-index:-2;transition:.4s}
 .door-card:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#21152cf5,#21152c00 90%);z-index:-1}
 .door-card:hover:before{transform:scale(1.07)}
-.door-card h3{margin:30px 0 4px;color:#f8dca9}.door-card p{font-size:12px;color:white;margin:0;line-height:1.9}
+.door-card h3{margin:30px 0 4px;color:#f8dca9}
+.door-card p{font-size:12px;color:white;margin:0;line-height:1.9}
 #room{background:linear-gradient(140deg,#fffaf4,#f1e6f2)}
 .room{max-width:1150px;margin:auto;padding:100px 15px 50px}
 .panel{display:none;background:#fffdf9;border:1px solid var(--line);border-radius:20px;padding:20px;margin-top:15px;box-shadow:0 10px 35px #4933540c}
 .panel.show{display:block;animation:fade .35s}
-.room-head{text-align:center}.room-head h2{margin:8px}
+.room-head{text-align:center}
+.room-head h2{margin:8px}
 .banner{background:linear-gradient(120deg,#493354eF,#88658bdf),url('https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200') center/cover;color:white;border-radius:17px;padding:24px;text-align:center;margin:18px 0}
-.banner h3{color:#f6d8a3;font-size:25px;margin:5px}.banner p{color:#fff;line-height:2;margin-bottom:0}
+.banner h3{color:#f6d8a3;font-size:25px;margin:5px}
+.banner p{color:#fff;line-height:2;margin-bottom:0}
 .daytabs{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:18px 0}
 .daytab{border:1px solid #d9c8df;background:#f8f0f7;color:#624a6b;border-radius:12px;padding:10px 3px;font-size:11px;line-height:1.8}
-.daytab.active{background:#493354;color:white}.daytab.done{background:#edf5eb;border-color:#b4cdb1}.daytab.locked{opacity:.5}
-.layout{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:14px}
-.side{background:#f8f1f7;border:1px solid #e7d9e8;border-radius:15px;padding:12px;height:max-content;position:sticky;top:75px}
-.side button{display:block;width:100%;text-align:right;border:0;background:transparent;padding:10px;border-radius:9px;color:#624a6b;font-size:12px}
-.side button:hover,.side button.active{background:white}
-.side small{display:block;color:#977fa0;margin:8px}
+.daytab.active{background:#493354;color:white}
+.daytab.done{background:#edf5eb;border-color:#b4cdb1}
+.daytab.locked{opacity:.5}
 .hero{height:220px;border-radius:16px;background:#493354 center/cover;position:relative;display:flex;align-items:flex-end;padding:20px;color:white;margin-bottom:15px;overflow:hidden}
 .hero:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#201329ed,#20132911)}
-.hero div{position:relative}.hero h2{color:white;margin:5px 0}.hero p{color:white;font-size:12px;margin:0}
+.hero div{position:relative}
+.hero h2{color:white;margin:5px 0}
+.hero p{color:white;font-size:12px;margin:0}
 .section{display:none;background:white;border:1px solid #ebdfeb;border-radius:15px;padding:18px;margin-bottom:14px}
 .section.active{display:block;animation:fade .25s}
 .section h3{color:var(--plum);font-size:20px;margin:0 0 12px}
@@ -71,36 +77,58 @@ h2{color:var(--plum);font-size:30px;font-weight:500}
 .place{min-height:165px;display:flex;flex-direction:column;justify-content:flex-end;padding:13px;color:white;border-radius:13px;position:relative;overflow:hidden;cursor:pointer;background:#493354}
 .place:before{content:"";position:absolute;inset:0;background:var(--pic) center/cover;opacity:.6}
 .place:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#21152cf2,transparent)}
-.place>*{position:relative}.place h4{color:#f8dca9;margin:0 0 4px}.place p{font-size:11px;color:white;margin:0;line-height:1.8}
+.place>*{position:relative}
+.place h4{color:#f8dca9;margin:0 0 4px}
+.place p{font-size:11px;color:white;margin:0;line-height:1.8}
 .item{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px;border:1px solid #e9ddea;border-radius:11px;margin:9px 0;background:#fcf8fc}
-.item b{font-size:13px;color:#684775}.item p{font-size:11px;line-height:1.8;margin:4px 0 0;color:#6e6172}
+.item b{font-size:13px;color:#684775}
+.item p{font-size:11px;line-height:1.8;margin:4px 0 0;color:#6e6172}
 .item button{background:white;border:1px solid #d9c8df;color:#684775;border-radius:20px;padding:8px 12px;font-size:11px}
 .clue{background:#f8f1f7;border:1px solid #e7d8e9;border-radius:12px;padding:14px;margin:10px 0}
-.clue h4{color:#76548b;margin:0 0 5px}.clue p{font-size:12px;line-height:2;margin:0}
+.clue h4{color:#76548b;margin:0 0 5px}
+.clue p{font-size:12px;line-height:2;margin:0}
 .puzzle{background:#fbf5fa;border:1px solid #e5d6e8;padding:15px;border-radius:13px;margin:12px 0}
 .puzzle p{font-size:13px;line-height:2}
 input,textarea{border:1px solid #d6c5dc;border-radius:9px;padding:11px;background:white;width:100%;max-width:440px;margin:6px 0}
 .feedback{font-size:12px;color:#8b6740;line-height:2;min-height:24px;margin-top:7px}
-.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:11px}
-.person{border:1px solid #e5d8e6;border-radius:13px;overflow:hidden;background:white}
-.silhouette{height:125px;background:radial-gradient(ellipse at 50% 35%,#b9a1a7 0 8%,transparent 9%),linear-gradient(90deg,transparent 25%,#17111e 26% 74%,transparent 75%),linear-gradient(140deg,#24182f,#76548b);position:relative;filter:blur(.1px)}
-.silhouette:after{content:"";position:absolute;left:22%;right:22%;bottom:-20px;height:90px;background:#17111e;border-radius:50% 50% 0 0}
-.person div:last-child{padding:12px}.person h4{margin:0;color:#684775}.person p{font-size:11px;line-height:1.8}
-.choice{display:block;width:100%;text-align:right;padding:12px;margin:7px 0;border:1px solid #dfd0e2;border-radius:10px;background:white;color:#493354;font-size:12px}
-.choice:hover{background:#f4eaf5}
+.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.person{border:1px solid #e5d8e6;border-radius:15px;overflow:hidden;background:white;cursor:pointer;transition:.25s}
+.person:hover{transform:translateY(-4px);box-shadow:0 12px 25px #49335420}
+.person-photo{height:235px;background-position:center;background-size:cover;position:relative}
+.person-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#21152cbb,transparent 75%)}
+.person-info{padding:14px}
+.person h4{margin:0;color:#684775;font-size:17px}
+.person p{font-size:12px;line-height:1.9;color:#6e6172;margin:6px 0 12px}
+.profile{max-width:650px;margin:auto;text-align:center}
+.profile-photo{height:330px;border-radius:16px;background-size:cover;background-position:center;position:relative;margin-bottom:17px;overflow:hidden}
+.profile-photo:after{content:"ملف مشتبه به";position:absolute;bottom:15px;right:15px;color:#fff;background:#21152cc9;padding:7px 14px;border-radius:20px;font-size:11px}
+.profile h2{margin:8px 0;color:var(--plum)}
+.profile p{line-height:2;color:#66566c}
+.interview-head{background:linear-gradient(120deg,#493354,#76548b);color:white;padding:17px;border-radius:13px;margin-bottom:15px}
+.interview-head h3{color:#f5d49e;margin:0}
+.interview-head p{color:white;font-size:12px;line-height:2;margin-bottom:0}
+.choice{display:block;width:100%;text-align:right;padding:13px;margin:8px 0;border:1px solid #dfd0e2;border-radius:10px;background:white;color:#493354;font-size:13px;transition:.2s}
+.choice:hover{background:#f4eaf5;border-color:#b99ac5}
+.choice.selected{background:#f2e8f3;border-color:#76548b}
 .notebook{background:#fffaf0;border:1px solid #e8d5b5;border-radius:13px;padding:15px}
 .note{border-bottom:1px dashed #dac7ad;padding:10px 0;font-size:12px;line-height:2}
 .end{background:linear-gradient(120deg,#493354,#21182c);color:white;padding:18px;border-radius:14px;margin-top:18px}
-.end h3{color:#f5d49e}.end p{color:white;line-height:2;font-size:13px}
+.end h3{color:#f5d49e}
+.end p{color:white;line-height:2;font-size:13px}
 .progress{height:7px;border-radius:10px;background:#eee4ef;overflow:hidden;margin:10px 0}
 .progress span{display:block;height:100%;background:linear-gradient(90deg,#b58cbd,#c69a58);width:0}
 .whisper{background:#f8eff6;border:1px solid #e8d6e9;border-radius:14px;padding:25px;text-align:center;margin:20px auto;max-width:550px}
 .whisper p{font-size:18px;line-height:2;color:#493354}
 .secret{background:#241b2a;color:white;padding:22px;border-radius:14px;margin-top:15px;display:none}
 .secret p{color:white;line-height:2}
+.step-nav{display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1px solid #eee3ef;padding-top:16px;margin-top:20px}
+.step-nav button{min-width:125px}
+.step-label{font-size:11px;color:#927e97;text-align:center;line-height:1.8}
+.step-dots{display:flex;justify-content:center;gap:6px;margin:15px 0}
+.step-dots span{width:7px;height:7px;border-radius:50%;background:#e5d8e8}
+.step-dots span.active{background:#76548b;width:20px;border-radius:8px}
 footer{text-align:center;padding:25px;color:#8c7c91;font-size:11px}
-@media(max-width:760px){.layout{grid-template-columns:1fr}.side{position:static;display:grid;grid-template-columns:repeat(2,1fr)}.side strong{grid-column:1/-1}}
-@media(max-width:500px){.room{padding:90px 10px 35px}.panel{padding:13px}.section{padding:13px}.daytab{font-size:10px}.item{align-items:flex-start;flex-direction:column}.item button{width:100%}}
+@media(max-width:600px){.room{padding:90px 10px 35px}.panel{padding:13px}.section{padding:13px}.daytab{font-size:10px}.item{align-items:flex-start;flex-direction:column}.item button{width:100%}.step-nav button{min-width:105px;padding:10px 13px}.profile-photo{height:270px}}
 </style>
 </head>
 <body>
@@ -147,32 +175,55 @@ footer{text-align:center;padding:25px;color:#8c7c91;font-size:11px}
     <button class="daytab locked" id="tab2" onclick="selectDay(2)">اليوم الثالث<br>مغلق</button>
     <button class="daytab locked" id="tab3" onclick="selectDay(3)">اليوم الرابع<br>مغلق</button>
    </div>
-   <div class="layout">
-    <main>
-     <div class="hero" id="hero"><div><div class="kicker" id="heroKicker"></div><h2 id="heroTitle"></h2><p id="heroSub"></p></div></div>
-     <section class="section active" id="story"><h3>محضر اليوم</h3><div class="story" id="storyText"></div><div class="quote" id="storyQuote"></div><button class="gold" onclick="showSec('places')">ابدأ الاستكشاف ←</button></section>
-     <section class="section" id="places"><h3>اختر المكان الذي تريد تفتيشه</h3><p>اضغط على المكان، ثم افحص الأشياء الموجودة فيه. قد لا يكون كل شيء ظاهرًا من النظرة الأولى.</p><div class="grid" id="placeGrid"></div><div id="placeDetail"></div></section>
-     <section class="section" id="evidence"><h3>الأدلة التي جمعتها</h3><div id="evidenceList"></div></section>
-     <section class="section" id="puzzles"><h3>ألغاز المحقق</h3><div id="puzzleList"></div></section>
-     <section class="section" id="suspects"><h3>الأشخاص في دائرة التحقيق</h3><div class="people" id="peopleGrid"></div></section>
-     <section class="section" id="interview"><h3>غرفة الاستجواب</h3><p>اختر سؤالك بعناية. أحيانًا تكون طريقة الإجابة أهم من الإجابة نفسها.</p><div id="interviewBox"></div></section>
-     <section class="section" id="notebook"><div class="notebook"><h3>دفتر المحقق</h3><p>كل دليل وملاحظة حفظتها ستجدها هنا.</p><div id="notesList"></div></div></section>
-     <section class="section" id="accuse"><h3>قرار المحقق</h3><p>من الشخص الذي تشك فيه حتى الآن؟ اختيارك لا يكشف الحقيقة ولا ينهي التحقيق.</p><div id="accuseBox"></div></section>
-     <div class="end" id="dayEnd" style="display:none"><h3 id="endTitle"></h3><p id="endText"></p><p id="unlockText"></p></div>
-    </main>
-    <aside class="side">
-     <strong>ملف التحقيق · تنقّل</strong>
-     <button class="active" onclick="showSec('story',this)">📜 محضر اليوم</button>
-     <button onclick="showSec('places',this)">⌕ استكشاف الأماكن</button>
-     <button onclick="showSec('evidence',this)">🗂 الأدلة</button>
-     <button onclick="showSec('puzzles',this)">🔐 الألغاز</button>
-     <button onclick="showSec('suspects',this)">👤 المشتبه بهم</button>
-     <button onclick="showSec('interview',this)">🎙 الاستجواب</button>
-     <button onclick="showSec('notebook',this)">📓 دفتر المحقق</button>
-     <button onclick="showSec('accuse',this)">⚖️ الاشتباه</button>
-     <small id="sideCount">الأدلة: 0</small>
-    </aside>
-   </div>
+   <div class="hero" id="hero"><div><div class="kicker" id="heroKicker"></div><h2 id="heroTitle"></h2><p id="heroSub"></p></div></div>
+
+   <section class="section active" id="story">
+    <h3>محضر اليوم</h3><div class="story" id="storyText"></div><div class="quote" id="storyQuote"></div>
+   </section>
+
+   <section class="section" id="places">
+    <h3>اختر المكان الذي تريد تفتيشه</h3>
+    <p>اضغط على المكان، ثم افحص الأشياء الموجودة فيه. قد لا يكون كل شيء ظاهرًا من النظرة الأولى.</p>
+    <div class="grid" id="placeGrid"></div><div id="placeDetail"></div>
+   </section>
+
+   <section class="section" id="evidence">
+    <h3>الأدلة التي جمعتها</h3><div id="evidenceList"></div>
+   </section>
+
+   <section class="section" id="puzzles">
+    <h3>ألغاز المحقق</h3><div id="puzzleList"></div>
+   </section>
+
+   <section class="section" id="suspects">
+    <h3>الأشخاص في دائرة التحقيق</h3>
+    <p>اختر أحدهم لفتح ملفه وقراءة التفاصيل قبل بدء الاستجواب.</p>
+    <div class="people" id="peopleGrid"></div>
+   </section>
+
+   <section class="section" id="suspectProfile">
+    <div id="profileBox"></div>
+   </section>
+
+   <section class="section" id="interview">
+    <h3>غرفة الاستجواب</h3>
+    <p>اختر سؤالك بعناية. أحيانًا تكون طريقة الإجابة أهم من الإجابة نفسها.</p>
+    <div id="interviewBox"></div>
+   </section>
+
+   <section class="section" id="notebook">
+    <div class="notebook"><h3>دفتر المحقق</h3><p>كل دليل وملاحظة حفظتها ستجدها هنا.</p><div id="notesList"></div></div>
+   </section>
+
+   <section class="section" id="accuse">
+    <h3>قرار المحقق</h3>
+    <p>من الشخص الذي تشك فيه حتى الآن؟ اختيارك لا يكشف الحقيقة ولا ينهي التحقيق.</p>
+    <div id="accuseBox"></div>
+   </section>
+
+   <div class="step-dots" id="stepDots"></div>
+   <div class="step-nav" id="stepNav"></div>
+   <div class="end" id="dayEnd" style="display:none"><h3 id="endTitle"></h3><p id="endText"></p><p id="unlockText"></p></div>
   </div>
 
   <div class="panel" id="archive"><h3>همسة اليوم</h3><div class="whisper"><div class="kicker">A WHISPER FROM ROOM 00</div><p id="whisperText">«هناك أبواب لا تُفتح بالقوة، بل بالصبر.»</p><button class="soft" onclick="nextWhisper()">اقرأ همسة أخرى</button></div></div>
@@ -186,37 +237,126 @@ footer{text-align:center;padding:25px;color:#8c7c91;font-size:11px}
 const FORM_URL='https://docs.google.com/forms/d/e/1FAIpQLSdTP90nkj6HPg8w5pqvohziPldEEh6vr7qu2JmlNwusUt_-EQ/viewform';
 const KEY='room00_oon_game_v3';
 const DAY=86400000;
+const $=id=>document.getElementById(id);
 const whispers=['لا تقلل من قيمة الخطوات الصغيرة؛ أحيانًا هي التي تغيّر الطريق كله.','ليس عليك أن تفهم كل شيء الآن. بعض الأجوبة تصل في وقتها.','قد تكون أقرب إلى البداية الجديدة مما تظن.','لا تجعل يومًا صعبًا يقنعك أن كل الأيام ستكون مثله.','هناك أبواب لا تُفتح بالقوة، بل بالصبر.','امنح نفسك فرصة أخرى، فالتعثر ليس نهاية الطريق.'];
-let whisperIndex=0,dayNow=0,placeNow=null;
-function fresh(){return{unlocked:[true,false,false,false],times:[Date.now(),null,null,null],clues:[],notes:[],solved:[],seen:[],interviewed:[],suspicions:{},wrong:{},finished:false}}
-function load(){try{let s=JSON.parse(localStorage.getItem(KEY));if(s&&s.unlocked)return s}catch(e){}return fresh()}
+let whisperIndex=0,dayNow=0,placeNow=null,currentPersonId=null;
+const steps=['story','places','evidence','puzzles','suspects','suspectProfile','interview','notebook','accuse'];
+const stepNames=['محضر اليوم','استكشاف الأماكن','الأدلة','الألغاز','المشتبه بهم','ملف المشتبه','الاستجواب','دفتر المحقق','قرار المحقق'];
+let currentStep=0;
+
+function fresh(){
+ return{unlocked:[true,false,false,false],times:[Date.now(),null,null,null],completedAt:[null,null,null,null],clues:[],notes:[],solved:[],seen:[],interviewed:[],suspicions:{},wrong:{},finished:false}
+}
+function load(){
+ try{
+  let s=JSON.parse(localStorage.getItem(KEY));
+  if(s&&s.unlocked){
+   if(!s.completedAt)s.completedAt=[null,null,null,null];
+   if(!s.times)s.times=[Date.now(),null,null,null];
+   return s
+  }
+ }catch(e){}
+ return fresh()
+}
 let S=load();
 function save(){localStorage.setItem(KEY,JSON.stringify(S));updateProgress()}
-function go(id){document.querySelectorAll('.scene').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active')}
+function go(id){document.querySelectorAll('.scene').forEach(x=>x.classList.remove('active'));$(id).classList.add('active')}
 function openDoor(){go('hallway')}
-function goHall(){go('hallway')}
 function enterRoom(id){
- document.querySelectorAll('.scene').forEach(x=>x.classList.remove('active'));document.getElementById('room').classList.add('active');
- document.querySelectorAll('.panel').forEach(x=>x.classList.remove('show'));document.getElementById(id).classList.add('show');
+ document.querySelectorAll('.scene').forEach(x=>x.classList.remove('active'));
+ $('room').classList.add('active');
+ document.querySelectorAll('.panel').forEach(x=>x.classList.remove('show'));
+ $(id).classList.add('show');
  const titles={cases:['غرفة التحقيق','قضية جائع قرية الأون · أربعة أيام من البحث.'],archive:['الأرشيف المحظور','همسة اليوم تنتظرك.'],messages:['الرسائل المجهولة','اترك أثرًا دون أن تترك اسمك.'],hiddenRoom:['الباب الأسود','ملف مستقل لم يُكشف سره بعد.']};
- roomTitle.textContent=titles[id][0];roomDesc.textContent=titles[id][1];
+ $('roomTitle').textContent=titles[id][0];
+ $('roomDesc').textContent=titles[id][1];
  if(id==='cases'){checkUnlock();renderDay(dayNow)}
- if(id==='archive')nextWhisper();
+ if(id==='archive')nextWhisper()
 }
-function nextWhisper(){whisperIndex=(whisperIndex+1)%whispers.length;whisperText.textContent='«'+whispers[whisperIndex]+'»'}
-function unlockBlack(){blackFeedback.textContent='الرمز غير صحيح. لا يزال الملف مغلقًا.';if(blackCode.value.trim()==='009'){blackSecret.style.display='block';blackFeedback.textContent='تم فتح الملف.'}}
-function showSec(id,btn){document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.side button').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');else{let b=[...document.querySelectorAll('.side button')].find(x=>x.getAttribute('onclick')?.includes("'"+id+"'"));if(b)b.classList.add('active')}if(id==='evidence')renderEvidence();if(id==='notebook')renderNotes();if(id==='suspects')renderPeople();if(id==='interview')renderInterview();if(id==='accuse')renderAccuse()}
+function nextWhisper(){whisperIndex=(whisperIndex+1)%whispers.length;$('whisperText').textContent='«'+whispers[whisperIndex]+'»'}
+function unlockBlack(){
+ $('blackFeedback').textContent='الرمز غير صحيح. لا يزال الملف مغلقًا.';
+ if($('blackCode').value.trim()==='009'){$('blackSecret').style.display='block';$('blackFeedback').textContent='تم فتح الملف.'}
+}
+function showSec(id){
+ let index=steps.indexOf(id);
+ if(index<0)return;
+ currentStep=index;
+ document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
+ $(id).classList.add('active');
+ $('dayEnd').style.display='none';
+ if(id==='evidence')renderEvidence();
+ if(id==='notebook')renderNotes();
+ if(id==='suspects')renderPeople();
+ if(id==='interview')renderInterview();
+ if(id==='accuse')renderAccuse();
+ renderStepNav()
+}
+function renderStepNav(){
+ let prev=currentStep-1,next=currentStep+1;
+ let nav=$('stepNav');
+ nav.innerHTML='';
+ let prevBtn=document.createElement('button');
+ prevBtn.className='soft';
+ prevBtn.textContent='→ السابق';
+ prevBtn.disabled=prev<0;
+ prevBtn.onclick=()=>showSec(steps[prev]);
+ let label=document.createElement('div');
+ label.className='step-label';
+ label.textContent=stepNames[currentStep]+' · '+(currentStep+1)+' من '+steps.length;
+ let nextBtn=document.createElement('button');
+ nextBtn.className='gold';
+ nextBtn.textContent=currentStep===steps.length-1?'إنهاء اليوم':'التالي ←';
+ nextBtn.onclick=()=>{
+  if(currentStep===steps.length-1){finishDay();return}
+  if(steps[next]==='interview'&&!currentPersonId){showSec('suspects');return}
+  showSec(steps[next])
+ };
+ if(steps[currentStep]==='suspectProfile'){
+  nextBtn.textContent='ابدأ الاستجواب ←';
+  nextBtn.onclick=()=>showSec('interview')
+ }
+ if(steps[currentStep]==='interview'){
+  nextBtn.textContent=currentPersonId==='salem'?'إلى دفتر المحقق ←':'المشتبه التالي ←';
+  nextBtn.onclick=()=>{
+   if(currentPersonId==='rafed'){openProfile('nael')}
+   else if(currentPersonId==='nael'){openProfile('salem')}
+   else showSec('notebook')
+  }
+ }
+ nav.append(prevBtn,label,nextBtn);
+ let dots=$('stepDots');dots.innerHTML='';
+ steps.forEach((s,i)=>{let d=document.createElement('span');if(i===currentStep)d.className='active';dots.appendChild(d)})
+}
 function checkUnlock(){
- for(let i=1;i<4;i++){if(!S.unlocked[i]&&S.times[i-1]&&Date.now()-S.times[i-1]>=DAY){S.unlocked[i]=true;S.times[i]=Date.now()}}
+ for(let i=1;i<4;i++){
+  if(!S.unlocked[i]&&S.completedAt[i-1]&&Date.now()-S.completedAt[i-1]>=DAY){
+   S.unlocked[i]=true;
+   S.times[i]=Date.now()
+  }
+ }
  save()
 }
 function leftTime(ms){let h=Math.floor(ms/3600000),m=Math.floor(ms%3600000/60000);return h+' ساعة و'+m+' دقيقة'}
-function selectDay(i){checkUnlock();if(!S.unlocked[i]){let left=DAY-(Date.now()-S.times[i-1]);alert('هذا الجزء لم يحن موعده بعد.\nيفتح بعد '+leftTime(left));return}dayNow=i;renderDay(i)}
-function updateProgress(){let count=S.clues.length;let pct=Math.min(100,count/12*100);progressBar.style.width=pct+'%';progressText.textContent='جمعت '+count+' دليلًا حتى الآن.';sideCount.textContent='الأدلة: '+count}
+function selectDay(i){
+ checkUnlock();
+ if(!S.unlocked[i]){
+  let start=S.completedAt[i-1]||Date.now();
+  let left=Math.max(0,DAY-(Date.now()-start));
+  alert('هذا الجزء لم يحن موعده بعد.\nيفتح بعد '+leftTime(left));
+  return
+ }
+ dayNow=i;renderDay(i)
+}
+function updateProgress(){
+ let count=S.clues.length;
+ $('progressBar').style.width=Math.min(100,count/12*100)+'%';
+ $('progressText').textContent='جمعت '+count+' دليلًا حتى الآن.';
+}
 const people=[
- {id:'rafed',name:'رافد',role:'العمدة',desc:'الرجل الذي يثق به أهل القرية. يتحدث بهدوء، ويصر على أن الأون آمنة.'},
- {id:'nael',name:'نائل',role:'الطبيب',desc:'يعرف تفاصيل صحة أهل القرية، ويبدو أنه يعرف أكثر مما يقوله.'},
- {id:'salem',name:'سالم',role:'صاحب متجر الحلوى',desc:'رجل مسن محبوب من الأطفال. متجره جزء من ذاكرة القرية.'}
+ {id:'rafed',name:'رافد',role:'العمدة',desc:'الرجل الذي يثق به أهل القرية. يتحدث بهدوء، ويصر على أن الأون آمنة.',photo:'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=900'},
+ {id:'nael',name:'نائل',role:'الطبيب',desc:'يعرف تفاصيل صحة أهل القرية، ويبدو أنه يعرف أكثر مما يقوله.',photo:'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=900'},
+ {id:'salem',name:'سالم',role:'صاحب متجر الحلوى',desc:'رجل مسن محبوب من الأطفال. متجره جزء من ذاكرة القرية.',photo:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900'}
 ];
 const D=[
 {
@@ -271,7 +411,7 @@ const D=[
  ],
  puzzles:[
   {id:'p3',title:'الوقت المفقود',text:'في سجل البلاغات، الوقت المكتوب لا يطابق وقت رواية الأسرة. إذا كان البلاغ متأخرًا عن آخر مشاهدة، فما الذي يجب أن تقارنه؟ اكتب: قبل أو بعد.',answer:['بعد','متأخر'],hint:'الفرق الزمني هو ما تبحث عنه، وليس اسم الشخص.'},
-  {id:'p4',title:'أثر العجلات',text:'الأثران متوازيان وينتهيان عند الطريق الحجري. ما الشيء الذي يمكن أن يترك أثرين متوازيين؟ اكتب كلمة واحدة.',answer:['عربة','عربة','عجلات','مركبة'],hint:'فكر في وسيلة نقل، لا في حيوان أو شخص.'}
+  {id:'p4',title:'أثر العجلات',text:'الأثران متوازيان وينتهيان عند الطريق الحجري. ما الشيء الذي يمكن أن يترك أثرين متوازيين؟ اكتب كلمة واحدة.',answer:['عربة','عجلات','مركبة'],hint:'فكر في وسيلة نقل، لا في حيوان أو شخص.'}
  ],
  ending:'حين عدت إلى النزل، وجدت رسالة أخرى. هذه المرة كُتبت على ظهر صورة قديمة للقرية: «أحدهم كان يعرف أن ليلى لن تخرج من الباب».'
 },
@@ -319,7 +459,7 @@ const D=[
   {id:'lastSquare',name:'ساحة الأون',desc:'المكان الذي اجتمعت فيه كل الروايات.',pic:'https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=800',items:[['إفادة أخيرة','شاهد يكرر كلامًا سمعته من شخص آخر، لا ما رآه بنفسه.','clue_finalstatement'],['الورقة الأخيرة','الرسالة الأخيرة تحمل جزءًا من خط تعرفه من الأدلة السابقة.','clue_finalletter']]}
  ],
  puzzles:[
-  {id:'p7',title:'الترابط الأخير',text:'قبل الاتهام، ما الذي يجب أن يثبت معًا؟ اكتب: الدليل والتوقيت أو الاسم فقط.',answer:['الدليل والتوقيت','الدليل والتوقيت','التوقيت والدليل'],hint:'الاسم وحده لا يكفي. اربط ما حدث بوقت حدوثه.'},
+  {id:'p7',title:'الترابط الأخير',text:'قبل الاتهام، ما الذي يجب أن يثبت معًا؟ اكتب: الدليل والتوقيت أو الاسم فقط.',answer:['الدليل والتوقيت','التوقيت والدليل'],hint:'الاسم وحده لا يكفي. اربط ما حدث بوقت حدوثه.'},
   {id:'p8',title:'قرار المحقق',text:'ما الأساس الذي يجب أن تبني عليه اتهامك؟ اكتب: الأدلة أو الإشاعة.',answer:['الأدلة','دليل'],hint:'الأسطورة والإشاعات ليست إثباتًا.'}
  ],
  ending:'أغلقت دفتر الملاحظات. بقي أمامك قرار واحد: أن تختار الشخص الذي تتفق أفعاله مع الأدلة التي جمعتها. لكن تذكّر أن الاتهام ليس الحقيقة بحد ذاته.'
@@ -328,61 +468,79 @@ const D=[
 
 function renderDay(i){
  dayNow=i;checkUnlock();updateTabs();
- let d=D[i];hero.style.backgroundImage='url("'+d.image+'")';heroKicker.textContent='DAY 0'+(i+1)+' · ROOM 00';heroTitle.textContent=d.title;heroSub.textContent=d.sub;
- storyText.textContent=d.story;storyQuote.textContent=d.quote;
+ let d=D[i];
+ $('hero').style.backgroundImage='url("'+d.image+'")';
+ $('heroKicker').textContent='DAY 0'+(i+1)+' · ROOM 00';
+ $('heroTitle').textContent=d.title;
+ $('heroSub').textContent=d.sub;
+ $('storyText').textContent=d.story;
+ $('storyQuote').textContent=d.quote;
  renderPlaces();renderPuzzles();renderPeople();renderEvidence();renderNotes();renderAccuse();
- showSec('story');
- dayEnd.style.display='none';
+ currentPersonId=null;
+ $('dayEnd').style.display='none';
+ showSec('story')
 }
 function updateTabs(){
  for(let i=0;i<4;i++){
-  let b=document.getElementById('tab'+i);b.className='daytab'+(i===dayNow?' active':'')+(!S.unlocked[i]?' locked':'')+(i<dayNow?' done':'');
+  let b=$('tab'+i);
+  b.className='daytab'+(i===dayNow?' active':'')+(!S.unlocked[i]?' locked':'')+(i<dayNow?' done':'');
   b.innerHTML=['اليوم الأول<br>البداية','اليوم الثاني<br>الأثر','اليوم الثالث<br>المواجهة','اليوم الرابع<br>الحقيقة'][i];
-  if(!S.unlocked[i])b.innerHTML=['اليوم الأول<br>البداية','اليوم الثاني<br>مغلق','اليوم الثالث<br>مغلق','اليوم الرابع<br>مغلق'][i];
+  if(!S.unlocked[i])b.innerHTML=['اليوم الأول<br>البداية','اليوم الثاني<br>مغلق','اليوم الثالث<br>مغلق','اليوم الرابع<br>مغلق'][i]
  }
 }
 function renderPlaces(){
- let d=D[dayNow];placeGrid.innerHTML='';placeDetail.innerHTML='';
+ let d=D[dayNow];$('placeGrid').innerHTML='';$('placeDetail').innerHTML='';
  d.places.forEach(p=>{
   let el=document.createElement('div');el.className='place';el.style.setProperty('--pic','url("'+p.pic+'")');
   el.innerHTML='<h4>'+p.name+'</h4><p>'+p.desc+'</p>';
-  el.onclick=()=>openPlace(p.id);placeGrid.appendChild(el)
+  el.onclick=()=>openPlace(p.id);
+  $('placeGrid').appendChild(el)
  })
 }
 function openPlace(id){
  let p=D[dayNow].places.find(x=>x.id===id);if(!p)return;
  placeNow=id;
  if(!S.seen.includes(id)){S.seen.push(id);save()}
- placeDetail.innerHTML='<div class="quote">'+p.desc+'</div><h3>افحص الأشياء الموجودة</h3><div id="itemsHere"></div>';
- let target=document.getElementById('itemsHere');
- p.items.forEach((it,n)=>{
+ $('placeDetail').innerHTML='<div class="quote">'+p.desc+'</div><h3>افحص الأشياء الموجودة</h3><div id="itemsHere"></div>';
+ let target=$('itemsHere');
+ p.items.forEach(it=>{
   let row=document.createElement('div');row.className='item';
-  let left=document.createElement('div');left.innerHTML='<b>'+it[0]+'</b><p>'+it[1]+'</p>';
-  let btn=document.createElement('button');btn.textContent=S.clues.includes(it[2])?'تم فحصه ✓':'افحص هذا الشيء';
+  let left=document.createElement('div');
+  left.innerHTML='<b>'+it[0]+'</b><p>'+it[1]+'</p>';
+  let btn=document.createElement('button');
+  btn.textContent=S.clues.includes(it[2])?'تم فحصه ✓':'افحص هذا الشيء';
   btn.onclick=()=>inspect(it[2],it[0],it[1],btn);
   row.append(left,btn);target.appendChild(row)
  })
 }
 function inspect(id,title,description,btn){
  if(S.clues.includes(id)){btn.textContent='تم فحصه ✓';return}
- S.clues.push(id);S.notes.push({title:'دليل: '+title,description,day:dayNow+1});save();
- btn.textContent='تم فحصه ✓';
+ S.clues.push(id);S.notes.push({title:'دليل: '+title,description,day:dayNow+1});
+ save();btn.textContent='تم فحصه ✓';
  alert('تم تسجيل دليل جديد في دفتر المحقق.');
  renderEvidence();renderNotes()
 }
 function renderEvidence(){
- evidenceList.innerHTML='';
+ $('evidenceList').innerHTML='';
  let clues=S.notes.filter(n=>n.title.startsWith('دليل:'));
- if(!clues.length){evidenceList.innerHTML='<p>لم تجمع أي دليل بعد. ابدأ بتفتيش الأماكن.</p>';return}
- clues.forEach(c=>{let d=document.createElement('div');d.className='clue';d.innerHTML='<h4>'+c.title+'</h4><p>'+c.description+'</p><small>اليوم '+c.day+'</small>';evidenceList.appendChild(d)})
+ if(!clues.length){$('evidenceList').innerHTML='<p>لم تجمع أي دليل بعد. ابدأ بتفتيش الأماكن.</p>';return}
+ clues.forEach(c=>{
+  let d=document.createElement('div');d.className='clue';
+  d.innerHTML='<h4>'+c.title+'</h4><p>'+c.description+'</p><small>اليوم '+c.day+'</small>';
+  $('evidenceList').appendChild(d)
+ })
 }
 function renderNotes(){
- notesList.innerHTML='';
- if(!S.notes.length){notesList.innerHTML='<p>دفترك فارغ حتى الآن.</p>';return}
- S.notes.forEach(n=>{let d=document.createElement('div');d.className='note';d.innerHTML='<b>'+n.title+'</b><br>'+n.description+'<br><small>اليوم '+n.day+'</small>';notesList.appendChild(d)})
+ $('notesList').innerHTML='';
+ if(!S.notes.length){$('notesList').innerHTML='<p>دفترك فارغ حتى الآن.</p>';return}
+ S.notes.forEach(n=>{
+  let d=document.createElement('div');d.className='note';
+  d.innerHTML='<b>'+n.title+'</b><br>'+n.description+'<br><small>اليوم '+n.day+'</small>';
+  $('notesList').appendChild(d)
+ })
 }
 function renderPuzzles(){
- puzzleList.innerHTML='';
+ $('puzzleList').innerHTML='';
  D[dayNow].puzzles.forEach(p=>{
   let box=document.createElement('div');box.className='puzzle';
   let solved=S.solved.includes(p.id);
@@ -395,22 +553,51 @@ function renderPuzzles(){
    btn.onclick=()=>{
     let ans=input.value.trim().toLowerCase().replace(/[أإآ]/g,'ا');
     let ok=p.answer.some(a=>ans===a.toLowerCase().replace(/[أإآ]/g,'ا'));
-    if(ok){S.solved.push(p.id);S.notes.push({title:'حل لغز: '+p.title,description:'توصلت إلى الإجابة بعد مراجعة تفاصيل القضية.',day:dayNow+1});save();feedback.textContent='إجابة صحيحة. تم تسجيل استنتاجك في الدفتر.';btn.disabled=true;input.disabled=true}
-    else{S.wrong[p.id]=(S.wrong[p.id]||0)+1;feedback.textContent=S.wrong[p.id]>=2?'لم تتضح الصورة بعد. التلميح: '+p.hint:'ليست هذه الإجابة. راجع الأدلة وحاول مرة أخرى. لن يُغلق التحقيق بسبب إجابة خاطئة.'}
+    if(ok){
+     S.solved.push(p.id);
+     S.notes.push({title:'حل لغز: '+p.title,description:'توصلت إلى الإجابة بعد مراجعة تفاصيل القضية.',day:dayNow+1});
+     save();feedback.textContent='إجابة صحيحة. تم تسجيل استنتاجك في الدفتر.';
+     btn.disabled=true;input.disabled=true
+    }else{
+     S.wrong[p.id]=(S.wrong[p.id]||0)+1;
+     feedback.textContent=S.wrong[p.id]>=2?'لم تتضح الصورة بعد. التلميح: '+p.hint:'ليست هذه الإجابة. راجع الأدلة وحاول مرة أخرى. لن يُغلق التحقيق بسبب إجابة خاطئة.'
+    }
    };
-   box.append(input,btn,feedback);
+   box.append(input,btn,feedback)
   }
-  puzzleList.appendChild(box)
+  $('puzzleList').appendChild(box)
  })
- let end=document.createElement('button');end.className='gold';end.textContent='إنهاء استكشاف اليوم';end.onclick=finishDay;puzzleList.appendChild(end)
 }
 function renderPeople(){
- peopleGrid.innerHTML='';
+ $('peopleGrid').innerHTML='';
  people.forEach(p=>{
   let el=document.createElement('div');el.className='person';
-  el.innerHTML='<div class="silhouette"></div><div><h4>'+p.name+' · '+p.role+'</h4><p>'+p.desc+'</p><button class="soft" onclick="interview(\''+p.id+'\')">استجواب</button></div>';
-  peopleGrid.appendChild(el)
+  let photo=document.createElement('div');photo.className='person-photo';
+  photo.style.backgroundImage='linear-gradient(#21152c22,#21152c66),url("'+p.photo+'")';
+  let info=document.createElement('div');info.className='person-info';
+  info.innerHTML='<h4>'+p.name+' · '+p.role+'</h4><p>'+p.desc+'</p><button class="soft">افتح ملف المشتبه ←</button>';
+  el.append(photo,info);
+  el.onclick=()=>openProfile(p.id);
+  $('peopleGrid').appendChild(el)
  })
+}
+function openProfile(id){
+ currentPersonId=id;
+ let p=people.find(x=>x.id===id);if(!p)return;
+ let box=$('profileBox');box.innerHTML='';
+ let profile=document.createElement('div');profile.className='profile';
+ let photo=document.createElement('div');photo.className='profile-photo';
+ photo.style.backgroundImage='linear-gradient(#21152c22,#21152c66),url("'+p.photo+'")';
+ let kicker=document.createElement('div');kicker.className='kicker';kicker.textContent='SUSPECT FILE · ROOM 00';
+ let title=document.createElement('h2');title.textContent=p.name+' · '+p.role;
+ let desc=document.createElement('p');desc.textContent=p.desc;
+ let warning=document.createElement('div');warning.className='quote';
+ warning.textContent='هذا الملف لا يحتوي على الحقيقة كاملة. اقرأ التفاصيل، ثم ابدأ الاستجواب بنفسك.';
+ let start=document.createElement('button');start.className='gold';start.textContent='ابدأ استجواب '+p.name+' ←';
+ start.onclick=()=>showSec('interview');
+ profile.append(photo,kicker,title,desc,warning,start);
+ box.appendChild(profile);
+ showSec('suspectProfile')
 }
 const questions={
  rafed:[
@@ -429,59 +616,84 @@ const questions={
   ['ما رأيك في الأسطورة؟','سمعت بها منذ كنت طفلًا. الناس ينسون أن الحكايات القديمة قد تكون لها جذور.','سجّل: سالم لا يسخر من الأسطورة مثل بقية أهل القرية.']
  ]
 };
-function interview(id){
- let p=people.find(x=>x.id===id);let box=document.createElement('div');box.className='clue';
- box.innerHTML='<h4>استجواب '+p.name+'</h4><p>اختر سؤالًا. يمكنك العودة وطرح سؤال آخر.</p>';
- questions[id].forEach((q,i)=>{
-  let b=document.createElement('button');b.className='choice';b.textContent=q[0];
+function renderInterview(){
+ let p=people.find(x=>x.id===currentPersonId);
+ if(!p){
+  $('interviewBox').innerHTML='<p>ارجع إلى المشتبه بهم واختر الشخص الذي تريد استجوابه.</p>';
+  return
+ }
+ let qs=questions[currentPersonId];
+ let box=document.createElement('div');
+ let head=document.createElement('div');head.className='interview-head';
+ head.innerHTML='<h3>استجواب '+p.name+'</h3><p>'+p.role+' · اختر سؤالًا من الأسئلة التالية. يمكنك طرح الأسئلة كلها والعودة إلى إجاباتك.</p>';
+ box.appendChild(head);
+ qs.forEach((q,i)=>{
+  let b=document.createElement('button');b.className='choice';b.textContent='؟ '+q[0];
   b.onclick=()=>{
-   let old=box.querySelector('.answer');if(old)old.remove();
-   let ans=document.createElement('div');ans.className='quote answer';ans.textContent='«'+q[1]+'»';
-   box.appendChild(ans);
-   let saveBtn=document.createElement('button');saveBtn.className='soft';saveBtn.textContent='أضف الملاحظة إلى دفتر المحقق';
-   saveBtn.onclick=()=>{let key=id+'_'+i;if(!S.interviewed.includes(key)){S.interviewed.push(key);S.notes.push({title:'إفادة '+p.name,description:q[2]+' الإجابة: '+q[1],day:dayNow+1});save()}saveBtn.textContent='تم الحفظ ✓';saveBtn.disabled=true;renderNotes()};
-   box.appendChild(saveBtn);
+   box.querySelectorAll('.answer,.save-answer').forEach(x=>x.remove());
+   let ans=document.createElement('div');ans.className='quote answer';
+   ans.innerHTML='<b>إجابة '+p.name+':</b><br>«'+q[1]+'»';
+   let saveBtn=document.createElement('button');saveBtn.className='soft save-answer';
+   let key=currentPersonId+'_'+i;
+   let already=S.interviewed.includes(key);
+   saveBtn.textContent=already?'تم حفظ الملاحظة ✓':'أضف الملاحظة إلى دفتر المحقق';
+   saveBtn.disabled=already;
+   saveBtn.onclick=()=>{
+    if(!S.interviewed.includes(key)){
+     S.interviewed.push(key);
+     S.notes.push({title:'إفادة '+p.name,description:q[2]+' الإجابة: '+q[1],day:dayNow+1});
+     save();renderNotes()
+    }
+    saveBtn.textContent='تم الحفظ ✓';saveBtn.disabled=true
+   };
+   box.append(ans,saveBtn)
   };
   box.appendChild(b)
  });
- interviewBox.innerHTML='';interviewBox.appendChild(box);showSec('interview')
+ $('interviewBox').innerHTML='';$('interviewBox').appendChild(box)
 }
-function renderInterview(){interviewBox.innerHTML='<p>اختر أحد المشتبه بهم من قسم المشتبهين لبدء الاستجواب.</p>'}
 function renderAccuse(){
- accuseBox.innerHTML='';
+ $('accuseBox').innerHTML='';
  let label=document.createElement('p');label.textContent='من الشخص الذي تضعه في دائرة الشك؟';
- accuseBox.appendChild(label);
+ $('accuseBox').appendChild(label);
  people.forEach(p=>{
-  let b=document.createElement('button');b.className='choice';b.textContent=p.name+' · '+p.role+(S.suspicions[dayNow]===p.id?' ✓':'');
+  let b=document.createElement('button');b.className='choice';
+  b.textContent=p.name+' · '+p.role+(S.suspicions[dayNow]===p.id?' ✓':'');
   b.onclick=()=>{S.suspicions[dayNow]=p.id;save();renderAccuse()};
-  accuseBox.appendChild(b)
+  $('accuseBox').appendChild(b)
  });
- let txt=document.createElement('textarea');txt.rows=3;txt.placeholder='اكتب سبب اشتباهك، وما الأدلة التي تربطها به...';txt.value=S.suspicions['reason'+dayNow]||'';
+ let txt=document.createElement('textarea');txt.rows=3;
+ txt.placeholder='اكتب سبب اشتباهك، وما الأدلة التي تربطها به...';
+ txt.value=S.suspicions['reason'+dayNow]||'';
  txt.onchange=()=>{S.suspicions['reason'+dayNow]=txt.value;save()};
- accuseBox.appendChild(txt);
- let msg=document.createElement('div');msg.className='feedback';msg.textContent=S.suspicions[dayNow]?'تم حفظ اشتباهك. تذكّر: هذا ليس اتهامًا نهائيًا.':'لم تختر مشتبهًا بعد.';
- accuseBox.appendChild(msg)
+ $('accuseBox').appendChild(txt);
+ let msg=document.createElement('div');msg.className='feedback';
+ msg.textContent=S.suspicions[dayNow]?'تم حفظ اشتباهك. تذكّر: هذا ليس اتهامًا نهائيًا.':'لم تختر مشتبهًا بعد.';
+ $('accuseBox').appendChild(msg)
 }
 function finishDay(){
+ $('dayEnd').style.display='block';
  if(dayNow<3){
-  dayEnd.style.display='block';endTitle.textContent='نهاية اليوم '+(dayNow+1);endText.textContent=D[dayNow].ending;
+  $('endTitle').textContent='نهاية اليوم '+(dayNow+1);
+  $('endText').textContent=D[dayNow].ending;
+  S.completedAt[dayNow]=Date.now();
   let next=dayNow+1;
+  let remaining=DAY;
   if(!S.unlocked[next]){
-   if(!S.times[next]){S.times[next-1]=S.times[next-1]||Date.now();save()}
-   let elapsed=Date.now()-S.times[dayNow];let remaining=DAY-elapsed;
-   unlockText.textContent=remaining<=0?'يمكنك فتح اليوم التالي الآن.':'اليوم التالي سيفتح بعد مرور 24 ساعة من بداية هذا اليوم. '+leftTime(remaining);
-  }else unlockText.textContent='اليوم التالي متاح الآن.';
-  showSec('story');
+   $('unlockText').textContent='انتهى هذا اليوم. سيفتح اليوم التالي بعد مرور 24 ساعة من الآن. يمكنك العودة في أي وقت لمتابعة التحقيق.';
+  }else $('unlockText').textContent='اليوم التالي متاح الآن.';
+  save()
  }else{
-  dayEnd.style.display='block';endTitle.textContent='وصلت إلى نهاية التحقيق';
-  endText.textContent=D[3].ending;
-  unlockText.textContent='تم حفظ دفتر التحقيق واختيارك النهائي. لم يُكشف الحل في هذه النسخة حتى لا نضيف نهاية تخالف القصة الأصلية.';
-  showSec('accuse')
+  $('endTitle').textContent='وصلت إلى نهاية التحقيق';
+  $('endText').textContent=D[3].ending;
+  $('unlockText').textContent='تم حفظ دفتر التحقيق واختيارك النهائي. لم يُكشف الحل في هذه النسخة حتى لا نضيف نهاية تخالف القصة الأصلية.';
+  S.finished=true;save()
  }
- save()
+ $('dayEnd').scrollIntoView({behavior:'smooth',block:'center'})
 }
-function renderDaySafe(){checkUnlock();renderDay(dayNow)}
-checkUnlock();updateProgress();
+checkUnlock();
+updateProgress();
+renderStepNav();
 </script>
 </body>
 </html>
