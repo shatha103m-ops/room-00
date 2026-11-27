@@ -3,894 +3,697 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#21182c">
-<title>ROOM 00 | الغرفة السرية</title>
-
-<!-- Google Analytics -->
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#493354">
+<title>ROOM 00 | جائع قرية الأون</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MP9XWRCJ86"></script>
 <script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-MP9XWRCJ86');
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());gtag('config','G-MP9XWRCJ86');
 </script>
-
 <style>
-:root{
---ink:#21182c;
---plum:#493354;
---purple:#76548b;
---gold:#c69a58;
---cream:#fff7ec;
---rose:#d99ca9;
---muted:#b7a9bc;
---paper:#fffaf4;
---line:#604b69;
---dark:#17111e;
-}
+:root{--ink:#21182c;--plum:#493354;--purple:#76548b;--gold:#c69a58;--cream:#fff7ec;--rose:#d99ca9;--muted:#75677b;--paper:#fffaf4;--line:#e8dbe8}
 *{box-sizing:border-box}
-body{
-margin:0;
-background:var(--ink);
-color:var(--cream);
-font-family:Tahoma,Arial,sans-serif;
-line-height:1.9;
-}
+body{margin:0;background:#f7f0f5;color:var(--ink);font-family:'IBM Plex Sans Arabic',sans-serif}
 button,input,textarea{font:inherit}
 button{cursor:pointer}
-.hidden{display:none!important}
-.container{width:min(100% - 30px,900px);margin:auto}
-header{
-padding:22px 15px;
-border-bottom:1px solid #5c4866;
-display:flex;justify-content:space-between;align-items:center;
-gap:12px;
-}
-.logo{font-size:23px;letter-spacing:4px;color:var(--gold);font-weight:bold}
-.top-note{font-size:11px;color:var(--muted)}
-.scene{
-min-height:calc(100vh - 75px);
-display:flex;align-items:center;justify-content:center;
-padding:35px 15px;
-}
-.panel{
-width:min(100%,760px);
-background:linear-gradient(145deg,#30233a,#21182c 70%);
-border:1px solid #68516f;
-border-radius:18px;
-padding:28px;
-box-shadow:0 20px 60px #0006;
-}
-h1,h2,h3{line-height:1.6}
-h1{font-size:clamp(27px,6vw,42px);color:var(--gold);margin:8px 0}
-h2{font-size:24px;color:var(--gold)}
-h3{font-size:18px;color:#edc98e}
-p{color:#e4d9e8}
-.small{font-size:12px;color:var(--muted)}
-.gold{color:var(--gold)}
-.center{text-align:center}
-.btn{
-border:1px solid var(--gold);
-background:var(--gold);
-color:#241a2a;
-padding:11px 20px;
-border-radius:9px;
-font-weight:bold;
-transition:.2s;
-}
-.btn:hover{transform:translateY(-2px);filter:brightness(1.1)}
-.btn.secondary{background:transparent;color:var(--cream);border-color:#80688b}
-.btn.danger{background:#542d3e;border-color:#a45d70;color:white}
-.btn:disabled{opacity:.35;cursor:not-allowed;transform:none}
-.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.divider{height:1px;background:#604b69;margin:22px 0}
-.tag{
-display:inline-block;border:1px solid #8c6c91;
-color:#e6c8a0;border-radius:30px;padding:3px 12px;
-font-size:11px;margin:3px;
-}
-.hero{
-text-align:center;
-background:
-radial-gradient(ellipse at 50% 100%,#60436d 0%,transparent 48%),
-linear-gradient(#17111e,#2a1d34 60%,#17111e);
-}
-.door{
-width:190px;height:270px;margin:15px auto 25px;
-border:3px solid #9c7950;border-radius:90px 90px 5px 5px;
-background:linear-gradient(90deg,#211622,#493354,#211622);
-box-shadow:inset 0 0 35px #000,0 0 30px #9b795044;
-position:relative;
-}
-.door:after{
-content:"00";position:absolute;top:45%;left:0;right:0;
-text-align:center;color:#c69a58;font-size:40px;letter-spacing:8px;
-}
-.menu-grid{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-gap:12px;margin-top:20px;
-}
-.menu-card,.evidence-card,.place-card,.suspect-card{
-background:#2d2136;border:1px solid #614c6b;
-border-radius:12px;padding:17px;
-}
-.menu-card{cursor:pointer;transition:.2s}
-.menu-card:hover{border-color:var(--gold);transform:translateY(-3px)}
-.menu-card h3{margin:0 0 5px}
-.menu-card p{font-size:12px;margin:0;color:var(--muted)}
-.case-banner{
-border:1px solid #8b6b50;
-background:linear-gradient(120deg,#302235,#17111e);
-padding:22px;border-radius:13px;margin:15px 0;
-}
-.day-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:20px 0}
-.day-tab{
-background:#30243a;color:#cbbbd0;border:1px solid #624c6d;
-padding:10px 3px;border-radius:8px;font-size:12px;
-}
-.day-tab.active{background:#c69a58;color:#21182c;border-color:#c69a58}
-.day-tab:disabled{opacity:.35;cursor:not-allowed}
-.section-nav{display:flex;flex-wrap:wrap;gap:7px;margin:15px 0}
-.section-nav button{
-background:transparent;border:1px solid #695574;
-color:#e5d8e9;padding:7px 12px;border-radius:30px;font-size:12px;
-}
-.section-nav button.active{background:#76548b;border-color:#76548b}
-.story-box{
-background:#1c1523;border-right:3px solid var(--gold);
-padding:18px;border-radius:8px;margin:15px 0;
-}
-.clue{
-background:#211827;border:1px dashed #9c7c9e;
-padding:14px;border-radius:9px;margin:12px 0;
-}
-.clue.found{border-style:solid;border-color:#b89a61}
-input,textarea{
-width:100%;background:#1c1523;color:white;
-border:1px solid #715b7c;border-radius:8px;padding:12px;
-margin:8px 0;
-}
-textarea{min-height:100px;resize:vertical}
-.choice-list{display:grid;gap:9px;margin:14px 0}
-.choice{
-text-align:right;background:#211827;color:#eee;
-border:1px solid #695574;padding:12px;border-radius:8px;
-}
-.choice:hover{border-color:var(--gold)}
-.choice.selected{border-color:var(--gold);background:#493354}
-.feedback{
-padding:12px;background:#34273d;border-radius:8px;
-margin-top:12px;color:#f1d8a8;
-}
-.person-scene{
-height:190px;border-radius:10px;overflow:hidden;
-position:relative;margin-bottom:13px;
-background:linear-gradient(180deg,#11101a,#30233b 65%,#15111b);
-border:1px solid #5b4964;
-}
-.person-scene:before{
-content:"";position:absolute;bottom:-15px;left:50%;
-transform:translateX(-50%);
-width:82px;height:130px;border-radius:45% 45% 5px 5px;
-background:linear-gradient(90deg,#08080e,#29202d,#08080e);
-filter:blur(2px);
-}
-.person-scene:after{
-content:"";position:absolute;inset:0;
-background:linear-gradient(0deg,#08070bdc,transparent 70%),
-linear-gradient(90deg,#0007,transparent 50%,#0007);
-}
-.person-scene.rafed{
-background:
-linear-gradient(90deg,transparent 10%,#4a3b48 10% 12%,transparent 12% 85%,#4a3b48 85% 87%,transparent 87%),
-linear-gradient(#17131e,#51404a 55%,#17111b);
-}
-.person-scene.nael{
-background:
-linear-gradient(90deg,#13111a,#56606a 48%,#14111a);
-}
-.person-scene.nael:before{width:75px;height:135px;background:#15151c}
-.person-scene.salem{
-background:
-linear-gradient(90deg,#18111c,#593c35 50%,#17111d);
-}
-.person-scene.salem:before{width:92px;height:120px;background:#17111b}
-.person-scene span{
-position:absolute;z-index:2;bottom:8px;right:12px;
-font-size:11px;color:#e9d8c5;
-}
-.person-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
-.person-card{cursor:pointer}
-.person-card:hover{border-color:var(--gold)}
-.progress-wrap{height:7px;background:#382a40;border-radius:20px;overflow:hidden;margin:10px 0}
-.progress-bar{height:100%;background:var(--gold);width:0;transition:.3s}
-footer{text-align:center;color:#87768e;font-size:11px;padding:30px}
-.locked{
-text-align:center;padding:20px;border:1px dashed #816a89;
-border-radius:12px;color:#c9b7ce;
-}
-#toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);
-background:#c69a58;color:#21182c;padding:10px 18px;border-radius:8px;
-display:none;z-index:20;font-size:13px}
-@media(max-width:550px){
-.panel{padding:19px}
-.day-tab{font-size:10px}
-header{padding:15px}
-.logo{font-size:19px}
-}
+header{position:fixed;z-index:20;top:0;right:0;left:0;background:#fffaf4ed;backdrop-filter:blur(12px);border-bottom:1px solid #e5d8e7;padding:12px 5%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:21px;font-weight:700;color:var(--plum)}
+.logo span{color:var(--gold)}
+header small{color:var(--muted);font-size:11px}
+.scene{display:none;min-height:100vh}
+.scene.active{display:block;animation:fade .4s}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+button:disabled{opacity:.4;cursor:not-allowed}
+.kicker{color:var(--gold);font-size:11px;letter-spacing:2px;font-weight:700}
+.gold{background:linear-gradient(120deg,#76548b,#493354);color:white;border:1px solid #c69a58;border-radius:30px;padding:12px 24px}
+.soft{background:#fff;border:1px solid #d9c8df;color:#654873;border-radius:25px;padding:9px 17px}
+.back{border:0;background:none;color:#76548b;text-decoration:underline;padding:10px 0}
+#entrance{background:linear-gradient(#21152cbb,#21152c99),url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1600&q=85') center/cover}
+.entrance{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 18px 40px;color:white}
+.entrance h1{font-size:clamp(32px,7vw,58px);font-weight:500;line-height:1.5;margin:12px 0}
+.entrance h1 span{color:#e8c68d}
+.entrance p{line-height:2;color:#f9edf6}
+.door{width:min(270px,70vw);height:340px;border:8px solid #c69a58;border-radius:150px 150px 5px 5px;margin:18px auto 25px;background:linear-gradient(#21152c55,#21152c77),url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800') center/cover;display:grid;place-items:center;box-shadow:0 0 0 4px #493354,0 25px 60px #0006}
+.door strong{font:58px Georgia;color:#f3d59f}
+#hallway{background:linear-gradient(#fff9f2e9,#f7edf6ee),url('https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=1400') center/cover fixed}
+.hall{max-width:1000px;margin:auto;padding:105px 18px 55px;text-align:center}
+h2{color:var(--plum);font-size:30px;font-weight:500}
+.hall p{line-height:2;color:#6d5b72}
+.doors{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:30px 0}
+.door-card{min-height:210px;border-radius:18px;padding:18px;color:white;text-align:right;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;cursor:pointer;background:#493354;isolation:isolate}
+.door-card:before{content:"";position:absolute;inset:0;background:var(--pic) center/cover;opacity:.65;z-index:-2;transition:.4s}
+.door-card:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#21152cf5,#21152c00 90%);z-index:-1}
+.door-card:hover:before{transform:scale(1.07)}
+.door-card h3{margin:30px 0 4px;color:#f8dca9}
+.door-card p{font-size:12px;color:white;margin:0;line-height:1.9}
+#room{background:linear-gradient(140deg,#fffaf4,#f1e6f2)}
+.room{max-width:1150px;margin:auto;padding:100px 15px 50px}
+.panel{display:none;background:#fffdf9;border:1px solid var(--line);border-radius:20px;padding:20px;margin-top:15px;box-shadow:0 10px 35px #4933540c}
+.panel.show{display:block;animation:fade .35s}
+.room-head{text-align:center}
+.room-head h2{margin:8px}
+.banner{background:linear-gradient(120deg,#493354eF,#88658bdf),url('https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200') center/cover;color:white;border-radius:17px;padding:24px;text-align:center;margin:18px 0}
+.banner h3{color:#f6d8a3;font-size:25px;margin:5px}
+.banner p{color:#fff;line-height:2;margin-bottom:0}
+.daytabs{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:18px 0}
+.daytab{border:1px solid #d9c8df;background:#f8f0f7;color:#624a6b;border-radius:12px;padding:10px 3px;font-size:11px;line-height:1.8}
+.daytab.active{background:#493354;color:white}
+.daytab.done{background:#edf5eb;border-color:#b4cdb1}
+.daytab.locked{opacity:.5}
+.hero{height:220px;border-radius:16px;background:#493354 center/cover;position:relative;display:flex;align-items:flex-end;padding:20px;color:white;margin-bottom:15px;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#201329ed,#20132911)}
+.hero div{position:relative}
+.hero h2{color:white;margin:5px 0}
+.hero p{color:white;font-size:12px;margin:0}
+.section{display:none;background:white;border:1px solid #ebdfeb;border-radius:15px;padding:18px;margin-bottom:14px}
+.section.active{display:block;animation:fade .25s}
+.section h3{color:var(--plum);font-size:20px;margin:0 0 12px}
+.story{font-size:14px;line-height:2.5;color:#493354;white-space:pre-line}
+.quote{background:#fbf4e9;border-right:3px solid var(--gold);padding:14px;margin:14px 0;border-radius:8px;color:#69536d;line-height:2}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:11px}
+.place{min-height:165px;display:flex;flex-direction:column;justify-content:flex-end;padding:13px;color:white;border-radius:13px;position:relative;overflow:hidden;cursor:pointer;background:#493354}
+.place:before{content:"";position:absolute;inset:0;background:var(--pic) center/cover;opacity:.6}
+.place:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#21152cf2,transparent)}
+.place>*{position:relative}
+.place h4{color:#f8dca9;margin:0 0 4px}
+.place p{font-size:11px;color:white;margin:0;line-height:1.8}
+.item{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px;border:1px solid #e9ddea;border-radius:11px;margin:9px 0;background:#fcf8fc}
+.item b{font-size:13px;color:#684775}
+.item p{font-size:11px;line-height:1.8;margin:4px 0 0;color:#6e6172}
+.item button{background:white;border:1px solid #d9c8df;color:#684775;border-radius:20px;padding:8px 12px;font-size:11px}
+.clue{background:#f8f1f7;border:1px solid #e7d8e9;border-radius:12px;padding:14px;margin:10px 0}
+.clue h4{color:#76548b;margin:0 0 5px}
+.clue p{font-size:12px;line-height:2;margin:0}
+.puzzle{background:#fbf5fa;border:1px solid #e5d6e8;padding:15px;border-radius:13px;margin:12px 0}
+.puzzle p{font-size:13px;line-height:2}
+input,textarea{border:1px solid #d6c5dc;border-radius:9px;padding:11px;background:white;width:100%;max-width:440px;margin:6px 0}
+.feedback{font-size:12px;color:#8b6740;line-height:2;min-height:24px;margin-top:7px}
+.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.person{border:1px solid #e5d8e6;border-radius:15px;overflow:hidden;background:white;cursor:pointer;transition:.25s}
+.person:hover{transform:translateY(-4px);box-shadow:0 12px 25px #49335420}
+.person-photo{height:235px;background-position:center;background-size:cover;position:relative}
+.person-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#21152cbb,transparent 75%)}
+.person-info{padding:14px}
+.person h4{margin:0;color:#684775;font-size:17px}
+.person p{font-size:12px;line-height:1.9;color:#6e6172;margin:6px 0 12px}
+.profile{max-width:650px;margin:auto;text-align:center}
+.profile-photo{height:330px;border-radius:16px;background-size:cover;background-position:center;position:relative;margin-bottom:17px;overflow:hidden}
+.profile-photo:after{content:"ملف مشتبه به";position:absolute;bottom:15px;right:15px;color:#fff;background:#21152cc9;padding:7px 14px;border-radius:20px;font-size:11px}
+.profile h2{margin:8px 0;color:var(--plum)}
+.profile p{line-height:2;color:#66566c}
+.interview-head{background:linear-gradient(120deg,#493354,#76548b);color:white;padding:17px;border-radius:13px;margin-bottom:15px}
+.interview-head h3{color:#f5d49e;margin:0}
+.interview-head p{color:white;font-size:12px;line-height:2;margin-bottom:0}
+.choice{display:block;width:100%;text-align:right;padding:13px;margin:8px 0;border:1px solid #dfd0e2;border-radius:10px;background:white;color:#493354;font-size:13px;transition:.2s}
+.choice:hover{background:#f4eaf5;border-color:#b99ac5}
+.choice.selected{background:#f2e8f3;border-color:#76548b}
+.notebook{background:#fffaf0;border:1px solid #e8d5b5;border-radius:13px;padding:15px}
+.note{border-bottom:1px dashed #dac7ad;padding:10px 0;font-size:12px;line-height:2}
+.end{background:linear-gradient(120deg,#493354,#21182c);color:white;padding:18px;border-radius:14px;margin-top:18px}
+.end h3{color:#f5d49e}
+.end p{color:white;line-height:2;font-size:13px}
+.progress{height:7px;border-radius:10px;background:#eee4ef;overflow:hidden;margin:10px 0}
+.progress span{display:block;height:100%;background:linear-gradient(90deg,#b58cbd,#c69a58);width:0}
+.whisper{background:#f8eff6;border:1px solid #e8d6e9;border-radius:14px;padding:25px;text-align:center;margin:20px auto;max-width:550px}
+.whisper p{font-size:18px;line-height:2;color:#493354}
+.secret{background:#241b2a;color:white;padding:22px;border-radius:14px;margin-top:15px;display:none}
+.secret p{color:white;line-height:2}
+.step-nav{display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1px solid #eee3ef;padding-top:16px;margin-top:20px}
+.step-nav button{min-width:125px}
+.step-label{font-size:11px;color:#927e97;text-align:center;line-height:1.8}
+.step-dots{display:flex;justify-content:center;gap:6px;margin:15px 0}
+.step-dots span{width:7px;height:7px;border-radius:50%;background:#e5d8e8}
+.step-dots span.active{background:#76548b;width:20px;border-radius:8px}
+footer{text-align:center;padding:25px;color:#8c7c91;font-size:11px}
+@media(max-width:600px){.room{padding:90px 10px 35px}.panel{padding:13px}.section{padding:13px}.daytab{font-size:10px}.item{align-items:flex-start;flex-direction:column}.item button{width:100%}.step-nav button{min-width:105px;padding:10px 13px}.profile-photo{height:270px}}
 </style>
 </head>
-
 <body>
-<header>
-<div class="logo">ROOM 00</div>
-<div class="top-note">ليس كل باب يريد أن يُفتح...</div>
-</header>
+<header><div class="logo">الغرفة <span>00</span></div><small>كل باب يخفي حكاية ✦</small></header>
 
-<main id="app">
-
-<!-- المدخل -->
-<section id="entrance" class="scene hero">
-<div class="container center">
-<div class="door"></div>
-<div class="tag">ملفات لا ينبغي فتحها</div>
-<h1>مرحبًا بك في الغرفة 00</h1>
-<p>هناك قصص لم تُكتب نهايتها بعد، وأسرار تنتظر من يجرؤ على البحث.</p>
-<button class="btn" onclick="enterRoom()">ادخل الغرفة</button>
-</div>
+<section class="scene active" id="entrance">
+ <div class="entrance">
+  <div class="kicker">A WORLD OF STORIES · ROOM 00</div>
+  <h1>هناك حكاية تنتظرك<br><span>خلف هذا الباب</span></h1>
+  <p>بعض الأسرار لا تظهر من الزيارة الأولى.<br>هل تجرؤ على الدخول؟</p>
+  <div class="door"><strong>00</strong></div>
+  <button class="gold" onclick="openDoor()">افتح الباب وابدأ الرحلة</button>
+ </div>
 </section>
 
-<!-- الممر -->
-<section id="hallway" class="scene hidden">
-<div class="container">
-<div class="panel">
-<div class="center">
-<div class="tag">الممر الداخلي</div>
-<h1>اختر بابك</h1>
-<p>بعض الأبواب تقود إلى الحقيقة، وبعضها يقود إلى أسئلة أكثر.</p>
-</div>
-<div class="menu-grid">
-<div class="menu-card" onclick="openSection('cases')">
-<h3>غرفة التحقيق</h3>
-<p>قضية واحدة. أربع ليالٍ. وثلاثة مشتبه بهم.</p>
-</div>
-<div class="menu-card" onclick="openSection('archive')">
-<h3>الأرشيف المحظور</h3>
-<p>ملفات قصيرة وهمسات لا تظهر للجميع.</p>
-</div>
-<div class="menu-card" onclick="openSection('messages')">
-<h3>الرسائل المجهولة</h3>
-<p>اترك رسالة قد تغيّر مجرى التحقيق.</p>
-</div>
-<div class="menu-card" onclick="openSection('hiddenRoom')">
-<h3>الباب الأسود</h3>
-<p>ملف مستقل. لم يُكشف شرط فتحه بعد.</p>
-</div>
-</div>
-<div class="actions">
-<button class="btn secondary" onclick="go('entrance')">العودة للمدخل</button>
-</div>
-</div>
-</div>
+<section class="scene" id="hallway">
+ <div class="hall">
+  <div class="kicker">WELCOME TO ROOM 00</div>
+  <h2>أهلًا بك في عالم الحكايات</h2>
+  <p>أربعة أبواب أمامك. اختر وجهتك، فقد تجد شيئًا لم تكن تبحث عنه.</p>
+  <div class="doors">
+   <div class="door-card" style="--pic:url('https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=800')" onclick="enterRoom('cases')"><span>✦ ملف 001</span><h3>غرفة التحقيق</h3><p>قضية جائع قرية الأون. أربعة أيام من البحث.</p></div>
+   <div class="door-card" style="--pic:url('https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800')" onclick="enterRoom('archive')"><span>✦ همسة اليوم</span><h3>الأرشيف المحظور</h3><p>كلمات لا تعرف من تركها، ولا لماذا وصلت إليك.</p></div>
+   <div class="door-card" style="--pic:url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800')" onclick="enterRoom('messages')"><span>✦ بلا اسم</span><h3>الرسائل المجهولة</h3><p>اترك رسالة دون أن تترك اسمك.</p></div>
+   <div class="door-card" style="--pic:url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=800')" onclick="enterRoom('hiddenRoom')"><span>✦ 009</span><h3>الباب الأسود</h3><p>ملف مستقل. لم يُكشف شرط فتحه بعد.</p></div>
+  </div>
+  <button class="back" onclick="go('entrance')">العودة إلى المدخل</button>
+ </div>
 </section>
 
-<!-- غرفة التحقيق -->
-<section id="cases" class="scene hidden">
-<div class="container">
-<div class="panel">
-<div class="center">
-<div class="tag">ملف القضية رقم 001</div>
-<h1>جائع قرية الأون</h1>
-<p>ثلاث نساء اختفين... وقرية تخشى أن تنطق بما تعرفه.</p>
-</div>
+<section class="scene" id="room">
+ <div class="room">
+  <button class="back" onclick="go('hallway')">← العودة إلى الممر</button>
+  <div class="room-head"><div class="kicker">ROOM 00 · PRIVATE RECORD</div><h2 id="roomTitle">غرفة التحقيق</h2><p id="roomDesc"></p></div>
 
-<div class="case-banner">
-<h3>مقدمة الملف</h3>
-<p>في قرية بعيدة تحيط بها الغابات والضباب، يعيش أهل الأون حياة هادئة. لكن أسطورة قديمة ظلت تتردد بينهم: كائن غير بشري يظهر في الظلام، يقتل ضحاياه ثم يلتهمهم.</p>
-<p>لم يأخذ أهل القرية الأسطورة على محمل الجد، حتى اختفت ثلاث نساء في ظروف غريبة. لم يعثر أحد على جثث، ولم يترك الاختفاء تفسيرًا منطقيًا.</p>
-<p class="gold">أنت الآن المحقق الذي وصل إلى القرية. لا تصدق الروايات قبل أن تفحص الأدلة.</p>
-</div>
+  <div class="panel" id="cases">
+   <div class="kicker">CASE FILE · 001</div>
+   <div class="banner"><h3>جائع قرية الأون</h3><p>ثلاث نساء اختفين. قرية ترفض تصديق الأسطورة. وثلاثة رجال لا يقولون كل ما يعرفونه.</p></div>
+   <div class="progress"><span id="progressBar"></span></div>
+   <div class="feedback" id="progressText"></div>
+   <div class="daytabs">
+    <button class="daytab active" id="tab0" onclick="selectDay(0)">اليوم الأول<br>البداية</button>
+    <button class="daytab locked" id="tab1" onclick="selectDay(1)">اليوم الثاني<br>مغلق</button>
+    <button class="daytab locked" id="tab2" onclick="selectDay(2)">اليوم الثالث<br>مغلق</button>
+    <button class="daytab locked" id="tab3" onclick="selectDay(3)">اليوم الرابع<br>مغلق</button>
+   </div>
+   <div class="hero" id="hero"><div><div class="kicker" id="heroKicker"></div><h2 id="heroTitle"></h2><p id="heroSub"></p></div></div>
 
-<div class="day-tabs" id="dayTabs"></div>
-<div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
-<p class="small center" id="progressText"></p>
+   <section class="section active" id="story">
+    <h3>محضر اليوم</h3><div class="story" id="storyText"></div><div class="quote" id="storyQuote"></div>
+   </section>
 
-<div class="divider"></div>
-<div id="dayContent"></div>
-<div class="actions">
-<button class="btn secondary" onclick="go('hallway')">العودة للممر</button>
-<button class="btn secondary" onclick="showNotebook()">دفتر الأدلة</button>
-</div>
-</div>
-</div>
+   <section class="section" id="places">
+    <h3>اختر المكان الذي تريد تفتيشه</h3>
+    <p>اضغط على المكان، ثم افحص الأشياء الموجودة فيه. قد لا يكون كل شيء ظاهرًا من النظرة الأولى.</p>
+    <div class="grid" id="placeGrid"></div><div id="placeDetail"></div>
+   </section>
+
+   <section class="section" id="evidence">
+    <h3>الأدلة التي جمعتها</h3><div id="evidenceList"></div>
+   </section>
+
+   <section class="section" id="puzzles">
+    <h3>ألغاز المحقق</h3><div id="puzzleList"></div>
+   </section>
+
+   <section class="section" id="suspects">
+    <h3>الأشخاص في دائرة التحقيق</h3>
+    <p>اختر أحدهم لفتح ملفه وقراءة التفاصيل قبل بدء الاستجواب.</p>
+    <div class="people" id="peopleGrid"></div>
+   </section>
+
+   <section class="section" id="suspectProfile">
+    <div id="profileBox"></div>
+   </section>
+
+   <section class="section" id="interview">
+    <h3>غرفة الاستجواب</h3>
+    <p>اختر سؤالك بعناية. أحيانًا تكون طريقة الإجابة أهم من الإجابة نفسها.</p>
+    <div id="interviewBox"></div>
+   </section>
+
+   <section class="section" id="notebook">
+    <div class="notebook"><h3>دفتر المحقق</h3><p>كل دليل وملاحظة حفظتها ستجدها هنا.</p><div id="notesList"></div></div>
+   </section>
+
+   <section class="section" id="accuse">
+    <h3>قرار المحقق</h3>
+    <p>من الشخص الذي تشك فيه حتى الآن؟ اختيارك لا يكشف الحقيقة ولا ينهي التحقيق.</p>
+    <div id="accuseBox"></div>
+   </section>
+
+   <div class="step-dots" id="stepDots"></div>
+   <div class="step-nav" id="stepNav"></div>
+   <div class="end" id="dayEnd" style="display:none"><h3 id="endTitle"></h3><p id="endText"></p><p id="unlockText"></p></div>
+  </div>
+
+  <div class="panel" id="archive"><h3>همسة اليوم</h3><div class="whisper"><div class="kicker">A WHISPER FROM ROOM 00</div><p id="whisperText">«هناك أبواب لا تُفتح بالقوة، بل بالصبر.»</p><button class="soft" onclick="nextWhisper()">اقرأ همسة أخرى</button></div></div>
+  <div class="panel" id="messages"><h3>غرفة الرسائل المجهولة</h3><p>اترك رسالة أو اعترافًا أو كلمة قد يحتاج إليها شخص آخر.</p><div class="whisper"><p>قد تكون كلماتك هي الشيء الذي يحتاج شخص غريب إلى قراءته.</p><button class="gold" onclick="window.open(FORM_URL,'_blank')">اكتب رسالة مجهولة ✉</button></div></div>
+  <div class="panel" id="hiddenRoom"><h3>الباب الأسود</h3><p>ملف مستقل. لم يُكشف شرط فتحه بعد.</p><div class="whisper"><h2>009</h2><p>THE BLACK FILE</p></div><input id="blackCode" placeholder="أدخل الرمز"><button class="gold" onclick="unlockBlack()">محاولة فتح الملف</button><div id="blackFeedback" class="feedback"></div><div id="blackSecret" class="secret"><h3>الملف لم يكتمل بعد</h3><p>لقد وصلت إلى ما وراء الباب... لكن بعض الملفات لا تُقرأ في ليلة واحدة.</p></div></div>
+ </div>
 </section>
-
-<!-- الأرشيف -->
-<section id="archive" class="scene hidden">
-<div class="container">
-<div class="panel">
-<div class="tag">الأرشيف المحظور</div>
-<h1>ملفات من الظل</h1>
-<div class="story-box">
-<h3>همسة اليوم</h3>
-<p id="whisper"></p>
-</div>
-<div class="divider"></div>
-<h3>ملاحظة من الأرشيف</h3>
-<p>ليست كل الشهادات كذبًا، وليست كل الأدلة تقول الحقيقة كاملة. أحيانًا يكون الجزء الناقص أهم من كل ما تراه.</p>
-<button class="btn secondary" onclick="go('hallway')">العودة للممر</button>
-</div>
-</div>
-</section>
-
-<!-- الرسائل -->
-<section id="messages" class="scene hidden">
-<div class="container">
-<div class="panel">
-<div class="tag">صندوق الرسائل المجهولة</div>
-<h1>هل لديك ما تقوله؟</h1>
-<p>قد تكون لديك نظرية، أو ملاحظة، أو سر لا تستطيع قوله بصوت مرتفع.</p>
-<a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdTP90nkj6HPg8w5pqvohziPldEEh6vr7qu2JmlNwusUt_-EQ/viewform" target="_blank" rel="noopener">إرسال رسالة مجهولة</a>
-<div class="divider"></div>
-<button class="btn secondary" onclick="go('hallway')">العودة للممر</button>
-</div>
-</div>
-</section>
-
-<!-- الباب الأسود -->
-<section id="hiddenRoom" class="scene hidden">
-<div class="container">
-<div class="panel center">
-<div class="door" style="filter:grayscale(1);border-color:#555"></div>
-<h1>الباب الأسود</h1>
-<p>ملف مستقل. لم يُكشف شرط فتحه بعد.</p>
-<p class="small">لا تحاول إجبار الباب على الفتح.</p>
-<button class="btn secondary" onclick="go('hallway')">العودة للممر</button>
-</div>
-</div>
-</section>
-
-</main>
-
-<footer>ROOM 00 — بعض الأسرار لا تموت، بل تنتظر.</footer>
-<div id="toast"></div>
+<footer>ROOM 00 · كل باب يخفي حكاية ✦</footer>
 
 <script>
-const FORM_URL="https://docs.google.com/forms/d/e/1FAIpQLSdTP90nkj6HPg8w5pqvohziPldEEh6vr7qu2JmlNwusUt_-EQ/viewform";
-const KEY="room00_oon_game_v4";
-const DAY=24*60*60*1000;
+const FORM_URL='https://docs.google.com/forms/d/e/1FAIpQLSdTP90nkj6HPg8w5pqvohziPldEEh6vr7qu2JmlNwusUt_-EQ/viewform';
+const KEY='room00_oon_game_v3';
+const DAY=86400000;
+const $=id=>document.getElementById(id);
+const whispers=['لا تقلل من قيمة الخطوات الصغيرة؛ أحيانًا هي التي تغيّر الطريق كله.','ليس عليك أن تفهم كل شيء الآن. بعض الأجوبة تصل في وقتها.','قد تكون أقرب إلى البداية الجديدة مما تظن.','لا تجعل يومًا صعبًا يقنعك أن كل الأيام ستكون مثله.','هناك أبواب لا تُفتح بالقوة، بل بالصبر.','امنح نفسك فرصة أخرى، فالتعثر ليس نهاية الطريق.'];
+let whisperIndex=0,dayNow=0,placeNow=null,currentPersonId=null;
+const steps=['story','places','evidence','puzzles','suspects','suspectProfile','interview','notebook','accuse'];
+const stepNames=['محضر اليوم','استكشاف الأماكن','الأدلة','الألغاز','المشتبه بهم','ملف المشتبه','الاستجواب','دفتر المحقق','قرار المحقق'];
+let currentStep=0;
 
-const fresh={
-completed:{},
-found:[],
-answers:{},
-interviews:{},
-notes:"",
-accused:"",
-reason:"",
-finished:false
-};
-
-let state=load();
-let currentDay=1;
-let currentSection="story";
-
+function fresh(){
+ return{unlocked:[true,false,false,false],times:[Date.now(),null,null,null],completedAt:[null,null,null,null],clues:[],notes:[],solved:[],seen:[],interviewed:[],suspicions:{},wrong:{},finished:false}
+}
 function load(){
-try{
-const old=JSON.parse(localStorage.getItem(KEY));
-return old?{...fresh,...old}:structuredClone(fresh);
-}catch(e){return JSON.parse(JSON.stringify(fresh))}
+ try{
+  let s=JSON.parse(localStorage.getItem(KEY));
+  if(s&&s.unlocked){
+   if(!s.completedAt)s.completedAt=[null,null,null,null];
+   if(!s.times)s.times=[Date.now(),null,null,null];
+   return s
+  }
+ }catch(e){}
+ return fresh()
 }
-function save(){
-localStorage.setItem(KEY,JSON.stringify(state));
-updateProgress();
+let S=load();
+function save(){localStorage.setItem(KEY,JSON.stringify(S));updateProgress()}
+function go(id){document.querySelectorAll('.scene').forEach(x=>x.classList.remove('active'));$(id).classList.add('active')}
+function openDoor(){go('hallway')}
+function enterRoom(id){
+ document.querySelectorAll('.scene').forEach(x=>x.classList.remove('active'));
+ $('room').classList.add('active');
+ document.querySelectorAll('.panel').forEach(x=>x.classList.remove('show'));
+ $(id).classList.add('show');
+ const titles={cases:['غرفة التحقيق','قضية جائع قرية الأون · أربعة أيام من البحث.'],archive:['الأرشيف المحظور','همسة اليوم تنتظرك.'],messages:['الرسائل المجهولة','اترك أثرًا دون أن تترك اسمك.'],hiddenRoom:['الباب الأسود','ملف مستقل لم يُكشف سره بعد.']};
+ $('roomTitle').textContent=titles[id][0];
+ $('roomDesc').textContent=titles[id][1];
+ if(id==='cases'){checkUnlock();renderDay(dayNow)}
+ if(id==='archive')nextWhisper()
 }
-function toast(msg){
-const el=document.getElementById("toast");
-el.textContent=msg;el.style.display="block";
-setTimeout(()=>el.style.display="none",2500);
+function nextWhisper(){whisperIndex=(whisperIndex+1)%whispers.length;$('whisperText').textContent='«'+whispers[whisperIndex]+'»'}
+function unlockBlack(){
+ $('blackFeedback').textContent='الرمز غير صحيح. لا يزال الملف مغلقًا.';
+ if($('blackCode').value.trim()==='009'){$('blackSecret').style.display='block';$('blackFeedback').textContent='تم فتح الملف.'}
 }
-function go(id){
-document.querySelectorAll(".scene").forEach(x=>x.classList.add("hidden"));
-document.getElementById(id).classList.remove("hidden");
-window.scrollTo(0,0);
+function showSec(id){
+ let index=steps.indexOf(id);
+ if(index<0)return;
+ currentStep=index;
+ document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
+ $(id).classList.add('active');
+ $('dayEnd').style.display='none';
+ if(id==='evidence')renderEvidence();
+ if(id==='notebook')renderNotes();
+ if(id==='suspects')renderPeople();
+ if(id==='interview')renderInterview();
+ if(id==='accuse')renderAccuse();
+ renderStepNav()
 }
-function enterRoom(){go("hallway")}
-function openSection(id){
-go(id);
-if(id==="cases")renderGame();
-if(id==="archive")renderWhisper();
+function renderStepNav(){
+ let prev=currentStep-1,next=currentStep+1;
+ let nav=$('stepNav');
+ nav.innerHTML='';
+ let prevBtn=document.createElement('button');
+ prevBtn.className='soft';
+ prevBtn.textContent='→ السابق';
+ prevBtn.disabled=prev<0;
+ prevBtn.onclick=()=>showSec(steps[prev]);
+ let label=document.createElement('div');
+ label.className='step-label';
+ label.textContent=stepNames[currentStep]+' · '+(currentStep+1)+' من '+steps.length;
+ let nextBtn=document.createElement('button');
+ nextBtn.className='gold';
+ nextBtn.textContent=currentStep===steps.length-1?'إنهاء اليوم':'التالي ←';
+ nextBtn.onclick=()=>{
+  if(currentStep===steps.length-1){finishDay();return}
+  if(steps[next]==='interview'&&!currentPersonId){showSec('suspects');return}
+  showSec(steps[next])
+ };
+ if(steps[currentStep]==='suspectProfile'){
+  nextBtn.textContent='ابدأ الاستجواب ←';
+  nextBtn.onclick=()=>showSec('interview')
+ }
+ if(steps[currentStep]==='interview'){
+  nextBtn.textContent=currentPersonId==='salem'?'إلى دفتر المحقق ←':'المشتبه التالي ←';
+  nextBtn.onclick=()=>{
+   if(currentPersonId==='rafed'){openProfile('nael')}
+   else if(currentPersonId==='nael'){openProfile('salem')}
+   else showSec('notebook')
+  }
+ }
+ nav.append(prevBtn,label,nextBtn);
+ let dots=$('stepDots');dots.innerHTML='';
+ steps.forEach((s,i)=>{let d=document.createElement('span');if(i===currentStep)d.className='active';dots.appendChild(d)})
 }
-function renderWhisper(){
-const lines=[
-"في الأون، لا أحد يخرج بعد منتصف الليل... لكن أحدهم كان خارج منزله.",
-"ليس كل من أغلق بابه كان خائفًا من الكائن.",
-"أحيانًا تكون الرائحة التي تتجاهلها هي الدليل الوحيد.",
-"الساعة توقفت، لكن شيئًا ما استمر في الحركة."
-];
-document.getElementById("whisper").textContent=lines[new Date().getDate()%lines.length];
+function checkUnlock(){
+ for(let i=1;i<4;i++){
+  if(!S.unlocked[i]&&S.completedAt[i-1]&&Date.now()-S.completedAt[i-1]>=DAY){
+   S.unlocked[i]=true;
+   S.times[i]=Date.now()
+  }
+ }
+ save()
 }
-
-const suspects=[
-{id:"rafed",name:"رافد",role:"العمدة",desc:"الرجل الذي يثق به أهل القرية. يتحدث بهدوء، ويصر على أن الأون آمنة.",scene:"rafed",
-visual:"رجل يقف من الخلف أمام مبنى البلدية، والضباب يحجب ملامحه."},
-{id:"nael",name:"نائل",role:"الطبيب",desc:"يعرف تفاصيل صحة أهل القرية، ويبدو أنه يعرف أكثر مما يقوله.",scene:"nael",
-visual:"ظل رجل خلف زجاج عيادة معتم، لا يمكن تمييز وجهه."},
-{id:"salem",name:"سالم",role:"صاحب متجر الحلوى",desc:"رجل مسن محبوب من الأطفال. متجره جزء من ذاكرة القرية.",scene:"salem",
-visual:"شخص خلف واجهة متجر مظلمة، لا يظهر منه سوى هيئة بعيدة."}
-];
-
-const days=[
-{
-title:"اليوم الأول: القرية التي لا تنام",
-intro:"وصلت إلى الأون قبل غروب الشمس بقليل. لم يكن في القرية ما يوحي بالخطر، لكن النوافذ أُغلقت مبكرًا، والناس يتجنبون النظر إلى الغابة.",
-story:[
-"اختفت مريم وهي عائدة من المخبز. آخر من شاهدها قال إنها كانت تحمل كيسًا ورقيًا صغيرًا.",
-"أما هدى، فقد اختفت بالقرب من البئر. لم يسمع أحد صراخًا، ولم يجدوا أثرًا واضحًا على الأرض.",
-"وليلى اختفت من منزلها المغلق من الداخل. كان فنجانها لا يزال دافئًا حين دخلوا المنزل.",
-"ثلاث نساء، وثلاثة أماكن مختلفة. لا جثث، ولا تفسير. والأسطورة القديمة عادت إلى ألسنة أهل القرية."
-],
-places:[
-{name:"المخبز القديم",desc:"المكان الذي شوهدت فيه مريم آخر مرة.",items:[
-{ id:"bakery_bag",title:"كيس ورقي ممزق",desc:"وجدت طرف كيس ورقي خلف رف الخبز. على طرفه أثر مادة داكنة."},
-{ id:"bakery_clock",title:"ساعة المخبز",desc:"الساعة متوقفة عند وقت متأخر، لكن الغبار حولها يبدو حديث الحركة."}
-]},
-{name:"البئر",desc:"المكان الذي اختفت بالقرب منه هدى.",items:[
-{id:"well_rope",title:"حبل البئر",desc:"الحبل جاف من الأعلى، لكنه رطب عند الجزء القريب من الأرض."},
-{id:"well_marks",title:"آثار قرب الحافة",desc:"آثار غير مكتملة. يصعب معرفة إن كانت آثار أقدام أم سحب شيء ثقيل."}
-]},
-{name:"منزل ليلى",desc:"منزل مغلق من الداخل، وفنجان لم يبرد بعد.",items:[
-{id:"leila_cup",title:"الفنجان الدافئ",desc:"بقيت حرارة خفيفة في الفنجان رغم مرور وقت على اختفائها."},
-{id:"leila_door",title:"قفل الباب",desc:"القفل سليم، ولا توجد خدوش حول الإطار."}
-]},
-{name:"ساحة القرية",desc:"مكان يجتمع فيه أهل الأون عند المساء.",items:[
-{id:"square_notice",title:"إعلان قديم",desc:"ورقة ممزقة تتحدث عن إغلاق الطريق المؤدي إلى الغابة."}
-]}
-],
-puzzles:[
-{ id:"p1",type:"اختيار",question:"في منزل ليلى، كان الباب مغلقًا من الداخل والفنجان لا يزال دافئًا. ما الاستنتاج الأكثر حذرًا؟",
-options:["أن ليلى غادرت قبل ساعات طويلة","أن اختفاءها حدث بعد وقت قريب من إعداد المشروب","أن الكائن دخل من النافذة بالتأكيد"],correct:1,
-explain:"دفء الفنجان قرينة زمنية محتملة، لكنه لا يثبت طريقة الخروج."},
-{id:"p2",type:"لغز ترتيب",question:"رتّب ما حدث في منزل ليلى وفق ما تعرفه: إعداد المشروب، بقاء الفنجان دافئًا، اكتشاف اختفائها.",
-options:["إعداد المشروب ← بقاء الفنجان دافئًا ← اكتشاف الاختفاء","اكتشاف الاختفاء ← إعداد المشروب ← بقاء الفنجان دافئًا","بقاء الفنجان دافئًا ← اكتشاف الاختفاء ← إعداد المشروب"],correct:0,
-explain:"هذا هو الترتيب المنطقي وفق وصف المشهد، لكنه لا يحدد من كان في المنزل."}
-],
-interviews:{
-rafed:["لماذا لم تُغلقوا الطريق المؤدي إلى الغابة؟","هل تعرف آخر من شاهد مريم؟"],
-nael:["هل فحصت منزل ليلى بعد اختفائها؟","هل يمكن تقدير وقت اختفائها من الفنجان؟"],
-salem:["هل كانت مريم تمر بمتجرك؟","هل لاحظت شيئًا غريبًا قرب المخبز؟"]
-}
-},
-{
-title:"اليوم الثاني: شيء لم يكن في مكانه",
-intro:"مع أول ضوء، بدا أن القرية تخفي أكثر مما أظهرت. الطريق إلى الغابة موحل، وبعض الأبواب لم تُفتح منذ أيام.",
-story:[
-"تعود إلى الأدلة التي جمعتها. الكيس الممزق، الحبل الرطب، والفنجان الدافئ.",
-"تبدأ الآن جولة أوسع. عليك ألا تكتفي بما يقوله الناس، بل أن تلاحظ ما يتركونه خلفهم.",
-"هناك ثلاثة أماكن تستحق التفتيش: متجر سالم، عيادة نائل، ومكتب العمدة رافد."
-],
-places:[
-{name:"الغابة",desc:"الطريق الذي يخشى أهل القرية الاقتراب منه.",items:[
-{id:"forest_branch",title:"غصن مكسور",desc:"غصن منخفض مكسور حديثًا، وكأن شيئًا مر من تحته أو اصطدم به."},
-{id:"forest_fabric",title:"قطعة قماش",desc:"قطعة قماش عالقة بين الشجيرات. لونها باهت ولا يمكن نسبتها إلى إحدى النساء."}
-]},
-{name:"متجر سالم",desc:"متجر الحلوى الصغير في طرف القرية.",items:[
-{id:"salem_register",title:"دفتر الحسابات",desc:"صفحة ممزقة من دفتر الحسابات، وفي الهامش كتابة قصيرة: (بعد الإغلاق)."},
-{id:"salem_sugar",title:"أثر مسحوق أبيض",desc:"مسحوق متناثر قرب الباب الخلفي. قد يكون سكرًا، لكن لا يمكن الجزم."}
-]},
-{name:"عيادة نائل",desc:"عيادة الطبيب الهادئة على الطريق الرئيسي.",items:[
-{id:"nael_record",title:"سجل الزيارات",desc:"صفحة من سجل الزيارات تحمل توقيتًا غير واضح، وهناك سطر مطموس."},
-{id:"nael_drawer",title:"درج مغلق",desc:"الدرج مقفل، لكن المفتاح موجود في مكان ظاهر على المكتب."}
-]},
-{name:"مكتب العمدة",desc:"المكان الذي تُحفظ فيه سجلات القرية.",items:[
-{id:"rafed_map",title:"خريطة قديمة",desc:"خريطة عليها علامات قرب البئر والغابة والمخبز."},
-{id:"rafed_letter",title:"رسالة غير مكتملة",desc:"رسالة رسمية لم تكتمل، تتحدث عن شائعات يجب ألا تنتشر."}
-]}
-],
-puzzles:[
-{id:"p3",type:"اختيار",question:"وجدت في دفتر سالم عبارة (بعد الإغلاق). ما الذي يمكنك استنتاجه؟",
-options:["أن سالم هو الجاني","أن هناك أمرًا مرتبطًا بوقت إغلاق المتجر ويحتاج إلى تحقق","أن العبارة لا قيمة لها إطلاقًا"],correct:1,
-explain:"العبارة تفتح سؤالًا عن التوقيت، ولا تكفي وحدها لإدانة أحد."},
-{id:"p4",type:"تحليل",question:"خريطة العمدة تحمل علامات قرب أماكن اختفاء النساء. ما السؤال الأهم؟",
-options:["لماذا كانت هذه الأماكن محددة؟","هل يحب العمدة الخرائط؟","هل الخريطة قديمة فقط؟"],correct:0,
-explain:"وجود العلامات يستحق التحقيق في سببها وتاريخ وضعها."},
-{id:"p5",type:"لغز",question:"لديك ثلاث قرائن: توقيت في سجل الطبيب، عبارة بعد الإغلاق في دفتر المتجر، وخريطة عليها علامات. أيها يثبت وحده تورط صاحبه؟",
-options:["سجل الطبيب","دفتر المتجر","لا واحدة منها بمفردها"],correct:2,
-explain:"القرائن تحتاج إلى مقارنة وت corroboration، ولا تكفي قرينة منفردة لإثبات التورط."}
-],
-interviews:{
-rafed:["ما سبب العلامات الموجودة على الخريطة؟","متى كُتبت الرسالة غير المكتملة؟"],
-nael:["لماذا يوجد سطر مطموس في سجل الزيارات؟","من يستطيع الوصول إلى سجل العيادة؟"],
-salem:["ماذا تعني عبارة بعد الإغلاق؟","لماذا مُزقت صفحة من دفتر الحسابات؟"]
-}
-},
-{
-title:"اليوم الثالث: الوجوه المألوفة",
-intro:"أصبحت لديك أدلة من أماكن مختلفة. حان وقت مواجهة الأشخاص الثلاثة، لكن تذكر: الهدوء لا يعني البراءة، والتوتر لا يعني الذنب.",
-story:[
-"تجلس في غرفة التحقيق. أمامك ثلاثة ملفات، وثلاث روايات مختلفة عن القرية.",
-"رافد يتحدث باسم الأون، ونائل يعرف تفاصيل ما حدث في المنازل، وسالم يعرف حركة الناس في المتجر.",
-"لا تبحث عن اعتراف سريع. ابحث عن التناقض بين الكلام والأدلة."
-],
-places:[
-{name:"غرفة الاستجواب",desc:"اختر مشتبهًا، ثم اختر الأسئلة التي تريد طرحها.",items:[
-{id:"interrogation_notes",title:"ملاحظات المحقق",desc:"دوّن أي تناقض تلاحظه بين إجابات المشتبهين والأدلة."}
-]}
-],
-puzzles:[
-{id:"p6",type:"تحليل",question:"قال أحدهم إنه لم يغادر مكانه ليلة الاختفاء، لكنك لم تحصل على دليل يؤكد ذلك. كيف تتعامل مع أقواله؟",
-options:["أعتبره صادقًا فورًا","أعتبره مذنبًا فورًا","أبحث عن قرينة مستقلة تؤكد كلامه"],correct:2,
-explain:"التحقيق الجيد يقارن الأقوال بأدلة مستقلة."},
-{id:"p7",type:"اختيار",question:"وجدت اختلافًا بين روايتين حول توقيت حدث ما. ما الخطوة الأفضل؟",
-options:["أختار الرواية التي تبدو أكثر إقناعًا","أحدد الاختلاف وأبحث عن دليل زمني","أتجاهل الاختلاف"],correct:1,
-explain:"التناقض بداية سؤال جديد، وليس حكمًا نهائيًا."}
-],
-interviews:{
-rafed:["أين كنت وقت اختفاء مريم؟","هل سبق أن تحدثت مع النساء الثلاث عن الغابة؟","من طلب منك عدم نشر الشائعات؟"],
-nael:["متى رأيت ليلى آخر مرة؟","هل فحصت الفنجان أو المنزل؟","هل تستطيع تفسير التوقيت الموجود في السجل؟"],
-salem:["هل أغلقت متجرك في موعدك المعتاد؟","من كان آخر من زار المتجر؟","لماذا توجد صفحة ممزقة في الدفتر؟"]
-}
-},
-{
-title:"اليوم الرابع: الحقيقة التي لا تنام",
-intro:"الليلة الأخيرة في الأون. أصبحت الصورة أكبر، لكن بعض القطع ما زالت مفقودة. لا تسمح للأسطورة بأن تختار الإجابة نيابة عنك.",
-story:[
-"تعود إلى دفتر الأدلة وتراجع كل ما جمعته منذ وصولك.",
-"اختفاء مريم من طريق المخبز، وهدى قرب البئر، وليلى من منزل مغلق من الداخل.",
-"أمامك الآن فرصة أخيرة لمراجعة القرائن، وكتابة نظريتك، وتحديد الشخص الذي ترى أن الأدلة تشير إليه.",
-"تذكر أن اختيار مشتبه لا يعني أن الحقيقة ثبتت. اشرح سبب اختيارك، وميّز بين ما تعرفه وما تفترضه."
-],
-places:[
-{name:"طاولة الأدلة",desc:"اجمع كل ما لديك في مكان واحد.",items:[
-{id:"final_review",title:"مراجعة الملف",desc:"قارن التوقيتات والأماكن والأقوال. لا تتجاهل أي دليل لا يتفق مع نظريتك."}
-]}
-],
-puzzles:[
-{id:"p8",type:"تحليل",question:"أي طريقة أقوى لبناء اتهام؟",
-options:["الاعتماد على شائعة الكائن","الاعتماد على دليل واحد غامض","ربط عدة أدلة مستقلة مع تفسير التناقضات"],correct:2,
-explain:"الاستنتاج القوي يفسر الأدلة المختلفة، لا ينتقي ما يناسبه فقط."},
-{id:"p9",type:"اختبار نهائي",question:"هل غياب الجثث يثبت أن الكائن الأسطوري هو المسؤول؟",
-options:["نعم، بالتأكيد","لا، غياب الجثث لا يثبت هوية الفاعل","نعم، لأن أهل القرية يصدقون الأسطورة"],correct:1,
-explain:"الأسطورة ليست دليلًا. يجب أن تبقى كل الاحتمالات خاضعة للفحص."}
-],
-interviews:{
-rafed:["هل هناك شيء لم تخبرني به عن الطريق إلى الغابة؟","هل تستطيع تفسير العلامات على الخريطة؟"],
-nael:["هل أنت متأكد من كل التوقيتات التي ذكرتها؟","هل توجد معلومات في السجل لم أطلع عليها؟"],
-salem:["هل تتذكر من زار المتجر في الأيام السابقة للاختفاء؟","هل تريد إضافة شيء لم تقله في الاستجواب السابق؟"]
-}
-}
-];
-
-function unlocked(day){
-if(day===1)return true;
-const previous=state.completed[day-1];
-return !!previous && Date.now()>=previous+DAY;
-}
-function remaining(day){
-const previous=state.completed[day-1];
-return previous?Math.max(0,previous+DAY-Date.now()):DAY;
-}
-function formatTime(ms){
-const h=Math.floor(ms/3600000);
-const m=Math.floor((ms%3600000)/60000);
-const s=Math.floor((ms%60000)/1000);
-return `${h} ساعة و ${m} دقيقة و ${s} ثانية`;
-}
-function renderGame(){
-renderTabs();
-if(!unlocked(currentDay)){
-renderLocked();
-return;
-}
-renderDay();
-}
-function renderTabs(){
-const el=document.getElementById("dayTabs");
-el.innerHTML="";
-days.forEach((d,i)=>{
-const n=i+1;
-const b=document.createElement("button");
-b.className="day-tab "+(n===currentDay?"active":"");
-b.textContent="اليوم "+n;
-b.disabled=!unlocked(n);
-b.onclick=()=>{currentDay=n;renderGame()};
-el.appendChild(b);
-});
-}
-function renderLocked(){
-document.getElementById("dayContent").innerHTML=`
-<div class="locked">
-<h2>الملف التالي مغلق مؤقتًا</h2>
-<p>لن يُفتح اليوم التالي إلا بعد مرور 24 ساعة من إنهاء اليوم السابق.</p>
-<h3 id="countdown">${formatTime(remaining(currentDay))}</h3>
-<p class="small">يمكنك العودة إلى الأيام السابقة ومراجعة الأدلة التي جمعتها.</p>
-</div>`;
-startCountdown();
-}
-let timer=null;
-function startCountdown(){
-if(timer)clearInterval(timer);
-timer=setInterval(()=>{
-if(!document.getElementById("countdown")){clearInterval(timer);return}
-const left=remaining(currentDay);
-document.getElementById("countdown").textContent=formatTime(left);
-if(left<=0){clearInterval(timer);renderGame();toast("انفتح اليوم الجديد. حان وقت التحقيق.");}
-},1000);
-}
-function renderDay(){
-const d=days[currentDay-1];
-document.getElementById("dayContent").innerHTML=`
-<h2>${d.title}</h2>
-<p>${d.intro}</p>
-<div class="section-nav">
-<button onclick="showPart('story')" id="nav-story">القصة</button>
-<button onclick="showPart('places')" id="nav-places">أماكن البحث</button>
-<button onclick="showPart('evidence')" id="nav-evidence">دفتر الأدلة</button>
-<button onclick="showPart('puzzles')" id="nav-puzzles">الألغاز</button>
-<button onclick="showPart('suspects')" id="nav-suspects">المشتبه بهم</button>
-<button onclick="showPart('interview')" id="nav-interview">الاستجواب</button>
-<button onclick="showPart('accuse')" id="nav-accuse">الاستنتاج</button>
-</div>
-<div id="partContent"></div>
-<div class="divider"></div>
-<div class="actions">
-<button class="btn secondary" onclick="finishDay()">إنهاء اليوم</button>
-</div>
-`;
-showPart("story");
-}
-function showPart(part){
-currentSection=part;
-document.querySelectorAll(".section-nav button").forEach(b=>b.classList.remove("active"));
-const nav=document.getElementById("nav-"+part);
-if(nav)nav.classList.add("active");
-const d=days[currentDay-1];
-const el=document.getElementById("partContent");
-if(part==="story"){
-el.innerHTML=d.story.map(x=>`<div class="story-box">${x}</div>`).join("");
-}
-if(part==="places"){
-el.innerHTML=d.places.map((p,i)=>`
-<div class="place-card">
-<h3>${p.name}</h3><p>${p.desc}</p>
-<button class="btn secondary" onclick="inspectPlace(${i})">تفتيش المكان</button>
-</div>`).join("");
-}
-if(part==="evidence"){renderEvidence(el)}
-if(part==="puzzles"){renderPuzzles(el)}
-if(part==="suspects"){renderSuspects(el)}
-if(part==="interview"){renderInterview(el)}
-if(part==="accuse"){renderAccuse(el)}
-}
-function inspectPlace(index){
-const place=days[currentDay-1].places[index];
-const el=document.getElementById("partContent");
-el.innerHTML=`<h3>${place.name}</h3><p>${place.desc}</p>`;
-place.items.forEach(item=>{
-const found=state.found.includes(item.id);
-el.innerHTML+=`
-<div class="clue ${found?"found":""}">
-<h3>${item.title}</h3><p>${item.desc}</p>
-${found?'<span class="tag">تم تسجيل الدليل</span>':
-`<button class="btn" onclick="collect('${item.id}')">تسجيل الدليل</button>`}
-</div>`;
-});
-el.innerHTML+=`<button class="btn secondary" onclick="showPart('places')">العودة للأماكن</button>`;
-}
-function collect(id){
-if(!state.found.includes(id)){
-state.found.push(id);save();toast("تمت إضافة الدليل إلى دفتر التحقيق");
-}
-showPart("evidence");
-}
-function allEvidence(){
-return days.flatMap(d=>d.places.flatMap(p=>p.items));
-}
-function renderEvidence(el){
-const list=allEvidence().filter(x=>state.found.includes(x.id));
-el.innerHTML=`<h2>دفتر الأدلة</h2>
-<p>الأدلة التي عثرت عليها حتى الآن: ${list.length}</p>`;
-if(!list.length)el.innerHTML+=`<div class="locked">لم تجمع أي دليل بعد. ابدأ بتفتيش الأماكن.</div>`;
-list.forEach(x=>el.innerHTML+=`<div class="clue found"><h3>${x.title}</h3><p>${x.desc}</p></div>`);
-el.innerHTML+=`<h3>ملاحظات المحقق</h3>
-<textarea id="notes" placeholder="اكتب ملاحظاتك وربطك بين الأدلة...">${escapeHTML(state.notes)}</textarea>
-<button class="btn" onclick="saveNotes()">حفظ الملاحظات</button>`;
-}
-function saveNotes(){
-state.notes=document.getElementById("notes").value;save();toast("تم حفظ ملاحظاتك");
-}
-function renderPuzzles(el){
-const d=days[currentDay-1];
-el.innerHTML="<h2>مختبر الألغاز</h2><p>فكر في الأدلة قبل اختيار الإجابة. الخطأ لا يغلق التحقيق.</p>";
-d.puzzles.forEach((p,i)=>{
-const previous=state.answers[p.id];
-el.innerHTML+=`
-<div class="clue">
-<span class="tag">${p.type}</span>
-<h3>${p.question}</h3>
-<div class="choice-list">
-${p.options.map((o,j)=>`<button class="choice ${previous===j?"selected":""}" onclick="answerPuzzle('${p.id}',${j})">${o}</button>`).join("")}
-</div>
-<div id="feedback-${p.id}" class="feedback ${previous===undefined?"hidden":""}">
-${previous===undefined?"":(previous===p.correct?"إجابة صحيحة. ":"ليست الإجابة الأدق. ")+p.explain}
-</div>
-</div>`;
-});
-}
-function answerPuzzle(id,index){
-const p=days[currentDay-1].puzzles.find(x=>x.id===id);
-state.answers[id]=index;save();
-const fb=document.getElementById("feedback-"+id);
-fb.classList.remove("hidden");
-fb.textContent=(index===p.correct?"إجابة صحيحة. ":"ليست الإجابة الأدق. ")+p.explain;
-renderPuzzleChoices(id,index);
-}
-function renderPuzzleChoices(id,index){
-const p=days[currentDay-1].puzzles.find(x=>x.id===id);
-const blocks=document.querySelectorAll("#partContent .clue");
-blocks.forEach(block=>{
-if(block.textContent.includes(p.question)){
-block.querySelectorAll(".choice").forEach((b,i)=>b.classList.toggle("selected",i===index));
-}
-});
-}
-function renderSuspects(el){
-el.innerHTML="<h2>ملفات المشتبه بهم</h2><p>ثلاثة أشخاص، ولكل واحد منهم روايته. لا تحكم من المظهر أو الانطباع.</p><div class='person-grid'></div>";
-const grid=el.querySelector(".person-grid");
-suspects.forEach(s=>{
-const card=document.createElement("div");
-card.className="suspect-card person-card";
-card.innerHTML=`
-<div class="person-scene ${s.scene}"><span>${s.visual}</span></div>
-<h3>${s.name}</h3><span class="tag">${s.role}</span>
-<p>${s.desc}</p>
-<button class="btn secondary">فتح الملف</button>`;
-card.onclick=()=>openProfile(s.id);
-grid.appendChild(card);
-});
-}
-function openProfile(id){
-const s=suspects.find(x=>x.id===id);
-const el=document.getElementById("partContent");
-el.innerHTML=`
-<div class="person-scene ${s.scene}" style="height:230px"><span>${s.visual}</span></div>
-<h2>${s.name}</h2><span class="tag">${s.role}</span>
-<p>${s.desc}</p>
-<div class="story-box">لا توجد صورة واضحة لهذا الشخص في الملف. ما يظهر هو وصفه وموقعه في القرية فقط.</div>
-<button class="btn" onclick="selectInterview('${id}')">استجواب ${s.name}</button>
-<button class="btn secondary" onclick="showPart('suspects')">العودة للملفات</button>`;
-}
-function renderInterview(el){
-el.innerHTML=`<h2>غرفة الاستجواب</h2><p>اختر الشخص الذي تريد استجوابه.</p><div class="person-grid" id="interviewPeople"></div><div id="interviewQuestions"></div>`;
-const grid=document.getElementById("interviewPeople");
-suspects.forEach(s=>{
-const b=document.createElement("button");
-b.className="choice";
-b.textContent=s.name+" — "+s.role;
-b.onclick=()=>selectInterview(s.id);
-grid.appendChild(b);
-});
-}
-function selectInterview(id){
-const s=suspects.find(x=>x.id===id);
-const questions=days[currentDay-1].interviews[id]||[];
-const el=document.getElementById("interviewQuestions")||document.getElementById("partContent");
-el.innerHTML=`<div class="divider"></div><h3>استجواب ${s.name}</h3><p>${s.desc}</p>`;
-questions.forEach((q,i)=>{
-const key=currentDay+"_"+id+"_"+i;
-const done=state.interviews[key];
-el.innerHTML+=`
-<div class="clue">
-<p>${q}</p>
-${done?`<div class="feedback">${escapeHTML(done)}</div>`:
-`<button class="btn secondary" onclick="askQuestion('${key}','${id}',${i})">طرح السؤال</button>`}
-</div>`;
-});
-el.innerHTML+=`<button class="btn secondary" onclick="showPart('interview')">اختيار مشتبه آخر</button>`;
-}
-function askQuestion(key,id,i){
-const replies={
-rafed:[
-"الأمر لم يكن بهذه البساطة. الطريق إلى الغابة قديم، وإغلاقه يحتاج إلى سبب رسمي.",
-"هناك أشياء لا أستطيع تذكرها بدقة. القرية كانت مضطربة.",
-"لم أطلب من أحد إخفاء شيء. كنت أحاول منع الفوضى."
-],
-nael:[
-"رأيت المنزل بعد اكتشاف الاختفاء، وليس قبل ذلك.",
-"الفنجان قد يساعد في تقدير الوقت، لكنه لا يقدم ساعة دقيقة.",
-"السجل لا يخصني وحدي. هناك من يراجع الملفات."
-],
-salem:[
-"كانت تمر أحيانًا، مثل كثير من أهل القرية.",
-"لا أتذكر شيئًا غير معتاد قرب المخبز.",
-"الدفتر قديم، وربما تمزقت الصفحة بسبب الاستخدام."
-]
-};
-state.interviews[key]=replies[id][i%replies[id].length];
-save();selectInterview(id);
-}
-function renderAccuse(el){
-el.innerHTML=`
-<h2>استنتاج المحقق</h2>
-<p>بعد مراجعة ما لديك، من الشخص الذي تشتبه به؟</p>
-<div class="choice-list">
-${suspects.map(s=>`<button class="choice ${state.accused===s.id?"selected":""}" onclick="chooseSuspect('${s.id}')">${s.name} — ${s.role}</button>`).join("")}
-</div>
-<label>ما سبب اشتباهك؟</label>
-<textarea id="reason" placeholder="اكتب الأدلة التي جعلتك تختار هذا الشخص...">${escapeHTML(state.reason)}</textarea>
-<button class="btn" onclick="saveAccusation()">حفظ استنتاجي</button>
-<div id="accuseFeedback" class="feedback ${state.accused?"":"hidden"}">
-${state.accused?"تم حفظ استنتاجك. هذا اختيارك الحالي، وليس إعلانًا عن حل القضية.":""}
-</div>
-<p class="small">لن يتم كشف الجاني بمجرد اختيار اسم. المطلوب هو بناء تفسير منطقي للأدلة.</p>`;
-}
-function chooseSuspect(id){
-state.accused=id;save();renderAccuse(document.getElementById("partContent"));
-}
-function saveAccusation(){
-state.reason=document.getElementById("reason").value;
-save();toast("تم حفظ استنتاجك في ملف القضية");
-}
-function finishDay(){
-if(!unlocked(currentDay))return;
-if(!state.completed[currentDay]){
-state.completed[currentDay]=Date.now();
-save();
-}
-if(currentDay===4){
-state.finished=true;save();
-document.getElementById("dayContent").innerHTML=`
-<div class="center">
-<div class="tag">اكتمل ملف الأيام الأربعة</div>
-<h2>انتهت رحلتك في قرية الأون... مؤقتًا</h2>
-<p>لقد جمعت الأدلة وسمعت الروايات وكتبت استنتاجك.</p>
-<p>لم نضع نهاية جاهزة للقضية؛ فالحقيقة لا تُفرض على المحقق.</p>
-<button class="btn secondary" onclick="showPart('evidence')">مراجعة الأدلة</button>
-<button class="btn" onclick="showPart('accuse')">مراجعة الاستنتاج</button>
-</div>`;
-}else{
-document.getElementById("dayContent").innerHTML=`
-<div class="center">
-<div class="tag">تم حفظ تقدمك</div>
-<h2>انتهى ${days[currentDay-1].title}</h2>
-<p>لن يُفتح اليوم التالي إلا بعد مرور 24 ساعة من الآن.</p>
-<h3 id="countdown">${formatTime(remaining(currentDay+1))}</h3>
-<p>يمكنك العودة لاحقًا لمتابعة التحقيق.</p>
-</div>`;
-const next=currentDay+1;
-if(timer)clearInterval(timer);
-timer=setInterval(()=>{
-const el=document.getElementById("countdown");
-if(!el){clearInterval(timer);return}
-const left=remaining(next);
-el.textContent=formatTime(left);
-if(left<=0){clearInterval(timer);renderGame();toast("اليوم التالي أصبح متاحًا");}
-},1000);
-}
-renderTabs();
-updateProgress();
+function leftTime(ms){let h=Math.floor(ms/3600000),m=Math.floor(ms%3600000/60000);return h+' ساعة و'+m+' دقيقة'}
+function selectDay(i){
+ checkUnlock();
+ if(!S.unlocked[i]){
+  let start=S.completedAt[i-1]||Date.now();
+  let left=Math.max(0,DAY-(Date.now()-start));
+  alert('هذا الجزء لم يحن موعده بعد.\nيفتح بعد '+leftTime(left));
+  return
+ }
+ dayNow=i;renderDay(i)
 }
 function updateProgress(){
-const total=Object.keys(state.completed).length;
-const bar=document.getElementById("progressBar");
-const txt=document.getElementById("progressText");
-if(bar)bar.style.width=(total/4*100)+"%";
-if(txt)txt.textContent=`أيام مكتملة: ${total} من 4 | أدلة مكتشفة: ${state.found.length}`;
+ let count=S.clues.length;
+ $('progressBar').style.width=Math.min(100,count/12*100)+'%';
+ $('progressText').textContent='جمعت '+count+' دليلًا حتى الآن.';
 }
-function showNotebook(){
-currentSection="evidence";
-if(document.getElementById("cases").classList.contains("hidden"))go("cases");
-renderGame();
-showPart("evidence");
+const people=[
+ {id:'rafed',name:'رافد',role:'العمدة',desc:'الرجل الذي يثق به أهل القرية. يتحدث بهدوء، ويصر على أن الأون آمنة.',photo:'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=900'},
+ {id:'nael',name:'نائل',role:'الطبيب',desc:'يعرف تفاصيل صحة أهل القرية، ويبدو أنه يعرف أكثر مما يقوله.',photo:'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=900'},
+ {id:'salem',name:'سالم',role:'صاحب متجر الحلوى',desc:'رجل مسن محبوب من الأطفال. متجره جزء من ذاكرة القرية.',photo:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900'}
+];
+const D=[
+{
+ title:'القرية التي لا تنام',sub:'كل شيء بدأ باختفاء امرأة واحدة.',image:'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200',
+ story:`لم تكن قرية الأون مكانًا يلفت الانتباه. بيوت متقاربة، طرق ضيقة، وأناس يعرف بعضهم بعضًا منذ سنوات طويلة. كانت القرية هادئة إلى درجة أن صوت إغلاق باب في آخر الشارع يصل إلى البيوت البعيدة.
+
+لكن الهدوء لم يكن يعني أن أهلها لم يعرفوا الخوف.
+
+منذ سنوات، تتناقل الألسن حكاية قديمة عن كائن لا يشبه البشر. يقولون إنه يظهر عند أطراف القرية، يختار ضحيته، ثم يختفي تاركًا خلفه فراغًا لا يفسره أحد. لم يأخذ أهل القرية الأسطورة على محمل الجد. كانوا يقولون إنها حكاية اخترعها الكبار لتخويف الأطفال.
+
+ثم اختفت مريم.
+
+كانت عائدة من المخبز، ولم تصل إلى منزلها. في البداية ظنوا أنها ذهبت إلى بيت إحدى قريباتها، لكن الليل مرّ ولم تعد.
+
+وبعد أيام، اختفت هدى قرب البئر.
+
+ثم جاءت الحادثة التي جعلت القرية كلها تصمت: ليلى اختفت من منزلها، والباب كان مغلقًا من الداخل. بقي فنجانها على الطاولة دافئًا، وكأنها قامت من مكانها للحظة وستعود.
+
+العمدة رافد طلب من الناس ألا يثيروا الذعر. الطبيب نائل قال إن الخوف يجعل الناس يتخيلون أشياء لا وجود لها. أما سالم، صاحب متجر الحلوى، فظل يكرر أن الأسطورة قديمة ولا علاقة لها بما يحدث.
+
+وصلت إلى الأون بعد أن أصبح الصمت أثقل من أن يحتمله أهلها. لم يطلبوا منك أن تصدق الأسطورة. طلبوا منك أن تعرف أين ذهبت النساء الثلاث.`,
+ quote:'«مريم لم تكن لتترك بيتها دون أن تخبر أحدًا... وهدى كانت تخاف الاقتراب من البئر ليلًا. أما ليلى، فلم يخرج أحد من منزلها ذلك المساء. على الأقل، هذا ما يقوله الجميع.»',
+ places:[
+  {id:'bakery',name:'المخبز القديم',desc:'آخر مكان شوهدت فيه مريم قبل اختفائها.',pic:'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800',items:[['دفتر الطلبات','اسم مريم مكتوب في صفحة ذلك المساء، لكن بجانبه علامة صغيرة لم يذكرها صاحب المخبز.','clue_bakery'],['قطعة قماش','قطعة عالقة بمسمار خلف الباب. لا تبدو من ملابس العاملين.','clue_fabric']]},
+  {id:'well',name:'البئر',desc:'المكان الذي اختفت هدى بالقرب منه.',pic:'https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=800',items:[['آثار قرب الحافة','آثار أقدام متداخلة، بعضها يتجه نحو الطريق وبعضها لا يشبه آثار الأحذية.','clue_well'],['حبل قديم','الحبل مبتل من طرف واحد، رغم أن المطر لم يهطل منذ أيام.','clue_rope']]},
+  {id:'house',name:'منزل ليلى',desc:'منزل مغلق من الداخل وفنجان بقي دافئًا.',pic:'https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=800',items:[['الفنجان','بقايا شراب في قاع الفنجان، وعلى حافته أثر خفيف.','clue_cup'],['قفل الباب','القفل سليم من الخارج والداخل، لكن النافذة الخلفية ليست محكمة.','clue_lock']]},
+  {id:'square',name:'ساحة القرية',desc:'هنا يجتمع أهل الأون، وهنا تتغير رواياتهم.',pic:'https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=800',items:[['لوحة الإعلانات','ورقة قديمة عن الأسطورة ممزقة من المنتصف.','clue_legend'],['ساعة الساحة','توقفت عند وقت محدد، لكن أحدهم أعاد تشغيلها لاحقًا.','clue_clock']]}
+ ],
+ puzzles:[
+  {id:'p1',title:'ثلاث حوادث... تفصيلة واحدة',text:'مريم اختفت في طريق المخبز، وهدى قرب البئر، وليلى من منزل مغلق. ما الشيء المشترك الذي يجب أن تبحث عنه في إفادات أهل القرية قبل أن تربط الحوادث؟',answer:['الوقت','التوقيت','الليل','الوقت نفسه'],hint:'لا تبحث عن مكان واحد. قارن متى شوهدت كل امرأة آخر مرة.'},
+  {id:'p2',title:'العلامة في دفتر المخبز',text:'في دفتر المخبز وجدت علامة بجانب اسم مريم. اقرأ الدليل مرة أخرى: هل العلامة تعني طلبًا عاديًا أم أن هناك شيئًا غير مكتمل؟ اكتب: طلب أو ناقص.',answer:['ناقص','غير مكتمل'],hint:'الصفحة لا تسجل طلبًا مكتملًا.'}
+ ],
+ ending:'قبل أن تغادر الساحة، وجدت ورقة صغيرة تحت حجر قرب لوحة الإعلانات. لم يكن عليها اسم، فقط جملة واحدة: «لا تبحثوا عن الوحش في الغابة... ابحثوا عمّن يعرف مواعيد خروج النساء».'
+},
+{
+ title:'شيء لم يكن في مكانه',sub:'كل أثر يقود إلى سؤال جديد.',image:'https://images.unsplash.com/photo-1448375240586-882707db888b?w=1200',
+ story:`في الصباح التالي، لم تعد القرية كما كانت. بعض النوافذ أُغلقت، وبعض الوجوه اختفت خلف الستائر. لم يعد الناس يتحدثون عن الكائن بصوت ساخر.
+
+وصلتك رسالة قصيرة من شخص مجهول: «أنت تبحث في الأماكن الخطأ. هناك من نقل شيئًا قبل وصولك».
+
+عدت إلى الطريق المؤدي إلى البئر. هذه المرة لم تكن تبحث عن أثر قدم فقط. كنت تبحث عمّن حاول أن يمحو الأثر.
+
+في متجر سالم، قال أحد السكان إنه رأى ضوءًا في وقت متأخر من الليل. أما نائل، فقد أكد أن هدى كانت تزوره قبل اختفائها. رافد رفض التعليق، وقال إن التحقيق يجب أن يبقى بعيدًا عن إشاعات الناس.
+
+ثلاث روايات. ولا واحدة منها تشرح لماذا اختفت النساء.`,
+ quote:'«الشيء الذي يُنقل من مكانه لا يختفي... بل يترك مكانًا فارغًا.»',
+ places:[
+  {id:'forest',name:'طرف الغابة',desc:'الطريق الذي تتوقف عنده أضواء القرية.',pic:'https://images.unsplash.com/photo-1448375240586-882707db888b?w=800',items:[['غصن مكسور','الغصن مكسور من جهة واحدة، وكأن شيئًا ثقيلًا مرّ من المكان.','clue_branch'],['أثر عجلات','خطّان متوازيان في التراب، ينتهيان عند الطريق الحجري.','clue_wheels']]},
+  {id:'store',name:'متجر سالم',desc:'متجر صغير يعرفه كل طفل في القرية.',pic:'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800',items:[['دفتر الحسابات','هناك صفحة ممزقة من سجل المبيعات.','clue_sales'],['مفتاح صغير','مفتاح قديم خلف الرف، لا يحمل رقمًا.','clue_key']]},
+  {id:'clinic',name:'عيادة نائل',desc:'مكان هادئ أكثر مما ينبغي.',pic:'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',items:[['سجل المواعيد','اسم هدى يظهر في يوم لا يتذكر نائل أنها زارته فيه.','clue_appointments'],['زجاجة دواء','الملصق ممسوح جزئيًا، والتاريخ غير واضح.','clue_medicine']]},
+  {id:'office',name:'مكتب العمدة',desc:'الملفات الرسمية محفوظة خلف باب لا يفتحه إلا رافد.',pic:'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800',items:[['خريطة القرية','علامة بالقلم قرب الطرق الثلاثة التي سلكتها النساء.','clue_map'],['سجل البلاغات','بلاغ اختفاء مريم سُجل بوقت مختلف عن الوقت الذي ذكره أهلها.','clue_report']]}
+ ],
+ puzzles:[
+  {id:'p3',title:'الوقت المفقود',text:'في سجل البلاغات، الوقت المكتوب لا يطابق وقت رواية الأسرة. إذا كان البلاغ متأخرًا عن آخر مشاهدة، فما الذي يجب أن تقارنه؟ اكتب: قبل أو بعد.',answer:['بعد','متأخر'],hint:'الفرق الزمني هو ما تبحث عنه، وليس اسم الشخص.'},
+  {id:'p4',title:'أثر العجلات',text:'الأثران متوازيان وينتهيان عند الطريق الحجري. ما الشيء الذي يمكن أن يترك أثرين متوازيين؟ اكتب كلمة واحدة.',answer:['عربة','عجلات','مركبة'],hint:'فكر في وسيلة نقل، لا في حيوان أو شخص.'}
+ ],
+ ending:'حين عدت إلى النزل، وجدت رسالة أخرى. هذه المرة كُتبت على ظهر صورة قديمة للقرية: «أحدهم كان يعرف أن ليلى لن تخرج من الباب».'
+},
+{
+ title:'الوجوه المألوفة',sub:'حين تبدأ الأسئلة الحقيقية، تتغير الإجابات.',image:'https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=1200',
+ story:`لم يعد بإمكانك الاكتفاء بجمع الأشياء. الأدلة تحتاج إلى أصوات أصحابها.
+
+رافد يعرف تفاصيل القرية أكثر من أي شخص. نائل يعرف ما حدث في الأيام التي سبقت الاختفاء. وسالم يعرف من دخل متجره ومن خرج منه، حتى لو ادعى أنه لا ينتبه.
+
+طلبت مقابلتهم واحدًا تلو الآخر.
+
+لم يكن أي منهم غاضبًا من أسئلتك في البداية. لكن عندما وضعت أمامهم بعض التفاصيل، تغيرت نبرة الحديث.
+
+هناك من أجاب بسرعة أكثر من اللازم. وهناك من سأل عن الدليل قبل أن يعرف ما هو. وهناك من حاول تحويل الحديث إلى الأسطورة.
+
+الآن لم تعد تسأل: من رأى النساء آخر مرة؟ بل: من يعرف ما لا ينبغي له أن يعرفه؟`,
+ quote:'«لا تحكم على الشخص من ارتباكه وحده. اسأله السؤال نفسه بطريقتين، ثم قارن ما يقوله.»',
+ places:[
+  {id:'hall',name:'قاعة البلدية',desc:'مكان اجتماع رافد بأهل القرية.',pic:'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800',items:[['محضر اجتماع','محضر قديم يذكر نقاشًا عن إغلاق الطريق الشرقي.','clue_meeting'],['توقيع رافد','التوقيع في محضرين مختلفين ليس بالشكل نفسه.','clue_signature']]},
+  {id:'clinic2',name:'غرفة السجلات',desc:'الملفات الطبية القديمة في عيادة نائل.',pic:'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',items:[['ورقة ناقصة','صفحة من سجل المراجعين أزيلت بعناية.','clue_missingpage'],['تاريخ مكتوب','التاريخ على ورقة منفصلة لا يطابق غلاف الملف.','clue_date']]},
+  {id:'shop2',name:'المخزن الخلفي',desc:'المكان الذي لا يدخله زبائن متجر سالم.',pic:'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800',items:[['صندوق قديم','الصندوق مغلق، وعليه خدوش حديثة.','clue_box'],['قصاصة ورق','قصاصة تحمل جزءًا من جملة ممزقة.','clue_scrap']]}
+ ],
+ puzzles:[
+  {id:'p5',title:'الروايات الثلاث',text:'عند استجواب المشتبه بهم، أي شيء يجب أن تقارنه أولًا لتكتشف التناقض؟ اكتب: الأقوال أو الملابس.',answer:['الأقوال','قول','الروايات'],hint:'التناقض يظهر عندما لا تتفق الروايات حول الحدث نفسه.'},
+  {id:'p6',title:'الورقة الناقصة',text:'وجدت صفحة مفقودة من سجل. ما أفضل خطوة تحقيقية؟ اكتب: تجاهل أو مقارنة.',answer:['مقارنة','قارن'],hint:'لا تكتفِ بغياب الصفحة؛ قارن ما بقي بما ورد في مصدر آخر.'}
+ ],
+ ending:'بعد انتهاء الاستجواب، وصلت رسالة بلا توقيع: «غدًا ستعرف لماذا لم يكن الباب المغلق دليلًا على أن ليلى كانت وحدها».'
+},
+{
+ title:'الحقيقة التي لا تنام',sub:'الليلة الأخيرة في قرية الأون.',image:'https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=1200',
+ story:`هذه هي الليلة الرابعة.
+
+لم تعد القرية تخفي خوفها. لم يعد أحد يضحك عندما تذكر الأسطورة. حتى الأطفال توقفوا عن اللعب قرب الطريق المؤدي إلى الغابة.
+
+أمامك دفتر الأدلة، وإفادات الرجال الثلاثة، والأشياء التي عثرت عليها في المخبز والبئر ومنزل ليلى.
+
+تذكر: مريم اختفت وهي عائدة من المخبز. هدى اختفت قرب البئر. وليلى اختفت من منزل مغلق من الداخل، وبقي فنجانها دافئًا.
+
+ثلاث حوادث مختلفة، لكن لا يمكن أن تكون كل التفاصيل مصادفة.
+
+الآن عليك أن تراجع ما جمعت، وتحدد من تتهمه، وتشرح لماذا. لا يكفي أن تقول إنك تشعر بالشك. المحقق لا يقدّم شعورًا؛ يقدم دليلًا.`,
+ quote:'«آخر سؤال في القضية ليس: من يبدو مخيفًا؟ بل: من تتفق أفعاله مع الأدلة؟»',
+ places:[
+  {id:'lastHouse',name:'منزل ليلى مرة أخرى',desc:'أعد فحص المكان بعد جمع الأدلة السابقة.',pic:'https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=800',items:[['تفصيلة النافذة','عند إعادة الفحص، تلاحظ خدشًا لا يظهر من الخارج.','clue_finalwindow'],['موضع الفنجان','الفنجان ليس في الموضع الذي وصفه أول شاهد.','clue_finalcup']]},
+  {id:'lastSquare',name:'ساحة الأون',desc:'المكان الذي اجتمعت فيه كل الروايات.',pic:'https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=800',items:[['إفادة أخيرة','شاهد يكرر كلامًا سمعته من شخص آخر، لا ما رآه بنفسه.','clue_finalstatement'],['الورقة الأخيرة','الرسالة الأخيرة تحمل جزءًا من خط تعرفه من الأدلة السابقة.','clue_finalletter']]}
+ ],
+ puzzles:[
+  {id:'p7',title:'الترابط الأخير',text:'قبل الاتهام، ما الذي يجب أن يثبت معًا؟ اكتب: الدليل والتوقيت أو الاسم فقط.',answer:['الدليل والتوقيت','التوقيت والدليل'],hint:'الاسم وحده لا يكفي. اربط ما حدث بوقت حدوثه.'},
+  {id:'p8',title:'قرار المحقق',text:'ما الأساس الذي يجب أن تبني عليه اتهامك؟ اكتب: الأدلة أو الإشاعة.',answer:['الأدلة','دليل'],hint:'الأسطورة والإشاعات ليست إثباتًا.'}
+ ],
+ ending:'أغلقت دفتر الملاحظات. بقي أمامك قرار واحد: أن تختار الشخص الذي تتفق أفعاله مع الأدلة التي جمعتها. لكن تذكّر أن الاتهام ليس الحقيقة بحد ذاته.'
 }
-function escapeHTML(str){
-return String(str||"").replace(/[&<>"']/g,c=>({
-"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-}[c]));
+];
+
+function renderDay(i){
+ dayNow=i;checkUnlock();updateTabs();
+ let d=D[i];
+ $('hero').style.backgroundImage='url("'+d.image+'")';
+ $('heroKicker').textContent='DAY 0'+(i+1)+' · ROOM 00';
+ $('heroTitle').textContent=d.title;
+ $('heroSub').textContent=d.sub;
+ $('storyText').textContent=d.story;
+ $('storyQuote').textContent=d.quote;
+ renderPlaces();renderPuzzles();renderPeople();renderEvidence();renderNotes();renderAccuse();
+ currentPersonId=null;
+ $('dayEnd').style.display='none';
+ showSec('story')
 }
-renderWhisper();
+function updateTabs(){
+ for(let i=0;i<4;i++){
+  let b=$('tab'+i);
+  b.className='daytab'+(i===dayNow?' active':'')+(!S.unlocked[i]?' locked':'')+(i<dayNow?' done':'');
+  b.innerHTML=['اليوم الأول<br>البداية','اليوم الثاني<br>الأثر','اليوم الثالث<br>المواجهة','اليوم الرابع<br>الحقيقة'][i];
+  if(!S.unlocked[i])b.innerHTML=['اليوم الأول<br>البداية','اليوم الثاني<br>مغلق','اليوم الثالث<br>مغلق','اليوم الرابع<br>مغلق'][i]
+ }
+}
+function renderPlaces(){
+ let d=D[dayNow];$('placeGrid').innerHTML='';$('placeDetail').innerHTML='';
+ d.places.forEach(p=>{
+  let el=document.createElement('div');el.className='place';el.style.setProperty('--pic','url("'+p.pic+'")');
+  el.innerHTML='<h4>'+p.name+'</h4><p>'+p.desc+'</p>';
+  el.onclick=()=>openPlace(p.id);
+  $('placeGrid').appendChild(el)
+ })
+}
+function openPlace(id){
+ let p=D[dayNow].places.find(x=>x.id===id);if(!p)return;
+ placeNow=id;
+ if(!S.seen.includes(id)){S.seen.push(id);save()}
+ $('placeDetail').innerHTML='<div class="quote">'+p.desc+'</div><h3>افحص الأشياء الموجودة</h3><div id="itemsHere"></div>';
+ let target=$('itemsHere');
+ p.items.forEach(it=>{
+  let row=document.createElement('div');row.className='item';
+  let left=document.createElement('div');
+  left.innerHTML='<b>'+it[0]+'</b><p>'+it[1]+'</p>';
+  let btn=document.createElement('button');
+  btn.textContent=S.clues.includes(it[2])?'تم فحصه ✓':'افحص هذا الشيء';
+  btn.onclick=()=>inspect(it[2],it[0],it[1],btn);
+  row.append(left,btn);target.appendChild(row)
+ })
+}
+function inspect(id,title,description,btn){
+ if(S.clues.includes(id)){btn.textContent='تم فحصه ✓';return}
+ S.clues.push(id);S.notes.push({title:'دليل: '+title,description,day:dayNow+1});
+ save();btn.textContent='تم فحصه ✓';
+ alert('تم تسجيل دليل جديد في دفتر المحقق.');
+ renderEvidence();renderNotes()
+}
+function renderEvidence(){
+ $('evidenceList').innerHTML='';
+ let clues=S.notes.filter(n=>n.title.startsWith('دليل:'));
+ if(!clues.length){$('evidenceList').innerHTML='<p>لم تجمع أي دليل بعد. ابدأ بتفتيش الأماكن.</p>';return}
+ clues.forEach(c=>{
+  let d=document.createElement('div');d.className='clue';
+  d.innerHTML='<h4>'+c.title+'</h4><p>'+c.description+'</p><small>اليوم '+c.day+'</small>';
+  $('evidenceList').appendChild(d)
+ })
+}
+function renderNotes(){
+ $('notesList').innerHTML='';
+ if(!S.notes.length){$('notesList').innerHTML='<p>دفترك فارغ حتى الآن.</p>';return}
+ S.notes.forEach(n=>{
+  let d=document.createElement('div');d.className='note';
+  d.innerHTML='<b>'+n.title+'</b><br>'+n.description+'<br><small>اليوم '+n.day+'</small>';
+  $('notesList').appendChild(d)
+ })
+}
+function renderPuzzles(){
+ $('puzzleList').innerHTML='';
+ D[dayNow].puzzles.forEach(p=>{
+  let box=document.createElement('div');box.className='puzzle';
+  let solved=S.solved.includes(p.id);
+  box.innerHTML='<h4>'+p.title+'</h4><p>'+p.text+'</p>';
+  if(solved){box.innerHTML+='<div class="feedback">تم حل اللغز ✓</div>'}
+  else{
+   let input=document.createElement('input');input.placeholder='اكتب إجابتك هنا';
+   let btn=document.createElement('button');btn.className='gold';btn.textContent='تحقق من الإجابة';
+   let feedback=document.createElement('div');feedback.className='feedback';
+   btn.onclick=()=>{
+    let ans=input.value.trim().toLowerCase().replace(/[أإآ]/g,'ا');
+    let ok=p.answer.some(a=>ans===a.toLowerCase().replace(/[أإآ]/g,'ا'));
+    if(ok){
+     S.solved.push(p.id);
+     S.notes.push({title:'حل لغز: '+p.title,description:'توصلت إلى الإجابة بعد مراجعة تفاصيل القضية.',day:dayNow+1});
+     save();feedback.textContent='إجابة صحيحة. تم تسجيل استنتاجك في الدفتر.';
+     btn.disabled=true;input.disabled=true
+    }else{
+     S.wrong[p.id]=(S.wrong[p.id]||0)+1;
+     feedback.textContent=S.wrong[p.id]>=2?'لم تتضح الصورة بعد. التلميح: '+p.hint:'ليست هذه الإجابة. راجع الأدلة وحاول مرة أخرى. لن يُغلق التحقيق بسبب إجابة خاطئة.'
+    }
+   };
+   box.append(input,btn,feedback)
+  }
+  $('puzzleList').appendChild(box)
+ })
+}
+function renderPeople(){
+ $('peopleGrid').innerHTML='';
+ people.forEach(p=>{
+  let el=document.createElement('div');el.className='person';
+  let photo=document.createElement('div');photo.className='person-photo';
+  photo.style.backgroundImage='linear-gradient(#21152c22,#21152c66),url("'+p.photo+'")';
+  let info=document.createElement('div');info.className='person-info';
+  info.innerHTML='<h4>'+p.name+' · '+p.role+'</h4><p>'+p.desc+'</p><button class="soft">افتح ملف المشتبه ←</button>';
+  el.append(photo,info);
+  el.onclick=()=>openProfile(p.id);
+  $('peopleGrid').appendChild(el)
+ })
+}
+function openProfile(id){
+ currentPersonId=id;
+ let p=people.find(x=>x.id===id);if(!p)return;
+ let box=$('profileBox');box.innerHTML='';
+ let profile=document.createElement('div');profile.className='profile';
+ let photo=document.createElement('div');photo.className='profile-photo';
+ photo.style.backgroundImage='linear-gradient(#21152c22,#21152c66),url("'+p.photo+'")';
+ let kicker=document.createElement('div');kicker.className='kicker';kicker.textContent='SUSPECT FILE · ROOM 00';
+ let title=document.createElement('h2');title.textContent=p.name+' · '+p.role;
+ let desc=document.createElement('p');desc.textContent=p.desc;
+ let warning=document.createElement('div');warning.className='quote';
+ warning.textContent='هذا الملف لا يحتوي على الحقيقة كاملة. اقرأ التفاصيل، ثم ابدأ الاستجواب بنفسك.';
+ let start=document.createElement('button');start.className='gold';start.textContent='ابدأ استجواب '+p.name+' ←';
+ start.onclick=()=>showSec('interview');
+ profile.append(photo,kicker,title,desc,warning,start);
+ box.appendChild(profile);
+ showSec('suspectProfile')
+}
+const questions={
+ rafed:[
+  ['متى عرفت باختفاء مريم؟','أبلغوني في الصباح. لم يصلني شيء في الليلة نفسها.','سجّل: رافد يقول إن البلاغ وصله صباحًا.'],
+  ['لماذا طلبت من الناس عدم الحديث عن الأسطورة؟','لأن الخوف يجعل الناس يتصرفون بلا عقل. لا أريد أن تتحول القرية إلى فوضى.','سجّل: رافد يربط الحديث عن الأسطورة بالفوضى.'],
+  ['هل تعرف الطرق التي سلكتها النساء؟','أنا العمدة. أعرف طرق القرية كلها، لكنني لا أراقب الناس.','سجّل: رافد يؤكد معرفته بطرق القرية.']
+ ],
+ nael:[
+  ['هل زارتك هدى قبل اختفائها؟','الناس يزورون العيادة لأسباب كثيرة. لا أتذكر كل اسم.','سجّل: نائل لم ينفِ زيارة هدى بشكل قاطع.'],
+  ['هل تعرف حالة ليلى الصحية؟','كانت تبدو بخير في آخر مرة رأيتها فيها.','سجّل: نائل يذكر أنه رأى ليلى آخر مرة.'],
+  ['لماذا سجل المواعيد ناقص؟','الملفات القديمة تتلف أحيانًا. هذا أمر طبيعي.','سجّل: نائل يصف نقص السجل بأنه تلف عادي.']
+ ],
+ salem:[
+  ['هل رأيت مريم في ليلة اختفائها؟','مرّ كثير من الناس على المتجر. لا أستطيع تذكر الجميع.','سجّل: سالم لا يؤكد ولا ينفي رؤية مريم.'],
+  ['هل كان متجرك مفتوحًا ليلًا؟','أحيانًا أتأخر في ترتيب البضائع. لا شيء غريب في ذلك.','سجّل: سالم يعترف بأنه قد يبقى في المتجر بعد الإغلاق.'],
+  ['ما رأيك في الأسطورة؟','سمعت بها منذ كنت طفلًا. الناس ينسون أن الحكايات القديمة قد تكون لها جذور.','سجّل: سالم لا يسخر من الأسطورة مثل بقية أهل القرية.']
+ ]
+};
+function renderInterview(){
+ let p=people.find(x=>x.id===currentPersonId);
+ if(!p){
+  $('interviewBox').innerHTML='<p>ارجع إلى المشتبه بهم واختر الشخص الذي تريد استجوابه.</p>';
+  return
+ }
+ let qs=questions[currentPersonId];
+ let box=document.createElement('div');
+ let head=document.createElement('div');head.className='interview-head';
+ head.innerHTML='<h3>استجواب '+p.name+'</h3><p>'+p.role+' · اختر سؤالًا من الأسئلة التالية. يمكنك طرح الأسئلة كلها والعودة إلى إجاباتك.</p>';
+ box.appendChild(head);
+ qs.forEach((q,i)=>{
+  let b=document.createElement('button');b.className='choice';b.textContent='؟ '+q[0];
+  b.onclick=()=>{
+   box.querySelectorAll('.answer,.save-answer').forEach(x=>x.remove());
+   let ans=document.createElement('div');ans.className='quote answer';
+   ans.innerHTML='<b>إجابة '+p.name+':</b><br>«'+q[1]+'»';
+   let saveBtn=document.createElement('button');saveBtn.className='soft save-answer';
+   let key=currentPersonId+'_'+i;
+   let already=S.interviewed.includes(key);
+   saveBtn.textContent=already?'تم حفظ الملاحظة ✓':'أضف الملاحظة إلى دفتر المحقق';
+   saveBtn.disabled=already;
+   saveBtn.onclick=()=>{
+    if(!S.interviewed.includes(key)){
+     S.interviewed.push(key);
+     S.notes.push({title:'إفادة '+p.name,description:q[2]+' الإجابة: '+q[1],day:dayNow+1});
+     save();renderNotes()
+    }
+    saveBtn.textContent='تم الحفظ ✓';saveBtn.disabled=true
+   };
+   box.append(ans,saveBtn)
+  };
+  box.appendChild(b)
+ });
+ $('interviewBox').innerHTML='';$('interviewBox').appendChild(box)
+}
+function renderAccuse(){
+ $('accuseBox').innerHTML='';
+ let label=document.createElement('p');label.textContent='من الشخص الذي تضعه في دائرة الشك؟';
+ $('accuseBox').appendChild(label);
+ people.forEach(p=>{
+  let b=document.createElement('button');b.className='choice';
+  b.textContent=p.name+' · '+p.role+(S.suspicions[dayNow]===p.id?' ✓':'');
+  b.onclick=()=>{S.suspicions[dayNow]=p.id;save();renderAccuse()};
+  $('accuseBox').appendChild(b)
+ });
+ let txt=document.createElement('textarea');txt.rows=3;
+ txt.placeholder='اكتب سبب اشتباهك، وما الأدلة التي تربطها به...';
+ txt.value=S.suspicions['reason'+dayNow]||'';
+ txt.onchange=()=>{S.suspicions['reason'+dayNow]=txt.value;save()};
+ $('accuseBox').appendChild(txt);
+ let msg=document.createElement('div');msg.className='feedback';
+ msg.textContent=S.suspicions[dayNow]?'تم حفظ اشتباهك. تذكّر: هذا ليس اتهامًا نهائيًا.':'لم تختر مشتبهًا بعد.';
+ $('accuseBox').appendChild(msg)
+}
+function finishDay(){
+ $('dayEnd').style.display='block';
+ if(dayNow<3){
+  $('endTitle').textContent='نهاية اليوم '+(dayNow+1);
+  $('endText').textContent=D[dayNow].ending;
+  S.completedAt[dayNow]=Date.now();
+  let next=dayNow+1;
+  let remaining=DAY;
+  if(!S.unlocked[next]){
+   $('unlockText').textContent='انتهى هذا اليوم. سيفتح اليوم التالي بعد مرور 24 ساعة من الآن. يمكنك العودة في أي وقت لمتابعة التحقيق.';
+  }else $('unlockText').textContent='اليوم التالي متاح الآن.';
+  save()
+ }else{
+  $('endTitle').textContent='وصلت إلى نهاية التحقيق';
+  $('endText').textContent=D[3].ending;
+  $('unlockText').textContent='تم حفظ دفتر التحقيق واختيارك النهائي. لم يُكشف الحل في هذه النسخة حتى لا نضيف نهاية تخالف القصة الأصلية.';
+  S.finished=true;save()
+ }
+ $('dayEnd').scrollIntoView({behavior:'smooth',block:'center'})
+}
+checkUnlock();
 updateProgress();
+renderStepNav();
 </script>
 </body>
 </html>
