@@ -5,6 +5,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ROOM 00 | عالم الأسرار</title>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MP9XWRCJ86"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MP9XWRCJ86');
+</script>
+
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -364,6 +374,7 @@ footer{text-align:center;padding:25px;color:#8c7c91;font-size:11px}
 <script>
 const SOLVED_KEY='room00_case_series_solved_v1';
 let doorClicks=0,currentCase=0;
+
 const cases=[
 {id:'001',title:'الرسالة التي لم تصل',label:'الظرف أسفل الباب',image:'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=1200',story:'في مساء ممطر، عُثر على ظرف قديم أسفل باب الغرفة 00. لم يكن عليه اسم مرسل، بل عبارة واحدة: «افتحها عندما تتعلم الانتظار». يقول سجل المبنى إن الغرفة كانت مغلقة منذ سنوات.',evidence:[['الظرف','الورق أصفر وقديم، لكن قطرات المطر على حافته حديثة.'],['ساعة المدخل','توقفت الساعة عند 11:47، وهو الوقت نفسه المكتوب داخل الظرف.'],['سجل الحراسة','لم يدخل أي شخص من الباب الرئيسي بعد إغلاق المبنى.'],['الملاحظة','على ظهر الظرف: «إلى من سيصل بعد أن أغادر».']],question:'من الأقرب أن يكون المقصود بالرسالة؟',answers:['شخص سيأتي إلى الغرفة بعد مغادرة كاتب الرسالة.','الحارس الذي أغلق المبنى.','شخص كان داخل الغرفة طوال الليل.'],correct:0,solution:'عبارة «إلى من سيصل بعد أن أغادر» مع سجل إغلاق المبنى تشير إلى أن الرسالة تُركت لشخص سيأتي لاحقًا، وليس لشخص موجود وقت كتابتها.',reward:'ظهر على ظهر الظرف رقم صغير: 002.',stamp:'002'},
 {id:'002',title:'اختفاء الشاهد',label:'كرسي فارغ في غرفة الانتظار',image:'https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=1200',story:'بعد إغلاق القضية الأولى، وصل بلاغ عن اختفاء شاهد كان ينتظر استدعاءه. الغريب أن كرسيه بقي دافئًا، بينما لم تسجل كاميرات الممر خروجه. لم يكن للغرفة سوى باب واحد.',evidence:[['سجل الباب','القفل لم يُفتح من الداخل أو الخارج بين 9:00 و10:00 مساءً.'],['النافذة','النافذة ثابتة ومغلقة، ولا توجد آثار على حافتها أو خارجها.'],['كرسي الانتظار','أثر الضغط على المقعد يدل أن شخصًا جلس عليه قبل دقائق من وصول الحارس.'],['خريطة الغرفة','يوجد باب خدمة ضيق خلف خزانة الملفات، ولا يظهر في مخطط المبنى العام.']],question:'كيف غادر الشاهد الغرفة دون أن يظهر في تسجيل الباب؟',answers:['خرج من نافذة الغرفة.','استخدم باب الخدمة المخفي خلف الخزانة.','لم يكن داخل الغرفة أصلًا.'],correct:1,solution:'الباب الرئيسي لم يُفتح، والنافذة مغلقة ولا تحمل آثارًا. الدليل الوحيد الذي يفسر الخروج دون تسجيل هو باب الخدمة المخفي خلف خزانة الملفات.',reward:'داخل باب الخدمة وُجدت قصاصة تحمل الرقم 003.',stamp:'003'},
@@ -408,6 +419,15 @@ function enterRoom(id){
  };
  document.getElementById('roomTitle').textContent=names[id][0];
  document.getElementById('roomDescription').textContent=names[id][1];
+
+ // تسجيل زيارة الغرفة في Google Analytics
+ if(typeof gtag==='function'){
+  gtag('event','room_open',{
+   room_id:id,
+   room_name:names[id][0]
+  });
+ }
+
  if(id==='cases')renderCases();
  if(id==='archive')showWhisper();
  if(id==='hiddenRoom'){
