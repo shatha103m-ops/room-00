@@ -1,57 +1,626 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>الغرفة 00 | الأرشيف السري</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--gold:#c9a66e;--cream:#e9ddc9;--dark:#09070b}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#08060a;color:var(--cream);font-family:'IBM Plex Sans Arabic',sans-serif}button,input{font:inherit}button{cursor:pointer}header{position:fixed;top:0;right:0;left:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:13px 6%;background:#09070be8;border-bottom:1px solid #c9a66e44;backdrop-filter:blur(12px)}.logo{font-size:21px;letter-spacing:2px}.logo span{color:var(--gold)}header small{font-size:11px;color:#b6a6b8}.scene{min-height:100svh;position:relative;display:none;background-size:cover;background-position:center;overflow:hidden}.scene.active{display:block;animation:fade .7s}@keyframes fade{from{opacity:0;filter:blur(4px)}to{opacity:1;filter:blur(0)}}.scene:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#08050bdc,#08050b80 50%,#08050bdc)}.scene-content{position:relative;z-index:2}.kicker{font-size:11px;letter-spacing:4px;color:var(--gold)}h1{font-weight:400;font-size:clamp(30px,6vw,56px);margin:17px 0 8px}h1 span,.section-title span{color:var(--gold)}.subtitle,.intro-line{color:#c4b6c8;font-size:14px;line-height:2}.gold-button{border:1px solid var(--gold);color:#f4e5c9;background:linear-gradient(110deg,#3a281c,#80603d);padding:11px 25px;transition:.3s}.gold-button:hover{box-shadow:0 0 25px #c9a66e66;transform:translateY(-2px)}.back{border:0;background:transparent;color:var(--gold);padding:12px 0;text-decoration:underline;text-underline-offset:6px}.hint{font-size:12px;color:#a99aaa;line-height:2}#entrance{background-image:linear-gradient(#09060b66,#09060b99),url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1800&q=90')}.entrance-inner{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 18px 40px}.door-wrap{perspective:1200px;margin:30px auto 18px}.door-photo{width:min(310px,76vw);height:440px;max-height:52vh;background:url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=900&q=90') center/cover;border:7px solid #49301c;border-radius:150px 150px 2px 2px;box-shadow:0 0 0 2px #bd965d,0 25px 80px #000,0 0 65px #9b72b855;position:relative;cursor:pointer;transform-origin:right center;transition:transform 1.3s}.door-photo:after{content:"";position:absolute;inset:12px;border:1px solid #d0a66b99;border-radius:140px 140px 0 0}.door-photo.open{transform:rotateY(-68deg);filter:brightness(.55)}.door-knob{position:absolute;z-index:2;right:23px;top:57%;width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff2bb,#c79a50 55%,#493016)}.door-number{position:absolute;z-index:2;left:0;right:0;top:42%;font:52px Georgia;color:#e0c28b;text-shadow:0 0 25px #000;text-align:center}#clue{display:none;color:var(--gold);margin:12px}#hallway{background-image:linear-gradient(#08050b55,#08050b99),url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1800&q=90')}.hall-inner{min-height:100svh;padding:115px 20px 65px;max-width:1100px;margin:auto;text-align:center}.section-title{font-size:30px;font-weight:400;color:#e9d5b3}.hall-image{max-width:850px;margin:30px auto;min-height:250px;padding:25px;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,#09060b66,#09060b88),url('https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1400&q=85') center/cover;border-block:1px solid #c9a66e66}.doorways{max-width:850px;margin:35px auto;display:flex;flex-direction:column;text-align:right}.doorway{position:relative;display:flex;align-items:center;gap:18px;min-height:125px;padding:15px;margin:12px 0;overflow:hidden;cursor:pointer;background:#100c12;border:1px solid #9b795044;transition:.4s;border-radius:3px}.doorway:before{content:"";position:absolute;inset:0;background-size:cover;background-position:center;opacity:.34;transition:.5s}.doorway:nth-child(1):before{background-image:url('https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=1000')}.doorway:nth-child(2):before{background-image:url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1000')}.doorway:nth-child(3):before{background-image:url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1000')}.doorway:nth-child(4):before{background-image:url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=1000')}.doorway:nth-child(5):before{background-image:url('https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1000')}.doorway:nth-child(6):before{background-image:url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=1000')}.doorway:nth-child(7):before{background-image:url('https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=1000')}.doorway:hover:before{opacity:.65;transform:scale(1.06)}.doorway>*{position:relative;z-index:2}.door-symbol{font-size:27px;color:var(--gold);width:65px;height:85px;display:flex;align-items:center;justify-content:center;border:2px solid #b18b58;background:#09070bc9}.doorway h3{margin:0;font-weight:400;font-size:17px;color:#e9d5b3;text-shadow:0 2px 8px #000}.doorway p{margin:5px 0 0;color:#e0d0bd;font-size:12px;text-shadow:0 2px 8px #000}.door-arrow{margin-right:auto;color:var(--gold);font-size:20px}.doorway:hover{padding-right:25px;border-color:#d1ad72;box-shadow:0 0 25px #c9a66e33}#room{background:#09070b}#room:before{background:linear-gradient(#09060b99,#09060bd9)}.room-inner{max-width:1050px;margin:auto;padding:100px 20px 70px;min-height:100svh}.room-heading{text-align:center;margin:15px 0 25px}.room-heading h2{font-size:32px;font-weight:400;color:var(--gold);margin:8px}.room-heading p{font-size:13px;color:#c1b3c3}.room-panel{display:none;position:relative;min-height:570px;margin:25px auto;padding:30px 25px;overflow:hidden;background-size:cover;background-position:center;border-block:1px solid #c9a66e66;box-shadow:0 20px 70px #0009}.room-panel.show{display:block;animation:fade .7s}.room-panel:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#08060bd9,#08060b9c 55%,#08060bd9);pointer-events:none}.room-content{position:relative;z-index:2;max-width:780px;margin:auto}.room-content h3{font-size:25px;font-weight:400;color:var(--gold);text-align:center}.room-content p{font-size:14px;color:#e0d3dc;line-height:2.2}#cases{background-image:url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1600&q=90')}#puzzle{background-image:url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=90')}#archive{background-image:url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1600&q=90')}#whisper{background-image:url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1600&q=90')}#messages{background-image:url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1600&q=90')}#secret,#hiddenRoom{background-image:url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1600')}.investigation-room{padding:15px 0}.case-scene{position:relative;min-height:390px;margin:20px auto;background:linear-gradient(#100b10a6,#100b10b3),url('https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=1500&q=90') center/cover;border:8px solid #38271d;box-shadow:0 18px 40px #000}.case-scene-title{position:absolute;top:18px;right:22px;color:#e5c78e;font-size:13px;letter-spacing:2px}.evidence-wall{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:18px;padding:65px 15px 30px;position:relative;z-index:2}.evidence-photo{width:115px;height:135px;background:#d9cbb2;padding:6px 6px 23px;box-shadow:0 5px 18px #000b;transform:rotate(-3deg);cursor:pointer;transition:.3s;position:relative}.evidence-photo:nth-child(even){transform:rotate(4deg)}.evidence-photo img{width:100%;height:100%;object-fit:cover;filter:sepia(.35)}.evidence-photo span{position:absolute;bottom:2px;left:0;right:0;text-align:center;color:#33261e;font-size:10px}.case-desk{margin:-4px auto 25px;min-height:145px;padding:20px;background:linear-gradient(180deg,#593c26,#24170f);border:5px solid #65482d;box-shadow:0 18px 25px #000b;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap}.desk-lamp{font-size:45px;color:#e7c27d}.desk-note{background:#d9c8a8;color:#38291d;padding:14px 18px;max-width:240px;transform:rotate(-2deg);font-size:12px;line-height:2}.case-progress{text-align:center;font-size:12px;color:#d8c6a7}.progress{height:6px;background:#09060b;margin:12px auto;max-width:400px}.progress span{display:block;height:100%;background:var(--gold);width:0;transition:.3s}.evidence-list{max-width:700px;margin:25px auto}.evidence{border-bottom:1px solid #c9a66e55;padding:14px 5px;text-align:right}.evidence h4{color:var(--gold);font-weight:500;margin:0 0 7px}.evidence p{font-size:13px;margin:0}.evidence button{background:none;border:0;color:#e7c68e;text-decoration:underline;padding:8px 0}.option{display:block;width:100%;text-align:right;margin:9px 0;padding:12px 16px;background:#110c17e8;border:1px solid #76583b;color:#eadcc8;transition:.25s}.option:hover{background:#30203a}.message{color:#e2c99e;font-size:19px;line-height:2.3;text-align:center}.reward{display:none;color:#e0c28b;text-align:center}input{background:#0b0810;border:1px solid #a17b4b;padding:12px;color:white;text-align:center;max-width:220px}.room-content input{margin:10px auto}.secret-door{max-width:330px;height:390px;margin:25px auto;border:8px solid #30221b;background:linear-gradient(#0005,#0009),url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=900') center/cover;box-shadow:0 0 35px #000;display:flex;align-items:center;justify-content:center;flex-direction:column;cursor:pointer}.secret-door strong{font:48px Georgia;color:#d8b77c}.secret-door span{color:#e9ddc9;font-size:13px}.secret-evidence{padding:17px;margin:15px 0;border:1px solid #a17b4b66;background:#09070bd9;line-height:2}footer{text-align:center;padding:30px;color:#827588;font-size:11px}
-/* تصميم ملفات الألغاز القصصية */
-.puzzle-topline{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;color:#d8c29f;font-size:12px;border-bottom:1px solid #c9a66e55;padding-bottom:12px}.difficulty{border:1px solid #a97953;color:#e9bd8c;padding:4px 12px;font-size:11px}.story-cover{height:clamp(190px,36vw,330px);margin:18px 0 20px;background-size:cover;background-position:center;border:1px solid #b38a5b;position:relative;box-shadow:0 12px 30px #0009}.story-cover:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#08060be8,transparent 65%)}.story-cover-label{position:absolute;z-index:1;bottom:15px;right:18px;color:#f0d5a8;font-size:13px;letter-spacing:1px}.story-copy{max-width:700px;margin:0 auto 20px;padding:0 5px}.story-copy p{font-size:14px;line-height:2.25;color:#e4d9d0}.story-copy .opening{font-size:18px;color:#e8c990}.evidence-heading{color:var(--gold);font-size:16px;margin:22px 0 10px}.clue-card{border-right:2px solid #a98250;background:#0b080dcc;padding:12px 15px;margin:9px 0;display:flex;justify-content:space-between;align-items:center;gap:12px}.clue-card p{margin:0;font-size:13px;line-height:1.9}.clue-card button{flex-shrink:0;background:transparent;border:1px solid #8d704e;color:#e6c48c;padding:7px 11px;font-size:11px}.clue-card.locked{opacity:.72}.clue-card.opened{background:#21180fdd}.hint-area{margin:18px 0;padding:15px;border:1px dashed #9d794e;background:#0a080dcc}.hint-area button{background:none;border:0;color:#e8c78e;text-decoration:underline;padding:5px}.hint-text{color:#d9c8a9!important;font-size:13px!important}.answer-area{margin-top:24px;padding:18px;background:#0b080de8;border:1px solid #9c784e}.answer-area h4{color:var(--gold);font-weight:400;font-size:18px;margin:0 0 10px}.answer-area .option{font-size:13px}.answer-feedback{min-height:28px;text-align:center;color:#e5c68d;font-size:13px}.story-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:20px 0}.story-actions button{min-width:150px}.solved-stamp{display:none;text-align:center;padding:20px;margin:20px 0;border:1px solid #c9a66e;background:#171109e8}.solved-stamp strong{display:block;color:#e5c68d;font-size:22px}.solved-stamp p{font-size:13px}.puzzle-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:18px 0}.puzzle-nav button{background:transparent;border:1px solid #8b6b48;color:#e5c68d;padding:9px 13px}.puzzle-nav button:disabled{opacity:.3;cursor:not-allowed}.puzzle-progress{height:5px;background:#08060b;margin:12px 0 20px}.puzzle-progress span{display:block;height:100%;background:#c9a66e;transition:.3s}
-@media(max-width:600px){header{padding:12px 5%}.door-photo{height:390px}.hall-inner{padding-top:100px}.room-inner{padding:95px 12px 45px}.room-panel{padding:20px 12px;min-height:500px}.case-scene{min-height:350px}.evidence-photo{width:88px;height:112px}.evidence-wall{gap:10px}.case-desk{min-height:130px;padding:12px}.secret-door{height:330px}.clue-card{align-items:flex-start}.clue-card button{padding:6px 8px}.puzzle-nav button{font-size:11px;min-width:0}}
+:root{--gold:#c9a66e;--cream:#e9ddc9;--dark:#09070b;--muted:#b8aab9}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#08060a;color:var(--cream);font-family:'IBM Plex Sans Arabic',sans-serif}
+button,input{font:inherit}
+button{cursor:pointer}
+header{position:fixed;top:0;right:0;left:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:13px 6%;background:#09070beF;border-bottom:1px solid #c9a66e44;backdrop-filter:blur(12px)}
+.logo{font-size:21px;letter-spacing:2px}
+.logo span{color:var(--gold)}
+header small{font-size:11px;color:var(--muted)}
+.scene{min-height:100svh;position:relative;display:none;background-size:cover;background-position:center;overflow:hidden}
+.scene.active{display:block;animation:fade .7s}
+@keyframes fade{from{opacity:0;filter:blur(4px)}to{opacity:1;filter:blur(0)}}
+.scene:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#08050be8,#08050b88 50%,#08050be8)}
+.scene-content{position:relative;z-index:2}
+.kicker{font-size:11px;letter-spacing:4px;color:var(--gold)}
+h1{font-weight:400;font-size:clamp(30px,6vw,56px);margin:17px 0 8px}
+h1 span,.section-title span{color:var(--gold)}
+.subtitle,.intro-line{color:#c4b6c8;font-size:14px;line-height:2}
+.gold-button{border:1px solid var(--gold);color:#f4e5c9;background:linear-gradient(110deg,#3a281c,#80603d);padding:11px 25px;transition:.3s}
+.gold-button:hover{box-shadow:0 0 25px #c9a66e66;transform:translateY(-2px)}
+.back{border:0;background:transparent;color:var(--gold);padding:12px 0;text-decoration:underline;text-underline-offset:6px}
+.hint{font-size:12px;color:#a99aaa;line-height:2}
+#entrance{background-image:linear-gradient(#09060b66,#09060b99),url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1800&q=90')}
+.entrance-inner{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 18px 40px}
+.door-wrap{perspective:1200px;margin:30px auto 18px}
+.door-photo{width:min(310px,76vw);height:440px;max-height:52vh;background:url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=900&q=90') center/cover;border:7px solid #49301c;border-radius:150px 150px 2px 2px;box-shadow:0 0 0 2px #bd965d,0 25px 80px #000,0 0 65px #9b72b855;position:relative;cursor:pointer;transform-origin:right center;transition:transform 1.3s}
+.door-photo:after{content:"";position:absolute;inset:12px;border:1px solid #d0a66b99;border-radius:140px 140px 0 0}
+.door-photo.open{transform:rotateY(-68deg);filter:brightness(.55)}
+.door-knob{position:absolute;z-index:2;right:23px;top:57%;width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff2bb,#c79a50 55%,#493016)}
+.door-number{position:absolute;z-index:2;left:0;right:0;top:42%;font:52px Georgia;color:#e0c28b;text-shadow:0 0 25px #000;text-align:center}
+#clue{display:none;color:var(--gold);margin:12px}
+#hallway{background-image:linear-gradient(#08050b55,#08050b99),url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1800&q=90')}
+.hall-inner{min-height:100svh;padding:115px 20px 65px;max-width:1100px;margin:auto;text-align:center}
+.section-title{font-size:30px;font-weight:400;color:#e9d5b3}
+.hall-image{max-width:850px;margin:30px auto;min-height:250px;padding:25px;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,#09060b88,#09060b88),url('https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1400&q=85') center/cover;border-block:1px solid #c9a66e66}
+.doorways{max-width:850px;margin:35px auto;display:flex;flex-direction:column;text-align:right}
+.doorway{position:relative;display:flex;align-items:center;gap:18px;min-height:135px;padding:15px;margin:12px 0;overflow:hidden;cursor:pointer;background:#100c12;border:1px solid #9b795044;transition:.4s;border-radius:3px}
+.doorway:before{content:"";position:absolute;inset:0;background-size:cover;background-position:center;opacity:.38;transition:.5s}
+.doorway:nth-child(1):before{background-image:url('https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=1000')}
+.doorway:nth-child(2):before{background-image:url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1000')}
+.doorway:nth-child(3):before{background-image:url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1000')}
+.doorway:nth-child(4):before{background-image:url('https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1000')}
+.doorway:nth-child(5):before{background-image:url('https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=1000')}
+.doorway:nth-child(6):before{background-image:url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1000')}
+.doorway:nth-child(7):before{background-image:url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=1000')}
+.doorway:hover:before{opacity:.7;transform:scale(1.06)}
+.doorway>*{position:relative;z-index:2}
+.door-symbol{font-size:27px;color:var(--gold);width:65px;height:85px;display:flex;align-items:center;justify-content:center;border:2px solid #b18b58;background:#09070bc9}
+.doorway h3{margin:0;font-weight:400;font-size:17px;color:#e9d5b3;text-shadow:0 2px 8px #000}
+.doorway p{margin:5px 0 0;color:#e0d0bd;font-size:12px;text-shadow:0 2px 8px #000}
+.door-arrow{margin-right:auto;color:var(--gold);font-size:20px}
+.doorway:hover{padding-right:25px;border-color:#d1ad72;box-shadow:0 0 25px #c9a66e33}
+.doorway.black-door{border-color:#8c242b;min-height:155px}
+.doorway.black-door:before{background-image:url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=1200')}
+.doorway.black-door .door-symbol{border-color:#8d292d;color:#e0a0a0;background:#080507e8}
+#room{background:#09070b}
+#room:before{background:linear-gradient(#09060b99,#09060bd9)}
+.room-inner{max-width:1050px;margin:auto;padding:100px 20px 70px;min-height:100svh}
+.room-heading{text-align:center;margin:15px 0 25px}
+.room-heading h2{font-size:32px;font-weight:400;color:var(--gold);margin:8px}
+.room-heading p{font-size:13px;color:#c1b3c3}
+.room-panel{display:none;position:relative;min-height:570px;margin:25px auto;padding:30px 25px;overflow:hidden;background-size:cover;background-position:center;border-block:1px solid #c9a66e66;box-shadow:0 20px 70px #0009}
+.room-panel.show{display:block;animation:fade .7s}
+.room-panel:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#08060be8,#08060bbd 55%,#08060be8);pointer-events:none}
+.room-content{position:relative;z-index:2;max-width:780px;margin:auto}
+.room-content h3{font-size:25px;font-weight:400;color:var(--gold);text-align:center}
+.room-content p{font-size:14px;color:#e0d3dc;line-height:2.2}
+#cases{background-image:url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1600&q=90')}
+#puzzle{background-image:url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=90')}
+#archive{background-image:url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1600&q=90')}
+#messages{background-image:url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1600&q=90')}
+#secret{background-image:url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1600')}
+#hiddenRoom{background-image:linear-gradient(#050306dd,#050306ee),url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=1600')}
+.investigation-room{padding:15px 0}
+.case-banner{padding:20px;margin:20px 0;border:1px solid #b18b58;background:#0a080ddd;text-align:center}
+.case-banner h3{margin:0 0 10px}
+.case-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px;margin:20px 0}
+.case-ticket{padding:15px 10px;min-height:120px;text-align:center;background:linear-gradient(145deg,#211713,#09070b);border:1px solid #8e704b}
+.case-ticket strong{display:block;color:var(--gold);font-size:18px;margin-bottom:7px}
+.case-ticket span{font-size:12px;line-height:1.8;color:#d7c9b8}
+.case-ticket.done{border-color:#a88d5a;background:linear-gradient(145deg,#302719,#0c0909)}
+.case-ticket.done:after{content:"✓ أُغلقت";display:block;color:#d8bd82;font-size:11px;margin-top:8px}
+.case-stage{padding:20px;background:#08060be8;border:1px solid #8c6b47;margin-top:25px}
+.case-stage h3{text-align:center}
+.case-photo{height:230px;background-size:cover;background-position:center;border:1px solid #a98250;margin:15px 0;position:relative}
+.case-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#08060b88,transparent)}
+.case-photo span{position:absolute;bottom:12px;right:15px;z-index:2;color:#f0d5a8}
+.evidence-list{margin:20px 0}
+.evidence{padding:14px 12px;margin:10px 0;background:#110d12;border-right:2px solid #a98250}
+.evidence h4{color:var(--gold);font-weight:500;margin:0 0 7px}
+.evidence p{font-size:13px;margin:0;line-height:2}
+.case-question{margin-top:22px;padding:17px;background:#0b080de8;border:1px solid #9c784e}
+.option{display:block;width:100%;text-align:right;margin:9px 0;padding:12px 16px;background:#110c17e8;border:1px solid #76583b;color:#eadcc8;transition:.25s}
+.option:hover{background:#30203a}
+.option:disabled{opacity:.5;cursor:default}
+.feedback{min-height:30px;text-align:center;color:#e5c68d;font-size:13px;line-height:2}
+.solution{display:none;padding:18px;margin-top:18px;border:1px solid #c9a66e;background:#171109e8}
+.solution strong{display:block;color:var(--gold);text-align:center;font-size:20px}
+.solution p{font-size:13px}
+input{background:#0b0810;border:1px solid #a17b4b;padding:12px;color:white;text-align:center;max-width:240px}
+.room-content input{margin:10px auto}
+.secret-door{max-width:330px;height:390px;margin:25px auto;border:8px solid #30221b;background:linear-gradient(#0005,#0009),url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=900') center/cover;box-shadow:0 0 35px #000;display:flex;align-items:center;justify-content:center;flex-direction:column;cursor:pointer}
+.secret-door strong{font:48px Georgia;color:#d8b77c}
+.secret-door span{color:#e9ddc9;font-size:13px}
+.secret-evidence{padding:17px;margin:15px 0;border:1px solid #a17b4b66;background:#09070bd9;line-height:2}
+.archive-shelf{padding:20px;background:#0a080ddd;border:1px solid #92744e;margin:20px 0}
+.whisper-paper{padding:25px 18px;margin:20px auto;max-width:600px;background:#d9c8a8;color:#38291d;text-align:center;box-shadow:0 10px 30px #0008;transform:rotate(-1deg)}
+.whisper-paper p{color:#38291d!important;font-size:18px!important;line-height:2}
+.black-file{display:none;margin-top:25px;padding:25px;background:#080507;border:1px solid #8d292d;box-shadow:0 0 40px #650e16}
+.black-file h3{color:#d58b8b}
+.black-stamp{text-align:center;color:#c77a7a;letter-spacing:4px;border-block:1px solid #8d292d;padding:15px;margin:20px 0}
+footer{text-align:center;padding:30px;color:#827588;font-size:11px}
+@media(max-width:600px){
+header{padding:12px 5%}
+.door-photo{height:390px}
+.hall-inner{padding-top:100px}
+.room-inner{padding:95px 12px 45px}
+.room-panel{padding:20px 12px;min-height:500px}
+.case-photo{height:180px}
+.secret-door{height:330px}
+}
 </style>
 </head>
 <body>
-<header><div class="logo">الغرفة <span>00</span></div><small>الأرشيف السري · لا تثق بكل ما تراه</small></header>
-<section class="scene active" id="entrance"><div class="scene-content entrance-inner"><div class="kicker">ROOM 00 · CLASSIFIED</div><h1>الباب الذي لا <span>يُفتح للجميع</span></h1><p class="subtitle">وصلت إلى مكان لم يكن من المفترض أن تجده.<br>هل أنت مستعد لمعرفة ما خلف الباب؟</p><div class="door-wrap"><div class="door-photo" id="frontDoor" onclick="discoverClue()"><div class="door-number">00</div><div class="door-knob"></div></div></div><button class="gold-button" onclick="openDoor()">افتح الباب وادخل</button><p class="hint">اضغط الرقم 00 ثلاث مرات... فقد يكون هناك شيء مخفي.</p><p id="clue">✧ التلميح الأول: احتفظ بالرمز 000 ✧</p></div></section>
-<section class="scene" id="hallway"><div class="scene-content hall-inner"><div class="kicker">THE UNKNOWN HALLWAY</div><h2 class="section-title">وصلت إلى <span>الممر الأول</span></h2><p class="intro-line">تسمع صوت خطوات خلفك... لكن عندما تلتفت لا تجد أحدًا.<br>أمامك أبواب كثيرة. اختر بحذر.</p><div class="hall-image"><div><div class="kicker">ROOM 00</div><h2 class="section-title">كل باب له حكاية</h2><p>بعض الأبواب لا تفتح إلا لمن يعرف السر.</p></div></div><div class="doorways">
-<div class="doorway" onclick="enterRoom('cases')"><div class="door-symbol">♜</div><div><h3>غرفة التحقيق</h3><p>قضية قديمة، وصورة لا ينبغي أن تكون هنا.</p></div><div class="door-arrow">‹</div></div>
-<div class="doorway" onclick="enterRoom('puzzle')"><div class="door-symbol">⌘</div><div><h3>غرفة الألغاز</h3><p>قصص مصوّرة، أدلة مخفية، وحلول لا تُكتشف بالتخمين.</p></div><div class="door-arrow">‹</div></div>
-<div class="doorway" onclick="enterRoom('archive')"><div class="door-symbol">▤</div><div><h3>الأرشيف المحظور</h3><p>رفوف تحمل أسماءً مُسحت من السجلات.</p></div><div class="door-arrow">‹</div></div>
-<div class="doorway" onclick="enterRoom('whisper')"><div class="door-symbol">☾</div><div><h3>غرفة الهمسات</h3><p>رسالة تظهر عند منتصف الليل ولا تبقى طويلًا.</p></div><div class="door-arrow">‹</div></div>
-<div class="doorway" onclick="enterRoom('messages')"><div class="door-symbol">✉</div><div><h3>غرفة الرسائل المجهولة</h3><p>رسائل وصلت من أشخاص لا يتركون أسماءهم.</p></div><div class="door-arrow">‹</div></div>
-<div class="doorway" onclick="enterRoom('secret')"><div class="door-symbol">⚿</div><div><h3>الخزانة السرية</h3><p>ثلاثة أصفار... وربما أكثر مما تتوقع.</p></div><div class="door-arrow">‹</div></div>
-<div class="doorway" onclick="enterRoom('hiddenRoom')"><div class="door-symbol">009</div><div><h3>الباب الأسود</h3><p>باب لم يكن موجودًا في المخطط... حتى الآن.</p></div><div class="door-arrow">‹</div></div></div><button class="back" onclick="goEntrance()">العودة إلى الباب الأول</button></div></section>
-<section class="scene" id="room"><div class="scene-content room-inner"><button class="back" onclick="goHall()">← العودة إلى الممر</button><div class="room-heading"><div class="kicker">ROOM 00 · PRIVATE RECORD</div><h2 id="roomTitle">غرفة التحقيق</h2><p id="roomDescription"></p></div>
-<div class="room-panel" id="cases"><div class="room-content investigation-room"><div class="kicker">CASE FILE · 001</div><h3>الرسالة التي لم تصل</h3><p style="text-align:center">في مساء ممطر، عُثر على ظرف قديم أسفل باب الغرفة 00. لم يكن عليه اسم مرسل، بل عبارة واحدة: «افتحها عندما تتعلم الانتظار».</p><div class="case-scene"><div class="case-scene-title">لوحة التحقيق · القضية 001</div><div class="evidence-wall"><div class="evidence-photo" onclick="revealEvidence(0)"><img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300" alt="دفتر"><span>الظرف القديم</span></div><div class="evidence-photo" onclick="revealEvidence(1)"><img src="https://images.unsplash.com/photo-1501139083538-0139583c060f?w=300" alt="ساعة"><span>التوقيت</span></div><div class="evidence-photo" onclick="revealEvidence(2)"><img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=300" alt="سجل"><span>السجل</span></div><div class="evidence-photo" onclick="revealEvidence(3)"><img src="https://images.unsplash.com/photo-1517842645767-c639042777db?w=300" alt="ملاحظة"><span>الملاحظة</span></div></div></div><div class="case-desk"><div class="desk-lamp">♨</div><div class="desk-note">ملاحظة المحقق:<br>لا تتسرع في الحكم. افحص كل دليل.</div><div class="desk-note">ملف القضية 001<br>الحالة: قيد التحقيق</div></div><div class="case-progress" id="caseCount">الأدلة المكتشفة: 0 من 4</div><div class="progress"><span id="caseBar"></span></div><div class="evidence-list" id="evidenceList"></div><div id="caseQuestion" style="display:none"><h3>ما التفسير الأقرب للحقيقة؟</h3><button class="option" onclick="answerCase(0)">الرسالة كُتبت لشخص سيأتي في المستقبل.</button><button class="option" onclick="answerCase(1)">الرسالة قديمة، لكن صاحبها عاد وتركها الآن.</button><button class="option" onclick="answerCase(2)">الرسالة مجرد خدعة بلا معنى.</button><p id="caseFeedback"></p></div><div id="caseReward" class="reward"><h3>✧ القضية أُغلقت ✧</h3><p>كانت الرسالة موجهة للشخص الذي سيجدها بعد مرور الوقت. لم يكن المطلوب البحث عن المرسل، بل فهم سبب الانتظار.</p></div><div style="text-align:center"><button class="gold-button" onclick="resetCase()">إعادة القضية</button></div></div></div>
-<!-- غرفة الألغاز الجديدة: قصة مصورة + أدلة متتابعة + تلميحات + حل منطقي -->
-<div class="room-panel" id="puzzle"><div class="room-content"><div class="kicker">THE CASEFILES · ARCHIVE 013</div><h3>ملفات الغموض</h3><p style="text-align:center">كل ملف حكاية مستقلة. اقرأ القصة، افتح الأدلة، واربط التفاصيل قبل أن تتهم أحدًا.</p><div class="puzzle-topline"><span id="puzzleCounter">الملف 01 من 08</span><span class="difficulty" id="puzzleDifficulty">مستوى: صعب</span><span id="puzzleSolvedCount">0 / 8 محلول</span></div><div class="puzzle-progress"><span id="puzzleBar" style="width:0%"></span></div><div class="story-cover" id="storyCover"><div class="story-cover-label" id="storyCoverLabel">ملف سري · لا تلمس الأدلة</div></div><div class="story-copy"><div class="kicker" id="storyKicker">CASE 013</div><h3 id="storyTitle">الغرفة 17</h3><p class="opening" id="storyOpening"></p><div id="storyBody"></div></div><h4 class="evidence-heading">✧ الأدلة المسجلة في المحضر</h4><div id="storyClues"></div><div class="hint-area"><strong style="color:var(--gold)">تحتاج مساعدة؟</strong><p class="hint" style="margin:5px 0">التلميحات لا تكشف الحل مباشرة، لكنها توجه انتباهك إلى التفصيل المهم.</p><div id="storyHints"></div></div><div class="answer-area"><h4>استنتاج المحقق</h4><p class="hint">اختر التفسير الذي تدعمه الأدلة مجتمعة، وليس مجرد احتمال ممكن.</p><div id="storyAnswers"></div><p class="answer-feedback" id="storyFeedback" aria-live="polite"></p></div><div class="solved-stamp" id="solvedStamp"><strong>✧ أُغلق الملف بنجاح ✧</strong><p id="solutionText"></p><p id="rewardCode"></p></div><div class="puzzle-nav"><button id="prevPuzzle" onclick="movePuzzle(-1)">← الملف السابق</button><span class="hint" id="puzzleNavStatus">ملف قيد التحقيق</span><button id="nextPuzzle" onclick="movePuzzle(1)">الملف التالي ←</button></div><div class="story-actions"><button class="gold-button" onclick="showNextUnsolved()">افتح ملفًا غير محلول</button><button class="gold-button" onclick="resetPuzzleProgress()">إعادة تقدم الألغاز</button></div><hr style="border-color:#a17b4b33;margin:30px 0"><h3 id="levelName">المستوى 1 — المحقق المبتدئ</h3><p id="levelDesc" style="text-align:center"></p><div class="progress"><span id="levelBar"></span></div><p id="levelProgress" style="text-align:center"></p><p id="levelMessage" style="text-align:center"></p><div id="guardianReward" class="reward"><h3>♜ حارس الأرشيف</h3><p>أنهيت الملفات الثمانية. لكن تذكّر: بعض القضايا لا تُغلق أبدًا.</p></div></div></div>
-<div class="room-panel" id="archive"><div class="room-content"><div class="kicker">RESTRICTED ARCHIVE</div><h3>الأرشيف المحظور</h3><p style="text-align:center">أدخل الرمز الذي وجدته في المدخل.</p><div style="text-align:center"><input id="archiveCode" type="password" inputmode="numeric" maxlength="3" placeholder="•••"><br><button class="gold-button" onclick="unlockArchive()">فتح الملف 000</button></div><p id="archiveFeedback" style="text-align:center"></p><div id="archiveContent" style="display:none"><h3>الملف 000: ملاحظة من مجهول</h3><p>إذا وصلت إلى هنا، فأنت لا تكتفي بما يظهر أمامك. احتفظ بهذا الرقم: 000.</p><hr style="border-color:#a17b4b44"><h3>الملف 001: همسة اليوم</h3><p class="message" id="archiveWhisper"></p></div></div></div>
-<div class="room-panel" id="whisper"><div class="room-content"><div class="kicker">A MESSAGE FOR TODAY</div><h3>همسة اليوم</h3><p class="message" id="dailyWhisper"></p><p class="hint" style="text-align:center">عد غدًا... قد تجد رسالة مختلفة.</p></div></div>
-<div class="room-panel" id="messages"><div class="room-content"><div class="kicker">ANONYMOUS VOICES</div><h3>اترك أثرًا مجهولًا</h3><p style="text-align:center">هناك كلمات لا تستطيع قولها بصوت عالٍ... اتركها هنا دون أن تكشف هويتك.</p><div style="text-align:center"><button class="gold-button" onclick="openMessageForm()">اكتب رسالتك السرية</button></div><p class="hint" style="text-align:center">ستصل الرسالة للمراجعة قبل نشرها.</p><hr style="border-color:#a17b4b44;margin:30px 0"><h3>رسائل وصلت إلى الغرفة</h3><p class="message">«هل وصل صوتي إلى الغرفة 00؟»</p><p class="hint" style="text-align:center">رسالة من مجهول · الغرفة 00</p></div></div>
-<div class="room-panel" id="secret"><div class="room-content"><div class="kicker">LOCKED CABINET</div><h3>الخزانة التي لا تظهر في المخطط</h3><p style="text-align:center">هناك ثلاثة أصفار... هل عرفت الرمز؟</p><div style="text-align:center"><input id="secretCode" type="password" inputmode="numeric" maxlength="3" placeholder="•••"><br><button class="gold-button" onclick="unlockSecret()">افتح الخزانة</button><p id="secretFeedback"></p></div><div id="secretContent" style="display:none"><h3>ملف سري: ملاحظة من مجهول</h3><p>لقد وجدت ما كان مخفيًا. لكن الغرفة لا تزال تحتفظ بأسرار أخرى.</p></div></div></div>
-<div class="room-panel" id="hiddenRoom"><div class="room-content"><div class="kicker">CLASSIFIED · FILE 009</div><h3>الغرفة التي لم تكن موجودة</h3><div class="secret-door" onclick="showSecretFile()"><strong>009</strong><span>باب أسود · ملف محظور</span></div><p class="message">«لم يكن من المفترض أن تصل إلى هنا»</p><div style="text-align:center"><p>أدخل الرمز الذي حصلت عليه من القضية.</p><input id="hiddenCode" type="password" maxlength="3" inputmode="numeric" placeholder="•••"><br><button class="gold-button" onclick="unlockHiddenRoom()">فتح الملف 009</button><p id="hiddenFeedback"></p></div><div id="secretFile" style="display:none"><h3>الملف 009 · الشخص المجهول</h3><div class="secret-evidence"><strong>الدليل الأول: الصورة القديمة</strong><p>صورة لشخص يقف أمام باب الغرفة 00. الغريب أن الصورة التُقطت قبل إنشاء المكان.</p><img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=900" alt="صورة قديمة" style="width:100%;max-height:250px;object-fit:cover;filter:sepia(.6)"></div><div class="secret-evidence"><strong>الدليل الثاني: الرسالة المقطوعة</strong><p>«إذا وصلت هذه الرسالة إلى يدك، فلا تبحث عن اسمي... ابحث عن الشخص الذي فتح الباب قبلك».</p></div><div class="secret-evidence"><strong>الدليل الثالث: التسجيل</strong><p>صوت مجهول يهمس: «أنت لست أول من وصل إلى هنا».</p></div><p class="message">إذا كنت تقرأ هذه الرسالة، فهذا يعني أن أحدهم أخيرًا وجد الطريق... لكن هل أنت متأكد أنك أول من وصل؟</p></div></div></div>
-</div></section><footer>الغرفة 00 © 2026 · ليس كل ما تراه هو كل ما يوجد.</footer>
+
+<header>
+ <div class="logo">الغرفة <span>00</span></div>
+ <small>الأرشيف السري · لا تثق بكل ما تراه</small>
+</header>
+
+<section class="scene active" id="entrance">
+ <div class="scene-content entrance-inner">
+  <div class="kicker">ROOM 00 · CLASSIFIED</div>
+  <h1>الباب الذي لا <span>يُفتح للجميع</span></h1>
+  <p class="subtitle">وصلت إلى مكان لم يكن من المفترض أن تجده.<br>هل أنت مستعد لمعرفة ما خلف الباب؟</p>
+  <div class="door-wrap">
+   <div class="door-photo" id="frontDoor" onclick="discoverClue()">
+    <div class="door-number">00</div><div class="door-knob"></div>
+   </div>
+  </div>
+  <button class="gold-button" onclick="openDoor()">افتح الباب وادخل</button>
+  <p class="hint">اضغط الرقم 00 ثلاث مرات... فقد يكون هناك شيء مخفي.</p>
+  <p id="clue">✧ التلميح الأول: احتفظ بالرمز 000 ✧</p>
+ </div>
+</section>
+
+<section class="scene" id="hallway">
+ <div class="scene-content hall-inner">
+  <div class="kicker">THE UNKNOWN HALLWAY</div>
+  <h2 class="section-title">وصلت إلى <span>الممر الأول</span></h2>
+  <p class="intro-line">تسمع صوت خطوات خلفك... لكن عندما تلتفت لا تجد أحدًا.<br>أمامك أبواب كثيرة. اختر بحذر.</p>
+  <div class="hall-image">
+   <div><div class="kicker">ROOM 00</div><h2 class="section-title">كل باب له حكاية</h2><p>بعض الأبواب لا تفتح إلا لمن يعرف السر.</p></div>
+  </div>
+  <div class="doorways">
+   <div class="doorway" onclick="enterRoom('cases')"><div class="door-symbol">♜</div><div><h3>غرفة التحقيق</h3><p>خمس قضايا مترابطة... وخيط واحد يقود إلى الحقيقة.</p></div><div class="door-arrow">‹</div></div>
+   <div class="doorway" onclick="enterRoom('puzzle')"><div class="door-symbol">⌘</div><div><h3>غرفة الألغاز</h3><p>أبواب عقلية لا تفتح إلا بالتفكير.</p></div><div class="door-arrow">‹</div></div>
+   <div class="doorway" onclick="enterRoom('archive')"><div class="door-symbol">▤</div><div><h3>الأرشيف المحظور</h3><p>رفوف تحمل أسماءً مُسحت من السجلات... وبينها همسة اليوم.</p></div><div class="door-arrow">‹</div></div>
+   <div class="doorway" onclick="enterRoom('messages')"><div class="door-symbol">✉</div><div><h3>غرفة الرسائل المجهولة</h3><p>رسائل وصلت من أشخاص لا يتركون أسماءهم.</p></div><div class="door-arrow">‹</div></div>
+   <div class="doorway" onclick="enterRoom('secret')"><div class="door-symbol">⚿</div><div><h3>الخزانة السرية</h3><p>ثلاثة أصفار... وربما أكثر مما تتوقع.</p></div><div class="door-arrow">‹</div></div>
+   <div class="doorway black-door" onclick="enterRoom('hiddenRoom')"><div class="door-symbol">009</div><div><h3>الباب الأسود</h3><p>لا يظهر في المخططات. ولا يعترف بوجوده أحد.</p></div><div class="door-arrow">‹</div></div>
+  </div>
+  <button class="back" onclick="goEntrance()">العودة إلى الباب الأول</button>
+ </div>
+</section>
+
+<section class="scene" id="room">
+ <div class="scene-content room-inner">
+  <button class="back" onclick="goHall()">← العودة إلى الممر</button>
+  <div class="room-heading">
+   <div class="kicker">ROOM 00 · PRIVATE RECORD</div>
+   <h2 id="roomTitle">غرفة التحقيق</h2>
+   <p id="roomDescription"></p>
+  </div>
+
+  <div class="room-panel" id="cases">
+   <div class="room-content investigation-room">
+    <div class="kicker">THE FIVE CONNECTED FILES</div>
+    <div class="case-banner">
+     <h3>قضية واحدة لا تكفي...</h3>
+     <p>ظننت أن الرسالة هي بداية الحكاية، حتى اكتشفت أن هناك خمس قضايا مرتبطة بها. كل ملف يكشف جزءًا من الحقيقة، لكن الملف الأخير وحده يكشف من يقف خلف كل شيء.</p>
+    </div>
+    <div class="case-list" id="caseList"></div>
+    <div class="feedback" id="seriesProgress"></div>
+    <div class="case-stage">
+     <div class="kicker" id="caseKicker">CASE FILE · 001</div>
+     <h3 id="caseTitle">الرسالة التي لم تصل</h3>
+     <p id="caseStory"></p>
+     <div class="case-photo" id="casePhoto"><span id="casePhotoLabel"></span></div>
+     <h3 class="evidence-heading">ملف الأدلة</h3>
+     <p class="hint">اقرأ الأدلة بهدوء. لا تتسرع في اختيار المشتبه به؛ ابحث عن الدليل الذي يثبت الاحتمال ويستبعد غيره.</p>
+     <div class="evidence-list" id="caseEvidence"></div>
+     <div class="case-question">
+      <h3 id="caseQuestion">ما التفسير الذي تؤيده الأدلة؟</h3>
+      <div id="caseAnswers"></div>
+      <div class="feedback" id="caseFeedback"></div>
+     </div>
+     <div class="solution" id="caseSolution">
+      <strong>✧ أُغلقت القضية ✧</strong>
+      <p id="caseSolutionText"></p>
+      <p id="caseRewardText"></p>
+      <div class="black-stamp" id="caseStamp"></div>
+     </div>
+    </div>
+   </div>
+  </div>
+
+  <div class="room-panel" id="puzzle">
+   <div class="room-content">
+    <div class="kicker">THE PUZZLE ROOM</div>
+    <h3>غرفة الألغاز</h3>
+    <p>هذه الغرفة لا تكافئ السرعة، بل تكافئ من يلاحظ التفاصيل. الألغاز هنا تتغير مع الوقت، وبعضها يحتاج إلى أكثر من قراءة.</p>
+    <div class="secret-evidence">
+     <strong>اللغز الأول · ثلاثة مفاتيح</strong>
+     <p>أمامك ثلاثة مفاتيح: الهلال، العين، والمثلث. على الورقة ثلاث عبارات:</p>
+     <p>١. الهلال هو المفتاح الصحيح.</p>
+     <p>٢. العين ليست المفتاح الصحيح.</p>
+     <p>٣. إذا كان الهلال غير صحيح، فالعين هي الصحيحة.</p>
+     <p>تعليمات الورقة: عبارة واحدة فقط من العبارات الثلاث صحيحة. أي مفتاح تختار؟</p>
+     <button class="option" onclick="puzzleAnswer(0)">مفتاح الهلال</button>
+     <button class="option" onclick="puzzleAnswer(1)">مفتاح العين</button>
+     <button class="option" onclick="puzzleAnswer(2)">مفتاح المثلث</button>
+     <p id="puzzleFeedback" class="feedback"></p>
+    </div>
+    <div class="secret-evidence">
+     <strong>اللغز الثاني · الساعة الصامتة</strong>
+     <p>ساعة حائط توقفت عند 8:20. بعد ساعة، قال الحارس إنها ما زالت تشير إلى الوقت الصحيح مرتين كل يوم. كيف؟</p>
+     <button class="option" onclick="puzzleAnswer2(0)">لأنها ساعة متوقفة، وتطابق الوقت مرتين في اليوم.</button>
+     <button class="option" onclick="puzzleAnswer2(1)">لأن الحارس أعاد تشغيلها.</button>
+     <button class="option" onclick="puzzleAnswer2(2)">لأن عقاربها تدور بالعكس.</button>
+     <p id="puzzleFeedback2" class="feedback"></p>
+    </div>
+   </div>
+  </div>
+
+  <div class="room-panel" id="archive">
+   <div class="room-content">
+    <div class="kicker">FORBIDDEN ARCHIVE · ACCESS 000</div>
+    <h3>الأرشيف المحظور</h3>
+    <p>هذا الأرشيف لا يحتفظ بالملفات فقط. أحيانًا يترك لك رسالة صغيرة بين الأوراق.</p>
+    <div class="secret-evidence">
+     <h3>رمز الدخول</h3>
+     <p>يقال إن الرمز الأول كُتب على الباب الخارجي ثلاث مرات.</p>
+     <input id="archiveCode" placeholder="أدخل الرمز" maxlength="3">
+     <button class="gold-button" onclick="unlockArchive()">فتح الأرشيف</button>
+     <p class="feedback" id="archiveFeedback"></p>
+    </div>
+    <div id="archiveContent" style="display:none">
+     <div class="archive-shelf">
+      <div class="kicker">DAILY WHISPER · NOTE 00</div>
+      <h3>همسة اليوم</h3>
+      <div class="whisper-paper">
+       <p id="dailyWhisper"></p>
+       <small>— من دفتر لا يحمل اسم صاحبه</small>
+      </div>
+      <button class="gold-button" onclick="showWhisper()">قراءة همسة أخرى</button>
+     </div>
+     <div class="secret-evidence">
+      <h3>ملاحظة من الأرشيف</h3>
+      <p>إذا وجدت ورقة تحمل الرقم 009، فلا تضعها مع بقية الملفات. هناك باب لا يظهر إلا لمن أنهى التحقيق.</p>
+     </div>
+    </div>
+   </div>
+  </div>
+
+  <div class="room-panel" id="messages">
+   <div class="room-content">
+    <div class="kicker">ANONYMOUS LETTERS</div>
+    <h3>غرفة الرسائل المجهولة</h3>
+    <p>اترك رسالة دون اسم. لا أحد يعرف من كتبها، لكن ربما يقرأها شخص يحتاج إليها.</p>
+    <div class="secret-evidence">
+     <p>كل رسالة تترك أثرًا في هذا المكان.</p>
+     <button class="gold-button" onclick="openMessageForm()">اترك رسالة مجهولة</button>
+    </div>
+   </div>
+  </div>
+
+  <div class="room-panel" id="secret">
+   <div class="room-content">
+    <div class="kicker">THE HIDDEN CABINET</div>
+    <h3>الخزانة السرية</h3>
+    <p>خزانة قديمة خلف الجدار. لا يوجد مقبض، فقط لوحة أرقام صغيرة وثلاثة أصفار محفورة على المعدن.</p>
+    <div class="secret-door" onclick="document.getElementById('secretCode').focus()">
+     <strong>000</strong><span>THE LOCKED CABINET</span>
+    </div>
+    <div style="text-align:center">
+     <input id="secretCode" placeholder="أدخل الرمز" maxlength="3">
+     <button class="gold-button" onclick="unlockSecret()">جرّب فتح الخزانة</button>
+     <p class="feedback" id="secretFeedback"></p>
+    </div>
+    <div id="secretContent" style="display:none">
+     <div class="secret-evidence">
+      <h3>المحتوى السري</h3>
+      <p>وجدت داخل الخزانة بطاقة قديمة مكتوبًا عليها:</p>
+      <p class="message">«لا تبحث عن الشخص الذي ترك الرسالة... ابحث عمّن كان يعرف أنك ستجدها».</p>
+      <p>أسفل البطاقة رقم محفور: 009.</p>
+     </div>
+    </div>
+   </div>
+  </div>
+
+  <div class="room-panel" id="hiddenRoom">
+   <div class="room-content">
+    <div class="kicker">RESTRICTED ACCESS · 009</div>
+    <h3>الباب الأسود</h3>
+    <p>هذا الباب لم يكن موجودًا في الممر بالأمس. سطحه أسود كأنه يمتص الضوء، وعلى حافته آثار خدوش قديمة. لا توجد لوحة اسم، فقط الرقم 009.</p>
+    <div class="secret-door" style="border-color:#76242b;background:linear-gradient(#0008,#000b),url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=900') center/cover">
+     <strong style="color:#c77a7a">009</strong><span>THE BLACK DOOR</span>
+    </div>
+    <div class="secret-evidence">
+     <h3>قفل الملف الأخير</h3>
+     <p>لن يستجيب الباب إلا بعد إغلاق القضايا الخمس. كل قضية تحمل جزءًا من الرمز النهائي.</p>
+     <input id="hiddenCode" placeholder="أدخل الرمز السري" maxlength="5">
+     <button class="gold-button" onclick="unlockHiddenRoom()">محاولة فتح الباب</button>
+     <p class="feedback" id="hiddenFeedback"></p>
+    </div>
+    <div class="black-file" id="secretFile">
+     <div class="black-stamp">CLASSIFIED · FILE 009</div>
+     <h3>الشخص الذي كان يعرف</h3>
+     <p>لم تكن القضايا الخمس منفصلة. الرسالة الأولى لم تكن موجهة إلى شخص مجهول، بل كانت اختبارًا لمن يستطيع جمع التفاصيل.</p>
+     <p>في كل ملف ظهر أثر صغير: توقيت، اسم، ورقة، توقيع، ورقم. وعندما اجتمعت الآثار، ظهر اسم واحد في جميع السجلات القديمة.</p>
+     <p>لكن الصفحة الأخيرة ممزقة. بقي سطر واحد فقط:</p>
+     <p class="message">«إذا وصلت إلى هنا... فهذا يعني أنني لم أعد وحدي في الغرفة 00».</p>
+     <div class="black-stamp">END OF FILE · 009</div>
+     <p>هناك شيء آخر خلف هذا الملف... لكنه لم يُكتب بعد.</p>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<footer>ROOM 00 · لا تثق بكل ما تراه</footer>
+
 <script>
-let clicks=0;function discoverClue(){clicks++;if(clicks>=3)document.getElementById('clue').style.display='block'}function showScene(id){document.querySelectorAll('.scene').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}function openDoor(){document.getElementById('frontDoor').classList.add('open');setTimeout(()=>showScene('hallway'),900)}function goEntrance(){showScene('entrance')}function goHall(){showScene('hallway')}
-const roomInfo={cases:['غرفة التحقيق','مسرح القضية 001 · افحص الصور والأدلة على لوحة التحقيق.'],puzzle:['غرفة الألغاز','ثماني قضايا مصورة. لا يتكرر الملف عليك حتى تنهي المجموعة.'],archive:['الأرشيف المحظور','الملفات هنا لا تظهر للجميع.'],whisper:['غرفة الهمسات','رسالة واحدة قد تغيّر يومك.'],messages:['غرفة الرسائل المجهولة','اكتب ما لا تستطيع قوله.'],secret:['الخزانة السرية','بعض الأسرار تحتاج رمزًا.'],hiddenRoom:['الباب الأسود','ملف 009 · الوصول إلى المكان المحظور.']};function enterRoom(id){showScene('room');document.querySelectorAll('.room-panel').forEach(p=>p.classList.remove('show'));document.getElementById(id).classList.add('show');document.getElementById('roomTitle').textContent=roomInfo[id][0];document.getElementById('roomDescription').textContent=roomInfo[id][1];if(id==='cases')renderCase();if(id==='puzzle')renderPuzzle();if(id==='whisper')showWhisper();if(id==='archive')document.getElementById('archiveWhisper').textContent=getWhisper();updateLevelUI()}
-const evidence=[['الدليل الأول: الظرف','داخل الظرف ورقة بلا توقيع، كُتب عليها: «إلى من سيجدني عندما يصبح مستعدًا». لا يوجد اسم ولا عنوان.'],['الدليل الثاني: التوقيت','التاريخ المكتوب يعود إلى عشر سنوات. وبجانبه تاريخ اليوم بخط مختلف؛ يبدو أن أحدًا أعاد الظرف إلى مكانه بعد كل هذه السنوات.'],['الدليل الثالث: السجل','لا يوجد زائر بالاسم المذكور في السجل، لكن توجد ملاحظة: «سيأتي من يبحث عن الإجابة، لا عن صاحب الرسالة».'],['الدليل الرابع: الملاحظة','على ظهر الورقة جملة أخيرة: «لا تبحث عن الشخص الذي غاب؛ اسأل نفسك لماذا انتظرت الرسالة كل هذا الوقت».']];const CASE_KEY='room00_case001_progress',SOLVED_KEY='room00_case001_progress_solved';function caseProgress(){return Math.max(0,Math.min(4,Number(localStorage.getItem(CASE_KEY)||0)))}function revealEvidence(i){let n=caseProgress();if(i===n){localStorage.setItem(CASE_KEY,String(n+1));renderCase()}else if(i<n){alert(evidence[i][0]+'\n\n'+evidence[i][1])}else alert('هذا الدليل ما زال مغلقًا. اكتشف الأدلة بالترتيب.')}function renderCase(){let n=caseProgress(),solved=localStorage.getItem(SOLVED_KEY)==='yes',list=document.getElementById('evidenceList');list.innerHTML='';evidence.forEach((e,i)=>{let d=document.createElement('div');d.className='evidence';if(i<n)d.innerHTML='<h4>✧ '+e[0]+'</h4><p>'+e[1]+'</p>';else if(i===n&&!solved)d.innerHTML='<h4>ملف مغلق · الدليل '+(i+1)+'</h4><button onclick="revealEvidence('+i+')">افتح الدليل واكتشف محتواه ←</button>';else d.innerHTML='<h4>🔒 دليل مغلق</h4>';list.appendChild(d)});document.getElementById('caseCount').textContent='الأدلة المكتشفة: '+n+' من 4';document.getElementById('caseBar').style.width=(n*25)+'%';document.getElementById('caseQuestion').style.display=n===4&&!solved?'block':'none';document.getElementById('caseReward').style.display=solved?'block':'none'}function answerCase(i){if(i===0){localStorage.setItem(SOLVED_KEY,'yes');document.getElementById('caseFeedback').textContent='أحسنت! لقد ربطت الأدلة ببعضها.';renderCase()}else document.getElementById('caseFeedback').textContent='ليست الإجابة الأقرب. راجع التوقيت والملاحظة الأخيرة.'}function resetCase(){localStorage.removeItem(CASE_KEY);localStorage.removeItem(SOLVED_KEY);document.getElementById('caseFeedback').textContent='';renderCase()}
-/* قاعدة ملفات الألغاز: كل قصة لها إجابة واحدة تدعمها الأدلة، وتلميحات متدرجة. */
-const puzzleCases=[
-{id:'013',title:'الغرفة 17: النزيل الذي لم يخرج',level:'صعب',image:'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1400&q=85',label:'فندق ميراج · الطابق الثالث',opening:'في الساعة 11:50 مساءً، دخل عامل الفندق الغرفة 17 بعد أن سمع صوت زجاج يتحطم. كانت الغرفة مقفلة من الداخل، والنافذة مغلقة، لكن النزيل اختفى.',body:'لم يكن في الغرفة سوى كوب شاي دافئ، ومعطف مبتل معلّق قرب الباب، وساعة حائط متوقفة. قال موظف الاستقبال إنه رأى النزيل يدخل وحده عند 10:30، ولم يرَه يغادر. مهمتك: حدّد ما الذي حدث فعلًا، لا ما يبدو مخيفًا.',clues:['سجل المصعد يثبت أن المصعد لم يتوقف في الطابق الثالث بين 10:30 و11:50.','النافذة محكمة الإغلاق من الداخل، وعلى حافتها طبقة غبار متصلة لم تُمس.','المعطف المبتل يحمل بطاقة تنظيف الفندق، وتحت البطاقة مكتوب: «غرفة الغسيل - الطابق السفلي».','كاميرا الممر تُظهر عامل الغسيل يدخل الغرفة بعربة ملابس عند 11:05، ثم يخرج والعربة مغطاة بملاءة كبيرة.'],hints:['لا تجعل اختفاء النزيل خارقًا؛ فتّش عن شخص يستطيع دخول الغرفة دون استخدام المصعد.','ركز على العربة والملاءة: ما الذي يمكن أن تخفيه؟'],answers:['النزيل غادر داخل عربة الغسيل بمساعدة عامل الفندق.','النزيل اختبأ خلف الستارة حتى غادر المحقق.','النزيل خرج من النافذة ثم أغلقها من الخارج.'],correct:0,solution:'الدليل الحاسم هو تسجيل عامل الغسيل وهو يخرج بعربة مغطاة. لم يكن النزيل محبوسًا داخل الغرفة؛ لقد خرج مخفيًا داخل العربة. النافذة والساعة كانتا لتشتيت الانتباه.',reward:'رمز الملف التالي: 014'},
-{id:'014',title:'الساعة التي شهدت كذبة',level:'صعب جدًا',image:'https://images.unsplash.com/photo-1501139083538-0139583c060f?auto=format&fit=crop&w=1400&q=85',label:'منزل آل رافد · ليلة العاصفة',opening:'عُثر على صاحب المنزل فاقدًا للوعي في مكتبه عند 9:20. قال ثلاثة أشخاص إنهم لم يقتربوا من المكتب بعد التاسعة. لكن ساعة المكتب توقفت عند 8:55، وعلى زجاجها شق حديث.',body:'المشتبه بهم: ليلى قالت إنها كانت في المطبخ تعد القهوة. سامر قال إنه كان في الحديقة يتحدث بالهاتف. نادر قال إنه كان في غرفة الموسيقى يعزف البيانو. لا يوجد شاهد مباشر، لكن المحقق جمع أربعة أدلة صغيرة.',clues:['سجل الهاتف يثبت أن مكالمة سامر انتهت عند 8:48، وأن هاتفه اتصل بشبكة المنزل من داخل المبنى لا الحديقة.','إبريق القهوة في المطبخ بارد تمامًا، ولم يُستخدم موقد المطبخ منذ العصر.','غطاء مفاتيح البيانو عليه غبار متصل، ولا توجد آثار أصابع في الغبار.','ساعة المكتب سقطت على الأرض؛ عقاربها توقفت بسبب الصدمة، لا بسبب نفاد البطارية.'],hints:['الأقوال الثلاثة لا يمكن أن تكون صحيحة كلها. اختبر كل ادعاء بالدليل المادي.','من ادعى نشاطًا يترك أثرًا واضحًا، لكن الأثر غير موجود؟'],answers:['ليلى؛ لم تعد القهوة أصلًا رغم قولها إنها أعدتها.','سامر؛ كان داخل المنزل وقت الحادثة، لا في الحديقة.','نادر؛ لم يعزف البيانو لأن الغبار لم يُمس.'],correct:2,solution:'نادر هو صاحب الرواية التي يكذبها دليل مادي مباشر: لو عزف على البيانو لترك أثرًا على غطاء المفاتيح المغبر. الدليل لا يثبت وحده أنه اعتدى على صاحب المنزل، لكنه يثبت أنه كذب بشأن مكانه، وهو المطلوب تحديده في هذه القضية.',reward:'تم فتح سجل الشهود'},
-{id:'015',title:'رسالة من خمس كلمات',level:'صعب جدًا',image:'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85',label:'مكتب المحرر · 02:13 صباحًا',opening:'وصلت إلى الصحيفة رسالة مجهولة من خمس كلمات: «النافذة لا تطل على الشارع». بعد دقائق، انقطعت الكهرباء واختفى المحرر المناوب. على المكتب ثلاث صور لمبانٍ متشابهة.',body:'المبنى يحتوي على ثلاثة مكاتب متطابقة في الطوابق 2 و4 و6. كل مكتب له نافذة، لكن واحدًا فقط يطل على فناء داخلي. حارس المبنى يقول إن المحرر كان في أحد هذه المكاتب. الرسالة ليست تهديدًا؛ إنها دليل على مكانه.',clues:['المكتب 2 يطل على الشارع الرئيسي، وتظهر في صورته إشارات المرور.','المكتب 4 يطل على فناء داخلي، وفي الصورة تظهر نافذة مقابلة على مسافة قريبة.','المكتب 6 يطل على موقف سيارات مفتوح، وتظهر أضواء السيارات في زجاج النافذة.','في صورة المكتب الذي كان فيه المحرر، لا يوجد انعكاس أضواء سيارات ولا إشارات مرور، بل نافذة مقابلة قريبة.'],hints:['الجملة تصف ما لا تراه النافذة، لا ما تراه.','استبعد المكتب الذي يطل على الشارع، ثم قارن شكل المشهد في الصورة.'],answers:['المكتب 2؛ لأنه الأقرب إلى الشارع.','المكتب 4؛ لأنه يطل على فناء داخلي لا على الشارع.','المكتب 6؛ لأنه يطل على موقف السيارات.'],correct:1,solution:'المكتب الرابع هو الوحيد الذي لا تطل نافذته على الشارع، وتؤكد الصورة وجود نافذة مقابلة قريبة، وهي علامة الفناء الداخلي. الرسالة تحدد المكان بالاستبعاد لا باسم الطابق.',reward:'تم العثور على موقع المحرر'},
-{id:'016',title:'ثلاثة مفاتيح وباب واحد',level:'صعب جدًا',image:'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1400&q=85',label:'القبو الشرقي · باب الحديد',opening:'وجد الحارس بابًا حديديًا مغلقًا وثلاثة مفاتيح متشابهة. مفتاح واحد فقط يفتح الباب. على الطاولة ورقة تقول: «واحدة فقط من العبارات التالية صحيحة».',body:'على المفاتيح علامات: هلال، عين، ومثلث. وتحتها ثلاث عبارات: «الهلال يفتح الباب»، «العين تفتح الباب»، «الهلال لا يفتح والعين تفتح». تعرف من فحص الأقفال أن مفتاحًا واحدًا فقط يطابق القفل، وأن كاتب الورقة صادق في عدد العبارات الصحيحة.',clues:['إذا كان الهلال هو المفتاح الصحيح، فعبارة «الهلال يفتح» وحدها صحيحة؛ العبارتان الأخريان خاطئتان.','إذا كانت العين هي المفتاح الصحيح، تصح عبارة «العين تفتح» والعبارة المركبة «الهلال لا يفتح والعين تفتح»؛ أي عبارتان صحيحتان.','إذا كان المثلث هو المفتاح الصحيح، تكون العبارات الثلاث كلها خاطئة؛ فلا توجد عبارة صحيحة.','الشرط يقول إن عبارة واحدة فقط صحيحة؛ لذلك الاحتمال الوحيد المطابق هو أن يكون مفتاح الهلال هو الصحيح.'],hints:['اختبر كل مفتاح باعتباره الصحيح، ثم احسب عدد العبارات الصادقة.','العبارة الثالثة مركبة: لا تصح إلا إذا كانت العين هي المفتاح، والهلال ليس هو المفتاح.'],answers:['مفتاح الهلال فقط.','مفتاح العين فقط.','مفتاح المثلث فقط.'],correct:0,solution:'عند افتراض أن الهلال هو الصحيح، تصدق عبارة واحدة فقط: «الهلال يفتح». إذا كانت العين صحيحة تصدق عبارتان، وإذا كان المثلث صحيحًا فلا تصدق أي عبارة. لذلك المفتاح الوحيد الذي يحقق شرط الورقة هو الهلال.',reward:'الخزانة الحديدية أصبحت قابلة للفتح'},
-{id:'017',title:'الشاهد الذي لم يرَ شيئًا',level:'ملف شديد الصعوبة',image:'https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=1400&q=85',label:'مسرح الجريمة · انقطاع التيار',opening:'قال الشاهد الوحيد إنه رأى السارق يهرب من الباب الخلفي عند انطفاء الأنوار. لكن التحقيق أثبت أن الشاهد كان في غرفة بلا نوافذ، وأن الكهرباء انقطعت عن المبنى كله.',body:'هناك أربعة أشخاص في المبنى: الحارس، المصور، المحاسب، والشاهد. لا توجد كاميرات تعمل أثناء الانقطاع. الشاهد يصر على أنه رأى لون معطف السارق، مع أن الظلام كان كاملًا. المحقق لاحظ أن ساعة الحائط توقفت، بينما ساعة يد الحارس استمرت بالعمل.',clues:['تقرير الكهرباء يثبت انقطاع الإضاءة بالكامل لمدة 4 دقائق، ولا توجد إضاءة طوارئ في الغرفة.','الشاهد قال إن المعطف كان أزرق داكنًا، لكنه لم يذكر أي تفاصيل أخرى عن وجه السارق.','على كم الشاهد بقعة صبغة زرقاء حديثة، وهي مطابقة تمامًا لصبغة المعطف الأزرق المضبوط في مخزن المبنى.','المصور يحمل مصباحًا صغيرًا، لكنه قال إنه لم يخرجه من حقيبته، والحقيبة مختومة بشريط التحقيق دون قطع.'],hints:['السؤال ليس فقط من كذب، بل كيف عرف الشاهد لون المعطف؟','ابحث عن مصدر الضوء أو عن سبب يجعل اللون معروفًا دون رؤية مباشرة.'],answers:['الشاهد اخترع الرؤية، لكنه عرف اللون من بقعة الصبغة على كمه لأنه لمس المعطف.','المصور أضاء المكان سرًا بمصباحه.','الحارس أخبر الشاهد بلون المعطف قبل انقطاع الكهرباء.'],correct:0,solution:'المعطيات تثبت أن الرؤية كانت مستحيلة، كما أن حقيبة المصور مختومة ولم تُفتح. بقعة الصبغة الزرقاء على كم الشاهد هي الصلة الوحيدة بينه وبين المعطف؛ استنتاج القضية أنه لمس المعطف ثم ادعى أنه رآه. اللون لم يُعرف بالنظر.',reward:'تم كشف الشاهد المضلل'},
-{id:'018',title:'القطار الذي وصل قبل موعده',level:'ملف شديد الصعوبة',image:'https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1400&q=85',label:'محطة الشمال · الرصيف 3',opening:'وصل قطار إلى المحطة قبل موعده بسبع دقائق. قال السائق إنه لم يسرع، وقال مراقب المحطة إن ساعة الرصيف صحيحة. أحدهما يخفي شيئًا.',body:'القطار انطلق في موعده تمامًا. المسافة بين المحطتين ثابتة. سجل الإشارات يظهر أن القطار دخل المسار في الوقت المعتاد، لكن ساعة غرفة التحكم متقدمة سبع دقائق عن ساعة الرصيف. المطلوب معرفة سبب ظهور الوصول مبكرًا.',clues:['ساعة الرصيف تمت معايرتها صباح اليوم، وتطابق توقيت الشبكة الرسمي.','ساعة غرفة التحكم متقدمة سبع دقائق بسبب خطأ في ضبطها، ويوجد بلاغ صيانة لم يُنفذ.','سجل الإشارات الإلكتروني يستخدم توقيت الشبكة الرسمي، ويظهر وصول القطار في الموعد المعتاد.','مراقب المحطة قرأ وقت الوصول من شاشة غرفة التحكم، لا من ساعة الرصيف.'],hints:['قارن مصدر الوقت الذي اعتمد عليه كل شخص.','لا يوجد دليل على أن القطار تحرك أسرع؛ الخلل في القياس.'],answers:['السائق سرّع القطار ثم أخفى ذلك.','مراقب المحطة قرأ ساعة متقدمة سبع دقائق فظن أن الوصول مبكر.','ساعة الرصيف متأخرة سبع دقائق.'],correct:1,solution:'القطار وصل في وقته الحقيقي. مراقب المحطة اعتمد على ساعة غرفة التحكم المتقدمة سبع دقائق، بينما ساعة الرصيف وسجل الإشارات متوافقان مع التوقيت الرسمي. الخلل في ساعة التحكم لا في القطار.',reward:'تم تصحيح سجل الرحلة'},
-{id:'019',title:'اللوحة التي تغيّر مكانها',level:'ملف شديد الصعوبة',image:'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=1400&q=85',label:'متحف الظلال · قاعة 5',opening:'اختفت لوحة صغيرة من قاعة مغلقة، ولم يُكسر الباب أو الزجاج. في الصباح، كانت اللوحة نفسها معلقة في مكانها، لكن إطارها أصبح مقلوبًا.',body:'ثلاثة موظفين يملكون مفاتيح القاعة: أمين المتحف، عامل النظافة، والمرمّم. يقول الأمين إنه لم يدخل القاعة ليلًا. عامل النظافة دخل عند 7:00 مساءً، والمرمّم دخل عند 8:00 صباحًا. الحساس يسجل فتح الباب فقط ولا يسجل الحركة داخله.',clues:['الغبار على الحافة العليا للإطار متصل، لكن أثر الغبار على الحافة السفلى انقطع.','مسمار التعليق في الجدار لم يتحرك، لكن السلك الخلفي للإطار استُبدل حديثًا.','عامل النظافة يستخدم قفازات قماشية تترك أليافًا بيضاء؛ لا توجد ألياف على الإطار.','المرمّم أحضر سلك تعليق جديدًا في صباح اليوم التالي، وذكر أنه لم يلمس اللوحة.'],hints:['اللوحة لم تغادر القاعة بالضرورة؛ قد تكون تحركت وهي معلقة.','من كان لديه سبب وأداة لتغيير سلك التعليق؟'],answers:['عامل النظافة؛ قلب الإطار أثناء تنظيف الجدار.','المرمّم؛ بدّل سلك التعليق صباحًا ثم أعاد تعليق الإطار مقلوبًا.','أمين المتحف؛ أخذ اللوحة ليلًا ثم أعادها.'],correct:1,solution:'السلك الخلفي مستبدل حديثًا، والمرمّم وحده أحضر سلك تعليق جديدًا في الوقت الذي عُثر فيه على التغيير. لم تختفِ اللوحة من المبنى؛ تم فكها وإعادة تعليقها مقلوبة أثناء عمل الترميم.',reward:'تم إغلاق بلاغ المتحف'},
-{id:'020',title:'الاسم الرابع في القائمة',level:'الملف المستحيل',image:'https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1400&q=85',label:'الأرشيف السفلي · سجل الزوار',opening:'في سجل زوار الغرفة 00، توجد ثلاثة أسماء فقط في الصفحة، لكن أسفلها بصمة رابعة وتوقيع غير مكتمل. الغريب أن الورقة أُغلقت داخل درج مختوم منذ عشرين عامًا.',body:'الأسماء الثلاثة تعود إلى موظفين عملوا في المبنى قبل إغلاقه. الدرج لم يُفتح منذ ختمه، لكن تقرير المختبر يثبت أن الحبر في التوقيع الرابع أحدث من بقية التواقيع. على ظهر الصفحة أثر ضغط قلم لا يظهر إلا عند إمالتها للضوء.',clues:['ختم الدرج سليم، ولا توجد خدوش حول القفل أو آثار فتح بالقوة.','التوقيع الرابع ليس حبرًا؛ إنه أثر ضغط قلم بلا لون، ظاهر على الورقة نفسها.','أثر الضغط على ظهر الورقة يطابق كتابة كُتبت فوق الصفحة عندما كانت الورقة مطوية من المنتصف.','في ملف الصيانة، توجد ملاحظة بأن الدرج يحتوي على لوح كتابة شفاف يضغط على الأوراق عند إغلاقه، ويمكن أن ينقل أثر الكتابة من ورقة موضوعة فوقه.'],hints:['لا تفترض أن أحدًا فتح الدرج. اسأل كيف يمكن أن تنتقل الكتابة إلى ورقة مغلقة.','الدليل الحاسم يشرح آلية نقل أثر القلم دون فتح الدرج.'],answers:['شخص رابع دخل الغرفة قبل عشرين عامًا ووقّع ثم اختفى.','التوقيع انتقل كأثر ضغط من ورقة أخرى وُضعت فوق الدرج قبل إغلاقه، ثم ظهر على الصفحة.','موظف فتح الدرج سرًا وأعاد ختمه دون ترك أثر.'],correct:1,solution:'لوح الكتابة الشفاف نقل ضغط الكتابة من ورقة كانت فوق الدرج قبل إغلاقه. الأثر الرابع ليس توقيع زائر داخل الغرفة، بل أثر قلم انتقل ميكانيكيًا إلى الصفحة. لذلك لا يوجد دليل على دخول شخص رابع.',reward:'اكتمل الأرشيف · الرمز 020'}
+const SOLVED_KEY='room00_case_series_solved_v1';
+let doorClicks=0;
+let currentCase=0;
+
+const cases=[
+{
+id:'001',title:'الرسالة التي لم تصل',
+label:'الظرف أسفل الباب',
+image:'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=1200',
+story:'في مساء ممطر، عُثر على ظرف قديم أسفل باب الغرفة 00. لم يكن عليه اسم مرسل، بل عبارة واحدة: «افتحها عندما تتعلم الانتظار». يقول سجل المبنى إن الغرفة كانت مغلقة منذ سنوات.',
+evidence:[
+['الظرف','الورق أصفر وقديم، لكن قطرات المطر على حافته حديثة.'],
+['ساعة المدخل','توقفت الساعة عند 11:47، وهو الوقت نفسه المكتوب داخل الظرف.'],
+['سجل الحراسة','لم يدخل أي شخص من الباب الرئيسي بعد إغلاق المبنى.'],
+['الملاحظة','على ظهر الظرف: «إلى من سيصل بعد أن أغادر».']
+],
+question:'من الأقرب أن يكون المقصود بالرسالة؟',
+answers:['شخص سيأتي إلى الغرفة بعد مغادرة كاتب الرسالة.','الحارس الذي أغلق المبنى.','شخص كان داخل الغرفة طوال الليل.'],
+correct:0,
+solution:'عبارة «إلى من سيصل بعد أن أغادر» مع سجل إغلاق المبنى تشير إلى أن الرسالة تُركت لشخص سيأتي لاحقًا، وليس لشخص موجود وقت كتابتها.',
+reward:'ظهر على ظهر الظرف رقم صغير: 002.',
+stamp:'002'
+},
+{
+id:'002',title:'اختفاء الشاهد',
+label:'كرسي فارغ في غرفة الانتظار',
+image:'https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=1200',
+story:'بعد إغلاق القضية الأولى، وصل بلاغ عن اختفاء شاهد كان ينتظر استدعاءه. الغريب أن كرسيه بقي دافئًا، بينما لم تسجل كاميرات الممر خروجه. لم يكن للغرفة سوى باب واحد.',
+evidence:[
+['سجل الباب','القفل لم يُفتح من الداخل أو الخارج بين 9:00 و10:00 مساءً.'],
+['النافذة','النافذة ثابتة ومغلقة، ولا توجد آثار على حافتها أو خارجها.'],
+['كرسي الانتظار','أثر الضغط على المقعد يدل أن شخصًا جلس عليه قبل دقائق من وصول الحارس.'],
+['خريطة الغرفة','يوجد باب خدمة ضيق خلف خزانة الملفات، ولا يظهر في مخطط المبنى العام.']
+],
+question:'كيف غادر الشاهد الغرفة دون أن يظهر في تسجيل الباب؟',
+answers:['خرج من نافذة الغرفة.','استخدم باب الخدمة المخفي خلف الخزانة.','لم يكن داخل الغرفة أصلًا.'],
+correct:1,
+solution:'الباب الرئيسي لم يُفتح، والنافذة مغلقة ولا تحمل آثارًا. الدليل الوحيد الذي يفسر الخروج دون تسجيل هو باب الخدمة المخفي خلف خزانة الملفات.',
+reward:'داخل باب الخدمة وُجدت قصاصة تحمل الرقم 003.',
+stamp:'003'
+},
+{
+id:'003',title:'المنزل الذي لا يسكنه أحد',
+label:'نافذة مضاءة في منزل مهجور',
+image:'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=1200',
+story:'وصلت رسالة مجهولة عن منزل مهجور تظهر في نافذته إضاءة كل ليلة عند 11:47. أرسل المحقق فريقًا للمراقبة. لم يدخل المنزل أحد، لكن الضوء ظهر في الموعد نفسه.',
+evidence:[
+['عداد الكهرباء','العداد مفصول منذ ستة أشهر، ولا يسجل أي استهلاك.'],
+['النافذة','الضوء يظهر في النافذة نفسها، ولا ينتشر إلى بقية الغرف.'],
+['المبنى المقابل','في المبنى المقابل توجد لوحة إعلانية زجاجية تعكس الضوء باتجاه النافذة.'],
+['تقرير الطقس','في الليالي التي غابت فيها اللوحة الإعلانية بسبب الصيانة، لم يظهر الضوء.']
+],
+question:'ما التفسير الذي يفسر ظهور الضوء رغم انقطاع الكهرباء؟',
+answers:['شخص يشغل مصباحًا ببطارية داخل المنزل.','الضوء انعكاس من اللوحة الإعلانية المقابلة.','العداد الكهربائي معطل فقط.'],
+correct:1,
+solution:'العداد مفصول، والضوء لا يظهر في الليالي التي تغيب فيها اللوحة الإعلانية. هذا يربط الظاهرة بانعكاس الضوء من المبنى المقابل، لا بوجود ساكن في المنزل.',
+reward:'على ظهر تقرير المراقبة ظهر الرقم 004.',
+stamp:'004'
+},
+{
+id:'004',title:'جريمة الساعة 11:47',
+label:'ساعة متوقفة في غرفة مغلقة',
+image:'https://images.unsplash.com/photo-1501139083538-0139583c060f?w=1200',
+story:'عُثر على مكتب مبعثر وساعة متوقفة عند 11:47. قال الحارس إنه سمع صوت سقوط عند منتصف الليل، بينما أكد سجل الكهرباء أن التيار انقطع في المبنى عند 11:40.',
+evidence:[
+['ساعة الحائط','تعمل ببطارية مستقلة، ولا تتأثر بانقطاع الكهرباء.'],
+['سجل الصيانة','تم تغيير بطارية الساعة قبل يوم واحد، وكانت تعمل عند فحصها.'],
+['المصباح','المصباح مكسور، لكن زجاجه فوق الأوراق وليس تحتها.'],
+['تقرير المختبر','الغبار داخل الساعة تحرك من الداخل إلى الخارج، ما يعني أن الساعة فُتحت بعد توقفها.']
+],
+question:'أي استنتاج تدعمه الأدلة؟',
+answers:['الساعة توقفت بسبب انقطاع الكهرباء.','شخص فتح الساعة بعد توقفها، وربما ضبط المشهد ليشير إلى وقت محدد.','الحارس كسر المصباح عند منتصف الليل.'],
+correct:1,
+solution:'الساعة تعمل ببطارية مستقلة، فلا يفسر انقطاع الكهرباء توقفها. كما أن آثار الغبار تثبت أنها فُتحت بعد توقفها؛ لذلك لا يمكن اعتبار 11:47 وقتًا موثوقًا للحادث.',
+reward:'داخل غطاء الساعة وُجدت علامة الرقم 005.',
+stamp:'005'
+},
+{
+id:'005',title:'صاحب الصورة المجهولة',
+label:'الصورة الأخيرة',
+image:'https://images.unsplash.com/photo-1517842645767-c639042777db?w=1200',
+story:'وصلت إلى المحقق صورة قديمة للغرفة 00. خلف الصورة كتابة باهتة، وفي زاويتها انعكاس يظهر شخصًا يقف خارج إطار التصوير. لا يظهر اسمه في أي سجل، لكن توقيعًا واحدًا تكرر في الملفات الأربعة السابقة.',
+evidence:[
+['ظهر الصورة','تاريخ الصورة يسبق إغلاق المبنى بيوم واحد، والكتابة تقول: «سأترك لكم الطريق».'],
+['سجل المفاتيح','المفتاح الاحتياطي للغرفة سُلّم إلى أمين الأرشيف قبل إغلاق المبنى.'],
+['توقيعات الملفات','توقيع أمين الأرشيف موجود في سجل الظرف، وباب الخدمة، وتقرير المنزل، ومحضر الساعة.'],
+['الصورة المكبرة','الانعكاس في الزجاج يظهر بطاقة أمين الأرشيف نفسها، ورقمها مطابق لسجل المفاتيح.']
+],
+question:'من الشخص الذي ربطته الأدلة بالقضايا الخمس؟',
+answers:['الحارس الليلي.','أمين الأرشيف الذي كان يملك المفتاح الاحتياطي وظهر توقيعه في السجلات.','المصور الذي التقط الصورة.'],
+correct:1,
+solution:'توقيع أمين الأرشيف تكرر في سجلات القضايا، كما أن بطاقة هويته ظهرت في انعكاس الصورة، وكان يملك المفتاح الاحتياطي. الأدلة تربطه بخيط القضايا أكثر من أي شخص آخر.',
+reward:'اكتملت السلسلة. الرمز الأخير للباب الأسود هو 009.',
+stamp:'009'
+}
 ];
-const PUZZLE_KEY='room00_story_puzzles_solved_v2',HINT_KEY='room00_story_puzzles_hints_v2';let puzzleIndex=0;function solvedStoryIds(){try{return JSON.parse(localStorage.getItem(PUZZLE_KEY)||'[]')}catch(e){return []}}function hintState(){try{return JSON.parse(localStorage.getItem(HINT_KEY)||'{}')}catch(e){return {}}}function renderPuzzle(){const solved=solvedStoryIds();if(solved.length===puzzleCases.length)puzzleIndex=0;else if(solved.includes(puzzleCases[puzzleIndex].id)){const next=puzzleCases.findIndex(p=>!solved.includes(p.id));if(next>=0)puzzleIndex=next}renderStory()}function renderStory(){const p=puzzleCases[puzzleIndex],solved=solvedStoryIds().includes(p.id),hints=hintState()[p.id]||0;document.getElementById('puzzleCounter').textContent='الملف '+String(puzzleIndex+1).padStart(2,'0')+' من '+puzzleCases.length;document.getElementById('puzzleDifficulty').textContent='مستوى: '+p.level;document.getElementById('puzzleSolvedCount').textContent=solvedStoryIds().length+' / '+puzzleCases.length+' محلول';document.getElementById('puzzleBar').style.width=(solvedStoryIds().length/puzzleCases.length*100)+'%';document.getElementById('storyCover').style.backgroundImage='linear-gradient(#09060b22,#09060b33),url("'+p.image+'")';document.getElementById('storyCoverLabel').textContent=p.label;document.getElementById('storyKicker').textContent='CASE FILE · '+p.id;document.getElementById('storyTitle').textContent=p.title;document.getElementById('storyOpening').textContent=p.opening;document.getElementById('storyBody').textContent=p.body;const clues=document.getElementById('storyClues');clues.innerHTML='';p.clues.forEach((c,i)=>{const open=i===0||solved||i<hints+1;const div=document.createElement('div');div.className='clue-card '+(open?'opened':'locked');const para=document.createElement('p');para.textContent=open?'الدليل '+(i+1)+' · '+c:'الدليل '+(i+1)+' · محجوب حتى تكشف التلميح أو تحل الدليل السابق';div.appendChild(para);if(!open){const b=document.createElement('button');b.textContent='كشف الدليل';b.onclick=()=>{const state=hintState();state[p.id]=Math.max(state[p.id]||0,i);localStorage.setItem(HINT_KEY,JSON.stringify(state));renderStory()};div.appendChild(b)}clues.appendChild(div)});const hintBox=document.getElementById('storyHints');hintBox.innerHTML='';p.hints.forEach((h,i)=>{const line=document.createElement('div');if(i<hints||solved){line.className='hint-text';line.textContent='التلميح '+(i+1)+': '+h}else{const b=document.createElement('button');b.textContent='كشف التلميح '+(i+1)+' ✧';b.onclick=()=>{const state=hintState();state[p.id]=Math.max(state[p.id]||0,i+1);localStorage.setItem(HINT_KEY,JSON.stringify(state));renderStory()};line.appendChild(b)}hintBox.appendChild(line)});const answers=document.getElementById('storyAnswers');answers.innerHTML='';p.answers.forEach((a,i)=>{const b=document.createElement('button');b.className='option';b.textContent=(i+1)+'. '+a;b.disabled=solved;b.onclick=()=>checkStoryAnswer(i);answers.appendChild(b)});document.getElementById('storyFeedback').textContent=solved?'تم حل هذا الملف سابقًا. يمكنك الانتقال إلى ملف آخر.':'';document.getElementById('solvedStamp').style.display=solved?'block':'none';document.getElementById('solutionText').textContent=solved?p.solution:'';document.getElementById('rewardCode').textContent=solved?p.reward:'';document.getElementById('puzzleNavStatus').textContent=solved?'تم إغلاق الملف':'ملف قيد التحقيق';document.getElementById('prevPuzzle').disabled=puzzleIndex===0;document.getElementById('nextPuzzle').disabled=puzzleIndex===puzzleCases.length-1;updateLevelUI()}
-function checkStoryAnswer(choice){const p=puzzleCases[puzzleIndex];if(choice===p.correct){const solved=solvedStoryIds();if(!solved.includes(p.id)){solved.push(p.id);localStorage.setItem(PUZZLE_KEY,JSON.stringify(solved))}document.getElementById('storyFeedback').textContent='إجابة صحيحة. الأدلة تقود إلى استنتاجك. ✧';renderStory()}else{document.getElementById('storyFeedback').textContent='هذا الاحتمال لا تسانده كل الأدلة. أعد قراءة المحضر وابحث عن التناقض.'}}
-function movePuzzle(direction){const next=puzzleIndex+direction;if(next>=0&&next<puzzleCases.length){puzzleIndex=next;renderStory()}}function showNextUnsolved(){const solved=solvedStoryIds();let next=puzzleCases.findIndex(p=>!solved.includes(p.id));if(next<0){document.getElementById('storyFeedback').textContent='أحسنت! أنهيت جميع الملفات الثمانية.';return}puzzleIndex=next;renderStory()}function resetPuzzleProgress(){if(!confirm('هل تريد إعادة جميع ملفات الألغاز من البداية؟'))return;localStorage.removeItem(PUZZLE_KEY);localStorage.removeItem(HINT_KEY);puzzleIndex=0;renderStory()}
-function updateLevelUI(){const n=solvedStoryIds().length,level=n>=8?3:n>=3?2:1,names=['المحقق المبتدئ','محقق القضايا','حارس الأرشيف'];const title=document.getElementById('levelName');if(!title)return;title.textContent='المستوى '+level+' — '+names[level-1];document.getElementById('levelDesc').textContent=level===3?'أغلقت الملفات الثمانية وأصبحت حارس الأرشيف.':level===2?'أصبحت تربط الأدلة بدلًا من التخمين. أكمل الملفات الثمانية.':'ابدأ بقراءة القصص وفتح الأدلة. كل ملف محلول يرفع رتبتك.';document.getElementById('levelProgress').textContent='الملفات المحلولة: '+n+' من 8';document.getElementById('levelBar').style.width=(n/8*100)+'%';document.getElementById('levelMessage').textContent=level===3?'✧ تمت ترقيتك إلى حارس الأرشيف ✧':'باقي '+(8-n)+' ملفات لإكمال الأرشيف.';document.getElementById('guardianReward').style.display=n>=8?'block':'none'}
-const whispers=['لا تقلل من قيمة الخطوات الصغيرة؛ أحيانًا هي التي تغيّر الطريق كله.','ليس عليك أن تفهم كل شيء الآن. بعض الأجوبة تصل في وقتها.','قد تكون أقرب إلى البداية الجديدة مما تظن.','لا تجعل يومًا صعبًا يقنعك أن كل الأيام ستكون مثله.','هناك أبواب لا تُفتح بالقوة، بل بالصبر.','احتفظ بالأشياء التي تمنح قلبك هدوءًا.','أحيانًا يكون التقدم هو أن تختار ألا تستسلم اليوم.','لا تنتظر أن يختفي الخوف تمامًا؛ ابدأ رغم وجوده.','ما تزرعه بصبر قد يزهر في وقت لم تتوقعه.','امنح نفسك فرصة أخرى، فالتعثر ليس نهاية الطريق.'];function getWhisper(){return '«'+whispers[Math.floor(Date.now()/86400000)%whispers.length]+'»'}function showWhisper(){document.getElementById('dailyWhisper').textContent=getWhisper()}function unlockArchive(){let ok=document.getElementById('archiveCode').value==='000';document.getElementById('archiveFeedback').textContent=ok?'تم قبول الرمز. فُتح الأرشيف. ✧':'الرمز غير صحيح. ابحث عن التلميح الأول.';document.getElementById('archiveContent').style.display=ok?'block':'none'}function unlockSecret(){let ok=document.getElementById('secretCode').value==='000';document.getElementById('secretFeedback').textContent=ok?'تم فتح الخزانة!':'الرمز غير صحيح.';document.getElementById('secretContent').style.display=ok?'block':'none'}function showSecretFile(){document.getElementById('hiddenFeedback').textContent=localStorage.getItem(SOLVED_KEY)==='yes'?'وجدت أثرًا خلف الباب... أدخل الرمز 009 لفتح الملف.':'الباب لا يستجيب. أكمل القضية 001 أولًا.'}function unlockHiddenRoom(){const solved=localStorage.getItem(SOLVED_KEY)==='yes',code=document.getElementById('hiddenCode').value,feedback=document.getElementById('hiddenFeedback');if(!solved){feedback.textContent='أغلق القضية 001 أولًا. الأدلة تقودك إلى هنا.';return}if(code==='009'){feedback.textContent='تم قبول الرمز... فُتح الملف 009.';document.getElementById('secretFile').style.display='block'}else feedback.textContent='الرمز غير صحيح. ابحث عن التلميح.'}function openMessageForm(){window.open('https://docs.google.com/forms/d/e/1FAIpQLSdTP90nkj6HPg8w5pqvohziPldEEh6vr7qu2JmlNwusUt_-EQ/viewform','_blank')}
-renderCase();renderStory();updateLevelUI();
+
+function discoverClue(){
+ doorClicks++;
+ if(doorClicks>=3)document.getElementById('clue').style.display='block';
+}
+function openDoor(){
+ document.getElementById('frontDoor').classList.add('open');
+ setTimeout(()=>{
+  document.getElementById('entrance').classList.remove('active');
+  document.getElementById('hallway').classList.add('active');
+ },700);
+}
+function goEntrance(){
+ document.getElementById('hallway').classList.remove('active');
+ document.getElementById('entrance').classList.add('active');
+}
+function goHall(){
+ document.getElementById('room').classList.remove('active');
+ document.getElementById('hallway').classList.add('active');
+}
+function enterRoom(id){
+ document.getElementById('hallway').classList.remove('active');
+ document.getElementById('room').classList.add('active');
+ document.querySelectorAll('.room-panel').forEach(p=>p.classList.remove('show'));
+ const panel=document.getElementById(id);
+ if(panel)panel.classList.add('show');
+ const names={
+ cases:['غرفة التحقيق','خمس قضايا، وخيط واحد يربط بينها.'],
+ puzzle:['غرفة الألغاز','لا تبحث عن الإجابة السريعة؛ ابحث عن التناقض.'],
+ archive:['الأرشيف المحظور','بعض الرسائل لا تظهر إلا لمن يملك الرمز.'],
+ messages:['غرفة الرسائل المجهولة','اترك أثرًا دون أن تترك اسمك.'],
+ secret:['الخزانة السرية','الرمز الأول يفتح ما لا يظهر للعين.'],
+ hiddenRoom:['الباب الأسود','الملف الأخير لا يُفتح إلا بعد اكتمال السلسلة.']
+ };
+ document.getElementById('roomTitle').textContent=names[id][0];
+ document.getElementById('roomDescription').textContent=names[id][1];
+ if(id==='cases')renderCases();
+ if(id==='archive')document.getElementById('archiveCode').value='';
+ if(id==='hiddenRoom')document.getElementById('hiddenCode').value='';
+}
+function getSolved(){
+ try{return JSON.parse(localStorage.getItem(SOLVED_KEY)||'[]')}catch(e){return []}
+}
+function saveSolved(list){
+ localStorage.setItem(SOLVED_KEY,JSON.stringify(list));
+}
+function renderCases(){
+ const solved=getSolved();
+ const list=document.getElementById('caseList');
+ list.innerHTML='';
+ cases.forEach((c,i)=>{
+  const card=document.createElement('div');
+  card.className='case-ticket'+(solved.includes(c.id)?' done':'');
+  card.innerHTML='<strong>CASE '+c.id+'</strong><span>'+c.title+'</span>';
+  card.onclick=()=>openCase(i);
+  list.appendChild(card);
+ });
+ document.getElementById('seriesProgress').textContent='القضايا المغلقة: '+solved.length+' من 5';
+ if(solved.length===5){
+  document.getElementById('seriesProgress').textContent='✧ اكتملت القضايا الخمس. أصبح الباب الأسود مستعدًا لاستقبالك. ✧';
+ }
+ openCase(currentCase);
+}
+function openCase(index){
+ currentCase=index;
+ const c=cases[index];
+ const solved=getSolved().includes(c.id);
+ document.getElementById('caseKicker').textContent='CASE FILE · '+c.id;
+ document.getElementById('caseTitle').textContent=c.title;
+ document.getElementById('caseStory').textContent=c.story;
+ document.getElementById('casePhoto').style.backgroundImage='linear-gradient(#09060b33,#09060b55),url("'+c.image+'")';
+ document.getElementById('casePhotoLabel').textContent=c.label;
+ document.getElementById('caseQuestion').textContent=c.question;
+ const evidence=document.getElementById('caseEvidence');
+ evidence.innerHTML='';
+ c.evidence.forEach((e,i)=>{
+  const div=document.createElement('div');
+  div.className='evidence';
+  div.innerHTML='<h4>الدليل '+(i+1)+' · '+e[0]+'</h4><p>'+e[1]+'</p>';
+  evidence.appendChild(div);
+ });
+ const answers=document.getElementById('caseAnswers');
+ answers.innerHTML='';
+ c.answers.forEach((a,i)=>{
+  const b=document.createElement('button');
+  b.className='option';
+  b.textContent=(i+1)+'. '+a;
+  b.disabled=solved;
+  b.onclick=()=>answerCase(i);
+  answers.appendChild(b);
+ });
+ document.getElementById('caseFeedback').textContent=solved?'هذه القضية أُغلقت سابقًا. يمكنك مراجعة الحل أو اختيار قضية أخرى.':'';
+ document.getElementById('caseSolution').style.display=solved?'block':'none';
+ document.getElementById('caseSolutionText').textContent=solved?c.solution:'';
+ document.getElementById('caseRewardText').textContent=solved?c.reward:'';
+ document.getElementById('caseStamp').textContent=solved?'EVIDENCE CODE · '+c.stamp:'';
+}
+function answerCase(choice){
+ const c=cases[currentCase];
+ const solved=getSolved();
+ if(solved.includes(c.id))return;
+ if(choice===c.correct){
+  solved.push(c.id);
+  saveSolved(solved);
+  document.getElementById('caseFeedback').textContent='إجابة صحيحة. لقد ربطت الأدلة ببعضها. ✧';
+  document.getElementById('caseSolution').style.display='block';
+  document.getElementById('caseSolutionText').textContent=c.solution;
+  document.getElementById('caseRewardText').textContent=c.reward;
+  document.getElementById('caseStamp').textContent='EVIDENCE CODE · '+c.stamp;
+  document.querySelectorAll('#caseAnswers button').forEach(b=>b.disabled=true);
+  renderCasesListOnly();
+ }else{
+  document.getElementById('caseFeedback').textContent='هذا الاحتمال لا تسانده كل الأدلة. أعد قراءة المحضر وابحث عن التناقض.';
+ }
+}
+function renderCasesListOnly(){
+ const solved=getSolved();
+ const list=document.getElementById('caseList');
+ list.innerHTML='';
+ cases.forEach((c,i)=>{
+  const card=document.createElement('div');
+  card.className='case-ticket'+(solved.includes(c.id)?' done':'');
+  card.innerHTML='<strong>CASE '+c.id+'</strong><span>'+c.title+'</span>';
+  card.onclick=()=>openCase(i);
+  list.appendChild(card);
+ });
+ document.getElementById('seriesProgress').textContent='القضايا المغلقة: '+solved.length+' من 5';
+ if(solved.length===5)document.getElementById('seriesProgress').textContent='✧ اكتملت القضايا الخمس. أصبح الباب الأسود مستعدًا لاستقبالك. ✧';
+}
+function unlockArchive(){
+ const ok=document.getElementById('archiveCode').value==='000';
+ document.getElementById('archiveFeedback').textContent=ok?'تم قبول الرمز. فُتح الأرشيف. ✧':'الرمز غير صحيح. ابحث عن التلميح الأول.';
+ document.getElementById('archiveContent').style.display=ok?'block':'none';
+ if(ok)showWhisper();
+}
+const whispers=[
+'لا تقلل من قيمة الخطوات الصغيرة؛ أحيانًا هي التي تغيّر الطريق كله.',
+'ليس عليك أن تفهم كل شيء الآن. بعض الأجوبة تصل في وقتها.',
+'قد تكون أقرب إلى البداية الجديدة مما تظن.',
+'لا تجعل يومًا صعبًا يقنعك أن كل الأيام ستكون مثله.',
+'هناك أبواب لا تُفتح بالقوة، بل بالصبر.',
+'احتفظ بالأشياء التي تمنح قلبك هدوءًا.',
+'أحيانًا يكون التقدم هو أن تختار ألا تستسلم اليوم.',
+'لا تنتظر أن يختفي الخوف تمامًا؛ ابدأ رغم وجوده.',
+'ما تزرعه بصبر قد يزهر في وقت لم تتوقعه.',
+'امنح نفسك فرصة أخرى، فالتعثر ليس نهاية الطريق.'
+];
+function showWhisper(){
+ const day=Math.floor(Date.now()/86400000);
+ document.getElementById('dailyWhisper').textContent='«'+whispers[day%whispers.length]+'»';
+}
+function unlockSecret(){
+ const ok=document.getElementById('secretCode').value==='000';
+ document.getElementById('secretFeedback').textContent=ok?'تم فتح الخزانة! ✧':'الرمز غير صحيح.';
+ document.getElementById('secretContent').style.display=ok?'block':'none';
+}
+function unlockHiddenRoom(){
+ const solved=getSolved();
+ const code=document.getElementById('hiddenCode').value;
+ const feedback=document.getElementById('hiddenFeedback');
+ if(solved.length!==5){
+  feedback.textContent='الباب لا يستجيب. يجب إغلاق القضايا الخمس أولًا. الملفات المغلقة: '+solved.length+'/5';
+  return;
+ }
+ if(code==='009'){
+  feedback.textContent='تم قبول الرمز... فُتح الملف 009.';
+  document.getElementById('secretFile').style.display='block';
+ }else{
+  feedback.textContent='الرمز غير صحيح. راجع المكافآت التي حصلت عليها في القضايا.';
+ }
+}
+function puzzleAnswer(n){
+ const feedback=document.getElementById('puzzleFeedback');
+ if(n===0)feedback.textContent='إجابة صحيحة. إذا كان الهلال هو الصحيح، تصدق العبارة الأولى فقط؛ أما إذا كانت العين صحيحة فتصدق عبارتان، وإذا كان المثلث صحيحًا فلا تصدق أي عبارة.';
+ else feedback.textContent='ليست الإجابة المطابقة لشرط الورقة. جرّب افتراض كل مفتاح وعدّ العبارات الصحيحة.';
+}
+function puzzleAnswer2(n){
+ document.getElementById('puzzleFeedback2').textContent=n===0?'صحيح! الساعة المتوقفة تشير إلى الوقت الصحيح مرتين في اليوم.':'فكر في عقارب ساعة متوقفة: متى تتطابق مع الوقت الحقيقي؟';
+}
+function openMessageForm(){
+ window.open('https://docs.google.com/forms/d/e/1FAIpQLSdTP90nkj6HPg8w5pqvohziPldEEh6vr7qu2JmlNwusUt_-EQ/viewform','_blank');
+}
+renderCases();
 </script>
-</body></html>
+</body>
+</html>
