@@ -41,21 +41,25 @@ button:disabled{opacity:.4;cursor:not-allowed}
 .hall{max-width:1000px;margin:auto;padding:105px 18px 55px;text-align:center}
 h2{color:var(--plum);font-size:30px;font-weight:500}
 .hall p{line-height:2;color:#6d5b72}
-.doors{position:relative;display:flex;flex-direction:column;align-items:center;gap:24px;max-width:760px;margin:35px auto 28px;padding:24px 18px 34px;perspective:1100px;background:linear-gradient(90deg,#d9c7d455 0 3%,transparent 3% 97%,#d9c7d455 97%),linear-gradient(180deg,#f7edf6aa,#e8dceaaa);border-left:1px solid #d8c9d8;border-right:1px solid #d8c9d8;box-shadow:inset 0 0 35px #49335412}
-.doors:before{content:"";position:absolute;top:0;bottom:0;left:50%;width:3px;transform:translateX(-50%);background:linear-gradient(transparent,#c8b6c9 15%,#fff 50%,#c8b6c9 85%,transparent);opacity:.55}
-.door-card{width:46%;min-height:190px;border:7px solid #765b78;border-bottom-width:10px;border-radius:100px 100px 7px 7px;padding:18px;color:white;text-align:right;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;cursor:pointer;background:#493354;isolation:isolate;box-shadow:0 8px 0 #392b40,0 16px 24px #21152c30;transform:rotateY(-3deg);transform-origin:right center;transition:transform .55s cubic-bezier(.2,.75,.25,1),box-shadow .4s}
-.door-card:nth-child(even){align-self:flex-end;transform-origin:left center;transform:rotateY(3deg)}
-.door-card:nth-child(odd){align-self:flex-start}
-.door-card:before{content:"";position:absolute;inset:0;background:var(--pic) center/cover;opacity:.78;z-index:-2;transition:transform .85s cubic-bezier(.2,.75,.25,1),filter .5s;transform-origin:right center}
+.doors{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(62px,.34fr) minmax(0,1fr);grid-template-rows:repeat(2,minmax(230px,auto));align-items:stretch;gap:34px 12px;max-width:900px;margin:35px auto 28px;padding:30px 18px 42px;perspective:1300px;isolation:isolate;background:linear-gradient(90deg,#d5c2d455 0 2%,transparent 2% 98%,#d5c2d455 98%),linear-gradient(180deg,#eee3e8,#d9cbd5 50%,#eee5e9);border-left:1px solid #d8c9d8;border-right:1px solid #d8c9d8;box-shadow:inset 0 0 55px #49335420}
+.doors:before{content:"";position:absolute;z-index:-1;top:0;bottom:0;left:50%;width:28%;transform:translateX(-50%);background:repeating-linear-gradient(180deg,#fff2 0 2px,transparent 2px 54px),linear-gradient(90deg,#b7a5b255,#f8f0ed 24%,#fff9f2 50%,#f8f0ed 76%,#b7a5b255);box-shadow:inset 10px 0 18px #49335412,inset -10px 0 18px #49335412}
+.door-card{grid-column:1;width:100%;min-height:230px;border:8px solid #765b78;border-bottom:12px solid #59445f;border-radius:105px 105px 5px 5px;padding:18px 15px;color:white;text-align:right;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;cursor:pointer;background:#493354;isolation:isolate;box-shadow:inset 0 0 0 2px #d6b77e,0 8px 0 #392b40,0 18px 26px #21152c35;transform:perspective(900px) rotateY(-5deg);transform-origin:right center;transition:transform .65s cubic-bezier(.2,.75,.25,1),box-shadow .4s}
+.door-card:nth-child(1),.door-card:nth-child(3){grid-column:1;justify-self:stretch;transform-origin:right center}
+.door-card:nth-child(2),.door-card:nth-child(4){grid-column:3;justify-self:stretch;transform:perspective(900px) rotateY(5deg);transform-origin:left center}
+.door-card:before{content:"";position:absolute;inset:0;background:var(--pic) center/cover;opacity:.72;z-index:-2;transition:transform .85s cubic-bezier(.2,.75,.25,1),filter .5s;transform-origin:right center}
 .door-card:nth-child(even):before{transform-origin:left center}
-.door-card:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#21152cf5,#21152c22 90%);z-index:-1}
-.door-card:hover{box-shadow:0 8px 0 #392b40,0 20px 32px #21152c40;filter:brightness(1.05)}
+.door-card:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#21152cf5,#21152c18 90%);z-index:-1}
+.door-card:hover{box-shadow:inset 0 0 0 2px #e6c88f,0 8px 0 #392b40,0 22px 34px #21152c45;filter:brightness(1.06)}
 .door-card:hover:before{transform:scale(1.04)}
 .door-card.opening:before{transform:perspective(900px) rotateY(-82deg);filter:brightness(.55)}
 .door-card:nth-child(even).opening:before{transform:perspective(900px) rotateY(82deg)}
 .door-card h3{margin:30px 0 4px;color:#f8dca9}
 .door-card p{font-size:12px;color:white;margin:0;line-height:1.9}
 .door-card span{font-size:11px;color:#f5d49e}
+.door-lock{position:absolute;z-index:3;top:48%;right:13px;width:25px;height:25px;border-radius:50%;border:2px solid #e4c58b;background:radial-gradient(circle at 35% 30%,#fff0c5,#a77a3d 70%);box-shadow:0 1px 5px #160d1d;pointer-events:none}
+.door-lock:after{content:"";position:absolute;left:9px;top:7px;width:5px;height:10px;border-radius:5px 5px 3px 3px;background:#493354;box-shadow:0 5px 0 -1px #493354}
+.door-card:nth-child(even) .door-lock{right:auto;left:13px}
+.door-card:focus-visible{outline:3px solid #c69a58;outline-offset:5px}
 .hall{position:relative}
 .door{position:relative;transform-style:preserve-3d;perspective:1100px;transition:filter .5s}
 .door:before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(#21152c55,#21152c77),url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800') center/cover;transform-origin:right center;transition:transform .95s cubic-bezier(.2,.75,.25,1);box-shadow:inset -8px 0 14px #0005;z-index:1}
@@ -150,7 +154,7 @@ input,textarea{border:1px solid #d6c5dc;border-radius:9px;padding:11px;backgroun
 .whisper-reveal h3{position:relative;color:#493354;font-size:clamp(23px,5vw,31px);font-weight:500;margin:12px 0 18px}
 .whisper-reveal p{position:relative;min-height:100px;display:grid;place-items:center;color:#493354;font-size:clamp(19px,4.5vw,25px);line-height:2.1;margin:12px 0 20px}
 .whisper-sign{position:relative;color:#89765f;font-size:12px}
-.whisper-actions{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:18px}
+.whisper-actions{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:18px}.whisper-actions button{min-width:132px}.whisper-actions button:last-child{border-color:#b99a72;color:#493354;font-weight:700}
 .whisper-hint{color:#8a7a8e;font-size:12px;line-height:1.9;margin-top:16px}
 .whisper-sound-wrap{margin:14px auto 0;display:flex;flex-direction:column;align-items:center;gap:6px}
 .whisper-sound-btn{border-radius:999px!important;padding:10px 18px!important;min-width:190px}
@@ -169,7 +173,7 @@ input,textarea{border:1px solid #d6c5dc;border-radius:9px;padding:11px;backgroun
 .step-dots span{width:7px;height:7px;border-radius:50%;background:#e5d8e8}
 .step-dots span.active{background:#76548b;width:20px;border-radius:8px}
 footer{text-align:center;padding:25px;color:#8c7c91;font-size:11px}
-@media(max-width:600px){.room{padding:90px 10px 35px}.panel{padding:13px}.section{padding:13px}.daytab{font-size:10px}.item{align-items:flex-start;flex-direction:column}.item-photo{width:100%;height:150px}.item button{width:100%}.step-nav button{min-width:105px;padding:10px 13px}.profile-photo{height:270px}.doors{padding:18px 10px 25px;gap:20px}.door-card{width:82%;min-height:175px}.door-card:nth-child(even){align-self:flex-end}.door-card:nth-child(odd){align-self:flex-start}.door{height:300px}}
+@media(max-width:600px){.room{padding:90px 10px 35px}.panel{padding:13px}.section{padding:13px}.daytab{font-size:10px}.item{align-items:flex-start;flex-direction:column}.item-photo{width:100%;height:150px}.item button{width:100%}.step-nav button{min-width:105px;padding:10px 13px}.profile-photo{height:270px}.doors{grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr);grid-template-rows:repeat(2,minmax(190px,auto));padding:18px 8px 25px;gap:22px 5px}.door-card{width:100%;min-height:190px;padding:12px 9px;border-width:6px;border-bottom-width:9px;border-radius:75px 75px 4px 4px}.door-card h3{font-size:16px;margin:25px 0 4px}.door-card p{font-size:10px}.door-card span{font-size:9px}.door-lock{width:20px;height:20px;right:7px}.door-card:nth-child(even) .door-lock{left:7px}.door-lock:after{left:7px;top:5px;width:4px;height:8px}.door{height:300px}}
 </style>
 </head>
 <body>
@@ -191,10 +195,10 @@ footer{text-align:center;padding:25px;color:#8c7c91;font-size:11px}
   <h2>أهلًا بك في عالم الحكايات</h2>
   <p>أربعة أبواب أمامك. اختر وجهتك، فقد تجد شيئًا لم تكن تبحث عنه.</p>
   <div class="doors">
-   <div class="door-card" style="--pic:url('https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=800')" onclick="enterRoom('cases',this)"><span>✦ ملف 001</span><h3>القضايا</h3><p>ملفات غامضة تنتظر من يكشف حقيقتها.</p></div>
-   <div class="door-card" style="--pic:url('https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800')" onclick="enterRoom('archive',this)"><span>✦ همسة اليوم</span><h3>الهمسات</h3><p>كلمات خافتة قد تحمل معنى لا تراه من النظرة الأولى.</p></div>
-   <div class="door-card" style="--pic:url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800')" onclick="enterRoom('messages',this)"><span>✦ بلا اسم</span><h3>رسالة من مجهول</h3><p>رسالة تنتظرك… وربما تترك أنت رسالة لا يعرف صاحبها من كتبها.</p></div>
-   <div class="door-card" style="--pic:url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=800')" onclick="enterRoom('hiddenRoom',this)"><span>✦ 009</span><h3>الغرفة السرية</h3><p>باب لا يظهر ما خلفه إلا لمن يعرف الرمز.</p></div>
+   <div class="door-card" style="--pic:url('https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=800')" onclick="enterRoom('cases',this)"><i class="door-lock" aria-hidden="true"></i><span>✦ ملف 001</span><h3>القضايا</h3><p>ملفات غامضة تنتظر من يكشف حقيقتها.</p></div>
+   <div class="door-card" style="--pic:url('https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800')" onclick="enterRoom('archive',this)"><i class="door-lock" aria-hidden="true"></i><span>✦ همسة اليوم</span><h3>الهمسات</h3><p>كلمات خافتة قد تحمل معنى لا تراه من النظرة الأولى.</p></div>
+   <div class="door-card" style="--pic:url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800')" onclick="enterRoom('messages',this)"><i class="door-lock" aria-hidden="true"></i><span>✦ بلا اسم</span><h3>رسالة من مجهول</h3><p>رسالة تنتظرك… وربما تترك أنت رسالة لا يعرف صاحبها من كتبها.</p></div>
+   <div class="door-card" style="--pic:url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=800')" onclick="enterRoom('hiddenRoom',this)"><i class="door-lock" aria-hidden="true"></i><span>✦ 009</span><h3>الغرفة السرية</h3><p>باب لا يظهر ما خلفه إلا لمن يعرف الرمز.</p></div>
   </div>
   <button class="back" onclick="go('entrance')">العودة إلى المدخل</button>
  </div>
@@ -290,7 +294,7 @@ footer{text-align:center;padding:25px;color:#8c7c91;font-size:11px}
     </div>
     <div class="whisper-actions" id="whisperActions" style="display:none">
      <button class="soft" onclick="copyDailyWhisper()">انسخ الهمسة</button>
-     <button class="soft" onclick="closeDailyWhisper()">أعد الإضاءة</button>
+     <button class="soft" onclick="closeDailyWhisper()">✕ إغلاق الهمسة</button>
     </div>
    </div>
    <div class="backdrop-note">همسة جديدة كل يوم… خذ منها ما تحتاجه واترك الباقي للغد.</div>
@@ -366,18 +370,18 @@ function startWhisperSound(){
   if(whisperAudioContext.state==='suspended')whisperAudioContext.resume();
   const ctx=whisperAudioContext,now=ctx.currentTime;
   // Soft, slowly swelling ambient tones.
-  const master=ctx.createGain();master.gain.setValueAtTime(0,now);master.gain.linearRampToValueAtTime(0.12,now+2);master.connect(ctx.destination);
+  const master=ctx.createGain();master.gain.setValueAtTime(0,now);master.gain.linearRampToValueAtTime(0.28,now+1.2);master.connect(ctx.destination);
   [174.61,220,261.63].forEach((freq,index)=>{
    const osc=ctx.createOscillator(),gain=ctx.createGain(),filter=ctx.createBiquadFilter();
-   osc.type='sine';osc.frequency.value=freq;filter.type='lowpass';filter.frequency.value=650;
-   gain.gain.value=[0.24,0.16,0.12][index];osc.connect(filter);filter.connect(gain);gain.connect(master);osc.start();
+   osc.type=index===0?'triangle':'sine';osc.frequency.value=freq;filter.type='lowpass';filter.frequency.value=650;
+   gain.gain.value=[0.42,0.30,0.22][index];osc.connect(filter);filter.connect(gain);gain.connect(master);osc.start();
    whisperSoundNodes.push(osc,gain,filter);
   });
   // Very gentle rain-like noise, kept low beneath the tones.
   const length=ctx.sampleRate*3,buffer=ctx.createBuffer(1,length,ctx.sampleRate),data=buffer.getChannelData(0);
   for(let i=0;i<length;i++)data[i]=(Math.random()*2-1)*0.22;
   const noise=ctx.createBufferSource(),noiseFilter=ctx.createBiquadFilter(),noiseGain=ctx.createGain();
-  noise.buffer=buffer;noise.loop=true;noiseFilter.type='lowpass';noiseFilter.frequency.value=480;noiseGain.gain.value=0.025;
+  noise.buffer=buffer;noise.loop=true;noiseFilter.type='lowpass';noiseFilter.frequency.value=480;noiseGain.gain.value=0.055;
   noise.connect(noiseFilter);noiseFilter.connect(noiseGain);noiseGain.connect(master);noise.start();
   whisperSoundNodes.push(noise,noiseFilter,noiseGain,master);
   whisperSoundOn=true;btn.classList.add('playing');btn.setAttribute('aria-pressed','true');btn.textContent='♫ أوقف الأجواء الهادئة';
@@ -419,16 +423,18 @@ function revealDailyWhisper(){
  text.textContent='';
  setTimeout(()=>{
   card.classList.add('show');
+  $('whisperActions').style.display='flex';
   let i=0;
   clearInterval(whisperTypingTimer);
   whisperTypingTimer=setInterval(()=>{
    text.textContent=message.slice(0,++i);
-   if(i>=message.length){clearInterval(whisperTypingTimer);$('whisperActions').style.display='flex'}
+   if(i>=message.length){clearInterval(whisperTypingTimer)}
   },48);
  },480);
 }
 function closeDailyWhisper(){
  clearInterval(whisperTypingTimer);
+ stopWhisperSound();
  $('whisperAtmosphere').classList.remove('on');
  $('whisperRoom').classList.remove('revealed');
  $('whisperReveal').classList.remove('show');
