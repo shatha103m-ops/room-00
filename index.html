@@ -1063,6 +1063,28 @@ function finishDay(){
   $('endTitle').textContent='وصلت إلى نهاية التحقيق';
   $('endText').textContent=D[3].ending;
   $('unlockText').textContent='تم إغلاق القضية. راجع الأدلة: سالم هو المختطف، ونبيل ساعده بإخفاء زيارة هدى وإعطائها المهدئ، بينما أخفى صالح حقيقة الممر لحماية سمعته. لقد انتهت الأسطورة، وظهرت الحقيقة.';
+
+  // الرسالة السرية التي تظهر بعد نهاية القضية الأولى
+  const oldTeaser=$('caseTeaser');
+  if(oldTeaser)oldTeaser.remove();
+  const teaser=document.createElement('div');
+  teaser.id='caseTeaser';
+  teaser.style.cssText='margin-top:26px;padding:22px 18px;border:1px solid #c69a58;border-radius:12px;background:linear-gradient(145deg,#21182c,#382640);text-align:center;box-shadow:0 12px 35px #120b1c66;animation:fade .9s ease both;';
+  teaser.innerHTML=`
+   <div style="color:#c69a58;font-size:10px;letter-spacing:3px;font-weight:700;margin-bottom:12px">ROOM 00 · INCOMING MESSAGE</div>
+   <h3 style="color:#f5d49e;font-size:19px;margin:0 0 18px">تم استلام الرسالة للتو</h3>
+   <div style="height:1px;background:linear-gradient(90deg,transparent,#c69a58,transparent);margin:0 8px 18px"></div>
+   <p style="color:#fff7ec;line-height:2.15;font-size:14px;margin:0 0 10px">«إلى المحققين الذين ظنوا أنهم أنهوا اللعبة…<br>أحسنتم.<br>وجدتم الوحش، وكشفتم مخبأه، وأنقذتم ضحاياه.<br>لكن لدي سؤال واحد…<br>من أخبر سالم أنكم تقتربون منه؟<br>ومن كان يرسل له أسماء النساء ومواعيد خروجهن؟<br>سالم لم يكن يختار ضحاياه وحده…»</p>
+   <p style="color:#f5d49e;line-height:2;font-size:14px;font-weight:700;margin:18px 0">«إذا كنتم تظنون أنكم وجدتم الوحش… فأنتم لم تبحثوا عن صاحبه بعد.»</p>
+   <p style="color:#c9b9ce;text-align:left;font-size:12px;margin:0 4px 22px">— مجهول</p>
+   <div style="height:1px;background:linear-gradient(90deg,transparent,#c69a58,transparent);margin:0 8px 20px"></div>
+   <div style="color:#c69a58;font-size:11px;letter-spacing:4px;font-weight:700;margin-bottom:10px">ROOM 00</div>
+   <h3 style="color:#fff7ec;font-size:20px;margin:0 0 8px">القضية الأولى: انتهت</h3>
+   <p style="color:#f5d49e;font-size:14px;font-weight:600;margin:0 0 12px">لكن اللعبة لم تنتهِ بعد…</p>
+   <p style="color:#fff7ec;font-size:16px;font-weight:700;margin:0">هل تجرؤون على فتح الملف التالي؟</p>
+   <p style="color:#9d8ba5;font-size:10px;letter-spacing:2px;margin:22px 0 0">THE NEXT FILE IS WAITING</p>
+  `;
+  $('dayEnd').appendChild(teaser);
   S.finished=true;
  }
  save();updateTabs();
