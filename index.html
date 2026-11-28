@@ -282,7 +282,7 @@ footer{text-align:center;padding:25px;color:#8c7c91;font-size:11px}
      <button class="gold" id="revealWhisperBtn" onclick="revealDailyWhisper()">اكشف همسة اليوم</button>
      <div class="whisper-sound-wrap">
       <button class="soft whisper-sound-btn" id="whisperSoundBtn" type="button" onclick="toggleWhisperSound()" aria-pressed="false">♫ شغّل الأجواء الهادئة</button>
-      <div class="whisper-sound-note">نغمات ناعمة ومطر خفيف · الصوت اختياري</div>
+      <div class="whisper-sound-note">صوت مطر خافت وناعم · الصوت اختياري</div>
      </div>
      <div class="whisper-hint">ستهدأ الإضاءة قليلًا، وتظهر لك رسالة اليوم.</div>
     </div>
@@ -369,22 +369,17 @@ function startWhisperSound(){
   whisperAudioContext=whisperAudioContext||new AudioCtx();
   if(whisperAudioContext.state==='suspended')whisperAudioContext.resume();
   const ctx=whisperAudioContext,now=ctx.currentTime;
-  // Soft, slowly swelling ambient tones.
-  const master=ctx.createGain();master.gain.setValueAtTime(0,now);master.gain.linearRampToValueAtTime(0.28,now+1.2);master.connect(ctx.destination);
-  [174.61,220,261.63].forEach((freq,index)=>{
-   const osc=ctx.createOscillator(),gain=ctx.createGain(),filter=ctx.createBiquadFilter();
-   osc.type=index===0?'triangle':'sine';osc.frequency.value=freq;filter.type='lowpass';filter.frequency.value=650;
-   gain.gain.value=[0.42,0.30,0.22][index];osc.connect(filter);filter.connect(gain);gain.connect(master);osc.start();
-   whisperSoundNodes.push(osc,gain,filter);
-  });
-  // Very gentle rain-like noise, kept low beneath the tones.
-  const length=ctx.sampleRate*3,buffer=ctx.createBuffer(1,length,ctx.sampleRate),data=buffer.getChannelData(0);
-  for(let i=0;i<length;i++)data[i]=(Math.random()*2-1)*0.22;
-  const noise=ctx.createBufferSource(),noiseFilter=ctx.createBiquadFilter(),noiseGain=ctx.createGain();
-  noise.buffer=buffer;noise.loop=true;noiseFilter.type='lowpass';noiseFilter.frequency.value=480;noiseGain.gain.value=0.055;
-  noise.connect(noiseFilter);noiseFilter.connect(noiseGain);noiseGain.connect(master);noise.start();
-  whisperSoundNodes.push(noise,noiseFilter,noiseGain,master);
-  whisperSoundOn=true;btn.classList.add('playing');btn.setAttribute('aria-pressed','true');btn.textContent='♫ أوقف الأجواء الهادئة';
+  // Soft, non-tonal rain / airy ambience: no eerie notes or oscillators.
+  const master=ctx.createGain();master.gain.setValueAtTime(0,now);master.gain.linearRampToValueAtTime(0.055,now+2.8);master.connect(ctx.destination);
+  const length=ctx.sampleRate*4,buffer=ctx.createBuffer(1,length,ctx.sampleRate),data=buffer.getChannelData(0);
+  // Smooth noise to avoid sharp hiss; subtly varying intensity for a natural texture.
+  let slow=0;
+  for(let i=0;i<length;i++){slow=slow*0.985+(Math.random()*2-1)*0.015;data[i]=(Math.random()*2-1)*0.16+slow*0.55;}
+  const noise=ctx.createBufferSource(),low=ctx.createBiquadFilter(),high=ctx.createBiquadFilter(),noiseGain=ctx.createGain();
+  noise.buffer=buffer;noise.loop=true;low.type='lowpass';low.frequency.value=1500;high.type='highpass';high.frequency.value=180;noiseGain.gain.value=0.32;
+  noise.connect(low);low.connect(high);high.connect(noiseGain);noiseGain.connect(master);noise.start();
+  whisperSoundNodes.push(noise,low,high,noiseGain,master);
+  whisperSoundOn=true;btn.classList.add('playing');btn.setAttribute('aria-pressed','true');btn.textContent='◼ إيقاف صوت المطر الهادئ';
  }catch(error){stopWhisperSound();btn.textContent='تعذّر تشغيل الصوت · حاولي مرة أخرى'}
 }
 function stopWhisperSound(){
@@ -394,7 +389,7 @@ function stopWhisperSound(){
  }
  whisperSoundNodes=[];whisperSoundOn=false;
  const btn=$('whisperSoundBtn');
- if(btn){btn.classList.remove('playing');btn.setAttribute('aria-pressed','false');btn.textContent='♫ شغّل الأجواء الهادئة'}
+ if(btn){btn.classList.remove('playing');btn.setAttribute('aria-pressed','false');btn.textContent='☁ شغّل صوت المطر الهادئ'}
 }
 function dailyWhisper(){
  const today=new Date();
