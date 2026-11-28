@@ -280,10 +280,7 @@ footer{text-align:center;padding:25px;color:#8c7c91;font-size:11px}
      <h3>خذ لحظة لنفسك</h3>
      <p>هناك كلمات لا تحتاج إلى ضجيج… فقط لحظة هادئة حتى تصل إليك.</p>
      <button class="gold" id="revealWhisperBtn" onclick="revealDailyWhisper()">اكشف همسة اليوم</button>
-     <div class="whisper-sound-wrap">
-      <button class="soft whisper-sound-btn" id="whisperSoundBtn" type="button" onclick="toggleWhisperSound()" aria-pressed="false">♫ شغّل الأجواء الهادئة</button>
-      <div class="whisper-sound-note">صوت مطر خافت وناعم · الصوت اختياري</div>
-     </div>
+     <div class="whisper-sound-note">الغرفة هادئة… لا موسيقى ولا أصوات مستمرة.</div>
      <div class="whisper-hint">ستهدأ الإضاءة قليلًا، وتظهر لك رسالة اليوم.</div>
     </div>
     <div class="whisper-reveal" id="whisperReveal" aria-live="polite">
@@ -356,41 +353,22 @@ function enterRoom(id,el){
  doorBusy=false;
  },650)
 }
-let whisperAudioContext=null,whisperSoundNodes=[],whisperSoundOn=false;
-function toggleWhisperSound(){
- if(whisperSoundOn){stopWhisperSound();return}
- startWhisperSound();
-}
-function startWhisperSound(){
- const AudioCtx=window.AudioContext||window.webkitAudioContext;
- const btn=$('whisperSoundBtn');
- if(!AudioCtx){btn.textContent='الصوت غير مدعوم في هذا المتصفح';return}
+let whisperAudioContext=null;
+function playWhisperAppearanceSound(){
+ // A single, very soft, short chime only when the letter appears. No background audio.
  try{
+  const AudioCtx=window.AudioContext||window.webkitAudioContext;
+  if(!AudioCtx)return;
   whisperAudioContext=whisperAudioContext||new AudioCtx();
   if(whisperAudioContext.state==='suspended')whisperAudioContext.resume();
   const ctx=whisperAudioContext,now=ctx.currentTime;
-  // Soft, non-tonal rain / airy ambience: no eerie notes or oscillators.
-  const master=ctx.createGain();master.gain.setValueAtTime(0,now);master.gain.linearRampToValueAtTime(0.055,now+2.8);master.connect(ctx.destination);
-  const length=ctx.sampleRate*4,buffer=ctx.createBuffer(1,length,ctx.sampleRate),data=buffer.getChannelData(0);
-  // Smooth noise to avoid sharp hiss; subtly varying intensity for a natural texture.
-  let slow=0;
-  for(let i=0;i<length;i++){slow=slow*0.985+(Math.random()*2-1)*0.015;data[i]=(Math.random()*2-1)*0.16+slow*0.55;}
-  const noise=ctx.createBufferSource(),low=ctx.createBiquadFilter(),high=ctx.createBiquadFilter(),noiseGain=ctx.createGain();
-  noise.buffer=buffer;noise.loop=true;low.type='lowpass';low.frequency.value=1500;high.type='highpass';high.frequency.value=180;noiseGain.gain.value=0.32;
-  noise.connect(low);low.connect(high);high.connect(noiseGain);noiseGain.connect(master);noise.start();
-  whisperSoundNodes.push(noise,low,high,noiseGain,master);
-  whisperSoundOn=true;btn.classList.add('playing');btn.setAttribute('aria-pressed','true');btn.textContent='◼ إيقاف صوت المطر الهادئ';
- }catch(error){stopWhisperSound();btn.textContent='تعذّر تشغيل الصوت · حاولي مرة أخرى'}
+  const osc=ctx.createOscillator(),gain=ctx.createGain();
+  osc.type='sine';osc.frequency.setValueAtTime(740,now);
+  gain.gain.setValueAtTime(0.0001,now);gain.gain.exponentialRampToValueAtTime(0.025,now+0.035);gain.gain.exponentialRampToValueAtTime(0.0001,now+0.42);
+  osc.connect(gain);gain.connect(ctx.destination);osc.start(now);osc.stop(now+0.44);
+ }catch(e){}
 }
-function stopWhisperSound(){
- if(whisperAudioContext&&whisperSoundNodes.length){
-  const ctx=whisperAudioContext;
-  whisperSoundNodes.forEach(node=>{try{if(typeof node.stop==='function')node.stop();else if(node.gain)node.gain.setTargetAtTime(0,ctx.currentTime,0.08)}catch(e){}});
- }
- whisperSoundNodes=[];whisperSoundOn=false;
- const btn=$('whisperSoundBtn');
- if(btn){btn.classList.remove('playing');btn.setAttribute('aria-pressed','false');btn.textContent='☁ شغّل صوت المطر الهادئ'}
-}
+function stopWhisperSound(){}
 function dailyWhisper(){
  const today=new Date();
  const dayNumber=Math.floor(Date.UTC(today.getFullYear(),today.getMonth(),today.getDate())/DAY);
@@ -418,6 +396,7 @@ function revealDailyWhisper(){
  text.textContent='';
  setTimeout(()=>{
   card.classList.add('show');
+  playWhisperAppearanceSound();
   $('whisperActions').style.display='flex';
   let i=0;
   clearInterval(whisperTypingTimer);
