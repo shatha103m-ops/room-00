@@ -53,6 +53,9 @@ h2{color:var(--plum);font-size:30px;font-weight:500}
 .door-card:hover:before{transform:scale(1.04)}
 .door-card.opening:before{transform:perspective(900px) rotateY(-82deg);filter:brightness(.55)}
 .door-card:nth-child(even).opening:before{transform:perspective(900px) rotateY(82deg)}
+ .door-card:nth-child(1).opening:before{
+  transform:perspective(900px) rotateY(82deg);
+}
 .door-card h3{margin:30px 0 4px;color:#f8dca9}
 .door-card p{font-size:12px;color:white;margin:0;line-height:1.9}
 .door-card span{font-size:11px;color:#f5d49e}
@@ -549,7 +552,7 @@ const D=[
   {id:'square',name:'ساحة القرية',desc:'هنا يجتمع أهل الأون، وهنا تتغير رواياتهم.',pic:'https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=800',items:[['لوحة الإعلانات','ورقة قديمة عن الأسطورة ممزقة من المنتصف.','clue_legend'],['ساعة الساحة','توقفت عند وقت محدد، لكن أحدهم أعاد تشغيلها لاحقًا.','clue_clock']]}
  ],
  puzzles:[
-  {id:'p1',title:'ثلاث حوادث... تفصيلة واحدة',text:'مريم اختفت في طريق المخبز، وهدى قرب البئر، وليلى من منزل مغلق. ما الشيء المشترك الذي يجب أن تبحث عنه في إفادات أهل القرية قبل أن تربط الحوادث؟',answer:['سالم','صاحب محل الحلوى','صاحب متجر الحلوى','بائع الحلوى','محل سالم']},
+  {id:'p1',title:'ثلاث حوادث... تفصيلة واحدة',text:'بعد مقارنة خيوط الاختفاء، من الشخص الذي تقود إليه الأدلة بوصفه الرابط بين الحوادث؟',options:['صالح','نبيل','سالم','صاحب المخبز'],answer:['سالم'],hint:'راجع الأدلة التي تربط بين مواقع الاختفاء.'}
   {id:'p2',title:'العلامة في دفتر المخبز',text:'في دفتر المخبز وجدت علامة بجانب اسم مريم. اقرأ الدليل مرة أخرى: هل العلامة تعني طلبًا عاديًا أم أن هناك شيئًا غير مكتمل؟ اكتب: طلب أو ناقص.',answer:['ناقص','غير مكتمل'],hint:'الصفحة لا تسجل طلبًا مكتملًا.'}
  ],
  ending:'قبل أن تغادر الساحة، وجدت ورقة صغيرة تحت حجر قرب لوحة الإعلانات. لم يكن عليها اسم، فقط جملة واحدة: «لا تبحثوا عن الوحش في الغابة... ابحثوا عمّن يعرف مواعيد خروج النساء».'
@@ -816,7 +819,20 @@ function renderPuzzles(){
   box.innerHTML='<h4>'+p.title+'</h4><p>'+p.text+'</p>';
   if(solved){box.innerHTML+='<div class="feedback">تم حل اللغز ✓</div>'}
   else{
-   let input=document.createElement('input');input.placeholder='اكتب إجابتك هنا';
+   let input;
+if(p.options){
+ input=document.createElement('select');
+ input.innerHTML='<option value="">اختر الإجابة</option>';
+ p.options.forEach(option=>{
+  let item=document.createElement('option');
+  item.value=option;
+  item.textContent=option;
+  input.appendChild(item);
+ });
+}else{
+ input=document.createElement('input');
+ input.placeholder='اكتب إجابتك هنا';
+}
    let btn=document.createElement('button');btn.className='gold';btn.textContent='تحقق من الإجابة';
    let feedback=document.createElement('div');feedback.className='feedback';
    btn.onclick=()=>{
