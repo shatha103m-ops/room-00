@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -330,28 +330,16 @@ function renderStepNav(){
  steps.forEach((s,i)=>{let d=document.createElement('span');if(i===currentStep)d.className='active';dots.appendChild(d)})
 }
 
-/* نظام فتح الأجزاء:
-   الجزء الثاني مفتوح فورًا.
-   الجزء الثالث بعد 24 ساعة من إنهاء الثاني.
-   الجزء الرابع بعد 24 ساعة من إنهاء الثالث.
+/* نظام فتح الأجزاء — نسخة التجربة:
+   جميع الأجزاء الأربعة مفتوحة مباشرة لعرض القصة كاملة.
+   لا يوجد انتظار 24 ساعة في هذه النسخة.
 */
 function checkUnlock(){
-
- /* فتح الجزء الثاني مباشرة دون انتظار */
- if(!S.unlocked[1]){
-  S.unlocked[1]=true;
-  if(!S.times[1])S.times[1]=Date.now();
+ for(let i=0;i<4;i++){
+  S.unlocked[i]=true;
+  if(!S.times[i])S.times[i]=Date.now();
  }
-
- /* فتح الجزء الثالث والرابع بعد 24 ساعة من إنهاء الجزء السابق */
- for(let i=2;i<4;i++){
-  if(!S.unlocked[i]&&S.completedAt[i-1]&&Date.now()-S.completedAt[i-1]>=DAY){
-   S.unlocked[i]=true;
-   S.times[i]=Date.now()
-  }
- }
-
- save()
+ save();
 }
 
 function leftTime(ms){
@@ -361,12 +349,6 @@ function leftTime(ms){
 
 function selectDay(i){
  checkUnlock();
- if(!S.unlocked[i]){
-  let start=S.completedAt[i-1]||Date.now();
-  let left=Math.max(0,DAY-(Date.now()-start));
-  alert('هذا الجزء لم يحن موعده بعد.\nيفتح بعد '+leftTime(left));
-  return
- }
  dayNow=i;
  renderDay(i)
 }
@@ -604,9 +586,8 @@ function renderDay(i){
 function updateTabs(){
  for(let i=0;i<4;i++){
   let b=$('tab'+i);
-  b.className='daytab'+(i===dayNow?' active':'')+(!S.unlocked[i]?' locked':'')+(i<dayNow?' done':'');
+  b.className='daytab'+(i===dayNow?' active':'')+(i<dayNow?' done':'');
   b.innerHTML=['اليوم الأول<br>البداية','اليوم الثاني<br>الأثر','اليوم الثالث<br>المواجهة','اليوم الرابع<br>الحقيقة'][i];
-  if(!S.unlocked[i])b.innerHTML=['اليوم الأول<br>البداية','اليوم الثاني<br>مغلق','اليوم الثالث<br>مغلق','اليوم الرابع<br>مغلق'][i]
  }
 }
 function renderPlaces(){
@@ -899,3 +880,5 @@ checkUnlock();
 updateProgress();
 renderStepNav();
 </script>
+</body>
+</html>
