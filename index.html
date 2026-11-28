@@ -329,16 +329,36 @@ function renderStepNav(){
  let dots=$('stepDots');dots.innerHTML='';
  steps.forEach((s,i)=>{let d=document.createElement('span');if(i===currentStep)d.className='active';dots.appendChild(d)})
 }
+
+/* نظام فتح الأجزاء:
+   الجزء الثاني مفتوح فورًا.
+   الجزء الثالث بعد 24 ساعة من إنهاء الثاني.
+   الجزء الرابع بعد 24 ساعة من إنهاء الثالث.
+*/
 function checkUnlock(){
- for(let i=1;i<4;i++){
+
+ /* فتح الجزء الثاني مباشرة دون انتظار */
+ if(!S.unlocked[1]){
+  S.unlocked[1]=true;
+  if(!S.times[1])S.times[1]=Date.now();
+ }
+
+ /* فتح الجزء الثالث والرابع بعد 24 ساعة من إنهاء الجزء السابق */
+ for(let i=2;i<4;i++){
   if(!S.unlocked[i]&&S.completedAt[i-1]&&Date.now()-S.completedAt[i-1]>=DAY){
    S.unlocked[i]=true;
    S.times[i]=Date.now()
   }
  }
+
  save()
 }
-function leftTime(ms){let h=Math.floor(ms/3600000),m=Math.floor(ms%3600000/60000);return h+' ساعة و'+m+' دقيقة'}
+
+function leftTime(ms){
+ let h=Math.floor(ms/3600000),m=Math.floor(ms%3600000/60000);
+ return h+' ساعة و'+m+' دقيقة'
+}
+
 function selectDay(i){
  checkUnlock();
  if(!S.unlocked[i]){
@@ -347,8 +367,10 @@ function selectDay(i){
   alert('هذا الجزء لم يحن موعده بعد.\nيفتح بعد '+leftTime(left));
   return
  }
- dayNow=i;renderDay(i)
+ dayNow=i;
+ renderDay(i)
 }
+
 function updateProgress(){
  let count=S.clues.length;
  $('progressBar').style.width=Math.min(100,count/12*100)+'%';
@@ -815,20 +837,33 @@ function renderAccuse(){
  msg.textContent=S.suspicions[dayNow]?'تم حفظ اشتباهك. تذكّر: هذا ليس اتهامًا نهائيًا.':'لم تختر مشتبهًا بعد.';
  $('accuseBox').appendChild(msg)
 }
+
 function finishDay(){
  $('dayEnd').style.display='block';
+
  if(dayNow<3){
   $('endTitle').textContent='نهاية اليوم '+(dayNow+1);
   $('endText').textContent=D[dayNow].ending;
 
-  /* لا نعيد ضبط وقت الإكمال عند الضغط مرة أخرى */
-  if(!S.completedAt[dayNow])S.completedAt[dayNow]=Date.now();
+  /* نحفظ وقت الإكمال مرة واحدة فقط */
+  if(!S.completedAt[dayNow]){
+   S.completedAt[dayNow]=Date.now();
+  }
 
   let next=dayNow+1;
-  let remaining=DAY;
-  if(!S.unlocked[next]){
-   $('unlockText').textContent='انتهى هذا اليوم. سيفتح اليوم التالي بعد مرور 24 ساعة من الآن. يمكنك العودة في أي وقت لمتابعة التحقيق.';
-  }else $('unlockText').textContent='اليوم التالي متاح الآن.';
+
+  if(dayNow===0){
+   $('unlockText').textContent='الجزء الثاني متاح الآن. يمكنك متابعة التحقيق مباشرة.';
+  }else{
+   checkUnlock();
+
+   if(S.unlocked[next]){
+    $('unlockText').textContent='الجزء التالي متاح الآن.';
+   }else{
+    $('unlockText').textContent='انتهى هذا الجزء. سيفتح الجزء التالي بعد مرور 24 ساعة من إنهاء هذا الجزء. يمكنك العودة في أي وقت لمتابعة التحقيق.';
+   }
+  }
+
   save()
  }else{
   $('endTitle').textContent='وصلت إلى نهاية التحقيق';
@@ -836,8 +871,10 @@ function finishDay(){
   $('unlockText').textContent='تم حفظ دفتر التحقيق واختيارك النهائي. لم يُكشف الحل في هذه النسخة حتى لا نضيف نهاية تخالف القصة الأصلية.';
   S.finished=true;save()
  }
+
  $('dayEnd').scrollIntoView({behavior:'smooth',block:'center'})
 }
+
 checkUnlock();
 updateProgress();
 renderStepNav();
